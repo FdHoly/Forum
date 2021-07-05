@@ -1,54 +1,59 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-    @include('include.head')
+@include('user.views.include.head')
 
 
 <body>
 
     <!-- header area start -->
     <header>
-        @include('include.navbar')
+        @include('user.views.include.navbar')
     </header>
     <!-- header area end -->
 
     <main>
 
         <div class="main-wrapper">
-            
-           <div class="overflowHidden" style="height: 30%">
-            <div class="profile-banner-large bg-img" data-bg="assets/images/banner/profile-banner.jpg">
-                
+
+            <div class="overflowHidden" style="height: 30%">
+                <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+
+                </div>
+                <input class="fileInput-23-d-3" type="file" tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif"
+                    aria-label="Change
+                                        Avatar"
+                    style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
             </div>
-            <input class="fileInput-23-d-3" type="file" tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change
-                                        Avatar" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
-           </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
-                                
+
                                 <span aria-hidden="true"></span>
                                 <figure class="profile-picture">
-                                      <label for="image">
-                                        <input class="fileInput-23-d-3" type="file" tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change
-                                        Avatar" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                                    <label for="image">
+                                        <input class="fileInput-23-d-3" type="file" tabindex="0" multiple=""
+                                            accept=".jpg,.jpeg,.png,.gif" aria-label="Change
+                                        Avatar"
+                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                                         <div class="avatarUploaderIndicator-2G-aIZ"></div>
-                                        <img src="assets/images/profile/profile-1.jpg" alt="profile picture">
-                                        
-                                     </label>
-                                      
+                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
+
+                                    </label>
+
 
                                 </figure>
                             </div>
                         </div>
 
-                       @include('include.profilemenu')
-                        
-                       <div class="col-lg-2 col-md-3 d-none d-md-block">
+                        @include('user.views.include.profilemenu')
+
+                        <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
-                                <a href="{{ route('editprofile')}}"><button class="edit-btn">edit profile</button></a>
+                                <a href="{{ route('editprofile') }}"><button class="edit-btn">edit
+                                        profile</button></a>
                             </div>
                         </div>
                     </div>
@@ -63,20 +68,22 @@
                                 <h4 class="widget-title">kate palson</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>I Don’t know how? But i believe that it is possible one day if i stay with my dream all time</p>
+                                        <p>I Don’t know how? But i believe that it is possible one day if i stay with my
+                                            dream all time</p>
                                         <ul class="author-into-list">
                                             <li><a href="#"><i class="bi bi-office-bag"></i>Graphic Designer</a></li>
                                             <li><a href="#"><i class="bi bi-home"></i>Melbourne, Australia</a></li>
-                                            <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar, Melbourne</a></li>
+                                            <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar, Melbourne</a>
+                                            </li>
                                             <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                          
+
 
                             <!-- widget single item start -->
-                            
+
                             <!-- widget single item end -->
                         </aside>
                     </div>
@@ -85,7 +92,7 @@
                         <!-- post status start -->
                         <div class="card">
                             <!-- post title start -->
-                            
+
                             <!-- post title start -->
                             <form class="signup-inner--form">
                                 <div class="row">
@@ -135,11 +142,11 @@
                         </div>
                         <!-- post status end -->
 
-                        
+
                         <!-- post status end -->
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -152,8 +159,8 @@
     </div>
     <!-- Scroll to Top End -->
 
-   
-    
+
+
     <!-- JS
 ============================================ -->
 

@@ -30,7 +30,7 @@
                                             <img src="user/assets/images/banner/banner-small.jpg" alt="">
                                         </a>
                                         <a href="{{ route('profile') }}" class="profile-thumb-2">
-                                            <img src="assets/images/profile/profile-midle-1.jpg" alt="">
+                                            <img src="user/assets/images/profile/profile-midle-1.jpg" alt="">
                                         </a>
                                     </figure>
                                     <div class="profile-desc text-center">
@@ -52,7 +52,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-33.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -64,8 +64,8 @@
                                                 <p class="list-subtitle"><a href="#">adventure</a></p>
                                             </div>
                                             <button class="like-button active">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -74,7 +74,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-30.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -86,8 +86,8 @@
                                                 <p class="list-subtitle"><a href="#">food</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -96,7 +96,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-5.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -108,8 +108,8 @@
                                                 <p class="list-subtitle"><a href="#">drama</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -118,7 +118,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-29.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -130,8 +130,8 @@
                                                 <p class="list-subtitle"><a href="#">fitness</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -147,7 +147,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-33.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -159,8 +159,8 @@
                                                 <p class="list-subtitle"><a href="#">10 mutual</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -169,7 +169,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-30.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -181,8 +181,8 @@
                                                 <p class="list-subtitle"><a href="#">2 mutual</a></p>
                                             </div>
                                             <button class="like-button active">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -191,7 +191,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-5.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -203,8 +203,8 @@
                                                 <p class="list-subtitle"><a href="#">drama</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -213,7 +213,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-29.jpg"
+                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -225,8 +225,8 @@
                                                 <p class="list-subtitle"><a href="#">fitness</a></p>
                                             </div>
                                             <button class="like-button">
-                                                <img class="heart" src="assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="assets/images/icons/heart-color.png"
+                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
+                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
                                                     alt="">
                                             </button>
                                         </li>
@@ -245,7 +245,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-37.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-37.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -340,7 +341,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-middle">
-                                                <img src="assets/images/profile/profile-small-1.jpg"
+                                                <img src="user/assets/images/profile/profile-small-1.jpg"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -391,8 +392,8 @@
                                     </p>
                                     <div class="post-thumb-gallery">
                                         <figure class="post-thumb img-popup">
-                                            <a href="assets/images/post/post-large-1.jpg">
-                                                <img src="assets/images/post/post-1.jpg" alt="post image">
+                                            <a href="user/assets/images/post/post-large-1.jpg">
+                                                <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                             </a>
                                         </figure>
                                     </div>
@@ -430,7 +431,7 @@
                                                     <div class="profile-thumb">
                                                         <a href="#">
                                                             <figure class="profile-thumb-small">
-                                                                <img src="assets/images/profile/profile-small-9.jpg"
+                                                                <img src="user/assets/images/profile/profile-small-9.jpg"
                                                                     alt="profile picture">
                                                             </figure>
                                                         </a>
@@ -465,7 +466,7 @@
                                                     <div class="profile-thumb">
                                                         <a href="#">
                                                             <figure class="profile-thumb-small">
-                                                                <img src="assets/images/profile/profile-small-9.jpg"
+                                                                <img src="user/assets/images/profile/profile-small-9.jpg"
                                                                     alt="profile picture">
                                                             </figure>
                                                         </a>
@@ -500,7 +501,7 @@
                                                     <div class="profile-thumb">
                                                         <a href="#">
                                                             <figure class="profile-thumb-small">
-                                                                <img src="assets/images/profile/profile-small-9.jpg"
+                                                                <img src="user/assets/images/profile/profile-small-9.jpg"
                                                                     alt="profile picture">
                                                             </figure>
                                                         </a>
@@ -528,7 +529,7 @@
                                 <div class="widget-body">
                                     <div class="add-thumb">
                                         <a href="#">
-                                            <img src="assets/images/banner/advertise.jpg" alt="advertisement">
+                                            <img src="user/assets/images/banner/advertise.jpg" alt="advertisement">
                                         </a>
                                     </div>
                                 </div>
@@ -622,7 +623,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -666,8 +668,8 @@
                                 </p>
                                 <div class="post-thumb-gallery">
                                     <figure class="post-thumb img-popup">
-                                        <a href="assets/images/post/post-large-1.jpg">
-                                            <img src="assets/images/post/post-1.jpg" alt="post image">
+                                        <a href="user/assets/images/post/post-large-1.jpg">
+                                            <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                         </a>
                                     </figure>
                                 </div>
@@ -683,7 +685,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="assets/images/profile/profile-small-3.jpg"
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -712,7 +714,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="assets/images/profile/profile-small-3.jpg"
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -743,7 +745,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-37.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-37.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -780,7 +783,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -823,7 +827,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -843,7 +848,7 @@
                                     data-toggle="modal"
                                     id="email">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</textarea>
                                 <div class="post-thumb-gallery">
-                                    <img src="assets/images/post/post-1.jpg" alt="post image">
+                                    <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -913,7 +918,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -925,7 +930,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-8.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-8.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -937,7 +942,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-2.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-2.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -949,7 +954,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -961,7 +966,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-4.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -973,7 +978,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-5.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -985,7 +990,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-9.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-9.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1033,7 +1038,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

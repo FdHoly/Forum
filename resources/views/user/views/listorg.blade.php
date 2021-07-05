@@ -2,13 +2,13 @@
 <html class="no-js" lang="en">
 
 
-@include('include.head')
+@include('user.views.include.head')
 
 <body>
 
     <!-- header area start -->
     <header>
-        @include('include.navbar')
+        @include('user.views.include.navbar')
 
     </header>
     <!-- header area end -->
@@ -33,12 +33,13 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                                            checked>
                                         <label class="form-check-label" for="defaultCheck1">
                                             Disekitar Anda
                                         </label>
                                     </div>
-                                    
+
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
@@ -94,9 +95,9 @@
 
                                                         <h4 class="widget-title author">
                                                             <a href="organisasi/kbmti">
-                                                            KBMTI
-                                                            <br>
-                                                            ( Keluarga Besar Mahasiswa Teknologi Informasi )
+                                                                KBMTI
+                                                                <br>
+                                                                ( Keluarga Besar Mahasiswa Teknologi Informasi )
                                                             </a>
                                                         </h4>
 
@@ -206,7 +207,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -250,8 +252,8 @@
                                 </p>
                                 <div class="post-thumb-gallery">
                                     <figure class="post-thumb img-popup">
-                                        <a href="assets/images/post/post-large-1.jpg">
-                                            <img src="assets/images/post/post-1.jpg" alt="post image">
+                                        <a href="user/assets/images/post/post-large-1.jpg">
+                                            <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                         </a>
                                     </figure>
                                 </div>
@@ -267,7 +269,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="assets/images/profile/profile-small-3.jpg"
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -296,7 +298,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="assets/images/profile/profile-small-3.jpg"
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -327,7 +329,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-37.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-37.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -364,7 +367,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -407,7 +411,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                            <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                alt="profile picture">
                                         </figure>
                                     </a>
                                 </div>
@@ -427,7 +432,7 @@
                                     data-toggle="modal"
                                     id="email">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</textarea>
                                 <div class="post-thumb-gallery">
-                                    <img src="assets/images/post/post-1.jpg" alt="post image">
+                                    <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -497,7 +502,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -509,7 +514,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-8.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-8.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -521,7 +526,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-2.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-2.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -533,7 +538,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -545,7 +550,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-4.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -557,7 +562,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-5.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -569,7 +574,7 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-9.jpg" alt="profile picture">
+                                                        <img src="user/assets/images/profile/profile-small-9.jpg" alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -617,7 +622,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

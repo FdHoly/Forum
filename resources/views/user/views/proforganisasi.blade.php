@@ -1,20 +1,20 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-@include('include.head')
+@include('user.views.include.head')
 
 <body>
 
     <!-- header area start -->
     <header>
-        @include('include.navbar')
+        @include('user.views.include.navbar')
     </header>
     <!-- header area end -->
 
     <main>
 
         <div class="main-wrapper">
-            {{-- <div class="profile-banner-large bg-img" data-bg="{{url('assets/images/banner/profile-banner.jpg')}}"> --}}
+            {{-- <div class="profile-banner-large bg-img" data-bg="{{url('user/assets/images/banner/profile-banner.jpg')}}"> --}}
         </div>
         <div class="profile-menu-area bg-white" style="">
             <div class="container">
@@ -23,7 +23,7 @@
 
                     </div>
 
-                    {{-- @include('include.profilemenu') --}}
+                    {{-- @include('user.views.include.profilemenu') --}}
                     {{-- <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
                                 <button class="edit-btn">edit profile</button>
@@ -66,8 +66,8 @@
 
                                 <button class="btn mt-3"> Gabung </button>
                                 {{-- <button class="like-button icon__follow">
-                                    <img class="heart" src="{{ url('assets/images/icons/heart.png') }}" alt="">
-                                    <img class="heart-color" src="{{url('assets/images/icons/heart-color.png')}}" alt="">
+                                    <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}" alt="">
+                                    <img class="heart-color" src="{{url('user/assets/images/icons/heart-color.png')}}" alt="">
                                 </button> --}}
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="{{ url('assets/images/profile/profile-small-33.jpg') }}"
+                                                        <img src="{{ url('user/assets/images/profile/profile-small-33.jpg') }}"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -115,7 +115,7 @@
                     {{-- <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{url('assets/images/profile/profile-small-37.jpg')}}" alt="profile picture">
+                                            <img src="{{url('user/assets/images/profile/profile-small-37.jpg')}}" alt="profile picture">
                                         </figure>
                                     </a>
                                 </div> --}}
@@ -171,7 +171,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ url('assets/images/profile/profile-small-1.jpg') }}"
+                                            <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -218,8 +218,8 @@
                                         <div class="col-8">
                                             <figure class="post-thumb">
                                                 <a class="gallery-selector"
-                                                    href="{{ url('assets/images/post/post-large-2.jpg') }}">
-                                                    <img src="{{ url('assets/images/post/post-2.jpg') }}"
+                                                    href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
+                                                    <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
                                                         alt="post image">
                                                 </a>
                                             </figure>
@@ -229,8 +229,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-3.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-3.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -238,8 +238,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-4.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-4.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -247,8 +247,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-5.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-5.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -280,7 +280,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ url('assets/images/profile/profile-small-4.jpg') }}"
+                                            <img src="{{ url('user/assets/images/profile/profile-small-4.jpg') }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -383,7 +383,7 @@
                                         <div class="profile-thumb">
                                             <a href="#">
                                                 <figure class="profile-thumb-small">
-                                                    <img src="{{ url('assets/images/profile/profile-small-10.jpg') }}"
+                                                    <img src="{{ url('user/assets/images/profile/profile-small-10.jpg') }}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -395,10 +395,10 @@
                                             <p class="list-subtitle"><a href="#">10 mutual</a></p>
                                         </div>
                                         <button class="like-button">
-                                            <img class="heart" src="{{ url('assets/images/icons/heart.png') }}"
+                                            <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}"
                                                 alt="">
                                             <img class="heart-color"
-                                                src="{{ url('assets/images/icons/heart-color.png') }}" alt="">
+                                                src="{{ url('user/assets/images/icons/heart-color.png') }}" alt="">
                                         </button>
                                     </li>
                                     <li class="unorder-list">
@@ -406,7 +406,7 @@
                                         <div class="profile-thumb">
                                             <a href="#">
                                                 <figure class="profile-thumb-small">
-                                                    <img src="{{ url('assets/images/profile/profile-small-2.jpg') }}"
+                                                    <img src="{{ url('user/assets/images/profile/profile-small-2.jpg') }}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -418,10 +418,10 @@
                                             <p class="list-subtitle"><a href="#">02 mutual</a></p>
                                         </div>
                                         <button class="like-button active">
-                                            <img class="heart" src="{{ url('assets/images/icons/heart.png') }}"
+                                            <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}"
                                                 alt="">
                                             <img class="heart-color"
-                                                src="{{ url('assets/images/icons/heart-color.png') }}" alt="">
+                                                src="{{ url('user/assets/images/icons/heart-color.png') }}" alt="">
                                         </button>
                                     </li>
                                     <li class="unorder-list">
@@ -429,7 +429,7 @@
                                         <div class="profile-thumb">
                                             <a href="#">
                                                 <figure class="profile-thumb-small">
-                                                    <img src="{{ url('assets/images/profile/profile-small-5.jpg') }}"
+                                                    <img src="{{ url('user/assets/images/profile/profile-small-5.jpg') }}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -441,10 +441,10 @@
                                             <p class="list-subtitle"><a href="#">drama</a></p>
                                         </div>
                                         <button class="like-button">
-                                            <img class="heart" src="{{ url('assets/images/icons/heart.png') }}"
+                                            <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}"
                                                 alt="">
                                             <img class="heart-color"
-                                                src="{{ url('assets/images/icons/heart-color.png') }}" alt="">
+                                                src="{{ url('user/assets/images/icons/heart-color.png') }}" alt="">
                                         </button>
                                     </li>
                                     <li class="unorder-list">
@@ -452,7 +452,7 @@
                                         <div class="profile-thumb">
                                             <a href="#">
                                                 <figure class="profile-thumb-small">
-                                                    <img src="{{ url('assets/images/profile/profile-small-14.jpg') }}"
+                                                    <img src="{{ url('user/assets/images/profile/profile-small-14.jpg') }}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -464,10 +464,10 @@
                                             <p class="list-subtitle"><a href="#">fitness</a></p>
                                         </div>
                                         <button class="like-button">
-                                            <img class="heart" src="{{ url('assets/images/icons/heart.png') }}"
+                                            <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}"
                                                 alt="">
                                             <img class="heart-color"
-                                                src="{{ url('assets/images/icons/heart-color.png') }}" alt="">
+                                                src="{{ url('user/assets/images/icons/heart-color.png') }}" alt="">
                                         </button>
                                     </li>
                                 </ul>
@@ -561,7 +561,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ url('assets/images/profile/profile-small-1.jpg') }}"
+                                            <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -601,7 +601,7 @@
                                                                         <a href="#">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-1.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -615,7 +615,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-8.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-8.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -629,7 +629,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-2.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-2.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -643,7 +643,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-3.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -657,7 +657,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-4.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-4.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -671,7 +671,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-5.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-5.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -685,7 +685,7 @@
                                                                         <a href="javascript:void(0)">
                                                                             <figure
                                                                                 class="profile-thumb-small profile-active">
-                                                                                <img src="{{ url('assets/images/profile/profile-small-9.jpg') }}"
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-9.jpg') }}"
                                                                                     alt="profile picture">
                                                                             </figure>
                                                                         </a>
@@ -715,8 +715,8 @@
                                         <div class="col-8">
                                             <figure class="post-thumb">
                                                 <a class="gallery-selector"
-                                                    href="{{ url('assets/images/post/post-large-2.jpg') }}">
-                                                    <img src="{{ url('assets/images/post/post-2.jpg') }}"
+                                                    href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
+                                                    <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
                                                         alt="post image">
                                                 </a>
                                             </figure>
@@ -726,8 +726,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-3.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-3.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -735,8 +735,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-4.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-4.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -744,8 +744,8 @@
                                                 <div class="col-12">
                                                     <figure class="post-thumb">
                                                         <a class="gallery-selector"
-                                                            href="{{ url('assets/images/post/post-large-5.jpg') }}">
-                                                            <img src="{{ url('assets/images/post/post-5.jpg') }}"
+                                                            href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
                                                                 alt="post image">
                                                         </a>
                                                     </figure>
@@ -767,7 +767,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="{{ url('assets/images/profile/profile-small-3.jpg') }}"
+                                                <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -796,7 +796,7 @@
                                     <div class="profile-thumb">
                                         <a href="#">
                                             <figure class="profile-thumb-small">
-                                                <img src="{{ url('assets/images/profile/profile-small-3.jpg') }}"
+                                                <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
                                                     alt="profile picture">
                                             </figure>
                                         </a>
@@ -827,7 +827,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ url('assets/images/profile/profile-small-37.jpg') }}"
+                                            <img src="{{ url('user/assets/images/profile/profile-small-37.jpg') }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>

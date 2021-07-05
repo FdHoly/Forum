@@ -1,13 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-@include('include.head')
+@include('user.views.include.head')
 
 <body>
 
     <!-- header area start -->
     <header>
-        @include('include.navbar')
+        @include('user.views.include.navbar')
     </header>
     <!-- header area end -->
 
@@ -15,7 +15,7 @@
 
         <div class="main-wrapper">
             <!-- profile banner area start -->
-            <div class="profile-banner-large bg-img" data-bg="assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
             </div>
             <!-- profile banner area end -->
 
@@ -27,13 +27,13 @@
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
                                     <a href="#">
-                                        <img src="assets/images/profile/profile-1.jpg" alt="profile picture">
+                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
                         </div>
 
-                        @include('include.profilemenu')
+                        @include('user.views.include.profilemenu')
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
@@ -99,7 +99,7 @@
                                         <td>
                                             {{-- <button type="danger"></button> --}}
                                             <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button" >BAN</button>
+                                            <button type="button">BAN</button>
 
                                         </td>
                                     </tr>
@@ -112,10 +112,11 @@
                                         <td>
                                             {{-- <button type="danger"></button> --}}
                                             <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button" >BAN</button>
+                                            <button type="button">BAN</button>
 
                                         </td>
-                                    </tr><tr>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">1</th>
                                         <td>Ini Postingan Yang Udah Diupload oleh User</td>
                                         <td>Joko</td>
@@ -124,10 +125,11 @@
                                         <td>
                                             {{-- <button type="danger"></button> --}}
                                             <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button" >BAN</button>
+                                            <button type="button">BAN</button>
 
                                         </td>
-                                    </tr><tr>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">1</th>
                                         <td>Ini Postingan Yang Udah Diupload oleh User</td>
                                         <td>Joko</td>
@@ -136,10 +138,11 @@
                                         <td>
                                             {{-- <button type="danger"></button> --}}
                                             <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button" >BAN</button>
+                                            <button type="button">BAN</button>
 
                                         </td>
-                                    </tr><tr>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">1</th>
                                         <td>Ini Postingan Yang Udah Diupload oleh User</td>
                                         <td>Joko</td>
@@ -148,7 +151,7 @@
                                         <td>
                                             {{-- <button type="danger"></button> --}}
                                             <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button" >BAN</button>
+                                            <button type="button">BAN</button>
 
                                         </td>
                                     </tr>

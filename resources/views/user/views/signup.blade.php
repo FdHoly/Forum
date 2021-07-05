@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    @include('include.head')
+@include('user.views.include.head')
 
 <body class="bg-transparent">
 
@@ -14,11 +14,12 @@
                                 <div class="timeline-logo-area d-flex align-items-center">
                                     <div class="timeline-logo">
                                         <a href="index.html">
-                                            <img src="assets/images/logo/logo.png" alt="timeline logo">
+                                            <img src="user/assets/images/logo/logo.png" alt="timeline logo">
                                         </a>
                                     </div>
                                     <div class="timeline-tagline">
-                                        <h6 class="tagline">It’s helps you to connect and share with the people in your life</h6>
+                                        <h6 class="tagline">It’s helps you to connect and share with the people in your
+                                            life</h6>
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +45,10 @@
                     <div class="container-fluid p-0">
                         <div class="row no-gutters">
                             <div class="col-lg-6 order-2 order-lg-1">
-                                <div class="timeline-bg-content bg-img" data-bg="assets/images/timeline/adda-timeline.jpg">
-                                    <h3 class="timeline-bg-title">Let’s see what’s happening to you and your world. Welcome in Adda.</h3>
+                                <div class="timeline-bg-content bg-img"
+                                    data-bg="user/assets/images/timeline/adda-timeline.jpg">
+                                    <h3 class="timeline-bg-title">Let’s see what’s happening to you and your world.
+                                        Welcome in Adda.</h3>
                                 </div>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 d-flex align-items-center justify-content-center">
@@ -94,7 +97,8 @@
                                                     <button class="submit-btn">Create Account</button>
                                                 </div>
                                             </div>
-                                            <h6 class="terms-condition">I have read & accepted the <a href="#">terms of use</a></h6>
+                                            <h6 class="terms-condition">I have read & accepted the <a href="#">terms of
+                                                    use</a></h6>
                                         </form>
                                     </div>
                                 </div>

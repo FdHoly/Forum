@@ -1,13 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-@include('include.head')
+@include('user.views.include.head')
 
 <body>
 
     <!-- header area start -->
     <header>
-        @include('include.navbar')
+        @include('user.views.include.navbar')
     </header>
     <!-- header area end -->
 
@@ -15,7 +15,7 @@
 
         <div class="main-wrapper">
             <!-- profile banner area start -->
-            <div class="profile-banner-large bg-img" data-bg="assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
             </div>
             <!-- profile banner area end -->
 
@@ -27,13 +27,13 @@
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
                                     <a href="#">
-                                        <img src="assets/images/profile/profile-1.jpg" alt="profile picture">
+                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
                         </div>
 
-                        @include('include.profilemenu')
+                        @include('user.views.include.profilemenu')
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
@@ -58,7 +58,7 @@
                                     <button class="active" data-filter="*">all</button>
                                     <button data-filter=".recently">Mutual</button>
                                     <button data-filter=".relative">relative</button>
-                              
+
                                 </div>
                                 <div class="post-settings-bar">
                                     {{-- <span></span>
@@ -86,29 +86,30 @@
                         <div class="col-12">
                             <div class="content-box friends-zone">
                                 <div class="row mt--20 friends-list">
-                                   
-                                   
-                                    {{-- @foreach ($collection as $item) --}}
-                                        @for ($i = 0; $i < 9; $i++)
-                                            
-                                    <div class="col-lg-3 col-sm-6 recently request">
-                                        <div class="friend-list-view">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-middle">
-                                                        <img src="assets/images/profile/profile-small-23.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
 
-                                            <div class="posted-author">
-                                                <h6 class="author"><a href="organisasi/kbmti">KBMTI Filkom</a></h6>
-                                                <button class="add-frnd">Tergabung</button>
+
+                                    {{-- @foreach ($collection as $item) --}}
+                                    @for ($i = 0; $i < 9; $i++)
+
+                                        <div class="col-lg-3 col-sm-6 recently request">
+                                            <div class="friend-list-view">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-middle">
+                                                            <img src="user/assets/images/profile/profile-small-23.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="posted-author">
+                                                    <h6 class="author"><a href="organisasi/kbmti">KBMTI Filkom</a></h6>
+                                                    <button class="add-frnd">Tergabung</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endfor
 
                                     {{-- @endforeach --}}
@@ -129,7 +130,7 @@
     </div>
     <!-- Scroll to Top End -->
 
-   
+
 
     <!-- JS
 ============================================ -->

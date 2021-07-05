@@ -18,43 +18,43 @@ Route::get('/', function () {
 })->name("index");
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('user.views.profile');
 })->name("profile");
 
 Route::get('/signup', function () {
-    return view('signup');
+    return view('user.views.signup');
 })->name("signup");
 
 Route::get('/about', function () {
-    return view('about');
+    return view('user.views.about');
 })->name("about");
 
 Route::get('/friends', function () {
-    return view('friends');
+    return view('user.views.friends');
 })->name("friends");
 
 Route::get('/pengumuman', function () {
-    return view('pengumuman');
+    return view('user.views.pengumuman');
 })->name("pengumuman");
 
 Route::get('/organisasi/kbmti', function () {
-    return view('proforganisasi');
+    return view('user.views.proforganisasi');
 });
 Route::get('/editprofile', function () {
-    return view('editprofile');
+    return view('user.views.editprofile');
 })->name("editprofile");;
 
 Route::get('/laporan', function () {
-    return view('reportview');
+    return view('user.views.reportview');
 })->name("laporan");
 
 
 Route::get('/organisasi', function () {
-    return view('listorg');
+    return view('user.views.listorg');
 })->name("listorg");
 
 Route::get('/organisasibaru', function () {
-    return view('grupbaru');
+    return view('user.views.grupbaru');
 })->name("grupbaru");
 
 // =========================================
