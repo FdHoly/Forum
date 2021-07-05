@@ -12,9 +12,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 
     <!-- CSS
-	============================================ -->
+ ============================================ -->
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900"
+        rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <!-- Icon Font CSS -->
@@ -63,7 +64,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-3.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -71,7 +73,8 @@
                                                     <!-- message content start -->
                                                     <div class="msg-content">
                                                         <h6 class="author"><a href="profile.html">Mili Raoulin</a></h6>
-                                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
+                                                        <p>Many desktop publishing packages and web page editors now use
+                                                            Lorem Ipsum as their default</p>
                                                     </div>
                                                     <!-- message content end -->
 
@@ -85,7 +88,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-4.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -93,7 +97,8 @@
                                                     <!-- message content start -->
                                                     <div class="msg-content">
                                                         <h6 class="author"><a href="profile.html">Jhon Doe</a></h6>
-                                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
+                                                        <p>Many desktop publishing packages and web page editors now use
+                                                            Lorem Ipsum as their default</p>
                                                     </div>
                                                     <!-- message content end -->
 
@@ -107,7 +112,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -115,7 +121,8 @@
                                                     <!-- message content start -->
                                                     <div class="msg-content">
                                                         <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
-                                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default</p>
+                                                        <p>Many desktop publishing packages and web page editors now use
+                                                            Lorem Ipsum as their default</p>
                                                     </div>
                                                     <!-- message content end -->
 
@@ -132,7 +139,8 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="notification-trigger"><a class="msg-trigger-btn" href="#b">notification</a>
+                                    <li class="notification-trigger"><a class="msg-trigger-btn"
+                                            href="#b">notification</a>
                                         <div class="message-dropdown" id="b">
                                             <div class="dropdown-title">
                                                 <p class="recent-msg">Notification</p>
@@ -145,7 +153,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-3.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -168,7 +177,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-4.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -191,7 +201,8 @@
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="assets/images/profile/profile-small-6.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-6.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </div>
                                                     <!-- profile picture end -->
@@ -265,7 +276,8 @@
                                             </ul>
                                             <ul>
                                                 <li><a href="#"><i class="flaticon-settings"></i>Setting</a></li>
-                                                <li><a href="signup.html"><i class="flaticon-unlock"></i>Sing out</a></li>
+                                                <li><a href="signup.html"><i class="flaticon-unlock"></i>Sing out</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -299,7 +311,8 @@
                                     <div class="frnd-request-member">
                                         <figure class="request-thumb">
                                             <a href="profile.html">
-                                                <img src="assets/images/profile/profile-midle-1.jpg" alt="proflie author">
+                                                <img src="assets/images/profile/profile-midle-1.jpg"
+                                                    alt="proflie author">
                                             </a>
                                         </figure>
                                         <div class="frnd-content">
@@ -316,7 +329,8 @@
                                     <div class="frnd-request-member">
                                         <figure class="request-thumb">
                                             <a href="profile.html">
-                                                <img src="assets/images/profile/profile-midle-2.jpg" alt="proflie author">
+                                                <img src="assets/images/profile/profile-midle-2.jpg"
+                                                    alt="proflie author">
                                             </a>
                                         </figure>
                                         <div class="frnd-content">
@@ -333,7 +347,8 @@
                                     <div class="frnd-request-member">
                                         <figure class="request-thumb">
                                             <a href="profile.html">
-                                                <img src="assets/images/profile/profile-midle-3.jpg" alt="proflie author">
+                                                <img src="assets/images/profile/profile-midle-3.jpg"
+                                                    alt="proflie author">
                                             </a>
                                         </figure>
                                         <div class="frnd-content">
@@ -363,7 +378,8 @@
                                     <div class="profile-thumb">
                                         <a href="profile.html">
                                             <figure class="profile-thumb-small profile-active">
-                                                <img src="assets/images/profile/profile-small-15.jpg" alt="profile picture">
+                                                <img src="assets/images/profile/profile-small-15.jpg"
+                                                    alt="profile picture">
                                             </figure>
                                         </a>
                                     </div>
@@ -373,14 +389,17 @@
                                         <span class="active-pro">active now</span>
                                     </div>
                                     <div class="live-chat-settings ml-auto">
-                                        <button class="chat-settings"><img src="assets/images/icons/settings.png" alt=""></button>
-                                        <button class="close-btn"><img src="assets/images/icons/close.png" alt=""></button>
+                                        <button class="chat-settings"><img src="assets/images/icons/settings.png"
+                                                alt=""></button>
+                                        <button class="close-btn"><img src="assets/images/icons/close.png"
+                                                alt=""></button>
                                     </div>
                                 </div>
                                 <div class="message-list-inner">
                                     <ul class="message-list custom-scroll">
                                         <li class="text-friends">
-                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum
+                                                as their default model text</p>
                                             <div class="message-time">10 minute ago</div>
                                         </li>
                                         <li class="text-author">
@@ -392,7 +411,8 @@
                                             <div class="message-time">2 minute ago</div>
                                         </li>
                                         <li class="text-friends">
-                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum
+                                                as their default model text</p>
                                             <div class="message-time">10 minute ago</div>
                                         </li>
                                         <li class="text-author">
@@ -406,7 +426,8 @@
                                     </ul>
                                 </div>
                                 <div class="chat-text-field mob-text-box">
-                                    <textarea class="live-chat-field custom-scroll" placeholder="Text Message"></textarea>
+                                    <textarea class="live-chat-field custom-scroll"
+                                        placeholder="Text Message"></textarea>
                                     <button class="chat-message-send" type="submit" value="submit">
                                         <img src="assets/images/icons/plane.png" alt="">
                                     </button>
@@ -553,7 +574,8 @@
                                             <div class="photo-group active">
                                                 <div class="gallery-toggle">
                                                     <div class="gallery-overlay">
-                                                        <img src="assets/images/photos/photo-blank.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-blank.jpg"
+                                                            alt="Photo Gallery">
                                                         <div class="view-icon"></div>
                                                     </div>
                                                     <div class="photo-gallery-caption">
@@ -604,7 +626,8 @@
                                                     <div class="d-none product-thumb-large-view">
                                                         <img src="assets/images/photos/photo-1.jpg" alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-5.jpg" alt="Photo Gallery">
-                                                        <img src="assets/images/photos/photo-10.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-10.jpg"
+                                                            alt="Photo Gallery">
                                                     </div>
                                                     <div class="gallery-overlay">
                                                         <img src="assets/images/photos/photo-1.jpg" alt="Photo Gallery">
@@ -622,7 +645,8 @@
                                                     <div class="d-none product-thumb-large-view">
                                                         <img src="assets/images/photos/photo-2.jpg" alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-8.jpg" alt="Photo Gallery">
-                                                        <img src="assets/images/photos/photo-11.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-11.jpg"
+                                                            alt="Photo Gallery">
                                                     </div>
                                                     <div class="gallery-overlay">
                                                         <img src="assets/images/photos/photo-2.jpg" alt="Photo Gallery">
@@ -710,12 +734,14 @@
                                             <div class="photo-group">
                                                 <div class="gallery-toggle">
                                                     <div class="d-none product-thumb-large-view">
-                                                        <img src="assets/images/photos/photo-10.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-10.jpg"
+                                                            alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-8.jpg" alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-6.jpg" alt="Photo Gallery">
                                                     </div>
                                                     <div class="gallery-overlay">
-                                                        <img src="assets/images/photos/photo-10.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-10.jpg"
+                                                            alt="Photo Gallery">
                                                         <div class="view-icon"></div>
                                                     </div>
                                                     <div class="photo-gallery-caption">
@@ -746,12 +772,14 @@
                                             <div class="photo-group">
                                                 <div class="gallery-toggle">
                                                     <div class="d-none product-thumb-large-view">
-                                                        <img src="assets/images/photos/photo-11.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-11.jpg"
+                                                            alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-7.jpg" alt="Photo Gallery">
                                                         <img src="assets/images/photos/photo-1.jpg" alt="Photo Gallery">
                                                     </div>
                                                     <div class="gallery-overlay">
-                                                        <img src="assets/images/photos/photo-11.jpg" alt="Photo Gallery">
+                                                        <img src="assets/images/photos/photo-11.jpg"
+                                                            alt="Photo Gallery">
                                                         <div class="view-icon"></div>
                                                     </div>
                                                     <div class="photo-gallery-caption">
@@ -796,7 +824,8 @@
                                     <div class="frnd-search-title">
                                         <button class="frnd-search-icon"><i class="flaticon-settings"></i></button>
                                         <p>search friends</p>
-                                        <button class="close-btn" data-close="friend-search-list"><i class="flaticon-cross-out"></i></button>
+                                        <button class="close-btn" data-close="friend-search-list"><i
+                                                class="flaticon-cross-out"></i></button>
                                     </div>
                                     <div class="frnd-search-inner custom-scroll">
                                         <ul>
@@ -805,7 +834,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-1.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -821,7 +851,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-2.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-2.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -837,7 +868,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-3.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -853,7 +885,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-4.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -869,7 +902,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -885,7 +919,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-3.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -901,7 +936,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-4.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -917,7 +953,8 @@
                                                 <div class="profile-thumb active">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                            <img src="assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -940,7 +977,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-1.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -952,7 +990,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-1.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -964,7 +1003,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-2.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-2.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -976,7 +1016,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-3.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -988,7 +1029,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-4.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1000,7 +1042,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-1.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1012,7 +1055,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-5.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1024,7 +1068,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-6.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-6.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1036,7 +1081,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-7.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-7.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1048,7 +1094,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-8.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-8.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1060,7 +1107,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-9.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-9.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1072,7 +1120,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-10.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-10.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1084,7 +1133,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-11.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-11.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1096,7 +1146,8 @@
                             <div class="footer-card position-relative">
                                 <div class="live-chat-inner">
                                     <div class="chat-text-field">
-                                        <textarea class="live-chat-field custom-scroll" placeholder="Text Message"></textarea>
+                                        <textarea class="live-chat-field custom-scroll"
+                                            placeholder="Text Message"></textarea>
                                         <button class="chat-message-send" type="submit" value="submit">
                                             <img src="assets/images/icons/plane.png" alt="">
                                         </button>
@@ -1107,7 +1158,8 @@
                                             <div class="profile-thumb active">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="assets/images/profile/profile-small-15.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-15.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1118,13 +1170,15 @@
                                             </div>
                                             <div class="live-chat-settings ml-auto">
                                                 <button class="chat-settings"><i class="flaticon-settings"></i></button>
-                                                <button class="close-btn" data-close="chat-output-box"><i class="flaticon-cross-out"></i></button>
+                                                <button class="close-btn" data-close="chat-output-box"><i
+                                                        class="flaticon-cross-out"></i></button>
                                             </div>
                                         </div>
                                         <div class="message-list-inner">
                                             <ul class="message-list custom-scroll">
                                                 <li class="text-friends">
-                                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+                                                    <p>Many desktop publishing packages and web page editors now use
+                                                        Lorem Ipsum as their default model text</p>
                                                     <div class="message-time">10 minute ago</div>
                                                 </li>
                                                 <li class="text-author">
@@ -1136,7 +1190,8 @@
                                                     <div class="message-time">2 minute ago</div>
                                                 </li>
                                                 <li class="text-friends">
-                                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+                                                    <p>Many desktop publishing packages and web page editors now use
+                                                        Lorem Ipsum as their default model text</p>
                                                     <div class="message-time">10 minute ago</div>
                                                 </li>
                                                 <li class="text-author">
@@ -1182,7 +1237,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-1.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1194,7 +1250,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-8.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-8.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1206,7 +1263,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-2.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-2.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1218,7 +1276,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-3.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1230,7 +1289,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-4.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-4.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1242,7 +1302,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-5.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-5.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1254,7 +1315,8 @@
                                             <div class="profile-thumb active profile-active">
                                                 <a href="javascript:void(0)">
                                                     <figure class="profile-thumb-small profile-active">
-                                                        <img src="assets/images/profile/profile-small-9.jpg" alt="profile picture">
+                                                        <img src="assets/images/profile/profile-small-9.jpg"
+                                                            alt="profile picture">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -1274,30 +1336,7 @@
     <!-- JS
 ============================================ -->
 
-    <!-- Modernizer JS -->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <!-- jQuery JS -->
-    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-    <!-- Popper JS -->
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <!-- Slick Slider JS -->
-    <script src="assets/js/plugins/slick.min.js"></script>
-    <!-- nice select JS -->
-    <script src="assets/js/plugins/nice-select.min.js"></script>
-    <!-- audio video player JS -->
-    <script src="assets/js/plugins/plyr.min.js"></script>
-    <!-- perfect scrollbar js -->
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <!-- light gallery js -->
-    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
-    <!-- image loaded js -->
-    <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-    <!-- isotope filter js -->
-    <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    @include('user.views.include.modjs')
 
 </body>
 

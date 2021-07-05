@@ -893,152 +893,18 @@
         <i class="bi bi-finger-index"></i>
     </div>
     <!-- Scroll to Top End -->
-    {{-- Footer area deleted --}}
 
-    <!-- footer area start -->
-    {{-- <footer class="d-block d-lg-none">
-        <div class="footer-area reveal-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mobile-footer-inner d-flex">
-                            <div class="mobile-frnd-search">
-                                <button class="search-toggle-btn"><i class="flaticon-search"></i></button>
-                            </div>
-                            <div class="mob-frnd-search-inner">
-                                <form class="mob-frnd-search-box d-flex">
-                                    <input type="text" placeholder="Search Your Friends" class="mob-frnd-search-field">
-                                </form>
-                            </div>
-                            <div class="card card-small mb-0 active-profile-mob-wrapper">
-                                <div class="active-profiles-mob-wrapper slick-row-10">
-                                    <div class="active-profile-mobile">
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-8.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-2.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-4.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-9.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer> --}}
-    <!-- footer area end -->
 
     <!-- JS
 ============================================ -->
 
     <!-- Modernizer JS -->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <!-- jQuery JS -->
-    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-    <!-- Popper JS -->
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <!-- Slick Slider JS -->
-    <script src="assets/js/plugins/slick.min.js"></script>
-    <!-- nice select JS -->
-    <script src="assets/js/plugins/nice-select.min.js"></script>
-    <!-- audio video player JS -->
-    <script src="assets/js/plugins/plyr.min.js"></script>
-    <!-- perfect scrollbar js -->
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <!-- light gallery js -->
-    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
-    <!-- image loaded js -->
-    <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-    <!-- isotope filter js -->
-    <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+
+    @include('user.views.include.modjs')
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
