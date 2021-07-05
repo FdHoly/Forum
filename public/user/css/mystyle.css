@@ -1,0 +1,185 @@
+.dropbtn {
+    background-color: #04aa6d;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+#myInput {
+    box-sizing: border-box;
+    background-image: url("searchicon.png");
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {
+    outline: 3px solid #ddd;
+}
+
+.filter__icon {
+    width: 30px;
+    height: auto;
+    /* padding: 16px; */
+    border: none;
+    cursor: pointer;
+    color: #dc4734;
+}
+
+.dropdown {
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    margin-top: 40px;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.organisasi__text {
+    font-size: 14px;
+    margin-top: 2.5px;
+    font-weight: 800;
+    /* color: black; */
+
+    /* line-height: 1; */
+    /* text-transform: capitalize; */
+    /* vertical-align: text-top; */
+}
+
+.organisasi__text > a {
+    color: black;
+}
+.organisasi {
+    margin-left: 20px;
+}
+
+.dropdown > h6 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #dc4734;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    margin-right: 10px;
+}
+
+.dropdown > h6 span {
+    background: #f1f1f1;
+    padding: 0 10px;
+}
+.icon {
+    /* margin-left: 10px; */
+    /* margin-top: 3px; */
+    width: 25px;
+    height: 25spx;
+    align-items: center;
+    /* align-self: center;/ */
+}
+
+.organisasi__foto {
+    background-color: #fff;
+    z-index: 2;
+    box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.organisasi__sidebar {
+}
+
+.arrow__icon {
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.icon__follow {
+    position: absolute;
+    top: -30px;
+    right: 13px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50% ;
+    background-color:#FFF;
+}
+
+.avatarUploaderIndicator-2G-aIZ {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-image: url(/assets/images/logo/edit.png);
+}
+
+.avatarUploaderHint-3SN212 {
+    visibility: hidden;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 12px;
+    white-space: pre;
+}
+
+.overflowHidden {
+    overflow: hidden;
+    position: relative;
+}
+
+.theme-dark .avatarUploaderIndicator-2G-aIZ {
+    position: absolute;
+    background-color: #dcddde;
+    background-image: url(/assets/logo/edit.png);
+}
