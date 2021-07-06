@@ -1,7 +1,7 @@
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
-        <a href="index.html" class="navbar-brand"><img src="../assets/images/brand/icon.svg" alt="BigBucket" />
+        <a href="index.html" class="navbar-brand"><img src="../admin/assets/images/brand/icon.svg" alt="BigBucket" />
             <strong>Big</strong> Bucket</a>
         <div id="navbar_main">
             <ul class="navbar-nav mr-auto hidden-xs">

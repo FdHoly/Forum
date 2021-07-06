@@ -9,28 +9,29 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>:: BigBucket :: Table Basic</title>
 
-    <link rel="stylesheet" href="../assets/vendor/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../assets/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
 </head>
 
 <body class="theme-indigo">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><img src="../assets/images/brand/icon_black.svg" width="48" height="48" alt="ArrOw">
+            <div class="m-t-30"><img src="../admin/assets/images/brand/icon_black.svg" width="48" height="48"
+                    alt="ArrOw">
             </div>
             <p>Please wait...</p>
         </div>
     </div>
 
-    @include('include.upbar')
+    @include('admin.views.include.upbar')
 
 
     <div class="main_content" id="main-content">
 
-        @include('include.sidebar')
+        @include('admin.views.include.sidebar')
 
         <div class="right_sidebar">
             <div class="setting_div">
@@ -195,7 +196,7 @@
                         <ul class="list-unstyled contact-list">
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar1.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
                                 <div class="action">
@@ -207,7 +208,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar2.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar2.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
                                 <div class="action">
@@ -219,7 +220,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar3.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar3.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -231,7 +232,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar4.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar4.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Vincent Porter <span class="d-block">Miami USA</span></h4>
                                 <div class="action">
@@ -243,7 +244,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar5.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar5.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">Neyyork USA</span></h4>
                                 <div class="action">
@@ -255,7 +256,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar6.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar6.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -267,7 +268,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar7.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar7.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">New Delhi IND</span></h4>
                                 <div class="action">
@@ -279,7 +280,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar8.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar8.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -559,7 +560,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>Q01</td>
-                                                        <td><img src="../assets/images/xs/avatar1.jpg"
+                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
                                                                 class="avatar w30" alt=""> Iphone 7</td>
                                                         <td>Universitas Brawijaya</td>
                                                         <td>12 Jan 2018</td>
@@ -575,7 +576,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Q02</td>
-                                                        <td><img src="../assets/images/xs/avatar1.jpg"
+                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
                                                                 class="avatar w30" alt=""> Galaxy S8</td>
                                                         <td>Universitas Brawijaya</td>
                                                         <td>18 Jan 2018</td>
@@ -591,7 +592,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Q03</td>
-                                                        <td><img src="../assets/images/xs/avatar1.jpg"
+                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
                                                                 class="avatar w30" alt=""> Amazon Echo</td>
                                                         <td>Universitas Brawijaya</td>
                                                         <td>22 Feb 2018</td>
@@ -607,7 +608,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Q04</td>
-                                                        <td><img src="../assets/images/xs/avatar1.jpg"
+                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
                                                                 class="avatar w30" alt=""> Google Pixel</td>
                                                         <td>Universitas Brawijaya</td>
                                                         <td>22 Feb 2018</td>
@@ -623,7 +624,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Q05</td>
-                                                        <td><img src="../assets/images/xs/avatar1.jpg"
+                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
                                                                 class="avatar w30" alt=""> Mac Mini</td>
                                                         <td>Universitas Brawijaya</td>
                                                         <td>8 March 2018</td>
@@ -650,13 +651,13 @@
     </div>
 
     <!-- Core -->
-    <script src="../assets/bundles/libscripts.bundle.js"></script>
-    <script src="../assets/bundles/vendorscripts.bundle.js"></script>
+    <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
+    <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>
 
-    <script src="../assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js"></script>
+    <script src="../admin/assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js"></script>
 
     <!-- Theme JS -->
-    <script src="../assets/js/theme.js"></script>
+    <script src="../admin/assets/js/theme.js"></script>
     <script>
         $('.sparkbar-mini').sparkline('html', {
             type: 'bar',

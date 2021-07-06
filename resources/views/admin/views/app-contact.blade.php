@@ -8,28 +8,29 @@
     <meta name="author" content="ThemeMakker">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>:: BigBucket :: Contact List</title>
-    <link rel="stylesheet" href="../assets/vendor/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../assets/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
 </head>
 
 <body class="theme-indigo">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><img src="../assets/images/brand/icon_black.svg" width="48" height="48" alt="ArrOw">
+            <div class="m-t-30"><img src="../admin/assets/images/brand/icon_black.svg" width="48" height="48"
+                    alt="ArrOw">
             </div>
             <p>Please wait...</p>
         </div>
     </div>
 
-    @include('include.upbar')
+    @include('admin.views.include.upbar')
 
 
     <div class="main_content" id="main-content">
 
-        @include('include.sidebar')
+        @include('admin.views.include.sidebar')
 
         <div class="right_sidebar">
             <div class="setting_div">
@@ -194,7 +195,7 @@
                         <ul class="list-unstyled contact-list">
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar1.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
                                 <div class="action">
@@ -206,7 +207,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar2.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar2.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
                                 <div class="action">
@@ -218,7 +219,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar3.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar3.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -230,7 +231,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar4.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar4.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Vincent Porter <span class="d-block">Miami USA</span></h4>
                                 <div class="action">
@@ -242,7 +243,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar5.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar5.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">Neyyork USA</span></h4>
                                 <div class="action">
@@ -254,7 +255,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar6.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar6.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -266,7 +267,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar7.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar7.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Mike Thomas <span class="d-block">New Delhi IND</span></h4>
                                 <div class="action">
@@ -278,7 +279,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="contact-img">
-                                    <img src="../assets/images/xs/avatar8.jpg" class="rounded" alt="">
+                                    <img src="../admin/assets/images/xs/avatar8.jpg" class="rounded" alt="">
                                 </span>
                                 <h4 class="contact-name">Aiden Chavaz</h4>
                                 <div class="action">
@@ -342,7 +343,7 @@
 
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar1.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar1.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">John Smith</span>
                                         </td>
                                         <td>
@@ -373,7 +374,7 @@
 
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar3.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar3.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Hossein Shams</span>
                                         </td>
                                         <td>
@@ -404,7 +405,7 @@
 
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar6.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar6.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Tim Hank</span>
                                         </td>
                                         <td>
@@ -433,7 +434,7 @@
                                             <span class="ml-2">4</span>
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar7.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar7.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Fidel Tonn</span>
                                         </td>
                                         <td>
@@ -462,7 +463,7 @@
                                             <span class="ml-2">5</span>
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar8.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar8.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Gary Camara</span>
                                         </td>
                                         <td>
@@ -491,7 +492,7 @@
                                             <span class="ml-2">6</span>
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar9.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar9.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Frank Camly</span>
                                         </td>
                                         <td>
@@ -520,7 +521,7 @@
                                             <span class="ml-2">7</span>
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar10.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar10.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Tim Hank</span>
                                         </td>
                                         <td>
@@ -550,7 +551,7 @@
 
                                         </td>
                                         <td>
-                                            <img src="../assets/images/xs/avatar4.jpg" class="avatar w30" alt="">
+                                            <img src="../admin/assets/images/xs/avatar4.jpg" class="avatar w30" alt="">
                                             <span class="ml-2">Maryam Amiri</span>
                                         </td>
                                         <td>
@@ -584,11 +585,11 @@
     </div>
 
     <!-- Core -->
-    <script src="../assets/bundles/libscripts.bundle.js"></script>
-    <script src="../assets/bundles/vendorscripts.bundle.js"></script>
+    <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
+    <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>
 
     <!-- Theme JS -->
-    <script src="../assets/js/theme.js"></script>
+    <script src="../admin/assets/js/theme.js"></script>
 </body>
 
 </html>

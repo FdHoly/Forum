@@ -58,16 +58,18 @@ Route::get('/organisasibaru', function () {
 })->name("grupbaru");
 
 // =========================================
-
+Route::get('/', function () {
+    return view('admin.views.admindex');
+})->name("admindex");
 Route::get('/app-contact', function () {
-    return view('app-contact');
+    return view('admin.views.app-contact');
 })->name("app-contact");
 Route::get('/table-basic', function () {
-    return view('table-basic');
+    return view('admin.views.table-basic');
 })->name("table-basic");
 Route::get('/table-group', function () {
-    return view('table-group');
+    return view('admin.views.table-group');
 })->name("table-group");
 Route::get('/report-user', function () {
-    return view('report-user');
+    return view('admin.views.report-user');
 })->name("report-user");

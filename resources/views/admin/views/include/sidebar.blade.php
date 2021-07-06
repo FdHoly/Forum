@@ -1,7 +1,8 @@
 <div class="left_sidebar">
     <nav class="sidebar">
         <div class="user-info">
-            <div class="image"><a href="javascript:void(0);"><img src="../assets/images/user.png" alt="User"></a></div>
+            <div class="image"><a href="javascript:void(0);"><img src="../admin/assets/images/user.png" alt="User"></a>
+            </div>
             <div class="detail mt-3">
                 <h5 class="mb-0">Mike Thomas</h5>
                 <small>Admin</small>
@@ -14,8 +15,8 @@
         </div>
         <ul id="main-menu" class="metismenu">
             <li class="g_heading">Main</li>
-            <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a href="{{ route('index') }}"><i
-                        class="ti-home"></i><span>Dashboard</span></a></li>
+            <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a
+                    href="{{ route('admindex') }}"><i class="ti-home"></i><span>Dashboard</span></a></li>
             <li class="g_heading">Application</li>
             <li class="{{ Route::currentRouteName() == 'app-contact' ? 'active' : '' }}"><a
                     href="{{ route('app-contact') }}"><i class="ti-id-badge"></i><span>User List</span></a></li>
