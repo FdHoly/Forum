@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUniversitasTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateUniversitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('universitas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('groups', function (Blueprint $table) {
+            $table->id('id_groups');
             $table->timestamps();
             $table->string('nama');
             $table->text('deskripsi');
             $table->text('logo_url');
+
+            $table->bigInteger('id_univ')->unsigned();
+            $table->foreign('id_univ')->references('id_univ')->on('universitas');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateUniversitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('universitas');
+        Schema::dropIfExists('groups');
     }
 }

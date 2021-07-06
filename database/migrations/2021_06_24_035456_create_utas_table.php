@@ -14,15 +14,22 @@ class CreateUtasTable extends Migration
     public function up()
     {
         Schema::create('utas', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_utas');
             $table->timestamps();
             $table->string('judul');
             $table->text('konten');
-            $table->timestamp('waktu');
+            $table->dateTime('waktu');
             $table->text('image_url');
             $table->integer('status');
-            $table->foreignId('users_id')->nullable();
-            $table->foreignId('groups_id')->nullable();
+            
+            // Ini buat Foreign Key
+            $table->bigInteger('id_users')->unsigned();
+            $table->bigInteger('id_groups')->unsigned();
+
+            $table->foreign('id_users')->references('id_users')->on('users');
+            $table->foreign('id_groups')->references('id_groups')->on('groups');
+            // Ini buat Foreign Key
+
         });
     }
 

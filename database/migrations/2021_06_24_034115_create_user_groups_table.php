@@ -14,11 +14,18 @@ class CreateUserGroupsTable extends Migration
     public function up()
     {
         Schema::create('user_groups', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_user_groups');
             $table->timestamps();
             $table->integer('role');
-            $table->foreignId('users_id')->nullable();
-            $table->foreignId('groups_id')->nullable();
+
+            // Ini buat Foreign Key
+            $table->bigInteger('id_users')->unsigned();
+            $table->bigInteger('id_groups')->unsigned();
+
+            $table->foreign('id_users')->references('id_users')->on('users');
+            $table->foreign('id_groups')->references('id_groups')->on('groups');
+            // Ini buat Foreign Key
+
         });
     }
 

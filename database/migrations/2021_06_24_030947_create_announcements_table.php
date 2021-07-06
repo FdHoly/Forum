@@ -14,15 +14,22 @@ class CreateAnnouncementsTable extends Migration
     public function up()
     {
         Schema::create('announcements', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_announcements');
             $table->timestamps();
             $table->string('judul');
             $table->text('konten');
             $table->text('image_url');
             $table->integer('status');
-            $table->timestamps('waktu');
-            $table->foreignId('users_id')->nullable();
-            $table->foreignId('groups_id')->nullable();
+            $table->dateTime('waktu');
+
+              // Ini buat Foreign Key
+              $table->bigInteger('id_users')->unsigned();
+              $table->bigInteger('id_groups')->unsigned();
+  
+              $table->foreign('id_users')->references('id_users')->on('users');
+              $table->foreign('id_groups')->references('id_groups')->on('groups');
+              // Ini buat Foreign Key
+  
         });
     }
 
