@@ -20,13 +20,25 @@ class Groups extends Model
         'universitas_id',
     ];
 
-    public function genre()
+    public function universitas()
     {
-        return $this->belongsToMany(genre::class, 'pivot', 'id_film', 'id_genre');
+        return $this->belongsTo(Universitas::class);
     }
 
-    public function transaksi()
+    public function usergroup()
     {
-        return $this->hasMany(transaksi::class, 'id_film', 'id_film');
+        return $this->hasMany(UserGroup::class);
+    }
+    public function pengumuman()
+    {
+        return $this->hasMany(Pengumuman::class);
+    }
+    public function acara()
+    {
+        return $this->hasMany(Acara::class);
+    }
+    public function rapat()
+    {
+        return $this->hasMany(Rapat::class);
     }
 }

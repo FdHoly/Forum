@@ -58,7 +58,7 @@ Route::get('/organisasibaru', function () {
 })->name("grupbaru");
 
 // =========================================
-Route::get('/', function () {
+Route::get('/adm', function () {
     return view('admin.views.admindex');
 })->name("admindex");
 Route::get('/app-contact', function () {
