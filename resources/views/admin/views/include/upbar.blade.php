@@ -7,10 +7,10 @@
             <ul class="navbar-nav mr-auto hidden-xs">
                 <li class="nav-item page-header">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="adm"><i class="fa fa-home"></i></a></li>
                         <li class="breadcrumb-item active">
                             @switch(Route::currentRouteName())
-                                @case('index')
+                                @case('adm')
                                     {{ 'Dashboard' }}
                                 @break
                                 @case('app-contact')
