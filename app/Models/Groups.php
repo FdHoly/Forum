@@ -9,7 +9,7 @@ class Groups extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_groups';
 
     protected $table = 'groups';
 
@@ -17,12 +17,12 @@ class Groups extends Model
         'nama',
         'deskripsi',
         'logo_url',
-        'universitas_id',
+        'id_univ',
     ];
 
     public function universitas()
     {
-        return $this->belongsTo(Universitas::class);
+        return $this->belongsTo(Universitas::class, 'id_univ', 'id_univ');
     }
 
     public function usergroup()
