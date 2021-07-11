@@ -78,45 +78,47 @@
 
                                 <div class="col-12">
                                     <div class="row mt--20">
-                                        {{-- @foreach ($collection as $item) --}}
-                                        @for ($i = 0; $i < 9; $i++)
-                                            <div class="col-lg-4 mb-3 mt-3">
-                                                <div>
-                                                    <!-- widget single item start -->
-                                                    <div class="organisasi__foto">
-                                                        <figure class="profile-picture">
-                                                            <a href="#">
-                                                                <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
-                                                                    alt="profile picture">
-                                                            </a>
-                                                        </figure>
-                                                    </div>
-                                                    <div class="card widget-item">
 
-                                                        <h4 class="widget-title author">
-                                                            <a href="organisasi/kbmti">
-                                                                KBMTI
-                                                                <br>
-                                                                ( Keluarga Besar Mahasiswa Teknologi Informasi )
-                                                            </a>
-                                                        </h4>
+                                        @foreach ($data as $item)
+                                        <div class="col-lg-4 mb-3 mt-3">
+                                            <div>
+                                                <!-- widget single item start -->
+                                                <div class="organisasi__foto">
+                                                    <figure class="profile-picture">
+                                                        <a href="#">
+                                                            <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
+                                                                alt="profile picture">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="card widget-item">
 
-                                                        {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
-                                                        <div class="widget-body">
-                                                            <div class="about-author">
-                                                                <p>Akun Resmi Organisasi Himpunan Teknologi Informasi
-                                                                    Universitas Brawijaya</p>
-                                                                <ul class="author-into-list">
-                                                                    <li><a href="#"><i
-                                                                                class="bi bi-home"></i>Universitas
-                                                                            Brawijaya</a></li>
-                                                                </ul>
-                                                            </div>
+                                                    <h4 class="widget-title author">
+                                                        <a href="organisasi/kbmti">
+                                                            {{$item->nama}}
+                                                            <br>
+                                                            {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
+                                                        </a>
+                                                    </h4>
+
+                                                    {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
+                                                    <div class="widget-body">
+                                                        <div class="about-author">
+                                                            <p>{{$item['deskripsi']}}</p>
+                                                            <ul class="author-into-list">
+                                                                <li><a href="#"><i
+                                                                            class="bi bi-home"></i>{{$item->universitas->nama}}</a></li>
+                                                            </ul>
                                                         </div>
-                                                        <button class="btn mt-3"> Gabung </button>
                                                     </div>
+                                                    <button class="btn mt-3"> Gabung </button>
                                                 </div>
                                             </div>
+                                        </div>
+                                        @endforeach
+                                        {{-- @foreach ($collection as $item) --}}
+                                        @for ($i = 0; $i < 9; $i++)
+                                            
                                         @endfor
                                         {{-- @endforeach --}}
                                     </div>

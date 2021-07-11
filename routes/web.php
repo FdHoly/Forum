@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+$baseController =  "App\Http\Controllers";
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,9 +49,7 @@ Route::get('/laporan', function () {
 })->name("laporan");
 
 
-Route::get('/organisasi', function () {
-    return view('user.views.listorg');
-})->name("listorg");
+Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("listorg");
 
 Route::get('/organisasibaru', function () {
     return view('user.views.grupbaru');
