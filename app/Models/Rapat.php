@@ -10,6 +10,7 @@ class Rapat extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'meetings';
 
     public function group()
     {
