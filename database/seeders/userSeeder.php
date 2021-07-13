@@ -18,8 +18,8 @@ class userSeeder extends Seeder
         //
         $user = [
             [
-                'email' => 'Nama Lengkap1',
-                'name' => 'Alamat1@email.com',
+                'email' => 'Alamat1@email.com',
+                'name' => 'Nama Lengkap1',
                 'password' => 'password',
                 'role' => '1',
                 'profil_image_url' => 'ini logo url',
@@ -28,8 +28,8 @@ class userSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'email' => 'Nama Lengkap2',
-                'name' => 'Alamat2@email.com',
+                'email' => 'Alamat2@email.com',
+                'name' => 'Nama Lengkap2',
                 'password' => 'password',
                 'role' => '1',
                 'profil_image_url' => 'ini logo url',
@@ -38,8 +38,8 @@ class userSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'email' => 'Nama Lengkap3',
-                'name' => 'Alamat3@email.com',
+                'email' => 'Alamat3@email.com',
+                'name' => 'Nama Lengkap3',
                 'password' => 'password',
                 'role' => '1',
                 'profil_image_url' => 'ini logo url',

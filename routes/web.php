@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 $baseController =  "App\Http\Controllers";
 /*
 |--------------------------------------------------------------------------
@@ -59,12 +60,16 @@ Route::get('/organisasibaru', function () {
 Route::get('/adm', function () {
     return view('admin.views.admindex');
 })->name("admindex");
-Route::get('/app-contact', function () {
-    return view('admin.views.app-contact');
-})->name("app-contact");
-Route::get('/table-basic', function () {
-    return view('admin.views.table-basic');
-})->name("table-basic");
+
+Route::get('/table-basic', $baseController . "\apostController@allpost")->name("table-basic");
+Route::get('/app-contact', $baseController . "\auserController@alluser")->name("app-contact");
+
+// Route::get('/app-contact', function () {
+//     return view('admin.views.app-contact');
+// })->name("app-contact");
+// Route::get('/table-basic', function () {
+//     return view('admin.views.table-basic');
+// })->name("table-basic");
 Route::get('/table-group', function () {
     return view('admin.views.table-group');
 })->name("table-group");

@@ -13,6 +13,10 @@ class Report extends Model
 
     public function utas()
     {
-        return $this->belongsTo(Utas::class);
+        return $this->belongsTo(Utas::class, 'id_utas', 'id_utas');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_users', 'id_users');
     }
 }

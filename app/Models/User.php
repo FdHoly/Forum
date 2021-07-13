@@ -37,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function utas()
+    {
+        return $this->hasMany(Utas::class, 'id_users', 'id_users');
+    }
+    public function report()
+    {
+        return $this->hasMany(Report::class, 'id_users', 'id_users');
+    }
+    public function UserGroup()
+    {
+        return $this->hasMany(UserGroup::class, 'id_users', 'id_users');
+    }
 }

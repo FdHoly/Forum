@@ -80,45 +80,46 @@
                                     <div class="row mt--20">
 
                                         @foreach ($data as $item)
-                                        <div class="col-lg-4 mb-3 mt-3">
-                                            <div>
-                                                <!-- widget single item start -->
-                                                <div class="organisasi__foto">
-                                                    <figure class="profile-picture">
-                                                        <a href="#">
-                                                            <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
-                                                                alt="profile picture">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="card widget-item">
-
-                                                    <h4 class="widget-title author">
-                                                        <a href="organisasi/kbmti">
-                                                            {{$item->nama}}
-                                                            <br>
-                                                            {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
-                                                        </a>
-                                                    </h4>
-
-                                                    {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
-                                                    <div class="widget-body">
-                                                        <div class="about-author">
-                                                            <p>{{$item['deskripsi']}}</p>
-                                                            <ul class="author-into-list">
-                                                                <li><a href="#"><i
-                                                                            class="bi bi-home"></i>{{$item->universitas->nama}}</a></li>
-                                                            </ul>
-                                                        </div>
+                                            <div class="col-lg-4 mb-3 mt-3">
+                                                <div>
+                                                    <!-- widget single item start -->
+                                                    <div class="organisasi__foto">
+                                                        <figure class="profile-picture">
+                                                            <a href="#">
+                                                                <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
+                                                                    alt="profile picture">
+                                                            </a>
+                                                        </figure>
                                                     </div>
-                                                    <button class="btn mt-3"> Gabung </button>
+                                                    <div class="card widget-item">
+
+                                                        <h4 class="widget-title author">
+                                                            <a href="organisasi/kbmti">
+                                                                {{ $item->nama }}
+                                                                <br>
+                                                                {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
+                                                            </a>
+                                                        </h4>
+
+                                                        {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
+                                                        <div class="widget-body">
+                                                            <div class="about-author">
+                                                                <p>{{ $item['deskripsi'] }}</p>
+                                                                <ul class="author-into-list">
+                                                                    <li><a href="#"><i
+                                                                                class="bi bi-home"></i>{{ $item->universitas->nama }}</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn mt-3"> Gabung </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                         {{-- @foreach ($collection as $item) --}}
                                         @for ($i = 0; $i < 9; $i++)
-                                            
+
                                         @endfor
                                         {{-- @endforeach --}}
                                     </div>
@@ -479,120 +480,7 @@
         <i class="bi bi-finger-index"></i>
     </div>
     <!-- Scroll to Top End -->
-    {{-- Footer area deleted --}}
 
-    <!-- footer area start -->
-    {{-- <footer class="d-block d-lg-none">
-        <div class="footer-area reveal-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mobile-footer-inner d-flex">
-                            <div class="mobile-frnd-search">
-                                <button class="search-toggle-btn"><i class="flaticon-search"></i></button>
-                            </div>
-                            <div class="mob-frnd-search-inner">
-                                <form class="mob-frnd-search-box d-flex">
-                                    <input type="text" placeholder="Search Your Friends" class="mob-frnd-search-field">
-                                </form>
-                            </div>
-                            <div class="card card-small mb-0 active-profile-mob-wrapper">
-                                <div class="active-profiles-mob-wrapper slick-row-10">
-                                    <div class="active-profile-mobile">
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-8.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-2.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-4.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <!-- profile picture end -->
-                                        <div class="single-slide">
-                                            <div class="profile-thumb active profile-active">
-                                                <a href="javascript:void(0)">
-                                                    <figure class="profile-thumb-small profile-active">
-                                                        <img src="user/assets/images/profile/profile-small-9.jpg" alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- profile picture end -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer> --}}
-    <!-- footer area end -->
 
     <!-- JS
 ============================================ -->
@@ -601,7 +489,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
