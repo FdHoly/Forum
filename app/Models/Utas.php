@@ -13,15 +13,15 @@ class Utas extends Model
 
     public function report()
     {
-        return $this->hasMany(Report::class);
+        return $this->hasMany(Report::class, 'id_utas', 'id_utas');
     }
-    public function usergroup()
+    public function group()
     {
-        return $this->belongsTo(UserGroup::class);
+        return $this->belongsTo(Groups::class, 'id_groups', 'id_groups');
     }
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_users', 'id_users');
     }
     public function replyutas()
     {

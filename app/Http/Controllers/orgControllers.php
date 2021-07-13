@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Groups;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,5 @@ class orgControllers extends Controller
     {
         $data = Groups::all();
         return view('user.views.listorg', compact('data'));
-        
     }
 }
