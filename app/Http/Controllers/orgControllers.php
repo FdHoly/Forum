@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Groups;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,24 @@ class orgControllers extends Controller
     {
         $data = Groups::all();
         return view('user.views.listorg', compact('data'));
-        
+    }
+
+    public function createOrg(Request $request)
+    {
+        $org = new Groups();
+
+        $org->nama = $request->input('nama_grup');
+        $org->deskripsi = $request->input('deskripsi');
+        $org->id_univ = $request->input('universitas');
+
+        $file = $request->file('file');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . "." . $extension;
+        $file->move('uploads/logo', $filename);
+
+        $org->logo_url = $filename;
+
+        $org->save();
+        return redirect()->route('listorg');
     }
 }

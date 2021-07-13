@@ -42,7 +42,7 @@ Route::get('/organisasi/kbmti', function () {
 });
 Route::get('/editprofile', function () {
     return view('user.views.editprofile');
-})->name("editprofile");;
+})->name("editprofile");
 
 Route::get('/laporan', function () {
     return view('user.views.reportview');
@@ -54,6 +54,8 @@ Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("li
 Route::get('/organisasibaru', function () {
     return view('user.views.grupbaru');
 })->name("grupbaru");
+
+Route::post('/organisasi/create', $baseController . "\orgControllers@createOrg")->name("createOrg");
 
 // =========================================
 Route::get('/adm', function () {
