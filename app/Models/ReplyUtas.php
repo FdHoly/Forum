@@ -10,6 +10,8 @@ class ReplyUtas extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'replys';
+
 
     public function utas()
     {
