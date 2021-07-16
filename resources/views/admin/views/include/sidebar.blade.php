@@ -18,14 +18,14 @@
             <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a
                     href="{{ route('admindex') }}"><i class="ti-home"></i><span>Dashboard</span></a></li>
             <li class="g_heading">Application</li>
-            <li class="{{ Route::currentRouteName() == 'app-contact' ? 'active' : '' }}"><a
-                    href="{{ route('app-contact') }}"><i class="ti-id-badge"></i><span>User List</span></a></li>
-            <li class="{{ Route::currentRouteName() == 'table-basic' ? 'active' : '' }}"><a
-                    href="{{ route('table-basic') }}"><i class="ti-view-list"></i><span>Posts</span></a></li>
-            <li class="{{ Route::currentRouteName() == 'table-group' ? 'active' : '' }}"><a
-                    href="{{ route('table-group') }}"><i class="ti-view-list"></i><span>Organisasi</span></a></li>
-            <li class="{{ Route::currentRouteName() == 'report-user' ? 'active' : '' }}"><a
-                    href="{{ route('report-user') }}"><i class="ti-view-list"></i><span>Report</span></a></li>
+            <li class="{{ Route::currentRouteName() == 'admUser' ? 'active' : '' }}"><a
+                    href="{{ route('admUser') }}"><i class="ti-id-badge"></i><span>User List</span></a></li>
+            <li class="{{ Route::currentRouteName() == 'admPost' ? 'active' : '' }}"><a
+                    href="{{ route('admPost') }}"><i class="ti-view-list"></i><span>Posts</span></a></li>
+            <li class="{{ Route::currentRouteName() == 'admOrg' ? 'active' : '' }}"><a
+                    href="{{ route('admOrg') }}"><i class="ti-view-list"></i><span>Organisasi</span></a></li>
+            <li class="{{ Route::currentRouteName() == 'admReport' ? 'active' : '' }}"><a
+                    href="{{ route('admReport') }}"><i class="ti-view-list"></i><span>Report</span></a></li>
 
 
 

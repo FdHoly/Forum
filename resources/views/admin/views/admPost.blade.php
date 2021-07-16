@@ -568,7 +568,7 @@
                                                                     href="javascript:void(0);"
                                                                     class="btn btn-success btn-sm">View Report</a></td>
                                                             <td><label
-                                                                    class="badge badge-primary text-uppercase">Public</label>
+                                                                    class="badge badge-primary text-uppercase">{{ $item->status == '1' ? 'Public' : 'Private' }}</label>
                                                             </td>
                                                             <td>
                                                                 <a href="javascript:void(0);"

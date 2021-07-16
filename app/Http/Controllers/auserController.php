@@ -13,6 +13,6 @@ class auserController extends Controller
         $data = User::all();
         // return $data;
         // with('utas')->get()
-        return view('admin.views.app-contact', compact('data'));
+        return view('admin.views.admUser', compact('data'));
     }
 }

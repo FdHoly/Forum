@@ -12,6 +12,6 @@ class apostController extends Controller
     {
         $data = utas::all();
         // return $data;
-        return view('admin.views.table-basic', compact('data'));
+        return view('admin.views.admPost', compact('data'));
     }
 }
