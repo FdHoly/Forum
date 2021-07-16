@@ -16,8 +16,8 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id('id_reports');
             $table->timestamps();
-            $table->string('judul');
-            $table->text('konten');
+            // $table->string('judul');
+            $table->text('alasan');
             $table->dateTime('waktu');
 
             // Ini buat Foreign Key

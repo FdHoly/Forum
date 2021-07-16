@@ -27,7 +27,7 @@ class Groups extends Model
 
     public function usergroup()
     {
-        return $this->hasMany(UserGroup::class);
+        return $this->hasMany(UserGroup::class, 'id_groups', 'id_groups');
     }
     public function pengumuman()
     {
@@ -41,4 +41,12 @@ class Groups extends Model
     {
         return $this->hasMany(Rapat::class);
     }
+    public function utas()
+    {
+        return $this->hasMany(Utas::class, 'id_groups', 'id_groups');
+    }
+    // public function report()
+    // {
+    //     return $this->hasMany(Utas::class, 'id_groups', 'id_groups');
+    // }
 }

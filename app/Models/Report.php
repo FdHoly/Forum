@@ -19,4 +19,8 @@ class Report extends Model
     {
         return $this->belongsTo(User::class, 'id_users', 'id_users');
     }
+    public function group()
+    {
+        return $this->belongsTo(Groups::class, 'id_groups', 'id_groups');
+    }
 }
