@@ -20,7 +20,7 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul1',
                 'konten' => 'konten1',
-                'waktu' => '9999-12-31 23:59:59',
+                'waktu' => '2021-5-31 20:59:59',
                 'status' => '1',
                 'image_url' => 'ini logo url',
                 'id_users' => '1',
@@ -31,7 +31,7 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul2',
                 'konten' => 'konten2',
-                'waktu' => '9999-12-31 23:59:59',
+                'waktu' => '2021-7-17 20:59:59',
                 'status' => '1',
                 'image_url' => 'ini logo url',
                 'id_users' => '2',
@@ -42,7 +42,7 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul3',
                 'konten' => 'konten3',
-                'waktu' => '9999-12-31 23:59:59',
+                'waktu' => '2011-12-31 20:59:59',
                 'status' => '1',
                 'image_url' => 'ini logo url',
                 'id_users' => '3',

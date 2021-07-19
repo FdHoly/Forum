@@ -17,6 +17,9 @@ $baseController =  "App\Http\Controllers";
 Route::get('/', function () {
     return view('user.views.index');
 })->name("index");
+Route::get('/', $baseController . "\postController@listpost")->name("index");
+// Route::get('/', $baseController . "\postController@listPengumuman")->name("index");
+
 
 Route::get('/profile', function () {
     return view('user.views.profile');
