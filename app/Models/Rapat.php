@@ -14,7 +14,7 @@ class Rapat extends Model
 
     public function group()
     {
-        return $this->belongsTo(Groups::class);
+        return $this->belongsTo(Groups::class, 'id_groups', 'id_groups');
     }
     public function user()
     {
