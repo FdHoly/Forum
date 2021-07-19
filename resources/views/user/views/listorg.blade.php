@@ -39,25 +39,14 @@
                                             Disekitar Anda
                                         </label>
                                     </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Brawijaya
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Indonesia
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Sebelas Maret
-                                        </label>
-                                    </div>
+                                    @foreach ($data as $items)
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                {{ $items->universitas->nama }}
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </aside>
@@ -80,47 +69,43 @@
                                     <div class="row mt--20">
 
                                         @foreach ($data as $item)
-                                        <div class="col-lg-4 mb-3 mt-3">
-                                            <div>
-                                                <!-- widget single item start -->
-                                                <div class="organisasi__foto">
-                                                    <figure class="profile-picture">
-                                                        <a href="#">
-                                                            <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
-                                                                alt="profile picture">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="card widget-item">
-
-                                                    <h4 class="widget-title author">
-                                                        <a href="organisasi/kbmti">
-                                                            {{$item->nama}}
-                                                            <br>
-                                                            {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
-                                                        </a>
-                                                    </h4>
-
-                                                    {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
-                                                    <div class="widget-body">
-                                                        <div class="about-author">
-                                                            <p>{{$item['deskripsi']}}</p>
-                                                            <ul class="author-into-list">
-                                                                <li><a href="#"><i
-                                                                            class="bi bi-home"></i>{{$item->universitas->nama}}</a></li>
-                                                            </ul>
-                                                        </div>
+                                            <div class="col-lg-4 mb-3 mt-3">
+                                                <div>
+                                                    <!-- widget single item start -->
+                                                    <div class="organisasi__foto">
+                                                        <figure class="profile-picture">
+                                                            <a href="#">
+                                                                <img src="uploads/logo/{{$item->logo_url}}"
+                                                                    alt="profile picture">
+                                                            </a>
+                                                        </figure>
                                                     </div>
-                                                    <button class="btn mt-3"> Gabung </button>
+                                                    <div class="card widget-item">
+
+                                                        <h4 class="widget-title author">
+                                                            <a href="organisasi/kbmti">
+                                                                {{ $item->nama }}
+                                                                <br>
+                                                                {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
+                                                            </a>
+                                                        </h4>
+
+                                                        {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
+                                                        <div class="widget-body">
+                                                            <div class="about-author">
+                                                                <p>{{ $item['deskripsi'] }}</p>
+                                                                <ul class="author-into-list">
+                                                                    <li><a href="#"><i
+                                                                                class="bi bi-home"></i>{{ $item->universitas->nama }}</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn mt-3"> Gabung </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforeach
-                                        {{-- @foreach ($collection as $item) --}}
-                                        @for ($i = 0; $i < 9; $i++)
-                                            
-                                        @endfor
-                                        {{-- @endforeach --}}
                                     </div>
                                 </div>
                             </div>
@@ -601,7 +586,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

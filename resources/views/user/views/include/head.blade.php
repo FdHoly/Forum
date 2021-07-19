@@ -36,4 +36,8 @@
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ url('user/css/mystyle.css') }}">
 
+    <link rel="stylesheet" type="text/css" href= {{url("login/css/fontawesome-all.min.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-style.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-theme10.css")}}>
+
 </head>

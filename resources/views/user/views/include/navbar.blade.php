@@ -8,11 +8,8 @@
                         <ul>
                             <li class="active"><a href="{{ route('index') }}">Beranda</a></li>
                             <li class="active"><a href="{{ route('listorg') }}">organisasi</a></li>
-
                             <li class="active"><a href="{{ route('grupbaru') }}">Buat Organisasi</a></li>
-
-
-
+                        </ul>
                     </nav>
                 </div>
                 <!-- header top navigation start -->
@@ -59,7 +56,7 @@
                                         </li>
                                         {{-- <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li> --}}
                                         <li><a href="#"><i class="flaticon-document"></i>Groups</a></li>
-                                        <li><a href="{{ route('signup') }}"><i class="flaticon-unlock"></i>Sign
+                                        <li><a href="{{ route('signin') }}"><i class="flaticon-unlock"></i>Sign
                                                 out</a></li>
                                     </ul>
                                 </div>

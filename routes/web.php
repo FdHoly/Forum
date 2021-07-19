@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 $baseController =  "App\Http\Controllers";
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,12 @@ Route::get('/profile', function () {
     return view('user.views.profile');
 })->name("profile");
 
-Route::get('/signup', function () {
-    return view('user.views.signup');
-})->name("signup");
+Route::get('/signin', function () {
+    return view('user.views.login10');
+})->name("signin");
+
+Route::get('/register',$baseController . "\loginControllers@registerView" )->name("register");
+Route::post('/register',$baseController . "\loginControllers@regist" )->name("register");
 
 Route::get('/about', function () {
     return view('user.views.about');
@@ -51,9 +55,10 @@ Route::get('/laporan', function () {
 
 Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("listorg");
 
-Route::get('/organisasibaru', function () {
-    return view('user.views.grupbaru');
-})->name("grupbaru");
+Route::get(
+    '/organisasibaru',
+    $baseController . "\orgControllers@viewCreate"
+)->name("grupbaru");
 
 Route::post('/organisasi/create', $baseController . "\orgControllers@createOrg")->name("createOrg");
 
