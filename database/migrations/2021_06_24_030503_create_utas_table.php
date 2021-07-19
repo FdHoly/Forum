@@ -21,7 +21,7 @@ class CreateUtasTable extends Migration
             $table->dateTime('waktu');
             $table->text('image_url');
             $table->integer('status');
-            
+
             // Ini buat Foreign Key
             $table->bigInteger('id_users')->unsigned();
             $table->bigInteger('id_groups')->unsigned();

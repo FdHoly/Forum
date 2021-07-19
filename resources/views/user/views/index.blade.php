@@ -334,7 +334,8 @@
                         </div>
                         <!-- post status start -->
                         <!-- post title start -->
-                        @for ($i = 0; $i < 8; $i++)
+                        {{-- @for ($i = 0; $i < 8; $i++) --}}
+                        @foreach ($Data1 as $itemPost)
                             <div class="card">
                                 <div class="post-title d-flex align-items-center">
                                     <!-- profile picture end -->
@@ -350,13 +351,19 @@
 
                                     <div class="posted-author">
                                         <h1 class="author">
-                                            <a href="{{ route('profile') }}">Merry Watson</a>
+                                            <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                                             ▶
-                                            <a href="organisasi/kbmti">KBMTI</a>
-                                            ▶
-                                            🔒
+                                            <a href="organisasi/kbmti">{{ $itemPost->group->nama }}</a>
+
+                                            {{ $itemPost->status == '1' ? '▶🔒' : '' }}
+                                            {{-- 🔒🔓 --}}
                                         </h1>
-                                        <span class="post-time">20 min ago</span>
+                                        <span class="post-time">
+                                            {{-- {{ $item->waktu - ($current_timestamp = Carbon::now()->timestamp) }} --}}
+                                            {{-- {{ $item->posttime() }} --}}
+                                            {{-- 20 min ago --}}
+                                            {{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}
+                                        </span>
                                     </div>
                                     <div class="post-settings-bar">
                                         <span></span>
@@ -382,13 +389,9 @@
 
                                 <!-- post title start -->
                                 <div class="post-content">
-                                    <h5 style="margin-bottom: 10px">Judul Postingan</h5>
+                                    <h5 style="margin-bottom: 10px">{{ $itemPost->judul }}</h5>
                                     <p class="post-desc">
-                                        Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                                        their
-                                        default model text, and a search for 'lorem ipsum' will uncover many web sites
-                                        still
-                                        in their infancy.
+                                        {{ $itemPost->konten }}
                                     </p>
                                     <div class="post-thumb-gallery">
                                         <figure class="post-thumb img-popup">
@@ -412,7 +415,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
 
                     </div>
 
@@ -425,7 +428,8 @@
                                     <div id="chatScroll" class="nano has-scrollbar"
                                         style="height:300px; overflow-y: scroll;">
                                         <ul class="like-page-list-wrapper">
-                                            @for ($i = 0; $i < 10; $i++)
+                                            @foreach ($Data2 as $itemPengumuman)
+
                                                 <li class="unorder-list">
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
@@ -439,14 +443,19 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">Ini Judul Pengumuman</a>
+                                                                data-target="#ModalPengumuman">{{ $itemPengumuman->judul }}</a>
                                                         </h3>
+                                                        <h4 class="list-subtitle">
+                                                            {{ $itemPengumuman->group->nama }}
+                                                        </h4>
                                                         <p class="list-subtitle">
-                                                            KBMTI -
-                                                            31 Juni 2021</p>
+
+                                                            {{ $time = date('j F Y', strtotime($itemPengumuman->waktu)) }}
+                                                        </p>
                                                     </div>
                                                 </li>
-                                            @endfor
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -460,7 +469,8 @@
                                     <div id="chatScroll" class="nano has-scrollbar"
                                         style="height:300px; overflow-y: scroll;">
                                         <ul class="like-page-list-wrapper">
-                                            @for ($i = 0; $i < 10; $i++)
+                                            @foreach ($Data3 as $itemAcara)
+
                                                 <li class="unorder-list">
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
@@ -474,14 +484,17 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">Ini Judul Pengumuman</a>
+                                                                data-target="#ModalPengumuman">{{ $itemAcara->judul }}</a>
                                                         </h3>
+                                                        <h4 class="list-subtitle">
+                                                            {{ $itemAcara->group->nama }}
+                                                        </h4>
                                                         <p class="list-subtitle">
-                                                            KBMTI -
-                                                            31 Juni 2021</p>
+                                                            {{ $time = date('j F Y', strtotime($itemAcara->waktu)) }}
+                                                        </p>
                                                     </div>
                                                 </li>
-                                            @endfor
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -495,7 +508,8 @@
                                     <div id="chatScroll" class="nano has-scrollbar"
                                         style="height:300px; overflow-y: scroll;">
                                         <ul class="like-page-list-wrapper">
-                                            @for ($i = 0; $i < 10; $i++)
+                                            @foreach ($Data4 as $itemRapat)
+
                                                 <li class="unorder-list">
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
@@ -509,14 +523,18 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">Ini Judul Pengumuman</a>
+                                                                data-target="#ModalPengumuman">{{ $itemRapat->judul }}</a>
                                                         </h3>
+                                                        <h4 class="list-subtitle">
+                                                            {{ $itemRapat->group->nama }}
+                                                        </h4>
                                                         <p class="list-subtitle">
-                                                            KBMTI -
-                                                            31 Juni 2021</p>
+                                                            {{ $time = date('j F Y', strtotime($itemRapat->waktu)) }}
+                                                        </p>
                                                     </div>
                                                 </li>
-                                            @endfor
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -904,7 +922,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

@@ -557,96 +557,99 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Q01</td>
-                                                        <td>Iphone 7</td>
-                                                        <td>12 Jan 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>KBMTI</td>
-                                                        <td>2 <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Report</a></td>
-                                                        <td><label
-                                                                class="badge badge-primary text-uppercase">Public</label>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Post</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q02</td>
-                                                        <td>Galaxy S8</td>
-                                                        <td>18 Jan 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>KBMTI</td>
-                                                        <td>0 <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Report</a></td>
-                                                        <td><label
-                                                                class="badge badge-primary text-uppercase">Private</label>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Post</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q03</td>
-                                                        <td>Amazon Echo</td>
-                                                        <td>22 Feb 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>KBMTI</td>
-                                                        <td>1 <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Report</a></td>
-                                                        <td><label
-                                                                class="badge badge-primary text-uppercase">Public</label>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Post</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q04</td>
-                                                        <td>Google Pixel</td>
-                                                        <td>22 Feb 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>KBMTI</td>
-                                                        <td>0 <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Report</a></td>
-                                                        <td><label
-                                                                class="badge badge-primary text-uppercase">Private</label>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Post</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q05</td>
-                                                        <td>Mac Mini</td>
-                                                        <td>8 March 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>KBMTI</td>
-                                                        <td>5 <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Report</a></td>
-                                                        <td><label
-                                                                class="badge badge-primary text-uppercase">Public</label>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Post</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
+                                                    @foreach ($data as $item)
+                                                        <tr>
+                                                            <td>{{ $item->id_utas }}</td>
+                                                            <td>{{ $item->judul }}</td>
+                                                            <td>{{ $item->waktu }}</td>
+                                                            <td>{{ $item->user->name }}</td>
+                                                            <td>{{ $item->group->nama }}</td>
+                                                            <td>{{ $item->report->count() }} <a
+                                                                    href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td><label
+                                                                    class="badge badge-primary text-uppercase">{{ $item->status == '1' ? 'Public' : 'Private' }}</label>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Post</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        {{-- <tr>
+                                                            <td>Q02</td>
+                                                            <td>Galaxy S8</td>
+                                                            <td>18 Jan 2018</td>
+                                                            <td>Dispatched</td>
+                                                            <td>KBMTI</td>
+                                                            <td>0 <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td><label
+                                                                    class="badge badge-primary text-uppercase">Private</label>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Post</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Q03</td>
+                                                            <td>Amazon Echo</td>
+                                                            <td>22 Feb 2018</td>
+                                                            <td>Dispatched</td>
+                                                            <td>KBMTI</td>
+                                                            <td>1 <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td><label
+                                                                    class="badge badge-primary text-uppercase">Public</label>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Post</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Q04</td>
+                                                            <td>Google Pixel</td>
+                                                            <td>22 Feb 2018</td>
+                                                            <td>Dispatched</td>
+                                                            <td>KBMTI</td>
+                                                            <td>0 <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td><label
+                                                                    class="badge badge-primary text-uppercase">Private</label>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Post</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Q05</td>
+                                                            <td>Mac Mini</td>
+                                                            <td>8 March 2018</td>
+                                                            <td>Dispatched</td>
+                                                            <td>KBMTI</td>
+                                                            <td>5 <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td><label
+                                                                    class="badge badge-primary text-uppercase">Public</label>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Post</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr> --}}
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

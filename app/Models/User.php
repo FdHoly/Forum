@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -17,16 +18,13 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $primaryKey = 'id_user';
-    
-    protected $table = 'user';
-    
     protected $fillable = [
         'name',
         'email',
         'password',
         'role'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -46,4 +44,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function utas()
+    {
+        return $this->hasMany(Utas::class, 'id_users', 'id_users');
+    }
+    public function report()
+    {
+        return $this->hasMany(Report::class, 'id_users', 'id_users');
+    }
+    public function UserGroup()
+    {
+        return $this->hasMany(UserGroup::class, 'id_users', 'id_users');
+    }
+    public function group()
+    {
+        return $this->belongsToMany(UserGroup::class, 'id_users', 'id_users');
+    }
 }

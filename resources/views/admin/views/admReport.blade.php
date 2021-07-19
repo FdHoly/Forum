@@ -546,97 +546,38 @@
                                             <table class="table va_center mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID Organisasi</th>
-                                                        <th>Nama Organisasi</th>
-                                                        <th>Universitas</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Jumlah Post</th>
-                                                        <th>Jumlah User</th>
+                                                        <th>ID Report</th>
+                                                        <th>User</th>
+                                                        <th>Group</th>
+                                                        <th>Judul Post</th>
+                                                        <th>Alasan</th>
+                                                        <th>Waktu</th>
                                                         {{-- <th>Status Post</th> --}}
                                                         <th>Action</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Q01</td>
-                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
-                                                                class="avatar w30" alt=""> Iphone 7</td>
-                                                        <td>Universitas Brawijaya</td>
-                                                        <td>12 Jan 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>Credit card</td>
+                                                    @foreach ($data as $item)
+                                                        <tr>
+                                                            <td>{{ $item->id_reports }}</td>
+                                                            <td><img src="../admin/assets/images/xs/avatar1.jpg"
+                                                                    class="avatar w30" alt=""> {{ $item->user->name }}
+                                                            </td>
+                                                            <td>{{ $item->group->nama }}</td>
+                                                            <td>{{ $item->utas->judul }}</td>
+                                                            <td>{{ $item->alasan }}</td>
+                                                            <td>{{ $item->waktu }}</td>
 
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Organisasi</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q02</td>
-                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
-                                                                class="avatar w30" alt=""> Galaxy S8</td>
-                                                        <td>Universitas Brawijaya</td>
-                                                        <td>18 Jan 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>Internet banking</td>
+                                                            <td>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-success btn-sm">View Organisasi</a>
+                                                                <button class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
 
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Organisasi</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q03</td>
-                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
-                                                                class="avatar w30" alt=""> Amazon Echo</td>
-                                                        <td>Universitas Brawijaya</td>
-                                                        <td>22 Feb 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>Credit card</td>
-
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Organisasi</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q04</td>
-                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
-                                                                class="avatar w30" alt=""> Google Pixel</td>
-                                                        <td>Universitas Brawijaya</td>
-                                                        <td>22 Feb 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>Cash on delivery</td>
-
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Organisasi</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Q05</td>
-                                                        <td><img src="../admin/assets/images/xs/avatar1.jpg"
-                                                                class="avatar w30" alt=""> Mac Mini</td>
-                                                        <td>Universitas Brawijaya</td>
-                                                        <td>8 March 2018</td>
-                                                        <td>Dispatched</td>
-                                                        <td>Debit card</td>
-                                                        <td>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-success btn-sm">View Organisasi</a>
-                                                            <button class="btn btn-danger btn-sm"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>

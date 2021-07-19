@@ -18,6 +18,7 @@ class orgControllers extends Controller
     {
         $data = Groups::all();
         return view('user.views.listorg', compact('data'));
+
     }
 
     public function viewCreate()
@@ -43,5 +44,6 @@ class orgControllers extends Controller
 
         $org->save();
         return redirect()->route('listorg');
+
     }
 }

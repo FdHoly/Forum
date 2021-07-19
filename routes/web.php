@@ -17,6 +17,9 @@ $baseController =  "App\Http\Controllers";
 Route::get('/', function () {
     return view('user.views.index');
 })->name("index");
+Route::get('/', $baseController . "\postController@listpost")->name("index");
+// Route::get('/', $baseController . "\postController@listPengumuman")->name("index");
+
 
 Route::get('/profile', function () {
     return view('user.views.profile');
@@ -66,15 +69,21 @@ Route::post('/organisasi/create', $baseController . "\orgControllers@createOrg")
 Route::get('/adm', function () {
     return view('admin.views.admindex');
 })->name("admindex");
-Route::get('/app-contact', function () {
-    return view('admin.views.app-contact');
-})->name("app-contact");
-Route::get('/table-basic', function () {
-    return view('admin.views.table-basic');
-})->name("table-basic");
-Route::get('/table-group', function () {
-    return view('admin.views.table-group');
-})->name("table-group");
-Route::get('/report-user', function () {
-    return view('admin.views.report-user');
-})->name("report-user");
+
+Route::get('/admPost', $baseController . "\apostController@allpost")->name("admPost");
+Route::get('/admUser', $baseController . "\auserController@alluser")->name("admUser");
+Route::get('/admOrg', $baseController . "\aorgController@allorg")->name("admOrg");
+Route::get('/admReport', $baseController . "\areportController@allreport")->name("admReport");
+
+// Route::get('/admUser', function () {
+//     return view('admin.views.admUser');
+// })->name("admUser");
+// Route::get('/admPost', function () {
+//     return view('admin.views.admPost');
+// })->name("admPost");
+// Route::get('/admOrg', function () {
+//     return view('admin.views.admOrg');
+// })->name("admOrg");
+// Route::get('/report-user', function () {
+//     return view('admin.views.report-user');
+// })->name("report-user");

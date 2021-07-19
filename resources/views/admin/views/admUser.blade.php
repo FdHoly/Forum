@@ -337,244 +337,272 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">1</span>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">{{ $item->id_users }}</span>
 
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar1.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">John Smith</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">johnsmith@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">2583</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">3</span>
-                                        <td class="text-center"> <span class="phone">23</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">2</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar1.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">{{ $item->name }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">{{ $item->email }}</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">{{ $item->utas->count() }}</span>
+                                            </td>
+                                            <td class="text-center"> <span
+                                                    class="phone">{{ $item->report->count() }}</span>
+                                            <td class="text-center"> <span
+                                                    class="phone">{{ $item->UserGroup->count() }}</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        {{-- <tr>
+                                            <td>
+                                                <span class="ml-2">2</span>
 
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar3.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Hossein Shams</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">hosseinshams@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">2583</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">2</span>
-                                        <td class="text-center"> <span class="phone">23</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">3</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar3.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Hossein Shams</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">hosseinshams@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">2583</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">2</span>
+                                            <td class="text-center"> <span class="phone">23</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">3</span>
 
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar6.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Tim Hank</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">timhank@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">1212</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">9</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">4</span>
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar7.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Fidel Tonn</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">fideltonn@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">2323</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">0</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">5</span>
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar8.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Gary Camara</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">garycamara@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">1005</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">6</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">6</span>
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar9.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Frank Camly</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">frankcamly@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">9999</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">4</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">7</span>
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar10.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Tim Hank</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">timhank@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">1212</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">3</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                            </>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="ml-2">8</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar6.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Tim Hank</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">timhank@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">1212</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">9</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">4</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar7.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Fidel Tonn</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">fideltonn@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">2323</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">0</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">5</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar8.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Gary Camara</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">garycamara@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">1005</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">6</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">6</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar9.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Frank Camly</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">frankcamly@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">9999</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">4</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">7</span>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar10.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Tim Hank</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">timhank@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">1212</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">3</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                                </>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="ml-2">8</span>
 
-                                        </td>
-                                        <td>
-                                            <img src="../admin/assets/images/xs/avatar4.jpg" class="avatar w30" alt="">
-                                            <span class="ml-2">Maryam Amiri</span>
-                                        </td>
-                                        <td>
-                                            <span class="email"><a href="javascript:void(0);"
-                                                    title="">maryamamiri@gmail.com</a></span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">User</span>
-                                        </td>
-                                        <td>
-                                            <span class="phone">9513</span>
-                                        </td>
-                                        <td class="text-center"> <span class="phone">1</span></td>
-                                        <td class="text-center"> <span class="phone">23</span></td>
-                                        <td>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm">View
-                                                Report</a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td>
+                                                <img src="../admin/assets/images/xs/avatar4.jpg" class="avatar w30"
+                                                    alt="">
+                                                <span class="ml-2">Maryam Amiri</span>
+                                            </td>
+                                            <td>
+                                                <span class="email"><a href="javascript:void(0);"
+                                                        title="">maryamamiri@gmail.com</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">User</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone">9513</span>
+                                            </td>
+                                            <td class="text-center"> <span class="phone">1</span></td>
+                                            <td class="text-center"> <span class="phone">23</span></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                    Report</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr> --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

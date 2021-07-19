@@ -25,7 +25,7 @@ class orgSeeders extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'BEM FEB',
+                'nama' => 'BEM FIB',
                 'deskripsi' => 'ini desc',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
@@ -41,7 +41,7 @@ class orgSeeders extends Seeder
                 'updated_at' => Carbon::now()
             ],
         ];
-        foreach($group as $Xample){
+        foreach ($group as $Xample) {
             Groups::create($Xample);
         }
     }
