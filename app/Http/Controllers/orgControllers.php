@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Groups;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
 
 class orgControllers extends Controller
@@ -18,6 +19,12 @@ class orgControllers extends Controller
         $data = Groups::all();
         return view('user.views.listorg', compact('data'));
 
+    }
+
+    public function viewCreate()
+    {
+        $data = Universitas::all();
+        return view('user.views.grupbaru', compact('data'));
     }
 
     public function createOrg(Request $request)

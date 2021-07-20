@@ -39,25 +39,14 @@
                                             Disekitar Anda
                                         </label>
                                     </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Brawijaya
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Indonesia
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Universtias Sebelas Maret
-                                        </label>
-                                    </div>
+                                    @foreach ($data as $items)
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                {{ $items->universitas->nama }}
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </aside>
@@ -86,7 +75,7 @@
                                                     <div class="organisasi__foto">
                                                         <figure class="profile-picture">
                                                             <a href="#">
-                                                                <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
+                                                                <img src="uploads/logo/{{$item->logo_url}}"
                                                                     alt="profile picture">
                                                             </a>
                                                         </figure>
@@ -117,11 +106,14 @@
                                                 </div>
                                             </div>
                                         @endforeach
+<<<<<<< HEAD
+=======
                                         {{-- @foreach ($collection as $item) --}}
                                         @for ($i = 0; $i < 9; $i++)
 
                                         @endfor
                                         {{-- @endforeach --}}
+>>>>>>> a9b5ac40584487b340433b8b4d5ba93bb6850ae8
                                     </div>
                                 </div>
                             </div>
@@ -489,7 +481,11 @@
 
     <script>
         /* When the user clicks on the button,
+<<<<<<< HEAD
+                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+=======
                                                                                                                                                                                                             toggle between hiding and showing the dropdown content */
+>>>>>>> a9b5ac40584487b340433b8b4d5ba93bb6850ae8
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
