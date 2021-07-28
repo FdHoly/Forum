@@ -10,6 +10,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+
+    protected $primaryKey = 'id_users';
+    
     protected $table = 'users';
 
     /**
@@ -22,7 +26,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'profil_image_url'
     ];
 
 
@@ -44,6 +49,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+
     public function utas()
     {
         return $this->hasMany(Utas::class, 'id_users', 'id_users');
@@ -60,4 +68,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(UserGroup::class, 'id_users', 'id_users');
     }
+
+
 }
