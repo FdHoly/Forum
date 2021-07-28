@@ -14,21 +14,13 @@
     <main>
 
         <div class="main-wrapper">
-            {{-- <div class="profile-banner-large bg-img" data-bg="{{url('user/assets/images/banner/profile-banner.jpg')}}"> --}}
+            
         </div>
         <div class="profile-menu-area bg-white" style="">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3">
-
                     </div>
-
-                    {{-- @include('user.views.include.profilemenu') --}}
-                    {{-- <div class="col-lg-2 col-md-3 d-none d-md-block">
-                            <div class="profile-edit-panel">
-                                <button class="edit-btn">edit profile</button>
-                            </div>
-                        </div> --}}
                 </div>
             </div>
         </div>
@@ -41,34 +33,31 @@
                             <!-- widget single item start -->
                             <div class="organisasi__foto">
                                 <figure class="profile-picture">
+
+                                 
                                     <a href="#">
-                                        <img src="https://media-exp3.licdn.com/dms/image/C510BAQHzyDspmy9zYQ/company-logo_200_200/0/1579617593341?e=2159024400&v=beta&t=JxR_8Y7zhu4MQh5c2iUqn_atI61woD5dCetYYgataQg"
+                                        <img src="{{ asset('uploads/logo/'.$data[0]->group->logo_url) }}"
                                             alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
                             <div class="card widget-item">
                                 <h4 class="widget-title">
-                                    KBMTI
-                                    <br>
-                                    ( Keluarga Besar Mahasiswa Teknologi Informasi )
+                                    {{$data[0]->group->nama}}
                                 </h4>
 
                                 {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>Akun Resmi Organisasi Himpunan Teknologi Informasi Universitas Brawijaya</p>
+                                        <p>{{$data[0]->group->deskripsi}}</p>
                                         <ul class="author-into-list">
-                                            <li><a href="#"><i class="bi bi-home"></i>Universitas Brawijaya</a></li>
+                                            <li><i class="bi bi-home"></i><span style="margin-left: 10px; font-weight: 500; font-size: 15px">{{$data[0]->group->universitas->nama}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <button class="btn mt-3"> Gabung </button>
-                                {{-- <button class="like-button icon__follow">
-                                    <img class="heart" src="{{ url('user/assets/images/icons/heart.png') }}" alt="">
-                                    <img class="heart-color" src="{{url('user/assets/images/icons/heart-color.png')}}" alt="">
-                                </button> --}}
+                                
                             </div>
                         </div>
                         <!-- widget single item end -->
@@ -86,7 +75,7 @@
                                             <div class="profile-thumb">
                                                 <a href="#">
                                                     <figure class="profile-thumb-small">
-                                                        <img src="{{ url('user/assets/images/profile/profile-small-33.jpg') }}"
+                                                        <img src="{{ asset('user/assets/images/profile/profile-small-33.jpg') }}"
                                                             alt="profile picture">
                                                     </figure>
                                                 </a>
@@ -108,171 +97,200 @@
                 </div>
 
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <!-- share box start -->
-                    {{-- <div class="card card-small">
-                            <div class="share-box-inner"> --}}
-                    <!-- profile picture end -->
-                    {{-- <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="{{url('user/assets/images/profile/profile-small-37.jpg')}}" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div> --}}
-                    <!-- profile picture end -->
-
-                    <!-- share content box start -->
-                    {{-- <div class="share-content-box w-100">
-                                    <form class="share-text-box">
-                                        <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Say Something" data-toggle="modal" data-target="#textbox" id="email"></textarea>
-                                        <button class="btn-share" type="submit">share</button>
-                                    </form>
-                                </div> --}}
-                    <!-- share content box end -->
-                    <!-- Modal start -->
-                    {{-- <div class="modal fade" id="textbox" aria-labelledby="textbox">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Share Your Mood</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body custom-scroll">
-                                                <textarea name="share" class="share-field-big custom-scroll" placeholder="Say Something"></textarea>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="post-share-btn" data-dismiss="modal">cancel</button>
-                                                <button type="button" class="post-share-btn">post</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                    <!-- Modal end -->
-                    {{-- </div>
-                        </div> --}}
-                    <!-- share box end -->
-
                     <!-- post status start -->
                     <input type="hidden" id="hiddencontainer" name="hiddencontainer" />
 
-                    <?php $statusClick = false; ?>
-                    @if ($statusClick == true)
-                        <?php $limit = 3; ?>
+                    @foreach ($data as $itemPost)
 
-                    @else
-                        <?php $limit = 1; ?>
-                    @endif
-                    @for ($i = 0; $i < $limit; $i++)
-                        <div class="card">
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author">
-                                        <a href="{{ route('profile') }}">Merry Watson</a>
-                                    </h6>
-                                    <span class="post-time">20 min ago</span>
-                                </div>
-                                <div class="post-settings-bar">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <div class="post-settings arrow-shape">
-                                        <ul>
-                                            <li><button>edit post</button></li>
-                                            <li><button>hapus post</button></li>
-                                            <li>
-                                                <button type="button" data-toggle="modal"
-                                                    data-target="#exampleModalLong">
-                                                    Laporkan
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                    <div class="card">
+                        <div class="post-title d-flex align-items-center">
+                            <!-- profile picture end -->
+                            <div class="profile-thumb">
+                                <a href="#">
+                                    <figure class="profile-thumb-middle">
+                                        <img src={{ asset('user/assets/images/profile/profile-small-1.jpg') }}
+                                            alt="profile picture">
+                                    </figure>
+                                </a>
                             </div>
+                            <!-- profile picture end -->
 
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <h5 style="margin-bottom: 10px">Judul Postingan</h5>
-                                <p class="post-desc">
-                                    Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                                    their
-                                    default model text, and a search for 'lorem ipsum' will uncover many web sites
-                                    still
-                                    in their infancy.
-                                </p>
-                                <div class="post-thumb-gallery img-gallery">
-                                    <div class="row no-gutters">
-                                        <div class="col-8">
-                                            <figure class="post-thumb">
-                                                <a class="gallery-selector"
-                                                    href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
-                                                    <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
-                                                        alt="post image">
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <ul class="comment-share-meta">
+                            <div class="posted-author">
+                                <h1 class="author">
+                                    <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
+                                    
+                                    {{ $itemPost->status == '1' ? '▶ 🔒' : '' }}
+                                    {{-- 🔒🔓 --}}
+                                </h1>
+                                <span class="post-time">
+                                  
+                                    {{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}
+                                </span>
+                            </div>
+                            <div class="post-settings-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <div class="post-settings arrow-shape">
+                                    <ul>
+                                        <li><button type="button" data-toggle="modal"
+                                                data-target="#ModalEditPost">
+                                                Edit Post
+                                            </button></li>
+                                        
                                         <li>
-                                            <button class="post-comment" data-toggle="modal"
-                                                data-target="#ModalComment">
-                                                <i class="bi bi-chat-bubble"></i>
-                                                <span>41</span>
+                                            <button type="button" data-toggle="modal"
+                                                data-target="#exampleModalLong">
+                                                Laporkan
                                             </button>
-
                                         </li>
-                                        <!-- Button trigger modal -->
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- post title start -->
+                        <div class="post-content">
+                            <h5 style="margin-bottom: 10px">{{ $itemPost->judul }}</h5>
+                            <p class="post-desc">
+                                {{ $itemPost->konten }}
+                            </p>
+                            <div class="post-thumb-gallery">
+                                <figure class="post-thumb img-popup">
+                                    <a href="{{ asset('user/assets/images/post/post-large-2.jpg') }}">
+                                        <img src="{{ asset('user/assets/images/post/post-large-2.jpg') }}" alt="post image">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="post-meta">
+                                <ul class="comment-share-meta">
+                                    <li>
+                                        <button class="post-comment" data-toggle="modal"
+                                            data-target="#ModalComment">
+                                            <i class="bi bi-chat-bubble"></i>
+                                            <span>41</span>
+                                        </button>
+                                    </li>
+                                    <!-- Button trigger modal -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    
+
+
+                        
+                    @endforeach
+
+
+                    {{-- <div class="card">
+                        <div class="post-title d-flex align-items-center">
+                            <!-- profile picture end -->
+                            <div class="profile-thumb">
+                                <a href="#">
+                                    <figure class="profile-thumb-middle">
+                                        <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
+                                            alt="profile picture">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- profile picture end -->
+
+                            <div class="posted-author">
+                                <h6 class="author">
+                                    <a href="{{ route('profile') }}">{{$item->user->name}}</a>
+                                </h6>
+                                <span class="post-time">20 min ago</span>
+                            </div>
+                            <div class="post-settings-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <div class="post-settings arrow-shape">
+                                    <ul>
+                                        <li><button>edit post</button></li>
+                                        <li><button>hapus post</button></li>
+                                        <li>
+                                            <button type="button" data-toggle="modal"
+                                                data-target="#exampleModalLong">
+                                                Laporkan
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- post title start -->
+                        <div class="post-content">
+                            <h5 style="margin-bottom: 10px">{{$item->judul}}</h5>
+                            <p class="post-desc">
+                                {{$item->konten}}
+                            </p>
+                            <div class="post-thumb-gallery img-gallery">
+                                <div class="row no-gutters">
+                                    <div class="col-8">
+                                        <figure class="post-thumb">
+                                            <a class="gallery-selector"
+                                                href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
+                                                <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
+                                                    alt="post image">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
+                                                        <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-12">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
+                                                        <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-12">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
+                                                        <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="post-meta">
+                                <ul class="comment-share-meta">
+                                    <li>
+                                        <button class="post-comment" data-toggle="modal"
+                                            data-target="#ModalComment">
+                                            <i class="bi bi-chat-bubble"></i>
+                                            <span>41</span>
+                                        </button>
+                                    </li>
+                                    <!-- Button trigger modal -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div> --}}
+                    {{-- @for ($i = 0; $i < 3; $i++)
+                        
                         <div class="card">
                             <!-- post title start -->
                             <div class="post-title d-flex align-items-center">
@@ -340,7 +358,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endfor --}}
 
                     <div class="dropdown">
                         <h6><span>
@@ -887,30 +905,8 @@
     <!-- JS
 ============================================ -->
 
-    <!-- Modernizer JS -->
-    <script src="{{ url('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
-    <!-- jQuery JS -->
-    <script src="{{ url('assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
-    <!-- Popper JS -->
-    <script src="{{ url('assets/js/vendor/popper.min.js') }}"></script>
-    <!-- Bootstrap JS -->
-    <script src="{{ url('assets/js/vendor/bootstrap.min.js') }}"></script>
-    <!-- Slick Slider JS -->
-    <script src="{{ url('assets/js/plugins/slick.min.js') }}"></script>
-    <!-- nice select JS -->
-    <script src="{{ url('assets/js/plugins/nice-select.min.js') }}"></script>
-    <!-- audio video player JS -->
-    <script src="{{ url('assets/js/plugins/plyr.min.js') }}"></script>
-    <!-- perfect scrollbar js -->
-    <script src="{{ url('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <!-- light gallery js -->
-    <script src="{{ url('assets/js/plugins/lightgallery-all.min.js') }}"></script>
-    <!-- image loaded js -->
-    <script src="{{ url('assets/js/plugins/imagesloaded.pkgd.min.js') }}"></script>
-    <!-- isotope filter js -->
-    <script src="{{ url('assets/js/plugins/isotope.pkgd.min.js') }}"></script>
-    <!-- Main JS -->
-    <script src="{{ url('assets/js/main.js') }}"> </script>
+    @include('user.views.include.modjs')
+
     <script>
         $('#myModal').on('shown.bs.modal', function() {
             $('#myInput').trigger('focus')
