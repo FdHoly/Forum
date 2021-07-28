@@ -295,9 +295,6 @@
                                             {{-- 🔒🔓 --}}
                                         </h1>
                                         <span class="post-time">
-                                            {{-- {{ $item->waktu - ($current_timestamp = Carbon::now()->timestamp) }} --}}
-                                            {{-- {{ $item->posttime() }} --}}
-                                            {{-- 20 min ago --}}
                                             {{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}
                                         </span>
                                     </div>
@@ -342,7 +339,7 @@
                                                 <button class="post-comment" data-toggle="modal"
                                                     data-target="#ModalComment">
                                                     <i class="bi bi-chat-bubble"></i>
-                                                    <span>41</span>
+                                                    <span>{{ $itemPost->replyutas->count() }}</span>
                                                 </button>
 
                                             </li>
@@ -652,7 +649,7 @@
 
                                             <!-- profile picture end -->
                                             <h6 class="author"><a
-                                                    href="profile.html">{{ $itemReply->user->name }}</a></h6>
+                                                    href="profile.html">{{ $itemReply->user->count() }}</a></h6>
                                             <span
                                                 class="post-time">{{ Carbon\Carbon::parse($itemReply->waktu)->diffForHumans() }}</span>
                                         </div>
@@ -834,7 +831,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
