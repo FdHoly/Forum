@@ -15,7 +15,7 @@ class ReplyUtas extends Model
 
     public function utas()
     {
-        return $this->belongsTo(Utas::class, 'id_replys', 'id_replys');
+        return $this->belongsTo(Utas::class, 'id_utas', 'id_utas');
     }
     public function user()
     {
