@@ -268,9 +268,6 @@
                                 <a href="/filter=universitas">Universitas</a>
                             </div>
                         </div>
-                        <!-- post status start -->
-                        <!-- post title start -->
-                        {{-- @for ($i = 0; $i < 8; $i++) --}}
                         @foreach ($Data1 as $itemPost)
                             <div class="card">
                                 <div class="post-title d-flex align-items-center">
@@ -289,9 +286,9 @@
                                         <h1 class="author">
                                             <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                                             ▶
-                                            <a href="organisasi/kbmti">{{ $itemPost->group->nama }}</a>
+                                            <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
 
-                                            {{ $itemPost->status == '1' ? '▶🔒' : '' }}
+                                            {{ $itemPost->status == '1' ? '▶ 🔒' : '' }}
                                             {{-- 🔒🔓 --}}
                                         </h1>
                                         <span class="post-time">
@@ -837,9 +834,6 @@
         }
 
 
-        $('#myModal').on('shown.bs.modal', function() {
-            $('#myInput').trigger('focus')
-        })
 
 
         function filterFunction() {
@@ -858,9 +852,6 @@
             }
         }
 
-        $('#myModal').on('shown.bs.modal', function() {
-            $('#myInput').trigger('focus')
-        })
     </script>
 
 </body>

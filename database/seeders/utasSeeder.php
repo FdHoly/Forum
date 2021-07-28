@@ -24,7 +24,7 @@ class utasSeeder extends Seeder
                 'status' => '1',
                 'image_url' => 'ini logo url',
                 'id_users' => '1',
-                'id_groups' => '3',
+                'id_groups' => '4',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -34,8 +34,8 @@ class utasSeeder extends Seeder
                 'waktu' => '2021-7-17 20:59:59',
                 'status' => '1',
                 'image_url' => 'ini logo url',
-                'id_users' => '2',
-                'id_groups' => '3',
+                'id_users' => '1',
+                'id_groups' => '4',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -45,8 +45,8 @@ class utasSeeder extends Seeder
                 'waktu' => '2011-12-31 20:59:59',
                 'status' => '2',
                 'image_url' => 'ini logo url',
-                'id_users' => '3',
-                'id_groups' => '3',
+                'id_users' => '1',
+                'id_groups' => '4',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

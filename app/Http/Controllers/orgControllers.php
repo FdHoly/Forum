@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Groups;
 use App\Models\Universitas;
+use App\Models\Utas;
 use Illuminate\Http\Request;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class orgControllers extends Controller
 {
@@ -41,9 +43,16 @@ class orgControllers extends Controller
         $file->move('uploads/logo', $filename);
 
         $org->logo_url = $filename;
-
         $org->save();
         return redirect()->route('listorg');
+    }
 
+    public function detailOrg($id)
+    {
+        $data = Utas::with('user','group')->where('id_groups',$id)->get();
+
+
+        // return $data;
+        return view('user.views.proforganisasi', compact('data'));
     }
 }

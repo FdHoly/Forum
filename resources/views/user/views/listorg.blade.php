@@ -106,14 +106,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-<<<<<<< HEAD
-=======
-                                        {{-- @foreach ($collection as $item) --}}
-                                        @for ($i = 0; $i < 9; $i++)
-
-                                        @endfor
-                                        {{-- @endforeach --}}
->>>>>>> a9b5ac40584487b340433b8b4d5ba93bb6850ae8
                                     </div>
                                 </div>
                             </div>
