@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Groups;
+use App\Models\ReplyUtas;
 use App\Models\Universitas;
+use App\Models\User;
 use App\Models\Utas;
 use Illuminate\Http\Request;
 use PHPUnit\TextUI\XmlConfiguration\Group;
@@ -20,7 +22,6 @@ class orgControllers extends Controller
     {
         $data = Groups::all();
         return view('user.views.listorg', compact('data'));
-
     }
 
     public function viewCreate()
@@ -49,10 +50,10 @@ class orgControllers extends Controller
 
     public function detailOrg($id)
     {
-        $data = Utas::with('user','group')->where('id_groups',$id)->get();
-
+        
+        $data = Utas::with('user','replyutas.user','group')->where('id_groups', $id)->get(); // Ini GET Data berisi Utas per Group with Reply nya.
+        return view('user.views.proforganisasi', compact('data'));
 
         // return $data;
-        return view('user.views.proforganisasi', compact('data'));
     }
 }

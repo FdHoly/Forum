@@ -11,6 +11,8 @@ class Utas extends Model
 
     protected $guarded = [];
 
+    protected $primaryKey = 'id_utas';
+
     public function report()
     {
         return $this->hasMany(Report::class, 'id_utas', 'id_utas');
@@ -25,6 +27,6 @@ class Utas extends Model
     }
     public function replyutas()
     {
-        return $this->hasMany(ReplyUtas::class);
+        return $this->hasMany(ReplyUtas::class, 'id_utas','id_utas');
     }
 }

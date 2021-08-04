@@ -52,6 +52,7 @@ Route::get('/laporan', function () {
 
 
 Route::get('/organisasi/{id}', $baseController . "\orgControllers@detailOrg");
+Route::get('/organisasi/{id}', $baseController . "\orgControllers@detailOrg");
 
 
 Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("listorg");

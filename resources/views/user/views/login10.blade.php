@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href= {{url("login/css/fontawesome-all.min.css")}}>
     <link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-style.css")}}>
     <link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-theme10.css")}}>
+    <link rel="stylesheet" type="text/css" href={{asset("user/css/loginpage.css")}}>
 <body>
     <div class="form-body">
         <div class="row">
