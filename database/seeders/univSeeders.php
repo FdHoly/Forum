@@ -13,20 +13,20 @@ class univSeeders extends Seeder
      *
      * @return void
      */
+
+
+
+     
     public function run()
     {
         $univ = [
             [
                 'nama' => 'Universitas Brawijaya',
-                'deskripsi' => 'Universitas Brawijaya',
-                'logo_url' => 'ini logo url',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'nama' => 'Universitas Brawijaya',
-                'deskripsi' => 'Universitas Brawijaya',
-                'logo_url' => 'ini logo url',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

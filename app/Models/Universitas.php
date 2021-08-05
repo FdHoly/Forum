@@ -14,8 +14,6 @@ class Universitas extends Model
     protected $table = 'universitas';
 
     protected $fillable = [
-        'nama',
-        'deskripsi',
-        'logo_url',
+        'nama'
     ];
 }

@@ -16,10 +16,7 @@ class CreateReplysTable extends Migration
         Schema::create('replys', function (Blueprint $table) {
             $table->id('id_replys');
             $table->timestamps();
-            $table->dateTime('waktu');
             $table->text('konten');
-            $table->text('image_url');
-
 
             // Ini buat Foreign Key
             $table->bigInteger('id_users')->unsigned();
