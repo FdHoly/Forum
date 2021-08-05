@@ -27,6 +27,8 @@ class Utas extends Model
     }
     public function replyutas()
     {
+
         return $this->hasMany(ReplyUtas::class, 'id_utas','id_utas');
+
     }
 }

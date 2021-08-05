@@ -8,7 +8,6 @@ use App\Models\Universitas;
 use App\Models\User;
 use App\Models\Utas;
 use Illuminate\Http\Request;
-use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class orgControllers extends Controller
 {
@@ -44,6 +43,7 @@ class orgControllers extends Controller
         $file->move('uploads/logo', $filename);
 
         $org->logo_url = $filename;
+
         $org->save();
         return redirect()->route('listorg');
     }
@@ -55,5 +55,6 @@ class orgControllers extends Controller
         return view('user.views.proforganisasi', compact('data'));
 
         // return $data;
+
     }
 }

@@ -14,7 +14,9 @@ $baseController =  "App\Http\Controllers";
 |
 */
 
-
+Route::get('/', function () {
+    return view('user.views.index');
+})->name("index");
 Route::get('/', $baseController . "\postController@listpost")->name("index");
 // Route::get('/', $baseController . "\postController@listPengumuman")->name("index");
 
@@ -42,6 +44,9 @@ Route::get('/pengumuman', function () {
     return view('user.views.pengumuman');
 })->name("pengumuman");
 
+Route::get('/organisasi/kbmti', function () {
+    return view('user.views.proforganisasi');
+});
 Route::get('/editprofile', function () {
     return view('user.views.editprofile');
 })->name("editprofile");
@@ -53,7 +58,6 @@ Route::get('/laporan', function () {
 
 Route::get('/organisasi/{id}', $baseController . "\orgControllers@detailOrg");
 Route::get('/organisasi/{id}', $baseController . "\orgControllers@detailOrg");
-
 
 Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("listorg");
 

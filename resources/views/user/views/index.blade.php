@@ -47,94 +47,30 @@
                                 <h4 class="widget-title">group you may like</h4>
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Travel The World</a></h3>
-                                                <p class="list-subtitle"><a href="#">adventure</a></p>
-                                            </div>
-                                            <button class="like-button active">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        @foreach ($Data6 as $itemGroup)
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Foodcort Nirala</a></h3>
-                                                <p class="list-subtitle"><a href="#">food</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                                <p class="list-subtitle"><a href="#">drama</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">{{ $itemGroup->nama }}</a></h3>
+                                                    <p class="list-subtitle"><a
+                                                            href="#">{{ $itemGroup->universitas->nama }}</a></p>
+                                                </div>
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                                <p class="list-subtitle"><a href="#">fitness</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
+                                            </li>
+                                        @endforeach
+
                                     </ul>
                                 </div>
                             </div>
@@ -332,6 +268,9 @@
                                 <a href="/filter=universitas">Universitas</a>
                             </div>
                         </div>
+                        <!-- post status start -->
+                        <!-- post title start -->
+                        {{-- @for ($i = 0; $i < 8; $i++) --}}
                         @foreach ($Data1 as $itemPost)
                             <div class="card">
                                 <div class="post-title d-flex align-items-center">
@@ -350,13 +289,12 @@
                                         <h1 class="author">
                                             <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                                             ▶
-                                            <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
+                                            <a href="organisasi/kbmti">{{ $itemPost->group->nama }}</a>
 
-                                            {{ $itemPost->status == '1' ? '▶ 🔒' : '' }}
+                                            {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                                             {{-- 🔒🔓 --}}
                                         </h1>
                                         <span class="post-time">
-                                          
                                             {{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}
                                         </span>
                                     </div>
@@ -401,7 +339,7 @@
                                                 <button class="post-comment" data-toggle="modal"
                                                     data-target="#ModalComment">
                                                     <i class="bi bi-chat-bubble"></i>
-                                                    <span>41</span>
+                                                    <span>{{ $itemPost->replyutas->count() }}</span>
                                                 </button>
 
                                             </li>
@@ -423,8 +361,9 @@
                                     <div id="chatScroll" class="nano has-scrollbar"
                                         style="height:300px; overflow-y: scroll;">
                                         <ul class="like-page-list-wrapper">
-                                            @foreach ($Data2 as $itemPengumuman)
+                                            {{-- @for ($i = 0; $i < 2; $i++) --}}
 
+                                            @foreach ($Data2 as $itemPengumuman)
                                                 <li class="unorder-list">
                                                     <!-- profile picture end -->
                                                     <div class="profile-thumb">
@@ -450,6 +389,7 @@
                                                     </div>
                                                 </li>
                                             @endforeach
+                                            {{-- @endfor --}}
 
                                         </ul>
                                     </div>
@@ -704,21 +644,22 @@
                                         </a>
                                     </div>
                                     <!-- profile picture end -->
-                                    <div class="posted-author">
+                                    @foreach ($Data5 as $itemReply)
+                                        <div class="posted-author">
 
-                                        <!-- profile picture end -->
-                                        <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
-                                        <span class="post-time">15 min ago</span>
-                                    </div>
+                                            <!-- profile picture end -->
+                                            <h6 class="author"><a
+                                                    href="profile.html">{{ $itemReply->user->count() }}</a></h6>
+                                            <span
+                                                class="post-time">{{ Carbon\Carbon::parse($itemReply->waktu)->diffForHumans() }}</span>
+                                        </div>
 
 
                                 </div>
                                 <!-- post title start -->
                                 <div class="post-content">
                                     <p class="post-desc pb-0">
-                                        Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                                        their
-                                        default model text, and a search for
+                                        {{ $itemReply->konten }}
                                     </p>
 
                                 </div>
@@ -732,171 +673,144 @@
                                             </figure>
                                         </a>
                                     </div>
-                                    <!-- profile picture end -->
-                                    <div class="posted-author">
+                                    @endforeach
 
-                                        <!-- profile picture end -->
-                                        <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
+
+                                    <!-- profile picture end -->
+
+                                    <!-- share content box start -->
+                                    <div class="share-content-box w-100">
+                                        <form class="share-text-box">
+                                            <textarea name="share" class="share-text-field" aria-disabled="true"
+                                                placeholder="Say Something" data-toggle="modal" id="email"></textarea>
+                                            <button class="btn-share" type="submit">share</button>
+                                        </form>
+                                    </div>
+                                    <!-- share content box end -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            {{-- Modal Pengumuman --}}
+            <div class="modal fade" id="ModalPengumuman" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Judul Pengumuman</a></h6>
                                         <span class="post-time">15 min ago</span>
                                     </div>
-
 
                                 </div>
                                 <!-- post title start -->
                                 <div class="post-content">
                                     <p class="post-desc pb-0">
-                                        Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                                        their
-                                        default model text, and a search for
+                                        Ini nanti berisi mengenai informasi apa yang terdapat dari sebuah pengumuman
+                                        yang
+                                        ada di home
                                     </p>
 
                                 </div>
                             </div>
-
-                            <div class="share-box-inner">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-37.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <!-- share content box start -->
-                                <div class="share-content-box w-100">
-                                    <form class="share-text-box">
-                                        <textarea name="share" class="share-text-field" aria-disabled="true"
-                                            placeholder="Say Something" data-toggle="modal" id="email"></textarea>
-                                        <button class="btn-share" type="submit">share</button>
-                                    </form>
-                                </div>
-                                <!-- share content box end -->
-                            </div>
                         </div>
-                    </div>
 
-
-                </div>
-            </div>
-        </div>
-
-        {{-- Modal Pengumuman --}}
-        <div class="modal fade" id="ModalPengumuman" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card">
-                            <!-- post title start -->
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">Judul Pengumuman</a></h6>
-                                    <span class="post-time">15 min ago</span>
-                                </div>
-
-                            </div>
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <p class="post-desc pb-0">
-                                    Ini nanti berisi mengenai informasi apa yang terdapat dari sebuah pengumuman yang
-                                    ada di home
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-
-        {{-- Modal Pengumuman --}}
-
-        {{-- Modal Edit Post --}}
-        <div class="modal fade" id="ModalEditPost" tabindex="-1" role="dialog" aria-labelledby="ModalEditPost"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card">
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-1.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author">
-                                        <a href="{{ route('profile') }}">Merry Watson</a>
-                                    </h6>
-                                    <span class="post-time">20 min ago</span>
-                                </div>
-                            </div>
-
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
-                                    data-toggle="modal"
-                                    id="email">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</textarea>
-                                <div class="post-thumb-gallery">
-                                    <img src="user/assets/images/post/post-1.jpg" alt="post image">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
-                                <button type="button" class="post-share-btn">Simpan</button>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
             </div>
 
-            {{-- Modal Alert Report --}}
-            <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+            {{-- Modal Pengumuman --}}
+
+            {{-- Modal Edit Post --}}
+            <div class="modal fade" id="ModalEditPost" tabindex="-1" role="dialog" aria-labelledby="ModalEditPost"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Status</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
                         <div class="modal-body">
-                            Laporan berhasil dikirim
-                            <br>
-                            <span>Alasan : <p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal">Tutup</button>
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author">
+                                            <a href="{{ route('profile') }}">Merry Watson</a>
+                                        </h6>
+                                        <span class="post-time">20 min ago</span>
+                                    </div>
+                                </div>
+
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
+                                        data-toggle="modal"
+                                        id="email">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</textarea>
+                                    <div class="post-thumb-gallery">
+                                        <img src="user/assets/images/post/post-1.jpg" alt="post image">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                    <button type="button" class="post-share-btn">Simpan</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- Modal Ends --}}
+
+                {{-- Modal Alert Report --}}
+                <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Status</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Laporan berhasil dikirim
+                                <br>
+                                <span>Alasan : <p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Ends --}}
 
     </main>
 
@@ -917,12 +831,15 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
 
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
 
 
         function filterFunction() {
@@ -941,6 +858,9 @@
             }
         }
 
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
     </script>
 
 </body>
