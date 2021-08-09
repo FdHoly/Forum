@@ -75,7 +75,7 @@
                                                     <div class="organisasi__foto">
                                                         <figure class="profile-picture">
                                                             <a href="#">
-                                                                <img src="uploads/logo/{{$item->logo_url}}"
+                                                                <img src="uploads/logo/{{ $item->logo_url }}"
                                                                     alt="profile picture">
                                                             </a>
                                                         </figure>
@@ -106,14 +106,13 @@
                                                 </div>
                                             </div>
                                         @endforeach
-<<<<<<< HEAD
-=======
+
                                         {{-- @foreach ($collection as $item) --}}
                                         @for ($i = 0; $i < 9; $i++)
 
                                         @endfor
                                         {{-- @endforeach --}}
->>>>>>> a9b5ac40584487b340433b8b4d5ba93bb6850ae8
+
                                     </div>
                                 </div>
                             </div>
@@ -481,11 +480,14 @@
 
     <script>
         /* When the user clicks on the button,
-<<<<<<< HEAD
-                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
-=======
-                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
->>>>>>> a9b5ac40584487b340433b8b4d5ba93bb6850ae8
+            <<<<<<< HEAD
+                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+        ===
+        ===
+        =
+        toggle between hiding and showing the dropdown content * / >>> >>> >
+            a9b5ac40584487b340433b8b4d5ba93bb6850ae8
+
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
