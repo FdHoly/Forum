@@ -46,7 +46,6 @@
 
                                     <a href="#">
                                         <img src="{{ asset('uploads/logo/' . $data[0]->group->logo_url) }}"
-
                                             alt="profile picture">
                                     </a>
                                 </figure>
@@ -832,7 +831,7 @@
 
                                                 <!-- profile picture end -->
                                                 <h6 class="author"><a
-                                                        href="profile.html">{{$komen->user->name}}</a>
+                                                        href="profile.html">{{ $komen->user->name }}</a>
                                                 </h6>
                                                 <span class="post-time">15 min ago</span>
                                             </div>
@@ -840,12 +839,12 @@
                                         <!-- post title start -->
                                         <div class="post-content">
                                             <p class="post-desc pb-0">
-                                                {{$komen->konten}}
+                                                {{ $komen->konten }}
                                             </p>
 
                                         </div>
                                         <br>
-                                        
+
                                     @endforeach
                                 </div>
 

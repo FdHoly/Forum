@@ -50,9 +50,10 @@ class orgControllers extends Controller
 
     public function detailOrg($id)
     {
-        
-        $data = Utas::with('user','replyutas.user','group')->where('id_groups', $id)->get(); // Ini GET Data berisi Utas per Group with Reply nya.
-        return view('user.views.proforganisasi', compact('data'));
 
+        $data = Utas::with('user', 'replyutas.user', 'group')->where('id_groups', $id)->get(); // Ini GET Data berisi Utas per Group with Reply nya.
+        // return $data;
+        return $data;
+        // return view('user.views.proforganisasi', compact('data'));
     }
 }

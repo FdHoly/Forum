@@ -20,7 +20,9 @@ $baseController =  "App\Http\Controllers";
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [postController::class, "listpost"])->name("index");
+// Route::get('/{id}', [postController::class, "reply"])->name("index");
 
 Route::get('/profile', function () {
     return view('user.views.profile');
