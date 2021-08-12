@@ -289,7 +289,7 @@
                                         <h1 class="author">
                                             <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                                             ▶
-                                            <a href="organisasi/kbmti">{{ $itemPost->group->nama }}</a>
+                                            <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
 
                                             {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                                             {{-- 🔒🔓 --}}

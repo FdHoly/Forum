@@ -35,15 +35,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 order-2 order-lg-1">
-
                     <aside class="widget-area">
                         <div class="mb-4">
                             <!-- widget single item start -->
                             <div class="organisasi__foto">
                                 <figure class="profile-picture">
-
-
-
                                     <a href="#">
                                         <img src="{{ asset('uploads/logo/' . $data[0]->group->logo_url) }}"
                                             alt="profile picture">
@@ -183,7 +179,7 @@
                                             <button class="post-comment" data-toggle="modal"
                                                 data-target="#ModalComment{{ $itemPost->id_utas }}">
                                                 <i class="bi bi-chat-bubble"></i>
-                                                <span>41</span>
+                                                <span>{{ $itemPost->replyutas->count() }}</span>
                                             </button>
                                         </li>
                                     </ul>
@@ -813,8 +809,6 @@
                                 <h6>Komentar</h6>
                                 <br>
 
-
-
                                 <div class="card">
                                     @foreach ($itemPost1->replyutas as $komen)
                                         <div class="post-title d-flex align-items-center">
@@ -833,7 +827,7 @@
                                                 <h6 class="author"><a
                                                         href="profile.html">{{ $komen->user->name }}</a>
                                                 </h6>
-                                                <span class="post-time">15 min ago</span>
+                                                <span class="post-time">{{$komen->user->created_at->diffForHumans()}}</span>
                                             </div>
                                         </div>
                                         <!-- post title start -->
@@ -841,7 +835,6 @@
                                             <p class="post-desc pb-0">
                                                 {{ $komen->konten }}
                                             </p>
-
                                         </div>
                                         <br>
 
@@ -862,9 +855,19 @@
 
                                     <!-- share content box start -->
                                     <div class="share-content-box w-100">
-                                        <form class="share-text-box" action="" method="POST">
-                                            <textarea name="share" class="share-text-field" aria-disabled="true"
-                                                placeholder="Say Something" data-toggle="modal" id="email"></textarea>
+                                        <form class="share-text-box" action="{{route('replyPost')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id_users" 
+                                            {{-- Ini buat id user nanti --}}
+                                            value="2" 
+                                            {{-- Ini buat id user nanti --}}
+                                            >
+
+                                            <input type="hidden" name="id_utas"
+                                            value="{{$itemPost1->id_utas}}"
+                                            >
+                                            <textarea name="konten" class="share-text-field" aria-disabled="true"
+                                                placeholder="Say Something" data-toggle="modal"></textarea>
                                             <button class="btn-share" type="submit">share</button>
                                         </form>
                                     </div>
