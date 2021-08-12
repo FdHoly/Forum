@@ -23,14 +23,16 @@ class postController extends Controller
         $data4 = Rapat::all();
         $data5 = ReplyUtas::all();
         $data6 = Groups::all();
+        $dataR = Utas::with(["ReplyUtas"])->get();
         return view('user.views.index', [
             "Data1" => $data1,
             "Data2" => $data2,
             "Data3" => $data3,
             "Data4" => $data4,
-            "Data5" => $data5,
+            "Data5" => $dataR,
             "Data6" => $data6
         ]);
+        // return $dataR;
     }
 
     public function replyPost(Request $request)
