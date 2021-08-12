@@ -305,7 +305,7 @@
                                         <div class="post-settings arrow-shape">
                                             <ul>
                                                 <li><button type="button" data-toggle="modal"
-                                                        data-target="#ModalEditPost">
+                                                        data-target="#ModalEditPost{{ $itemPost->id_utas }}">
                                                         Edit Post
                                                     </button></li>
                                                 <li><button>hapus post</button></li>
@@ -474,23 +474,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- widget single item end -->
-
-                            <!-- widget single item start -->
-                            {{-- <div class="card widget-item">
-                                <h4 class="widget-title">Advertizement</h4>
-                                <div class="widget-body">
-                                    <div class="add-thumb">
-                                        <a href="#">
-                                            <img src="user/assets/images/banner/advertise.jpg" alt="advertisement">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <!-- widget single item end -->
-
-                            <!-- widget single item start -->
-
                         </aside>
                     </div>
                 </div>
@@ -816,7 +799,8 @@
                                                 <h6 class="author"><a
                                                         href="profile.html">{{ $komen->user->name }}</a>
                                                 </h6>
-                                                <span class="post-time">15 min ago</span>
+                                                <span
+                                                    class="post-time">{{ Carbon\Carbon::parse($komen->waktu)->diffForHumans() }}</span>
                                             </div>
                                         </div>
                                         <!-- post title start -->
@@ -911,74 +895,78 @@
         {{-- Modal Pengumuman --}}
 
         {{-- Modal Edit Post --}}
-        <div class="modal fade" id="ModalEditPost" tabindex="-1" role="dialog" aria-labelledby="ModalEditPost"
+        @foreach ($Data1 as $itemPost)
+
+            <div class="modal fade" id="ModalEditPost{{ $itemPost->id_utas }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalEditPost" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author">
+                                            <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
+                                        </h6>
+                                        <span
+                                            class="post-time">{{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}</span>
+                                    </div>
+                                </div>
+
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
+                                        data-toggle="modal" id="email">{{ $itemPost->konten }}</textarea>
+                                    <div class="post-thumb-gallery">
+                                        <img src="user/assets/images/post/post-1.jpg" alt="post image">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                    <button type="button" class="post-share-btn">Simpan</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        @endforeach
+
+
+        {{-- Modal Alert Report --}}
+        <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="modal-body">
-                        <div class="card">
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-1.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author">
-                                        <a href="{{ route('profile') }}">Merry Watson</a>
-                                    </h6>
-                                    <span class="post-time">20 min ago</span>
-                                </div>
-                            </div>
-
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
-                                    data-toggle="modal"
-                                    id="email">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</textarea>
-                                <div class="post-thumb-gallery">
-                                    <img src="user/assets/images/post/post-1.jpg" alt="post image">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
-                                <button type="button" class="post-share-btn">Simpan</button>
-                            </div>
-                        </div>
-
+                        Laporan berhasil dikirim
+                        <br>
+                        <span>Alasan : <p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>
-
-            {{-- Modal Alert Report --}}
-            <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Status</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Laporan berhasil dikirim
-                            <br>
-                            <span>Alasan : <p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal">Tutup</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- Modal Ends --}}
+        </div>
+        {{-- Modal Ends --}}
 
     </main>
 
@@ -999,7 +987,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
