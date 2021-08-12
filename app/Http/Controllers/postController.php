@@ -32,4 +32,17 @@ class postController extends Controller
             "Data6" => $data6
         ]);
     }
+
+    public function replyPost(Request $request)
+    {
+        $post = new ReplyUtas();
+
+        $post->konten = $request->input('konten');
+        $post->id_utas = $request->input('id_utas');
+        $post->id_users = $request->input('id_users');
+
+        $post->save();
+        return redirect()->back();
+        // return $request;
+    }
 }

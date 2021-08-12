@@ -60,6 +60,9 @@ Route::get('/laporan', function () {
 Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
 Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
 
+Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost");
+
+
 Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
 Route::get('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 
