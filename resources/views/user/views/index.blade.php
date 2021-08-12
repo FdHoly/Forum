@@ -289,7 +289,7 @@
                                         <h1 class="author">
                                             <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                                             ▶
-                                            <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
+                                            <a href="organisasi/kbmti">{{ $itemPost->group->nama }}</a>
 
                                             {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                                             {{-- 🔒🔓 --}}
@@ -547,9 +547,6 @@
             </div>
         </div>
 
-        <!-- Modal Comment-->
-        {{-- <div class="modal fade" id="ModalComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true"> --}}
         {{-- Big Changes --}}
         @foreach ($Data5 as $itemPost1)
             <!-- Modal Comment-->
@@ -895,9 +892,9 @@
         {{-- Modal Pengumuman --}}
 
         {{-- Modal Edit Post --}}
-        @foreach ($Data1 as $itemPost)
+        @foreach ($Data1 as $modalPost)
 
-            <div class="modal fade" id="ModalEditPost{{ $itemPost->id_utas }}" tabindex="-1" role="dialog"
+            <div class="modal fade" id="ModalEditPost{{ $modalPost->id_utas }}" tabindex="-1" role="dialog"
                 aria-labelledby="ModalEditPost" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -917,17 +914,17 @@
 
                                     <div class="posted-author">
                                         <h6 class="author">
-                                            <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
+                                            <a href="{{ route('profile') }}">{{ $modalPost->user->name }}</a>
                                         </h6>
                                         <span
-                                            class="post-time">{{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}</span>
+                                            class="post-time">{{ Carbon\Carbon::parse($modalPost->waktu)->diffForHumans() }}</span>
                                     </div>
                                 </div>
 
                                 <!-- post title start -->
                                 <div class="post-content">
                                     <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
-                                        data-toggle="modal" id="email">{{ $itemPost->konten }}</textarea>
+                                        data-toggle="modal" id="email">{{ $modalPost->konten }}</textarea>
                                     <div class="post-thumb-gallery">
                                         <img src="user/assets/images/post/post-1.jpg" alt="post image">
                                     </div>
@@ -941,6 +938,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         @endforeach
 
 
@@ -987,7 +985,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
