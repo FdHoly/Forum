@@ -649,7 +649,9 @@
 
                                             <!-- profile picture end -->
                                             <h6 class="author"><a
-                                                    href="profile.html">{{ $itemReply->user->count() }}</a></h6>
+                                                    href="profile.html">{{ $itemReply->user->name }}</a>
+                                                {{-- href="profile.html">{{ $itemReply->where('id_replys', '1')->get('id_users') }}</a> --}}
+                                            </h6>
                                             <span
                                                 class="post-time">{{ Carbon\Carbon::parse($itemReply->waktu)->diffForHumans() }}</span>
                                         </div>
@@ -831,7 +833,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

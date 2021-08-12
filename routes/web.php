@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\aorgController;
+use App\Http\Controllers\apostController;
+use App\Http\Controllers\areportController;
+use App\Http\Controllers\auserController;
+use App\Http\Controllers\loginControllers;
+use App\Http\Controllers\orgControllers;
+use App\Http\Controllers\postController;
 use Illuminate\Support\Facades\Route;
 
 $baseController =  "App\Http\Controllers";
@@ -13,13 +20,7 @@ $baseController =  "App\Http\Controllers";
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('user.views.index');
-})->name("index");
-Route::get('/', $baseController . "\postController@listpost")->name("index");
-// Route::get('/', $baseController . "\postController@listPengumuman")->name("index");
-
+Route::get('/', [postController::class, "listpost"])->name("index");
 
 Route::get('/profile', function () {
     return view('user.views.profile');
@@ -29,8 +30,9 @@ Route::get('/signin', function () {
     return view('user.views.login10');
 })->name("signin");
 
-Route::get('/register',$baseController . "\loginControllers@registerView" )->name("register");
-Route::post('/register',$baseController . "\loginControllers@regist" )->name("register");
+Route::get('/register', [loginControllers::class, "registerView"])->name("register");
+Route::post('/register', [loginControllers::class, "regist"])->name("register");
+
 
 Route::get('/about', function () {
     return view('user.views.about');
@@ -55,38 +57,21 @@ Route::get('/laporan', function () {
     return view('user.views.reportview');
 })->name("laporan");
 
+Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
+Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
 
 Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost");
-Route::get('/organisasi/{id}', $baseController . "\orgControllers@detailOrg");
 
-Route::get('/organisasi', $baseController . "\orgControllers@listorg")->name("listorg");
 
-Route::get(
-    '/organisasibaru',
-    $baseController . "\orgControllers@viewCreate"
-)->name("grupbaru");
-
-Route::post('/organisasi/create', $baseController . "\orgControllers@createOrg")->name("createOrg");
+Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
+Route::get('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 
 // =========================================
 Route::get('/adm', function () {
     return view('admin.views.admindex');
 })->name("admindex");
 
-Route::get('/admPost', $baseController . "\apostController@allpost")->name("admPost");
-Route::get('/admUser', $baseController . "\auserController@alluser")->name("admUser");
-Route::get('/admOrg', $baseController . "\aorgController@allorg")->name("admOrg");
-Route::get('/admReport', $baseController . "\areportController@allreport")->name("admReport");
-
-// Route::get('/admUser', function () {
-//     return view('admin.views.admUser');
-// })->name("admUser");
-// Route::get('/admPost', function () {
-//     return view('admin.views.admPost');
-// })->name("admPost");
-// Route::get('/admOrg', function () {
-//     return view('admin.views.admOrg');
-// })->name("admOrg");
-// Route::get('/report-user', function () {
-//     return view('admin.views.report-user');
-// })->name("report-user");
+Route::get('admPost', [apostController::class, "allpost"])->name("admPost");
+Route::get('admUser', [auserController::class, "alluser"])->name("admUser");
+Route::get('admOrg', [aorgController::class, "allorg"])->name("admOrg");
+Route::get('admReport', [areportController::class, "allreport"])->name("admReport");
