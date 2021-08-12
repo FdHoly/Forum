@@ -34,9 +34,17 @@ class postController extends Controller
         ]);
         // return $dataR;
     }
-    // public function reply($id)
-    // {
-    //     $dataR = ReplyUtas::with('user', 'replyutas.user', 'group')->where('id_groups', $id)->get(); // Ini GET Data berisi Utas per Group with Reply nya.
-    //     return view('user.views.index', compact('dataR'));
-    // }
+
+    public function replyPost(Request $request)
+    {
+        $post = new ReplyUtas();
+
+        $post->konten = $request->input('konten');
+        $post->id_utas = $request->input('id_utas');
+        $post->id_users = $request->input('id_users');
+
+        $post->save();
+        return redirect()->back();
+        // return $request;
+    }
 }
