@@ -29,7 +29,8 @@
                                         <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
                                             multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change Avatar"
                                             style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"
-                                            onchange="document.getElementById('logoUniv').src = window.URL.createObjectURL(this.files[0])" required>
+                                            onchange="document.getElementById('logoUniv').src = window.URL.createObjectURL(this.files[0])"
+                                            required>
                                         <img id="logoUniv" src="user/assets/images/profile/profile-1.jpg"
                                             alt="profile picture">
                                     </label>
@@ -53,12 +54,14 @@
                                     <div class="col-12">
 
                                         {{-- <input list="univ" name="universitas" placeholder="Pilih Universitas" class="single-field" required> --}}
-                                        <select id="univ">
+                                        <select id="universitas" name="universitas">
                                             @foreach ($data as $items)
-                                            <option value="{{$items->id_univ}}">{{$items->nama}}</option>
+
+                                                <option id="universitas" name="universitas" value={{ $items->id_univ }}>
+                                                    {{ $items->nama }}</option>
                                             @endforeach
                                         </select>
-                                        
+
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="submit-btn" type="submit">Buat</button>

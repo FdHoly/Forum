@@ -73,101 +73,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card widget-item">
-                                <h4 class="widget-title">Teman dalam Grup</h4>
-                                <div class="widget-body">
-                                    <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                                <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Jashon Muri</a></h3>
-                                                <p class="list-subtitle"><a href="#">2 mutual</a></p>
-                                            </div>
-                                            <button class="like-button active">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                                <p class="list-subtitle"><a href="#">drama</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                                <p class="list-subtitle"><a href="#">fitness</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
 
                         </aside>
                     </div>
@@ -376,7 +282,7 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">{{ $itemPengumuman->judul }}</a>
+                                                                data-target="#ModalPengumuman{{ $itemPengumuman->id_announcements }}">{{ $itemPengumuman->judul }}</a>
                                                         </h3>
                                                         <h4 class="list-subtitle">
                                                             {{ $itemPengumuman->group->nama }}
@@ -418,7 +324,7 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">{{ $itemAcara->judul }}</a>
+                                                                data-target="#ModalAcara{{ $itemAcara->id_events }}">{{ $itemAcara->judul }}</a>
                                                         </h3>
                                                         <h4 class="list-subtitle">
                                                             {{ $itemAcara->group->nama }}
@@ -437,7 +343,7 @@
 
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">Undangan Rapat</h4>
+                                <h4 class="widget-title">Jadwal Rapat</h4>
                                 <div class="widget-body">
                                     <div id="chatScroll" class="nano has-scrollbar"
                                         style="height:300px; overflow-y: scroll;">
@@ -457,7 +363,7 @@
                                                     <!-- profile picture end -->
                                                     <div class="unorder-list-info">
                                                         <h3 class="list-title"><a href="" data-toggle="modal"
-                                                                data-target="#ModalPengumuman">{{ $itemRapat->judul }}</a>
+                                                                data-target="#ModalRapat{{ $itemRapat->id_meetings }}">{{ $itemRapat->judul }}</a>
                                                         </h3>
                                                         <h4 class="list-subtitle">
                                                             {{ $itemRapat->group->nama }}
@@ -546,7 +452,7 @@
             </div>
         </div>
 
-        {{-- Big Changes --}}
+        {{-- Modal Post&Reply --}}
         @foreach ($Data5 as $itemPost1)
             <!-- Modal Comment-->
             <div class="modal fade" id="ModalComment{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
@@ -844,51 +750,153 @@
             </div>
             {{-- Modal Comments End --}}
         @endforeach
+        {{-- Modal Post&Reply --}}
+
+        {{-- Modal 3 SubPost --}}
         {{-- Modal Pengumuman --}}
-        <div class="modal fade" id="ModalPengumuman" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card">
-                            <!-- post title start -->
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
+        @foreach ($Data2 as $itemPengumuman)
+            <div class="modal fade" id="ModalPengumuman{{ $itemPengumuman->id_announcements }}" tabindex="-1"
+                role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">{{ $itemPengumuman->group->nama }}
+                                                ▶
+                                                {{ $itemPengumuman->judul }}</a>
+                                        </h6>
+                                        <span
+                                            class="post-time">{{ Carbon\Carbon::parse($itemPengumuman->waktu)->diffForHumans() }}</span>
+                                    </div>
+
                                 </div>
-                                <!-- profile picture end -->
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        {{ $itemPengumuman->konten }}
+                                    </p>
 
-                                <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">Judul Pengumuman</a></h6>
-                                    <span class="post-time">15 min ago</span>
                                 </div>
-
-                            </div>
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <p class="post-desc pb-0">
-                                    Ini nanti berisi mengenai informasi apa yang terdapat dari sebuah pengumuman
-                                    yang
-                                    ada di home
-                                </p>
-
                             </div>
                         </div>
+
+
                     </div>
-
-
                 </div>
             </div>
-        </div>
-
-
+        @endforeach
         {{-- Modal Pengumuman --}}
+
+        {{-- Modal Acara --}}
+        @foreach ($Data3 as $itemAcara)
+            <div class="modal fade" id="ModalAcara{{ $itemAcara->id_events }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">{{ $itemAcara->group->nama }}
+                                                ▶
+                                                {{ $itemAcara->judul }}</a>
+                                        </h6>
+                                        <span
+                                            class="post-time">{{ Carbon\Carbon::parse($itemAcara->waktu)->diffForHumans() }}</span>
+                                    </div>
+
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        {{ $itemAcara->konten }}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        {{-- Modal Acara --}}
+
+        {{-- Modal Rapat --}}
+        @foreach ($Data4 as $itemRapat)
+            <div class="modal fade" id="ModalRapat{{ $itemRapat->id_meetings }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">{{ $itemRapat->group->nama }}
+                                                ▶
+                                                {{ $itemRapat->judul }}</a>
+                                        </h6>
+                                        <span
+                                            class="post-time">{{ Carbon\Carbon::parse($itemRapat->waktu)->diffForHumans() }}</span>
+                                    </div>
+
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        {{ $itemRapat->konten }}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        {{-- Modal Rapat --}}
+        {{-- ^ Modal 3 SubPost --}}
 
         {{-- Modal Edit Post --}}
         @foreach ($Data1 as $modalPost)
@@ -939,7 +947,7 @@
                 </div>
             </div>
         @endforeach
-
+        {{-- Modal Edit Post --}}
 
         {{-- Modal Alert Report --}}
         <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -984,7 +992,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

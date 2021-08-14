@@ -35,7 +35,7 @@ class orgControllers extends Controller
 
         $org->nama = $request->input('nama_grup');
         $org->deskripsi = $request->input('deskripsi');
-        $org->id_univ = $request->input('universitas');
+        $org->id_univ = $request->get('universitas');
 
         $file = $request->file('file');
         $extension = $file->getClientOriginalExtension();
@@ -57,5 +57,4 @@ class orgControllers extends Controller
         return $data;
         // return view('user.views.proforganisasi', compact('data'));
     }
-
 }

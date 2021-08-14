@@ -40,6 +40,22 @@ class orgSeeders extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
+            [
+                'nama' => 'PPU',
+                'deskripsi' => 'Persatuan Petani Universitas',
+                'logo_url' => 'ini logo url',
+                'id_univ' => '3',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'nama' => 'EM UI',
+                'deskripsi' => 'Eksekutif Mahasiswa Universitas Indonesia',
+                'logo_url' => 'ini logo url',
+                'id_univ' => '2',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
         ];
         foreach ($group as $Xample) {
             Groups::create($Xample);

@@ -66,7 +66,7 @@ Route::post('/replySend', $baseController . "\postController@replyPost")->name("
 
 
 Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
-Route::get('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
+Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 
 // =========================================
 Route::get('/adm', function () {
