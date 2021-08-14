@@ -37,6 +37,22 @@ class postController extends Controller
         // return $dataRandom;
     }
 
+    public function eventbar()
+    {
+
+        $data2 = Pengumuman::all();
+        $data3 = Events::all();
+        $data4 = Rapat::all();
+
+        return view('user.views.event', [
+
+            "Data2" => $data2,
+            "Data3" => $data3,
+            "Data4" => $data4,
+
+        ]);
+    }
+
     public function replyPost(Request $request)
     {
         $post = new ReplyUtas();
