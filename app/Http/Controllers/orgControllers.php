@@ -35,7 +35,7 @@ class orgControllers extends Controller
 
         $org->nama = $request->input('nama_grup');
         $org->deskripsi = $request->input('deskripsi');
-        $org->id_univ = $request->input('universitas');
+        $org->id_univ = $request->get('universitas');
 
         $file = $request->file('file');
         $extension = $file->getClientOriginalExtension();
@@ -54,8 +54,7 @@ class orgControllers extends Controller
 
         $data = Utas::with('user', 'replyutas.user', 'group')->where('id_groups', $id)->get(); // Ini GET Data berisi Utas per Group with Reply nya.
         // return $data;
-        return $data;
-        // return view('user.views.proforganisasi', compact('data'));
+        // return $data;
+        return view('user.views.proforganisasi', compact('data'));
     }
-
 }
