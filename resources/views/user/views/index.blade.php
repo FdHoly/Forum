@@ -47,8 +47,7 @@
                                 <h4 class="widget-title">group you may like</h4>
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
-
-                                        @foreach ($Data6 as $itemGroup)
+                                        @foreach ($DataRandom as $itemGroup)
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
 
@@ -985,7 +984,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

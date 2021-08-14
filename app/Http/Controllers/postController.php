@@ -24,15 +24,17 @@ class postController extends Controller
         $data5 = ReplyUtas::all();
         $data6 = Groups::all();
         $dataR = Utas::with(["ReplyUtas"])->get();
+        $dataRandom = Groups::all()->random(1);
         return view('user.views.index', [
             "Data1" => $data1,
             "Data2" => $data2,
             "Data3" => $data3,
             "Data4" => $data4,
             "Data5" => $dataR,
-            "Data6" => $data6
+            "Data6" => $data6,
+            "DataRandom" => $dataRandom
         ]);
-        // return $dataR;
+        // return $dataRandom;
     }
 
     public function replyPost(Request $request)
