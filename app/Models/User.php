@@ -11,6 +11,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'users';
+    protected $primaryKey = 'id_users';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'profil_image_url'
     ];
 
 

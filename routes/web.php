@@ -80,3 +80,9 @@ Route::get('admPost', [apostController::class, "allpost"])->name("admPost");
 Route::get('admUser', [auserController::class, "alluser"])->name("admUser");
 Route::get('admOrg', [aorgController::class, "allorg"])->name("admOrg");
 Route::get('admReport', [areportController::class, "allreport"])->name("admReport");
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
