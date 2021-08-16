@@ -43,6 +43,7 @@ class orgControllers extends Controller
         $org->id_univ = $request->get('universitas');
 
         $file = $request->file('file');
+        $path = $request->file->store('logo', 'public');
         $extension = $file->getClientOriginalExtension();
         $filename = time() . "." . $extension;
         $file->move('uploads/logo', $filename);

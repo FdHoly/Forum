@@ -480,13 +480,13 @@
 
     <script>
         /* When the user clicks on the button,
-            <<<<<<< HEAD
-                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                <<<<<<< HEAD
+                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         ===
         ===
         =
         toggle between hiding and showing the dropdown content * / >>> >>> >
-            a9b5ac40584487b340433b8b4d5ba93bb6850ae8
+        a9b5ac40584487b340433b8b4d5ba93bb6850ae8
 
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
