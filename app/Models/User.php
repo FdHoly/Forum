@@ -60,10 +60,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(UserGroup::class, 'id_users', 'id_users');
     }
-public function replyutas()
-{
-    return $this->hasMany(ReplyUtas::class, 'id_users', 'id_users');
-}
-
-
+    public function replyutas()
+    {
+        return $this->hasMany(ReplyUtas::class, 'id_users', 'id_users');
+    }
 }
