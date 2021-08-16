@@ -211,7 +211,8 @@
                                                 </button>
                                             </div>
                                             {{-- Formulir Share --}}
-                                            <form action="">
+                                            <form action="" method="POST">
+                                                @csrf
                                                 <div class="modal-body custom-scroll">
                                                     <input type="text" class="block w-100 p-2 mb-2 my-judul"
                                                         placeholder="Judul">
@@ -220,7 +221,7 @@
                                                             <select id="inputState"
                                                                 class="form-control block w-100 p-2 mb-2">
                                                                 <option selected>Pilih Organisasi</option>
-                                                                <option value="1">KBMTI</option>
+                                                                <option value="4">KBMTI</option>
                                                                 <option>KBMPTI</option>
                                                                 <option>KBMSI</option>
                                                             </select>
@@ -228,8 +229,8 @@
                                                         <div class="col">
                                                             <select id="inputState"
                                                                 class="form-control block w-100 p-2 mb-2">
-                                                                <option selected>Public</option>
-                                                                <option>Private</option>
+                                                                <option selected value="1">Public</option>
+                                                                <option value="0">Private</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -896,7 +897,6 @@
 
         {{-- Modal Edit Post --}}
         @foreach ($Data1 as $itemPost)
-
             <div class="modal fade" id="ModalEditPost{{ $itemPost->id_utas }}" tabindex="-1" role="dialog"
                 aria-labelledby="ModalEditPost" aria-hidden="true">
                 <div class="modal-dialog" role="document">
