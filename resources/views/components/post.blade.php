@@ -1,11 +1,11 @@
-@foreach ($Data1 as $itemPost)
+@forelse ($post as $itemPost)
     <div class="card">
         <div class="post-title d-flex align-items-center">
             <!-- profile picture end -->
             <div class="profile-thumb">
                 <a href="#">
                     <figure class="profile-thumb-middle">
-                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
+                        <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}" alt="profile picture">
                     </figure>
                 </a>
             </div>
@@ -53,8 +53,8 @@
             </p>
             <div class="post-thumb-gallery">
                 <figure class="post-thumb img-popup">
-                    <a href="user/assets/images/post/post-large-1.jpg">
-                        <img src="user/assets/images/post/post-1.jpg" alt="post image">
+                    <a href={{ url('user/assets/images/post/post-large-1.jpg') }}>
+                        <img src={{ url('user/assets/images/post/post-1.jpg') }} alt="post image">
                     </a>
                 </figure>
             </div>
@@ -73,11 +73,16 @@
             </div>
         </div>
     </div>
-@endforeach
+@empty
+    <div class="card">
+
+        <p class="text-center">Belum ada post</p>
+    </div>
+@endforelse
 
 
 {{-- Modal Post&Reply --}}
-@foreach ($Data5 as $itemPost1)
+@foreach ($post as $itemPost1)
     <!-- Modal Comment-->
     <div class="modal fade" id="ModalComment{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -91,7 +96,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ asset('user/assets/images/profile/profile-small-1.jpg') }}"
+                                        <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -369,7 +374,7 @@
 {{-- Modal Post&Reply --}}
 
 {{-- Modal Edit Post --}}
-@foreach ($Data1 as $modalPost)
+@foreach ($post as $modalPost)
 
     <div class="modal fade" id="ModalEditPost{{ $modalPost->id_utas }}" tabindex="-1" role="dialog"
         aria-labelledby="ModalEditPost" aria-hidden="true">
