@@ -13,7 +13,7 @@ class UserGroup extends Model
 
     public function group()
     {
-        return $this->belongsTo(Groups::class);
+        return $this->belongsTo(Groups::class, 'id_users', 'id_users');
     }
     public function utas()
     {
