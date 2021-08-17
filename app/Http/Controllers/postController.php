@@ -20,7 +20,7 @@ class postController extends Controller
     public function listpost()
     {
         $allutas = Utas::with(["group", "replyutas", "user"])->where('status', '2')->get();
-        $userGroup = UserGroup::where('id_users', 1)->pluck('id_groups'); # Auth::user()->id
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();

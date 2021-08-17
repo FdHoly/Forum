@@ -47,8 +47,8 @@
                             </a>
                             <div class="profile-dropdown">
                                 <div class="profile-head">
-                                    <h5 class="name"><a href="#">Madison Howard</a></h5>
-                                    <a class="mail" href="#">mailnam@mail.com</a>
+                                    <h5 class="name"><a href="#">{{ Auth::user()->name }}</a></h5>
+                                    <a class="mail" href="#">{{ Auth::user()->email }}</a>
                                 </div>
                                 <div class="profile-body">
                                     <ul>
