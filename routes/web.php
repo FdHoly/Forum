@@ -22,54 +22,57 @@ $baseController =  "App\Http\Controllers";
 |
 */
 
-Route::get('/', [postController::class, "listpost"])->name("index");
 // Route::get('/{id}', [postController::class, "reply"])->name("index");
 // Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-Route::get('/profile', [UserController::class, "listdata"])->name("profile");
 
 // Route::get('/profile', function () {
 //     return view('user.views.profile');
 // })->name("profile");
 
-Route::get('/signin', function () {
-    return view('user.views.login10');
-})->name("signin");
+// Route::get('/signin', function () {
+//     return view('user.views.login10');
+// })->name("signin");
 
-Route::get('/register', [loginControllers::class, "registerView"])->name("register");
-Route::post('/register', [loginControllers::class, "regist"])->name("register");
+Route::middleware('auth')->group(function () {
 
+    Route::get('/', [postController::class, "listpost"])->name("index");
 
-Route::get('/about', function () {
-    return view('user.views.about');
-})->name("about");
+    Route::get('/profile', [UserController::class, "listdata"])->name("profile");
 
-Route::get('/friends', function () {
-    return view('user.views.friends');
-})->name("friends");
+    Route::get('/about', function () {
+        return view('user.views.about');
+    })->name("about");
+    Route::get('/friends', function () {
+        return view('user.views.friends');
+    })->name("friends");
 
-Route::get('/pengumuman', function () {
-    return view('user.views.pengumuman');
-})->name("pengumuman");
+    Route::get('/pengumuman', function () {
+        return view('user.views.pengumuman');
+    })->name("pengumuman");
 
-Route::get('/organisasi/kbmti', function () {
-    return view('user.views.proforganisasi');
+    Route::get('/organisasi/kbmti', function () {
+        return view('user.views.proforganisasi');
+    });
+    Route::get('/editprofile', function () {
+        return view('user.views.editprofile');
+    })->name("editprofile");
+
+    Route::get('/laporan', function () {
+        return view('user.views.reportview');
+    })->name("laporan");
+
+    Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
+    Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
+
+    // Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost")->middleware('auth');
+    Route::post('/replySend', [postController::class, "replyPost"])->name("replyPost");
+
+    Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
+    Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 });
-Route::get('/editprofile', function () {
-    return view('user.views.editprofile');
-})->name("editprofile");
-
-Route::get('/laporan', function () {
-    return view('user.views.reportview');
-})->name("laporan");
-
-Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
-Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
-
-Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost");
 
 
-Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
-Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
+
 
 // =========================================
 Route::get('/adm', function () {
