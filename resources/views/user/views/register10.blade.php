@@ -26,7 +26,7 @@
                         <p>Ini adalah page pendaftaran</p>
                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
-                            <a href={{ route('signin') }}>Login</a><a href="" class="active">Register</a>
+                            <a href={{ route('login') }}>Login</a><a href="" class="active">Register</a>
                         </div>
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
