@@ -101,18 +101,22 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <button class="btn mt-3"> Gabung </button>
+                                                        @if ($userGroup->contains($item->id_groups))
+                                                            <a href="organisasi/{{ $item->id_groups }}"
+                                                                class="btn mt-3">Joined</a>
+                                                        @else
+                                                            <form action="{{ route('join', $item->id_groups) }}"
+                                                                method="POST" class="text-center">
+                                                                @csrf
+                                                                <button type="submit" class="btn mt-3">
+                                                                    Gabung </button>
+                                                            </form>
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-
-                                        {{-- @foreach ($collection as $item) --}}
-                                        @for ($i = 0; $i < 9; $i++)
-
-                                        @endfor
-                                        {{-- @endforeach --}}
-
                                     </div>
                                 </div>
                             </div>
@@ -480,8 +484,8 @@
 
     <script>
         /* When the user clicks on the button,
-                                        <<<<<<< HEAD
-                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                        <<<<<<< HEAD
+                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         ===
         ===
         =
