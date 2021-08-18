@@ -18,14 +18,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $guarded = [];
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-        'profil_image_url'
-    ];
+
 
 
     /**
@@ -61,6 +56,10 @@ class User extends Authenticatable
     public function group()
     {
         return $this->belongsToMany(Groups::class, 'user_groups', 'id_users', 'id_users');
+    }
+    public function universitas()
+    {
+        return $this->belongsTo(Universitas::class, 'id_univ', 'id_univ');
     }
     public function replyutas()
     {

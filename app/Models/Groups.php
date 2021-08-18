@@ -13,12 +13,8 @@ class Groups extends Model
 
     protected $table = 'groups';
 
-    protected $fillable = [
-        'nama',
-        'deskripsi',
-        'logo_url',
-        'id_univ',
-    ];
+    protected $guarded = [];
+
 
     public function universitas()
     {

@@ -109,6 +109,8 @@
                                 <div class="modal fade" id="textbox" aria-labelledby="textbox">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
+                                            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Share Your Mood</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
@@ -120,13 +122,15 @@
                                             <form action="" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body custom-scroll">
-                                                    <input name="judul" type="text"
+
+                                                    <input name="judul" type="text" required
                                                         class="block w-100 p-2 mb-2 my-judul" placeholder="Judul">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <select name="id_groups" id="inputState"
-                                                                class="form-control block w-100 p-2 mb-2">
-                                                                <option selected>Pilih Organisasi</option>
+                                                            <label for="organisasi"></label>
+                                                            <select name="id_groups" id="organisasi"
+                                                                class="form-control block w-100 p-2 mb-2" required>
+                                                                <option value="">Pilih Organisasi</option>
                                                                 @foreach ($group as $item)
                                                                     <option value="{{ $item->id_groups }}">
                                                                         {{ $item->nama }}</option>
@@ -137,7 +141,7 @@
                                                         </div>
                                                         <div class="col">
                                                             <select name="status" id="inputState"
-                                                                class="form-control block w-100 p-2 mb-2">
+                                                                class="form-control block w-100 p-2 mb-2" required>
                                                                 <option selected value="1">Public</option>
                                                                 <option value="0">Private</option>
                                                             </select>
@@ -145,7 +149,7 @@
                                                     </div>
 
                                                     <textarea name="konten" class="share-field-big custom-scroll"
-                                                        placeholder="Say Something"></textarea>
+                                                        placeholder="Say Something" required></textarea>
 
                                                     <div class="form-group">
                                                         <label for="exampleFormControlFile1">Unggah Foto</label>
@@ -155,7 +159,7 @@
                                                 </div>
 
 
-                                                <input type="hidden" name="id_users" value="{{auth()->user()->id_users}}">
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="post-share-btn"
                                                         data-dismiss="modal">cancel</button>
@@ -217,7 +221,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
