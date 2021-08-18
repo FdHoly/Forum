@@ -67,8 +67,16 @@
                                     </div>
                                 </div>
 
-                                <button class="btn mt-3"> Gabung </button>
-
+                                @if ($userGroup->contains($organisasi->id_groups))
+                                    <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3">Joined</a>
+                                @else
+                                    <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
+                                        class="text-center">
+                                        @csrf
+                                        <button type="submit" class="btn mt-3">
+                                            Gabung </button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                         <!-- widget single item end -->
@@ -116,7 +124,7 @@
                     <input type="hidden" id="hiddencontainer" name="hiddencontainer" />
 
                     <x-post :post="$organisasi->utas" />
-                    
+
                     {{-- @for ($i = 0; $i < $limit; $i++)
                         <div class="card">
                             <div class="post-title d-flex align-items-center">
