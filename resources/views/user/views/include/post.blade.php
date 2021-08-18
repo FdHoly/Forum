@@ -15,7 +15,11 @@
                 <h1 class="author">
                     <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                     ▶
+<<<<<<< HEAD
                     <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
+=======
+                    <a href="organisasi/{{ $itemPost->group->id_groups }}">{{ $itemPost->group->nama }}</a>
+>>>>>>> bfca07cfa7aed48766e4787456435d5b11cd6dee
 
                     {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                     {{-- 🔒🔓 --}}

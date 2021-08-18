@@ -31,15 +31,15 @@ class Groups extends Model
     }
     public function pengumuman()
     {
-        return $this->hasMany(Pengumuman::class);
+        return $this->hasMany(Pengumuman::class, 'id_groups', 'id_groups');
     }
     public function acara()
     {
-        return $this->hasMany(Acara::class);
+        return $this->hasMany(Events::class, 'id_groups', 'id_groups');
     }
     public function rapat()
     {
-        return $this->hasMany(Rapat::class);
+        return $this->hasMany(Rapat::class, 'id_groups', 'id_groups');
     }
     public function utas()
     {

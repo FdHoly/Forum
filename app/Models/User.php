@@ -11,6 +11,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'users';
+    protected $primaryKey = 'id_users';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'profil_image_url'
     ];
 
 
@@ -58,12 +60,10 @@ class User extends Authenticatable
     }
     public function group()
     {
-        return $this->belongsToMany(UserGroup::class, 'id_users', 'id_users');
+        return $this->belongsToMany(Groups::class, 'user_groups', 'id_users', 'id_users');
     }
-public function replyutas()
-{
-    return $this->hasMany(ReplyUtas::class, 'id_users', 'id_users');
-}
-
-
+    public function replyutas()
+    {
+        return $this->hasMany(ReplyUtas::class, 'id_users', 'id_users');
+    }
 }

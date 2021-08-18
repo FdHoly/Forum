@@ -3,10 +3,10 @@
 @include('user.views.include.head')
 
 
-<link rel="stylesheet" type="text/css" href= {{url("login/css/fontawesome-all.min.css")}}>
-<link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-style.css")}}>
-<link rel="stylesheet" type="text/css" href={{url("login/css/iofrm-theme10.css")}}>
-<link rel="stylesheet" type="text/css" href={{asset("user/css/loginpage.css")}}>
+<link rel="stylesheet" type="text/css" href={{ url('loginx/css/fontawesome-all.min.css') }}>
+<link rel="stylesheet" type="text/css" href={{ url('loginx/css/iofrm-style.css') }}>
+<link rel="stylesheet" type="text/css" href={{ url('loginx/css/iofrm-theme10.css') }}>
+<link rel="stylesheet" type="text/css" href={{ asset('user/css/loginpage.css') }}>
 
 <body>
 
@@ -24,14 +24,17 @@
                         </div>
                         <h3>Selamat Datang</h3>
                         <p>Ini adalah page pendaftaran</p>
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
                             <a href={{ route('signin') }}>Login</a><a href="" class="active">Register</a>
                         </div>
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
                             <input class="form-control" type="text" name="name" placeholder="Nama Lengkap" required>
                             <input class="form-control" type="email" name="email" placeholder="E-mail" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <input class="form-control" type="password" name="password_confirmation"
+                                placeholder="Password Confirmation" required>
                             <div class="select-box">
                                 <div class="options-container">
                                     @foreach ($dataUniv as $item)
@@ -56,7 +59,8 @@
                                     Foto Profilmu</p>
                                 <input id="files " type="file" name="file" required>
                             </div>
-                            <input class="form-control" type="text" value="1" name="role" placeholder="Password" hidden required>
+                            <input class="form-control" type="text" value="1" name="role" placeholder="Password" hidden
+                                required>
 
 
                             <div class="form-button">

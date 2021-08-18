@@ -47,8 +47,8 @@
                             </a>
                             <div class="profile-dropdown">
                                 <div class="profile-head">
-                                    <h5 class="name"><a href="#">Madison Howard</a></h5>
-                                    <a class="mail" href="#">mailnam@mail.com</a>
+                                    <h5 class="name"><a href="#">{{ Auth::user()->name }}</a></h5>
+                                    <a class="mail" href="#">{{ Auth::user()->email }}</a>
                                 </div>
                                 <div class="profile-body">
                                     <ul>
@@ -56,8 +56,13 @@
                                         </li>
                                         {{-- <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li> --}}
                                         <li><a href="#"><i class="flaticon-document"></i>Groups</a></li>
-                                        <li><a href="{{ route('signin') }}"><i class="flaticon-unlock"></i>Sign
-                                                out</a></li>
+                                        <li>
+                                            <a>
+                                                <form method="POST" action="{{ route('logout') }}">@csrf<button
+                                                        type="submit"><i class="flaticon-unlock"></i>Sign
+                                                        out</button></form>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

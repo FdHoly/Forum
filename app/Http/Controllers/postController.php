@@ -7,9 +7,11 @@ use App\Models\Groups;
 use App\Models\Pengumuman;
 use App\Models\Rapat;
 use App\Models\ReplyUtas;
+use App\Models\UserGroup;
 use Carbon\Carbon;
 use App\Models\Utas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class postController extends Controller
@@ -17,22 +19,34 @@ class postController extends Controller
     //
     public function listpost()
     {
-        $data1 = Utas::orderBy('created_at', 'desc')->get();
-        $data2 = Pengumuman::all();
-        $data3 = Events::all();
-        $data4 = Rapat::all();
-        $data5 = ReplyUtas::all();
-        $data6 = Groups::all();
-        $dataR = Utas::with(["ReplyUtas"])->get();
-        $dataRandom = Groups::all()->random(1);
+        // $data1 = Utas::orderBy('created_at', 'desc')->get();
+        // $data2 = Pengumuman::all();
+        // $data3 = Events::all();
+        // $data4 = Rapat::all();
+        // $data5 = ReplyUtas::all();
+        // $data6 = Groups::all();
+        // $dataR = Utas::with(["ReplyUtas"])->get();
+        // $dataRandom = Groups::all()->random(1);
+
+        //
+
+        $allutas = Utas::with(["group", "replyutas", "user"])->where('status', '2')->orderBy('created_at', 'desc')->get();
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+
+        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
+        $acara = Events::whereIn('id_groups', $userGroup)->get();
+        $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
+
+        $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
+        
+        
         return view('user.views.index', [
-            "Data1" => $data1,
-            "Data2" => $data2,
-            "Data3" => $data3,
-            "Data4" => $data4,
-            "Data5" => $dataR,
-            "Data6" => $data6,
-            "DataRandom" => $dataRandom
+
+            "DataRandom" => $dataRandom,
+            "allutas" => $allutas,
+            "pengumuman" => $pengumuman,
+            "acara" => $acara,
+            "rapat" => $rapat,
         ]);
         // return $dataRandom;
     }

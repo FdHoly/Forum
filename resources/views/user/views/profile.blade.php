@@ -52,9 +52,13 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
+<<<<<<< HEAD
                                 <h4 class="widget-title"> Nama
                                     {{-- // Nanti Isinya Nama --}}
                                     </h4>
+=======
+                                <h4 class="widget-title">{{ Auth::user()->name }}</h4>
+>>>>>>> bfca07cfa7aed48766e4787456435d5b11cd6dee
                                 <div class="widget-body">
                                     <div class="about-author">
                                         <p>I Don’t know how? But i believe that it is possible one day if i stay with my
@@ -172,7 +176,8 @@
 
                     <div class="col-lg-6 order-1 order-lg-2">
                         <!-- post status start -->
-                        @include('user.views.include.post')
+                        <x-post :post="$prof->utas" />
+                        {{-- @include('user.views.include.post') --}}
                         <!-- post status end -->
 
                         <!-- post status start -->
@@ -199,8 +204,9 @@
 
                         <!-- post status end -->
                     </div>
+                    <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
 
-                    @include('user.views.include.event')
+                    {{-- @include('user.views.include.event') --}}
                 </div>
             </div>
         </div>

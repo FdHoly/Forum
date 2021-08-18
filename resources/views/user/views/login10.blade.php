@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    @include('user.views.include.head')
+@include('user.views.include.head')
 
 
-    <link rel="stylesheet" type="text/css" href= {{asset("login/css/fontawesome-all.min.css")}}>
-    <link rel="stylesheet" type="text/css" href={{asset("login/css/iofrm-style.css")}}>
-    <link rel="stylesheet" type="text/css" href={{asset("login/css/iofrm-theme10.css")}}>
-    <link rel="stylesheet" type="text/css" href={{asset("user/css/loginpage.css")}}>
+<link rel="stylesheet" type="text/css" href={{ asset('loginx/css/fontawesome-all.min.css') }}>
+<link rel="stylesheet" type="text/css" href={{ asset('loginx/css/iofrm-style.css') }}>
+<link rel="stylesheet" type="text/css" href={{ asset('loginx/css/iofrm-theme10.css') }}>
+<link rel="stylesheet" type="text/css" href={{ asset('user/css/loginpage.css') }}>
 
 <body>
     <div class="form-body">
@@ -25,13 +25,15 @@
                         <h3>Get more things done with Loggin platform.</h3>
                         <p>Access to the most powerfull tool in the entire design and web industry.</p>
                         <div class="page-links">
-                            <a href="" class="active">Login</a><a href={{route('register')}}>Register</a>
+                            <a href="" class="active">Login</a><a href={{ route('register') }}>Register</a>
                         </div>
-                        <form>
-                            <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <input class="form-control" type="text" name="email" placeholder="E-mail Address" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button> <a href="forget10.html">Forget password?</a>
+                                <button id="submit" type="submit" class="ibtn">Login</button> <a
+                                    href="forget10.html">Forget password?</a>
                             </div>
                         </form>
                     </div>
@@ -41,6 +43,7 @@
     </div>
 
     @include('user.views.include.modjs')
-<script src={{url('login/js/main.js')}}></script>
+    <script src={{ url('login/js/main.js') }}></script>
 </body>
+
 </html>

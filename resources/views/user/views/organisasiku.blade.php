@@ -89,8 +89,8 @@
 
 
                                     {{-- @foreach ($collection as $item) --}}
-                                    @for ($i = 0; $i < 9; $i++)
 
+                                    @foreach ($org as $orgData)
                                         <div class="col-lg-3 col-sm-6 recently request">
                                             <div class="friend-list-view">
                                                 <!-- profile picture end -->
@@ -105,12 +105,18 @@
                                                 <!-- profile picture end -->
 
                                                 <div class="posted-author">
-                                                    <h6 class="author"><a href="organisasi/kbmti">KBMTI Filkom</a></h6>
+                                                    <h6 class="author"><a
+                                                            href="organisasi/kbmti">{{ $orgData->nama }}</a></h6>
+                                                    <h5 class="author"><a
+                                                            href="organisasi/kbmti">{{ $orgData->universitas->nama }}</a>
+                                                    </h5>
                                                     <button class="add-frnd">Tergabung</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endfor
+                                    @endforeach
+
+                                    {{-- @endfor --}}
 
                                     {{-- @endforeach --}}
                                 </div>

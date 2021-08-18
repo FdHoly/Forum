@@ -34,7 +34,8 @@
                                         </a>
                                     </figure>
                                     <div class="profile-desc text-center">
-                                        <h6 class="author"><a href="{{ route('profile') }}">Dimbel Lebmid</a></h6>
+                                        <h6 class="author"><a
+                                                href="{{ route('profile') }}">{{ Auth::user()->name }}</a></h6>
                                         <p>Any one can join with but Social network us if you want Any one can join with
                                             us if you want</p>
                                     </div>
@@ -179,12 +180,12 @@
                         </div>
                         <!-- post status start -->
                         <!-- post title start -->
-
-                        @include('user.views.include.post')
+                        <x-post :post="$allutas" />
+                        {{-- @include('user.views.include.post') --}}
 
                     </div>
-
-                    @include('user.views.include.event')
+                    <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
+                    {{-- @include('user.views.include.event') --}}
                 </div>
             </div>
         </div>
@@ -213,7 +214,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

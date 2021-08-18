@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Utas;
+use App\Models\Rapat;
 use App\Models\Events;
 use App\Models\Groups;
-use App\Models\Pengumuman;
-use App\Models\Rapat;
 use App\Models\ReplyUtas;
-use Carbon\Carbon;
-use App\Models\Utas;
-use Exception;
-use Illuminate\Support\Facades\Hash;
+use App\Models\UserGroup;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class UserController extends BaseController
 {
@@ -86,28 +88,29 @@ class UserController extends BaseController
             ], 400);
         }
     }
-    public function listdata($id)
-    {   
-
-        $dataAll = User::with('utas.replyutas.user', 'UserGroup.group')->where('id_users', $id)->get();
-        return $dataAll;
-        // $data1 = Utas::all();
-        // $data2 = Pengumuman::all();
-        // $data3 = Events::all();
-        // $data4 = Rapat::all();
-        // $data5 = ReplyUtas::all();
-        // $data6 = Groups::all();
-        // $dataR = Utas::with(["ReplyUtas"])->get();
-        // $dataRandom = Groups::all()->random(1);
-        // return view('user.views.profile', [
-        //     "Data1" => $data1,
-        //     "Data2" => $data2,
-        //     "Data3" => $data3,
-        //     "Data4" => $data4,
-        //     "Data5" => $dataR,
-        //     "Data6" => $data6,
-        //     "DataRandom" => $dataRandom
-        // ]);
-        // return $dataRandom;
+    public function listdata()
+    {
+        $prof = User::with(["group", "replyutas", "utas"])->findOrFail(Auth::user()->id_users);
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
+        $acara = Events::whereIn('id_groups', $userGroup)->get();
+        $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
+        // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
+        // return $prof;
+        return view('user.views.profile', [
+            "prof" => $prof,
+            "pengumuman" => $pengumuman,
+            "acara" => $acara,
+            "rapat" => $rapat,
+        ]);
+        
+    }
+    public function detailprofile($id)
+    {
+        $organisasi = User::all();
+        return $organisasi;
+        return view('user.views.profile', [
+            "organisasi" => $organisasi
+        ]);
     }
 }
