@@ -15,11 +15,9 @@
                 <h1 class="author">
                     <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
                     ▶
-<<<<<<< HEAD
-                    <a href="organisasi/{{$itemPost->group->id_groups}}">{{ $itemPost->group->nama }}</a>
-=======
+
                     <a href="organisasi/{{ $itemPost->group->id_groups }}">{{ $itemPost->group->nama }}</a>
->>>>>>> bfca07cfa7aed48766e4787456435d5b11cd6dee
+
 
                     {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                     {{-- 🔒🔓 --}}
@@ -54,19 +52,21 @@
             <h5 style="margin-bottom: 10px">{{ $itemPost->judul }}</h5>
             <p class="post-desc">
                 {{ $itemPost->konten }}
+
+                {{ $itemPost->image_url }}
             </p>
 
-@if ($itemPost->image_url != NULL)
-<div class="post-thumb-gallery">
-    <figure class="post-thumb img-popup">
-        <a href="user/assets/images/post/post-large-1.jpg">
-            <img src="user/assets/images/post/post-1.jpg" alt="post image">
-        </a>
-    </figure>
-</div>
-@endif
+            @if ($itemPost->image_url != null)
+                <div class="post-thumb-gallery">
+                    <figure class="post-thumb img-popup">
+                        <a href="user/assets/images/post/post-large-1.jpg">
+                            <img src="user/assets/images/post/post-1.jpg" alt="post image">
+                        </a>
+                    </figure>
+                </div>
+            @endif
 
-            
+
             <div class="post-meta">
                 <ul class="comment-share-meta">
                     <li>
@@ -360,7 +360,7 @@
 
                             <!-- share content box start -->
                             <div class="share-content-box w-100">
-                                <form class="share-text-box" action="" method="POST">
+                                <form class="share-text-box" action="{{ route('replyPost') }}" method="POST">
                                     <textarea name="share" class="share-text-field" aria-disabled="true"
                                         placeholder="Say Something" data-toggle="modal" id="email"></textarea>
                                     <button class="btn-share" type="submit">share</button>

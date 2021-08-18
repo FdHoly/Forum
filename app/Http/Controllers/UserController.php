@@ -96,15 +96,16 @@ class UserController extends BaseController
         $acara = Events::whereIn('id_groups', $userGroup)->get();
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
         // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
-        // return $prof;
-        return view('user.views.profile', [
-            "prof" => $prof,
-            "pengumuman" => $pengumuman,
-            "acara" => $acara,
-            "rapat" => $rapat,
-        ]);
+        return $prof;
+        // return view('user.views.profile', [
+        //     "prof" => $prof,
+        //     "pengumuman" => $pengumuman,
+        //     "acara" => $acara,
+        //     "rapat" => $rapat,
+        // ]);
         
     }
+
     public function detailprofile($id)
     {
         $organisasi = User::all();

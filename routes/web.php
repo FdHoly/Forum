@@ -23,23 +23,18 @@ $baseController =  "App\Http\Controllers";
 |
 */
 
-<<<<<<< HEAD
 Route::get('/', [postController::class, "listpost"])->name("index");
 Route::post('/', [postController::class, "createPost"])->name("createpost");
 
 
 
-Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-=======
-// Route::get('/{id}', [postController::class, "reply"])->name("index");
 // Route::get('/profile', [UserController::class, "listdata"])->name("profile");
->>>>>>> bfca07cfa7aed48766e4787456435d5b11cd6dee
 
 
 
-// Route::get('/signin', function () {
-//     return view('user.views.login10');
-// })->name("signin");
+Route::get('/signin', function () {
+    return view('user.views.login10');
+})->name("signin");
 
 Route::middleware('auth')->group(function () {
 
