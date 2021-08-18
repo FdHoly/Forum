@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 250)->unique();
             $table->string('password');
             $table->integer('role');
+            $table->text('biodata')->nullable();
             $table->text('profil_image_url')->nullable();
             $table->text('background_image_url')->nullable();
             $table->rememberToken();

@@ -18,7 +18,6 @@ class CreateUtasTable extends Migration
             $table->timestamps();
             $table->string('judul');
             $table->text('konten');
-            $table->dateTime('waktu');
             $table->text('image_url')->nullable();
             $table->integer('status');
 
