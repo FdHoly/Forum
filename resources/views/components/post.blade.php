@@ -51,6 +51,9 @@
             <p class="post-desc">
                 {{ $itemPost->konten }}
             </p>
+
+            {{-- Check Ada Foto Apa Ga --}}
+            @if ($itemPost->image_url !== null)
             <div class="post-thumb-gallery">
                 <figure class="post-thumb img-popup">
                     <a href={{ url('user/assets/images/post/post-large-1.jpg') }}>
@@ -58,6 +61,9 @@
                     </a>
                 </figure>
             </div>
+            @endif
+            {{-- Check Ada Foto Apa Ga --}}
+            
             <div class="post-meta">
                 <ul class="comment-share-meta">
                     <li>
@@ -75,7 +81,6 @@
     </div>
 @empty
     <div class="card">
-
         <p class="text-center">Belum ada post</p>
     </div>
 @endforelse
@@ -245,14 +250,11 @@
                         <!-- post title start -->
                         <div class="post-content">
                             <p class="post-desc">
-                                Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                                their
-                                default model text, and a search for 'lorem ipsum' will uncover many web
-                                sites
-                                still
-                                in their infancy.
+                                {{$itemPost1->konten}}
                             </p>
-                            <div class="post-thumb-gallery img-gallery">
+                            
+                            @if ($itemPost1->image_url !== null)
+                                <div class="post-thumb-gallery img-gallery">
                                 <div class="row no-gutters">
                                     <div class="col-8">
                                         <figure class="post-thumb">
@@ -297,6 +299,9 @@
 
                                 </div>
                             </div>
+                            @endif
+                            
+                            
 
                         </div>
                         <br>
@@ -356,8 +361,12 @@
 
                             <!-- share content box start -->
                             <div class="share-content-box w-100">
-                                <form class="share-text-box" action="" method="POST">
-                                    <textarea name="share" class="share-text-field" aria-disabled="true"
+                                <form class="share-text-box" action="{{ route('replyPost') }}" method="POST">
+                                    @csrf
+
+                                    <input type="hidden" name="id_users" value="{{ auth()->user()->id_users }}">
+                                    <input type="hidden" name="id_utas" value="{{ $itemPost1->id_utas }}">
+                                    <textarea name="konten" class="share-text-field" aria-disabled="true"
                                         placeholder="Say Something" data-toggle="modal" id="email"></textarea>
                                     <button class="btn-share" type="submit">share</button>
                                 </form>

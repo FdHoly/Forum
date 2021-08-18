@@ -56,7 +56,23 @@ class orgControllers extends Controller
 
     public function detailOrg($id)
     {
-        $organisasi = Groups::with(['pengumuman', 'acara', 'rapat', 'utas.replyutas', 'usergroup.user', 'universitas'])->findOrFail($id);
+        $sortDirect = 'desc';
+
+        $organisasi = Groups::with([
+            'pengumuman', 'acara', 'rapat',
+
+            // Ordering Reply
+            'utas' => function ($query) use ($sortDirect) {
+                $query->orderBy('id_utas', $sortDirect)->with('replyutas') // <- jadi ini di order dulu, baru dijoin table replyutas
+                ;
+            }
+            // Ordering Reply
+
+            , 'usergroup.user', 'universitas'
+        ])->findOrFail($id);
+
+
+        // return $organisasi;
         return view('user.views.proforganisasi', [
             "organisasi" => $organisasi
         ]);

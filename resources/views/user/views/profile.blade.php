@@ -24,7 +24,12 @@
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
                                     <a href="profile.html">
-                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
+                                        <img src="
+                                        
+                                        {{-- Nanti Isinya picture --}}
+                                        user/assets/images/profile/profile-1.jpg
+                                        
+                                        " alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
