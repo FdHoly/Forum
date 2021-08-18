@@ -18,7 +18,6 @@ class CreateReportsTable extends Migration
             $table->timestamps();
             // $table->string('judul');
             $table->text('alasan');
-            $table->dateTime('waktu');
 
             // Ini buat Foreign Key
             $table->bigInteger('id_users')->unsigned();
