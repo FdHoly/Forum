@@ -8,19 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class UserGroup extends Model
 {
     use HasFactory;
+    // protected $table = ;
 
     protected $guarded = [];
 
     public function group()
     {
-        return $this->belongsTo(Groups::class);
+        return $this->belongsTo(Groups::class, 'id_groups', 'id_groups');
     }
-    public function utas()
-    {
-        return $this->hasMany(Utas::class);
-    }
+    
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'id_users', 'id_users');
     }
 }

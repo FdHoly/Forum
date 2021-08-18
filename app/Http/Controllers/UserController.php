@@ -1,7 +1,14 @@
 <?php
 
-namespace App\Http\UserControllers;
+namespace App\Http\Controllers;
 
+use App\Models\Events;
+use App\Models\Groups;
+use App\Models\Pengumuman;
+use App\Models\Rapat;
+use App\Models\ReplyUtas;
+use Carbon\Carbon;
+use App\Models\Utas;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -78,5 +85,29 @@ class UserController extends BaseController
                 "data" => null
             ], 400);
         }
+    }
+    public function listdata($id)
+    {   
+
+        $dataAll = User::with('utas.replyutas.user', 'UserGroup.group')->where('id_users', $id)->get();
+        return $dataAll;
+        // $data1 = Utas::all();
+        // $data2 = Pengumuman::all();
+        // $data3 = Events::all();
+        // $data4 = Rapat::all();
+        // $data5 = ReplyUtas::all();
+        // $data6 = Groups::all();
+        // $dataR = Utas::with(["ReplyUtas"])->get();
+        // $dataRandom = Groups::all()->random(1);
+        // return view('user.views.profile', [
+        //     "Data1" => $data1,
+        //     "Data2" => $data2,
+        //     "Data3" => $data3,
+        //     "Data4" => $data4,
+        //     "Data5" => $dataR,
+        //     "Data6" => $data6,
+        //     "DataRandom" => $dataRandom
+        // ]);
+        // return $dataRandom;
     }
 }

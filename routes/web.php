@@ -7,6 +7,7 @@ use App\Http\Controllers\auserController;
 use App\Http\Controllers\loginControllers;
 use App\Http\Controllers\orgControllers;
 use App\Http\Controllers\postController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 $baseController =  "App\Http\Controllers";
@@ -22,11 +23,13 @@ $baseController =  "App\Http\Controllers";
 */
 
 Route::get('/', [postController::class, "listpost"])->name("index");
-// Route::get('/{id}', [postController::class, "reply"])->name("index");
+Route::post('/', [postController::class, "createPost"])->name("createpost");
 
-Route::get('/profile', function () {
-    return view('user.views.profile');
-})->name("profile");
+
+
+Route::get('/profile', [UserController::class, "listdata"])->name("profile");
+
+
 
 Route::get('/signin', function () {
     return view('user.views.login10');
@@ -66,7 +69,7 @@ Route::post('/replySend', $baseController . "\postController@replyPost")->name("
 
 
 Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
-Route::get('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
+Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 
 // =========================================
 Route::get('/adm', function () {

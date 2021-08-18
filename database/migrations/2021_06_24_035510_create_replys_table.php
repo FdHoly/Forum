@@ -17,6 +17,7 @@ class CreateReplysTable extends Migration
             $table->id('id_replys');
             $table->timestamps();
             $table->text('konten');
+            $table->dateTime('waktu');
 
             // Ini buat Foreign Key
             $table->bigInteger('id_users')->unsigned();
