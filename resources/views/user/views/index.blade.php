@@ -117,38 +117,42 @@
                                                 </button>
                                             </div>
                                             {{-- Formulir Share --}}
-                                            <form action="">
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="modal-body custom-scroll">
-                                                    <input type="text" class="block w-100 p-2 mb-2 my-judul"
+                                                    <input name="judul" type="text" class="block w-100 p-2 mb-2 my-judul"
                                                         placeholder="Judul">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <select id="inputState"
+                                                            <select name="id_groups" id="inputState"
                                                                 class="form-control block w-100 p-2 mb-2">
                                                                 <option selected>Pilih Organisasi</option>
-                                                                <option value="1">KBMTI</option>
-                                                                <option>KBMPTI</option>
-                                                                <option>KBMSI</option>
+                                                                <option value="4">KBMTI</option>
+                                                                <option value="5">KBMPTI</option>
+                                                                <option value="6">KBMSI</option>
                                                             </select>
                                                         </div>
                                                         <div class="col">
-                                                            <select id="inputState"
+                                                            <select name="status" id="inputState"
                                                                 class="form-control block w-100 p-2 mb-2">
-                                                                <option selected>Public</option>
-                                                                <option>Private</option>
+                                                                <option selected value="1">Public</option>
+                                                                <option value="0">Private</option>
                                                             </select>
                                                         </div>
                                                     </div>
 
-                                                    <textarea name="share" class="share-field-big custom-scroll"
+                                                    <textarea name="konten" class="share-field-big custom-scroll"
                                                         placeholder="Say Something"></textarea>
 
                                                     <div class="form-group">
                                                         <label for="exampleFormControlFile1">Unggah Foto</label>
-                                                        <input type="file" class="form-control-file"
+                                                        <input name="image_url" type="file" class="form-control-file"
                                                             id="exampleFormControlFile1">
                                                     </div>
                                                 </div>
+
+
+                                                <input type="hidden" name="id_users" value="1">
                                                 <div class="modal-footer">
                                                     <button type="button" class="post-share-btn"
                                                         data-dismiss="modal">cancel</button>

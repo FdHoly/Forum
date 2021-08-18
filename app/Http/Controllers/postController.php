@@ -19,7 +19,18 @@ class postController extends Controller
     //
     public function listpost()
     {
-        $allutas = Utas::with(["group", "replyutas", "user"])->where('status', '2')->get();
+        // $data1 = Utas::orderBy('created_at', 'desc')->get();
+        // $data2 = Pengumuman::all();
+        // $data3 = Events::all();
+        // $data4 = Rapat::all();
+        // $data5 = ReplyUtas::all();
+        // $data6 = Groups::all();
+        // $dataR = Utas::with(["ReplyUtas"])->get();
+        // $dataRandom = Groups::all()->random(1);
+
+        //
+
+        $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
@@ -27,8 +38,9 @@ class postController extends Controller
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
-        // return $dataRandom;
-        // $dataRandom = Groups::all()->inRandomOrder()->get;
+        
+        // return $allutas;
+        
         return view('user.views.index', [
 
             "DataRandom" => $dataRandom,
@@ -67,5 +79,19 @@ class postController extends Controller
         $post->save();
         return redirect()->back();
         // return $request;
+    }
+
+    public function createPost(Request $request)
+    {
+        $post = new Utas();
+
+        $post->judul = $request->input('judul');
+        $post->konten = $request->input('konten');
+        $post->status = $request->input('status');
+        $post->id_users = $request->input('id_users');
+        $post->id_groups = $request->input('id_groups');
+
+        $post->save();
+        return redirect()->route('index');
     }
 }

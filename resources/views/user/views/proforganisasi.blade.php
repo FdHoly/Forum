@@ -116,12 +116,7 @@
                     <input type="hidden" id="hiddencontainer" name="hiddencontainer" />
 
                     <x-post :post="$organisasi->utas" />
-                    <?php $statusClick = false; ?> @if ($statusClick == true)
-                        <?php $limit = 3; ?>
-
-                    @else
-                        <?php $limit = 1; ?>
-                    @endif
+                    
                     {{-- @for ($i = 0; $i < $limit; $i++)
                         <div class="card">
                             <div class="post-title d-flex align-items-center">
