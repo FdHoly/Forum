@@ -75,7 +75,7 @@ class postController extends Controller
 
         $post->konten = $request->input('konten');
         $post->id_utas = $request->input('id_utas');
-        $post->id_users = $request->input('id_users');
+        $post->id_users = Auth::user()->id_users;
 
         $post->save();
         return redirect()->back();
@@ -84,14 +84,27 @@ class postController extends Controller
 
     public function createPost(Request $request)
     {
-        $post = new Utas();
+        $request->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'id_groups' => 'required|exists:groups,id_groups',
+            'status' => 'required',
+        ]);
 
+
+        $post = new Utas();
         $post->judul = $request->input('judul');
         $post->konten = $request->input('konten');
         $post->status = $request->input('status');
-        $post->id_users = $request->input('id_users');
+        $post->id_users = Auth::user()->id_users;
         $post->id_groups = $request->input('id_groups');
-        // $post->waktu = Carbon::now();
+
+        if ($request->image_url) {
+
+            $path = $request->image_url->store('post', 'public');
+            $post->image_url = $path;
+        }
+        $post->save();
         return redirect()->route('index');
     }
 }

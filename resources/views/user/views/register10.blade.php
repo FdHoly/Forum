@@ -39,8 +39,8 @@
                                 <div class="options-container">
                                     @foreach ($dataUniv as $item)
                                         <div class="option">
-                                            <input type="radio" class="radio" id={{ $item->id_univ }}
-                                                name="category" />
+                                            <input type="radio" class="radio" id={{ $item->id_univ }} name="id_univ"
+                                                value="{{ $item->id_univ }}" />
                                             <label for={{ $item->id_univ }}>{{ $item->nama }}</label>
                                         </div>
                                     @endforeach

@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [postController::class, "listpost"])->name("index");
 
     Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-    Route::get('/profile/{id}', [UserController::class, "detailprofile"])->name("profileID");
+    Route::get('/profile/{nama}', [UserController::class, "detailprofile"])->name("profileID");
 
     Route::get('/about', function () {
         return view('user.views.about');

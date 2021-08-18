@@ -25,10 +25,10 @@
                                 <figure class="profile-picture">
                                     <a href="profile.html">
                                         <img src="
-                                        
+
                                         {{-- Nanti Isinya picture --}}
                                         user/assets/images/profile/profile-1.jpg
-                                        
+
                                         " alt="profile picture">
                                     </a>
                                 </figure>
@@ -52,17 +52,17 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">{{ Auth::user()->name }}</h4>
+                                <h4 class="widget-title">{{ $prof->name }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>I Don’t know how? But i believe that it is possible one day if i stay with my
-                                            dream all time</p>
+                                        {{-- <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a --}}
+
+                                        <p>{{ $prof->biodata ?? 'Belum ada biodata' }}</p>
                                         <ul class="author-into-list">
-                                            <li><a href="#"><i class="bi bi-office-bag"></i>Graphic Designer</a></li>
-                                            <li><a href="#"><i class="bi bi-home"></i>Melbourne, Australia</a></li>
-                                            <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar, Melbourne</a>
+                                            <li><a><i
+                                                        class="bi bi-location-pointer"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
-                                            <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li>
+                                            {{-- <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -73,94 +73,27 @@
                                 <h4 class="widget-title">Organisasi</h4>
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        @foreach ($org as $itemOrg)
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Travel The World</a></h3>
-                                                <p class="list-subtitle"><a href="#">adventure</a></p>
-                                            </div>
-                                            <button class="like-button active">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Foodcort Nirala</a></h3>
-                                                <p class="list-subtitle"><a href="#">food</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                                <p class="list-subtitle"><a href="#">drama</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                                <p class="list-subtitle"><a href="#">fitness</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">{{ $itemOrg->nama }}</a></h3>
+                                                    <p class="list-subtitle"><a
+                                                            href="#">{{ $itemOrg->universitas->nama }}</a></p>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
