@@ -61,12 +61,12 @@ class orgControllers extends Controller
         $organisasi = Groups::with([
             'pengumuman', 'acara', 'rapat',
 
-            // Ordering Reply
+            // Ordering Utas
             'utas' => function ($query) use ($sortDirect) {
-                $query->orderBy('id_utas', $sortDirect)->with('replyutas') // <- jadi ini di order dulu, baru dijoin table replyutas
+                $query->orderBy('created_at', $sortDirect)->with('replyutas') // <- jadi ini di order dulu, baru dijoin table replyutas
                 ;
             }
-            // Ordering Reply
+            // Ordering Utas
 
             , 'usergroup.user', 'universitas'
         ])->findOrFail($id);

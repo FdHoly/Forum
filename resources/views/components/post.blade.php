@@ -21,7 +21,7 @@
                     {{-- 🔒🔓 --}}
                 </h1>
                 <span class="post-time">
-                    {{ Carbon\Carbon::parse($itemPost->waktu)->diffForHumans() }}
+                    {{ $itemPost->created_at->diffForHumans() }}
                 </span>
             </div>
             <div class="post-settings-bar">
@@ -114,7 +114,7 @@
                                 </h6>
                                 <span class="post-time">
 
-                                    {{ Carbon\Carbon::parse($itemPost1->waktu)->diffForHumans() }}
+                                    {{ $itemPost1->created_at->diffForHumans() }}
 
                                 </span>
                             </div>
