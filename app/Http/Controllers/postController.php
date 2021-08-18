@@ -33,16 +33,17 @@ class postController extends Controller
         $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
+        $group = Groups::whereIn('id_groups', $userGroup)->get();
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
-        
-        // return $allutas;
-        
-        return view('user.views.index', [
 
+        // return $group;
+
+        return view('user.views.index', [
+            "group" => $group,
             "DataRandom" => $dataRandom,
             "allutas" => $allutas,
             "pengumuman" => $pengumuman,
@@ -90,8 +91,7 @@ class postController extends Controller
         $post->status = $request->input('status');
         $post->id_users = $request->input('id_users');
         $post->id_groups = $request->input('id_groups');
-
-        $post->save();
+        // $post->waktu = Carbon::now();
         return redirect()->route('index');
     }
 }

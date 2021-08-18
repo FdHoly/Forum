@@ -120,16 +120,19 @@
                                             <form action="" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body custom-scroll">
-                                                    <input name="judul" type="text" class="block w-100 p-2 mb-2 my-judul"
-                                                        placeholder="Judul">
+                                                    <input name="judul" type="text"
+                                                        class="block w-100 p-2 mb-2 my-judul" placeholder="Judul">
                                                     <div class="row">
                                                         <div class="col">
                                                             <select name="id_groups" id="inputState"
                                                                 class="form-control block w-100 p-2 mb-2">
                                                                 <option selected>Pilih Organisasi</option>
-                                                                <option value="4">KBMTI</option>
-                                                                <option value="5">KBMPTI</option>
-                                                                <option value="6">KBMSI</option>
+                                                                @foreach ($group as $item)
+                                                                    <option value="{{ $item->id_groups }}">
+                                                                        {{ $item->nama }}</option>
+
+                                                                @endforeach
+
                                                             </select>
                                                         </div>
                                                         <div class="col">
@@ -214,7 +217,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

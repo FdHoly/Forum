@@ -75,7 +75,7 @@
                                                     <div class="organisasi__foto">
                                                         <figure class="profile-picture">
                                                             <a href="#">
-                                                                <img src="uploads/logo/{{ $item->logo_url }}"
+                                                                <img src={{ asset('uploads/logo/' . $item->logo_url) }}
                                                                     alt="profile picture">
                                                             </a>
                                                         </figure>
@@ -83,7 +83,7 @@
                                                     <div class="card widget-item">
 
                                                         <h4 class="widget-title author">
-                                                            <a href="organisasi/kbmti">
+                                                            <a href="organisasi/{{ $item->id_groups }}">
                                                                 {{ $item->nama }}
                                                                 <br>
                                                                 {{-- ( Keluarga Besar Mahasiswa Teknologi Informasi ) --}}
@@ -480,8 +480,8 @@
 
     <script>
         /* When the user clicks on the button,
-                <<<<<<< HEAD
-                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                        <<<<<<< HEAD
+                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         ===
         ===
         =

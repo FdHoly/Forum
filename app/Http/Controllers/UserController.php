@@ -103,7 +103,7 @@ class UserController extends BaseController
             "acara" => $acara,
             "rapat" => $rapat,
         ]);
-        
+
     }
 
     public function detailprofile($id)

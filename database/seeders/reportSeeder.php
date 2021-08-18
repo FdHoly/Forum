@@ -19,21 +19,18 @@ class reportSeeder extends Seeder
         $report = [
             [
                 'alasan' => 'Konten1',
-                'waktu' => '2099-12-31 23:59:59',
                 'id_users' => '1',
                 'id_groups' => '1',
                 'id_utas' => '2',
             ],
             [
                 'alasan' => 'Konten2',
-                'waktu' => '2099-12-31 23:59:59',
                 'id_users' => '2',
                 'id_groups' => '2',
                 'id_utas' => '2',
             ],
             [
                 'alasan' => 'Konten3',
-                'waktu' => '2099-12-31 23:59:59',
                 'id_users' => '3',
                 'id_groups' => '1',
                 'id_utas' => '1',
