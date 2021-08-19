@@ -4,6 +4,7 @@ use App\Http\Controllers\aorgController;
 use App\Http\Controllers\apostController;
 use App\Http\Controllers\areportController;
 use App\Http\Controllers\auserController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\loginControllers;
 use App\Http\Controllers\orgControllers;
 use App\Http\Controllers\postController;
@@ -40,13 +41,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [postController::class, "listpost"])->name("index");
 
-    Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-    Route::get('/profile/{nama}', [UserController::class, "detailprofile"])->name("profileID");
+    Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
+    Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");
 
     Route::get('/about', function () {
         return view('user.views.about');
     })->name("about");
     Route::get('/organisasiku', [profileController::class, "MyOrg"])->name("organisasiku");
+    Route::get('/profile/{nama}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
 
     // Route::get('/organisasiku', function () {
     //     return view('user.views.organisasiku');

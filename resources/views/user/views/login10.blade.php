@@ -24,6 +24,7 @@
                         </div>
                         <h3>Get more things done with Loggin platform.</h3>
                         <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
                             <a href="" class="active">Login</a><a href={{ route('register') }}>Register</a>
                         </div>
@@ -32,8 +33,7 @@
                             <input class="form-control" type="text" name="email" placeholder="E-mail Address" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button> <a
-                                    href="forget10.html">Forget password?</a>
+                                <button id="submit" type="submit" class="ibtn">Login</button>
                             </div>
                         </form>
                     </div>
