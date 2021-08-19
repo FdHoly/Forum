@@ -120,6 +120,8 @@
                                         <div class="modal fade" id="textbox" aria-labelledby="textbox">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
+                                                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Share Your Mood</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
@@ -127,45 +129,76 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body custom-scroll">
+                                                    {{-- Formulir Share --}}
+                                                    <form action="" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-body custom-scroll">
 
-                                                        <input type="text" class="block w-100 p-2 mb-2 my-judul"
-                                                            placeholder="Judul">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <select id="inputState"
-                                                                    class="form-control block w-100 p-2 mb-2">
-                                                                    <option selected>Pilih Organisasi</option>
-                                                                    <option value="1">KBMTI</option>
-                                                                    <option>KBMPTI</option>
-                                                                    <option>KBMSI</option>
-                                                                </select>
+                                                            <input name="judul" type="text" required
+                                                                class="block w-100 p-2 mb-2 my-judul"
+                                                                placeholder="Judul">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <label for="organisasi"></label>
+                                                                    <select name="id_groups" id="organisasi"
+                                                                        class="form-control block w-100 p-2 mb-2"
+                                                                        required>
+                                                                        <option value="">Pilih Organisasi</option>
+                                                                        @foreach ($admUser as $item)
+                                                                            @foreach ($item->group->usergroup as $group)
+                                                                                @if ($group->role > 1)
+
+                                                                                    <option
+                                                                                        value="{{ $item->id_groups }}">
+                                                                                        {{ $item->group->nama }}
+                                                                                    </option>
+                                                                                @endif
+                                                                            @endforeach
+
+
+                                                                        @endforeach
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <label for="organisasi"></label>
+                                                                    <select name="id_groups" id="organisasi"
+                                                                        class="form-control block w-100 p-2 mb-2"
+                                                                        required>
+                                                                        <option value="">Pilih Thread</option>
+                                                                        <option value="pengumuman">Pengumuman</option>
+                                                                        <option value="Acara">Acara</option>
+                                                                        <option value="Rapat">Rapat</option>
+
+
+                                                                    </select>
+
+                                                                </div>
                                                             </div>
-                                                            <div class="col">
+                                                            {{-- <div class="col">
                                                                 <select id="inputState"
                                                                     class="form-control block w-100 p-2 mb-2">
                                                                     <option selected>Pengumuman</option>
                                                                     <option>Agenda Acara</option>
                                                                     <option>Agenda Rapat</option>
                                                                 </select>
-                                                            </div>
-                                                            <div class="col">
-                                                                <select id="inputState"
-                                                                    class="form-control block w-100 p-2 mb-2">
-                                                                    <option selected>Public</option>
-                                                                    <option>Private</option>
-                                                                </select>
-                                                            </div>
+                                                            </div> --}}
+                                                            <textarea name="konten"
+                                                                class="share-field-big custom-scroll"
+                                                                placeholder="Say Something" required></textarea>
+
+
                                                         </div>
 
-                                                        <textarea name="share" class="share-field-big custom-scroll"
-                                                            placeholder="Say Something"></textarea>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="post-share-btn"
-                                                            data-dismiss="modal">cancel</button>
-                                                        <button type="button" class="post-share-btn">post</button>
-                                                    </div>
+
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="post-share-btn"
+                                                                data-dismiss="modal">cancel</button>
+                                                            <button type="submit" class="post-share-btn">Post</button>
+                                                        </div>
+                                                    </form>
+                                                    {{-- Formulir Share --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -282,59 +315,72 @@
                             </div>
 
                             <div class="post-settings-bar">
-                                <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                    alt="delete">
-                            </div>
-                        </div>
-                        <!-- post title start -->
-                        <div class="post-content">
-                            <p class="post-desc pb-0">
-                                {{ $item->konten }}
-                            </p>
-                        </div>
-                    </div>
+                                @foreach ($item->group->usergroup as $group)
+                                    @if ($group->role > 1)
+                                        <img class="icon"
+                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                            alt="delete">
+                                    @break
+                                @endif
                 @endforeach
+
             </div>
+        </div>
+        <!-- post title start -->
+        <div class="post-content">
+            <p class="post-desc pb-0">
+                {{ $item->konten }}
+            </p>
+        </div>
+        </div>
+        @endforeach
+        </div>
 
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                @foreach ($rapat as $item)
-                    <div class="card">
-                        <!-- post title start -->
-                        <div class="post-title d-flex align-items-center">
-                            <!-- profile picture end -->
-                            <div class="profile-thumb">
-                                <a href="#">
-                                    <figure class="profile-thumb-middle">
-                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
-                                    </figure>
-                                </a>
-                            </div>
-                            <!-- profile picture end -->
-
-                            <div class="posted-author">
-                                <h6 class="author">
-                                    {{ $item->judul }} ▶
-                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
-
-                                </h6>
-                                <span
-                                    class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
-                            </div>
-
-                            <div class="post-settings-bar">
-                                <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                    alt="delete">
-                            </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            @foreach ($rapat as $item)
+                <div class="card">
+                    <!-- post title start -->
+                    <div class="post-title d-flex align-items-center">
+                        <!-- profile picture end -->
+                        <div class="profile-thumb">
+                            <a href="#">
+                                <figure class="profile-thumb-middle">
+                                    <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                </figure>
+                            </a>
                         </div>
-                        <!-- post title start -->
-                        <div class="post-content">
-                            <p class="post-desc pb-0">
-                                {{ $item->konten }}
-                            </p>
+                        <!-- profile picture end -->
+
+                        <div class="posted-author">
+                            <h6 class="author">
+                                {{ $item->judul }} ▶
+                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+
+                            </h6>
+                            <span
+                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+
+                        <div class="post-settings-bar">
+                            @foreach ($item->group->usergroup as $group)
+                                @if ($group->role > 1)
+                                    <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                        alt="delete">
+                                @break
+                            @endif
+            @endforeach
+
+        </div>
+        </div>
+        <!-- post title start -->
+        <div class="post-content">
+            <p class="post-desc pb-0">
+                {{ $item->konten }}
+            </p>
+        </div>
+        </div>
+        @endforeach
+        </div>
         </div>
 
 
