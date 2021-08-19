@@ -235,120 +235,119 @@
                                         </div>
 
                                         <div class="post-settings-bar">
-                                            <img class="icon"
-                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                alt="delete">
-                                        </div>
-                                    </div>
-                                    <!-- post title start -->
-                                    <div class="post-content">
-                                        <p class="post-desc pb-0">
-                                            {{ $item->konten }}
-                                        </p>
-                                    </div>
-                                </div>
+                                            @foreach ($item->group->usergroup as $group)
+                                                @if ($group->role > 1)
+                                                    <img class="icon"
+                                                        src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                        alt="delete">
+                                                @break
+                                            @endif
                             @endforeach
-                        </div>
 
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            @foreach ($acara as $item)
-                                <div class="card">
-                                    <!-- post title start -->
-                                    <div class="post-title d-flex align-items-center">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-middle">
-                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                        alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="posted-author">
-                                            <h6 class="author">
-                                                {{ $item->judul }} ▶
-                                                <a
-                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
-
-                                            </h6>
-                                            <span
-                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
-                                        </div>
-
-                                        <div class="post-settings-bar">
-                                            <img class="icon"
-                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                alt="delete">
-                                        </div>
-                                    </div>
-                                    <!-- post title start -->
-                                    <div class="post-content">
-                                        <p class="post-desc pb-0">
-                                            {{ $item->konten }}
-                                        </p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                            data-parent="#accordion">
-                            @foreach ($rapat as $item)
-                                <div class="card">
-                                    <!-- post title start -->
-                                    <div class="post-title d-flex align-items-center">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="#">
-                                                <figure class="profile-thumb-middle">
-                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                        alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="posted-author">
-                                            <h6 class="author">
-                                                {{ $item->judul }} ▶
-                                                <a
-                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
-
-                                            </h6>
-                                            <span
-                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
-                                        </div>
-
-                                        <div class="post-settings-bar">
-                                            <img class="icon"
-                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                alt="delete">
-                                        </div>
-                                    </div>
-                                    <!-- post title start -->
-                                    <div class="post-content">
-                                        <p class="post-desc pb-0">
-                                            {{ $item->konten }}
-                                        </p>
-                                    </div>
-                                </div>
-                            @endforeach
                         </div>
                     </div>
-
-
-
-                    <!-- post status start -->
-
-
-                    <!-- post status end -->
+                    <!-- post title start -->
+                    <div class="post-content">
+                        <p class="post-desc pb-0">
+                            {{ $item->konten }}
+                        </p>
+                    </div>
                 </div>
-                {{-- <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" /> --}}
-
-
+                @endforeach
             </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                @foreach ($acara as $item)
+                    <div class="card">
+                        <!-- post title start -->
+                        <div class="post-title d-flex align-items-center">
+                            <!-- profile picture end -->
+                            <div class="profile-thumb">
+                                <a href="#">
+                                    <figure class="profile-thumb-middle">
+                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- profile picture end -->
+
+                            <div class="posted-author">
+                                <h6 class="author">
+                                    {{ $item->judul }} ▶
+                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+
+                                </h6>
+                                <span
+                                    class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                            </div>
+
+                            <div class="post-settings-bar">
+                                <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                    alt="delete">
+                            </div>
+                        </div>
+                        <!-- post title start -->
+                        <div class="post-content">
+                            <p class="post-desc pb-0">
+                                {{ $item->konten }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                @foreach ($rapat as $item)
+                    <div class="card">
+                        <!-- post title start -->
+                        <div class="post-title d-flex align-items-center">
+                            <!-- profile picture end -->
+                            <div class="profile-thumb">
+                                <a href="#">
+                                    <figure class="profile-thumb-middle">
+                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- profile picture end -->
+
+                            <div class="posted-author">
+                                <h6 class="author">
+                                    {{ $item->judul }} ▶
+                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+
+                                </h6>
+                                <span
+                                    class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                            </div>
+
+                            <div class="post-settings-bar">
+                                <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                    alt="delete">
+                            </div>
+                        </div>
+                        <!-- post title start -->
+                        <div class="post-content">
+                            <p class="post-desc pb-0">
+                                {{ $item->konten }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+
+
+        <!-- post status start -->
+
+
+        <!-- post status end -->
+        </div>
+        {{-- <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" /> --}}
+
+
+        </div>
         </div>
         </div>
 
