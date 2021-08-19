@@ -32,6 +32,7 @@ class postController extends Controller
 
         $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
 
         $group = Groups::whereIn('id_groups', $userGroup)->get();
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
@@ -40,9 +41,10 @@ class postController extends Controller
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
 
-        // return $group;
+        // return $admAuth;
 
         return view('user.views.index', [
+            "admAuth" => $admAuth,
             "group" => $group,
             "DataRandom" => $dataRandom,
             "allutas" => $allutas,

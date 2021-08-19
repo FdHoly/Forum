@@ -9,6 +9,7 @@ class UserGroup extends Model
 {
     use HasFactory;
     // protected $table = ;
+    protected $primaryKey = 'id_user_groups';
 
     protected $guarded = [];
 
@@ -20,7 +21,7 @@ class UserGroup extends Model
     {
         return $this->hasMany(Utas::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_users', 'id_users');
