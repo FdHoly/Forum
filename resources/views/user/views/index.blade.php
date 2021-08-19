@@ -151,8 +151,6 @@
                                                     </div>
                                                 </div>
 
-
-                                                <input type="hidden" name="id_users" value="{{auth()->user()->id_users}}">
                                                 <div class="modal-footer">
                                                     <button type="button" class="post-share-btn"
                                                         data-dismiss="modal">cancel</button>

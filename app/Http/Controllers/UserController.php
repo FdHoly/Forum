@@ -90,7 +90,7 @@ class UserController extends BaseController
     }
     public function listdata()
     {
-        $prof = User::with(["group", "replyutas", "utas"])->findOrFail(Auth::user()->id_users);
+        $prof = User::with(["group", "utas"])->findOrFail(Auth::user()->id_users);
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();

@@ -311,7 +311,6 @@
 
 
                         <div class="card">
-
                             @forelse ($itemPost1->replyutas as $komen)
                                 <div class="post-title d-flex align-items-center">
                                     <div class="profile-thumb">
@@ -325,10 +324,10 @@
                                     <!-- profile picture end -->
                                     <div class="posted-author">
                                         <!-- profile picture end -->
-                                        <h6 class="author"><a href="profile.html">{{ $komen->user->name }}</a>
+                                        <h6 class="author"><a href='{{$komen->user->name}}'>{{ $komen->user->name }}</a>
                                         </h6>
                                         <span
-                                            class="post-time">{{ Carbon\Carbon::parse($komen->waktu)->diffForHumans() }}</span>
+                                            class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>
                                 <!-- post title start -->

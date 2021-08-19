@@ -63,7 +63,7 @@ class orgControllers extends Controller
 
             // Ordering Utas
             'utas' => function ($query) use ($sortDirect) {
-                $query->orderBy('created_at', $sortDirect)->with('replyutas') // <- jadi ini di order dulu, baru dijoin table replyutas
+                $query->orderBy('created_at', $sortDirect) // <- jadi ini di order dulu, baru dijoin table replyutas
                 ;
             }
             // Ordering Utas

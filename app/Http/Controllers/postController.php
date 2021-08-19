@@ -74,7 +74,7 @@ class postController extends Controller
 
         $post->konten = $request->input('konten');
         $post->id_utas = $request->input('id_utas');
-        $post->id_users = $request->input('id_users');
+        $post->id_users = Auth::user()->id_users;
 
         $post->save();
         return redirect()->back();
@@ -88,7 +88,7 @@ class postController extends Controller
         $post->judul = $request->input('judul');
         $post->konten = $request->input('konten');
         $post->status = $request->input('status');
-        $post->id_users = $request->input('id_users');
+        $post->id_users = Auth::user()->id_users;
         $post->id_groups = $request->input('id_groups');
 
         $post->save();
