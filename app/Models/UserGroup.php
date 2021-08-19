@@ -15,7 +15,7 @@ class UserGroup extends Model
 
     public function group()
     {
-        return $this->belongsTo(Groups::class, 'id_users', 'id_users');
+        return $this->belongsTo(Groups::class, 'id_groups', 'id_groups');
     }
     public function utas()
     {

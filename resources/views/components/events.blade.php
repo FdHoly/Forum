@@ -29,7 +29,7 @@
                                     </h4>
                                     <p class="list-subtitle">
 
-                                        {{ $time = date('j F Y', strtotime($itemPengumuman->waktu)) }}
+                                        {{ $time = date('j F Y', strtotime($itemPengumuman->created_at)) }}
                                     </p>
                                 </div>
                             </li>
@@ -74,7 +74,7 @@
                                         {{ $itemAcara->group->nama }}
                                     </h4>
                                     <p class="list-subtitle">
-                                        {{ $time = date('j F Y', strtotime($itemAcara->waktu)) }}
+                                        {{ $time = date('j F Y', strtotime($itemAcara->created_at)) }}
                                     </p>
                                 </div>
                             </li>
@@ -117,7 +117,7 @@
                                         {{ $itemRapat->group->nama }}
                                     </h4>
                                     <p class="list-subtitle">
-                                        {{ $time = date('j F Y', strtotime($itemRapat->waktu)) }}
+                                        {{ $time = date('j F Y', strtotime($itemRapat->created_at)) }}
                                     </p>
                                 </div>
                             </li>
@@ -162,7 +162,7 @@
                                         {{ $itemPengumuman->judul }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($itemPengumuman->waktu)->diffForHumans() }}</span>
+                                    class="post-time">{{ Carbon\Carbon::parse($itemPengumuman->created_at)->diffForHumans() }}</span>
                             </div>
 
                         </div>
@@ -210,7 +210,7 @@
                                         {{ $itemAcara->judul }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($itemAcara->waktu)->diffForHumans() }}</span>
+                                    class="post-time">{{ Carbon\Carbon::parse($itemAcara->created_at)->diffForHumans() }}</span>
                             </div>
 
                         </div>
@@ -258,7 +258,7 @@
                                         {{ $itemRapat->judul }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($itemRapat->waktu)->diffForHumans() }}</span>
+                                    class="post-time">{{ Carbon\Carbon::parse($itemRapat->created_at)->diffForHumans() }}</span>
                             </div>
 
                         </div>

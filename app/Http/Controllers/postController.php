@@ -41,7 +41,7 @@ class postController extends Controller
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
 
-        // return $admAuth;
+        // return $group;
 
         return view('user.views.index', [
             "admAuth" => $admAuth,
