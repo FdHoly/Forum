@@ -47,17 +47,17 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">kate palson</h4>
+                                <h4 class="widget-title">{{ $prof->name }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>I Don’t know how? But i believe that it is possible one day if i stay with my
-                                            dream all time</p>
+                                        {{-- <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a --}}
+
+                                        <p>{{ $prof->biodata ?? 'Belum ada biodata' }}</p>
                                         <ul class="author-into-list">
-                                            <li><a href="#"><i class="bi bi-office-bag"></i>Graphic Designer</a></li>
-                                            <li><a href="#"><i class="bi bi-home"></i>Melbourne, Australia</a></li>
-                                            <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar, Melbourne</a>
+                                            <li><a><i
+                                                        class="bi bi-location-pointer"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
-                                            <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li>
+                                            {{-- <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -68,94 +68,26 @@
                                 <h4 class="widget-title">Organisasi</h4>
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        @foreach ($org as $itemOrg)
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Travel The World</a></h3>
-                                                <p class="list-subtitle"><a href="#">adventure</a></p>
-                                            </div>
-                                            <button class="like-button active">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-30.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Foodcort Nirala</a></h3>
-                                                <p class="list-subtitle"><a href="#">food</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                                <p class="list-subtitle"><a href="#">drama</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-29.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                                <p class="list-subtitle"><a href="#">fitness</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">{{ $itemOrg->nama }}</a></h3>
+                                                    <p class="list-subtitle"><a
+                                                            href="#">{{ $itemOrg->universitas->nama }}</a></p>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -163,396 +95,261 @@
                         </aside>
                     </div>
 
-                    <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="col-lg-9 order-1 order-lg-2">
                         <!-- post status start -->
-                        <div class="card card-small">
-                            <div class="share-box-inner">
-                                <!-- profile picture end -->
+                        @foreach (Auth::user()->group as $group)
+                            @if ($group->pivot->role > 1)
+                                <div class="card card-small">
+                                    <div class="share-box-inner">
+                                        <!-- profile picture end -->
 
-                                <!-- profile picture end -->
+                                        <!-- profile picture end -->
 
-                                <!-- share content box start -->
-                                <div class="share-content-box w-100">
-                                    <form class="share-text-box">
-                                        <textarea name="share" class="share-text-field" aria-disabled="true"
-                                            placeholder="Say Something" data-toggle="modal" data-target="#textbox"
-                                            id="email"></textarea>
-                                        <button class="btn-share" type="submit">share</button>
-                                    </form>
-                                </div>
-                                <!-- share content box end -->
+                                        <!-- share content box start -->
+                                        <div class="share-content-box w-100">
+                                            <form class="share-text-box">
+                                                <textarea name="share" class="share-text-field" aria-disabled="true"
+                                                    placeholder="Say Something" data-toggle="modal"
+                                                    data-target="#textbox" id="email"></textarea>
+                                                <button class="btn-share" type="submit">share</button>
+                                            </form>
+                                        </div>
+                                        <!-- share content box end -->
 
-                                <!-- Modal start -->
-                                <div class="modal fade" id="textbox" aria-labelledby="textbox">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Share Your Mood</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body custom-scroll">
-
-                                                <input type="text" class="block w-100 p-2 mb-2 my-judul"
-                                                    placeholder="Judul">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <select id="inputState"
-                                                            class="form-control block w-100 p-2 mb-2">
-                                                            <option selected>Pilih Organisasi</option>
-                                                            <option value="1">KBMTI</option>
-                                                            <option>KBMPTI</option>
-                                                            <option>KBMSI</option>
-                                                        </select>
+                                        <!-- Modal start -->
+                                        <div class="modal fade" id="textbox" aria-labelledby="textbox">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Share Your Mood</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
-                                                    <div class="col">
-                                                        <select id="inputState"
-                                                            class="form-control block w-100 p-2 mb-2">
-                                                            <option selected>Pengumuman</option>
-                                                            <option>Agenda Acara</option>
-                                                            <option>Agenda Rapat</option>
-                                                        </select>
+                                                    <div class="modal-body custom-scroll">
+
+                                                        <input type="text" class="block w-100 p-2 mb-2 my-judul"
+                                                            placeholder="Judul">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <select id="inputState"
+                                                                    class="form-control block w-100 p-2 mb-2">
+                                                                    <option selected>Pilih Organisasi</option>
+                                                                    <option value="1">KBMTI</option>
+                                                                    <option>KBMPTI</option>
+                                                                    <option>KBMSI</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col">
+                                                                <select id="inputState"
+                                                                    class="form-control block w-100 p-2 mb-2">
+                                                                    <option selected>Pengumuman</option>
+                                                                    <option>Agenda Acara</option>
+                                                                    <option>Agenda Rapat</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col">
+                                                                <select id="inputState"
+                                                                    class="form-control block w-100 p-2 mb-2">
+                                                                    <option selected>Public</option>
+                                                                    <option>Private</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <textarea name="share" class="share-field-big custom-scroll"
+                                                            placeholder="Say Something"></textarea>
                                                     </div>
-                                                    <div class="col">
-                                                        <select id="inputState"
-                                                            class="form-control block w-100 p-2 mb-2">
-                                                            <option selected>Public</option>
-                                                            <option>Private</option>
-                                                        </select>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="post-share-btn"
+                                                            data-dismiss="modal">cancel</button>
+                                                        <button type="button" class="post-share-btn">post</button>
                                                     </div>
                                                 </div>
-
-                                                <textarea name="share" class="share-field-big custom-scroll"
-                                                    placeholder="Say Something"></textarea>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="post-share-btn"
-                                                    data-dismiss="modal">cancel</button>
-                                                <button type="button" class="post-share-btn">post</button>
-                                            </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Modal end -->
-                            </div>
+                            @break
+                    </div>
+                    @endif
+                    @endforeach
+                    <!-- Modal end -->
+                    {{-- <div class="filter-menu">
+                                    <button class="active" data-filter="*">All</button>
+
+                                </div> --}}
+
+                    <div class=" secondary-menu-2 bg-white mb-4 d-flex justify-content-center">
+
+                        <div class="filter-menu">
+                            <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Pengumuman </button>
                         </div>
+                        <div class="filter-menu">
+                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                Acara </button>
 
-
-                        <!-- post status start -->
-                        <div class="card">
-                            <!-- post title start -->
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author">
-                                        Ini Judul Pengumuman ▶
-                                        <a href="organisasi/kbmti">KBMTI</a> ▶
-                                        🔒
-                                    </h6>
-                                    <span class="post-time">15 min ago</span>
-                                </div>
-
-                                <div class="post-settings-bar">
-                                    <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                        alt="delete">
-                                </div>
-                            </div>
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <p class="post-desc pb-0">
-                                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                                    default model text, and a search for
-                                </p>
-                            </div>
                         </div>
-                        <!-- post status end -->
+                        <div class="filter-menu">
+                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Rapat </button>
 
-                        <div class="card">
-                            <!-- post title start -->
-                            <div class="post-title d-flex align-items-center">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-3.jpg"
-                                                alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="posted-author">
-                                    <h6 class="author">
-                                        Ini Judul Pengumuman ▶
-                                        <a href="organisasi/kbmti">KBMTI</a>
-
-                                    </h6>
-                                    <span class="post-time">15 min ago</span>
-                                </div>
-
-                                <div class="post-settings-bar">
-                                    <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                        alt="delete">
-                                </div>
-                            </div>
-                            <!-- post title start -->
-                            <div class="post-content">
-                                <p class="post-desc pb-0">
-                                    Halo dimensi kreasi 👋
-
-                                    <br>
-                                    Pada sehat semua kan? Sehatlah ya jangan sakit sakitt
-                                    <br>
-                                    Jadi berkaitan dengan pdh himpunan yang bentar lagi jadi, dari entre mau ngedata
-                                    pelunasan pembayaran pdh.
-                                    <br>
-
-                                    <br>
-                                    Pembayaran PDH sebesar Rp 150k. Untuk yang membayar DP Rp 75k kemarin dapat
-                                    melakukan pelunasan paling lambat tanggal
-                                    <br>
-
-                                    <br>
-                                    Untuk pembayaran bisa transfer ke
-                                    <br>
-                                    BCA = 3680266441 a/n Dinar Fairus Salsabillah
-                                    <br>
-                                    OVO = 089602649130 a/n Dinar Fairus Salsabillah
-                                    <br>
-
-                                    <br>
-                                    Pelunasan dan bukti tf bisa isi disini yaa
-                                    <br>
-                                    https://forms.gle/gKUsq34jLeSSnWnt6
-
-                                    <br>
-                                    Terima kasih semuanyaaaa sehat sehat terusss
-                                    luvvvyuall 🖤
-                                </p>
-                            </div>
                         </div>
-
-                        <!-- post status end -->
+                        <div class="post-settings-bar">
+                        </div>
                     </div>
 
-                    <div class="col-lg-3 order-3">
-                        <aside class="widget-area">
-                            <!-- widget single item start -->
-                            <div class="card widget-item">
-                                <h4 class="widget-title">Recent Notifications</h4>
-                                <div class="widget-body">
-                                    <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-9.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                    <div id="accordion">
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Any one can join with us if you
-                                                        want</a></h3>
-                                                <p class="list-subtitle">5 min ago</p>
-                                            </div>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-35.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Any one can join with us if you
-                                                        want</a></h3>
-                                                <p class="list-subtitle">10 min ago</p>
-                                            </div>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-15.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            @foreach ($pengumuman as $item)
+                                <div class="card">
+                                    <!-- post title start -->
+                                    <div class="post-title d-flex align-items-center">
+                                        <!-- profile picture end -->
+                                        <div class="profile-thumb">
+                                            <a href="#">
+                                                <figure class="profile-thumb-middle">
+                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                        alt="profile picture">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <!-- profile picture end -->
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Any one can join with us if you
-                                                        want</a></h3>
-                                                <p class="list-subtitle">18 min ago</p>
-                                            </div>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-6.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        <div class="posted-author">
+                                            <h6 class="author">
+                                                {{ $item->judul }} ▶
+                                                <a
+                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Any one can join with us if you
-                                                        want</a></h3>
-                                                <p class="list-subtitle">25 min ago</p>
-                                            </div>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-34.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                            </h6>
+                                            <span
+                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                        </div>
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Any one can join with us if you
-                                                        want</a></h3>
-                                                <p class="list-subtitle">39 min ago</p>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        <div class="post-settings-bar">
+                                            <img class="icon"
+                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                alt="delete">
+                                        </div>
+                                    </div>
+                                    <!-- post title start -->
+                                    <div class="post-content">
+                                        <p class="post-desc pb-0">
+                                            {{ $item->konten }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- widget single item end -->
+                            @endforeach
+                        </div>
 
-                            {{-- ADV Here --}}
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            @foreach ($acara as $item)
+                                <div class="card">
+                                    <!-- post title start -->
+                                    <div class="post-title d-flex align-items-center">
+                                        <!-- profile picture end -->
+                                        <div class="profile-thumb">
+                                            <a href="#">
+                                                <figure class="profile-thumb-middle">
+                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                        alt="profile picture">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <!-- profile picture end -->
 
-                            <!-- widget single item start -->
-                            <div class="card widget-item">
-                                <h4 class="widget-title">Friends Zone</h4>
-                                <div class="widget-body">
-                                    <ul class="like-page-list-wrapper">
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-10.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                        <div class="posted-author">
+                                            <h6 class="author">
+                                                {{ $item->judul }} ▶
+                                                <a
+                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">arfim bolt</a></h3>
-                                                <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-2.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
+                                            </h6>
+                                            <span
+                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                        </div>
 
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">marry wither</a></h3>
-                                                <p class="list-subtitle"><a href="#">02 mutual</a></p>
-                                            </div>
-                                            <button class="like-button active">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-5.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
-                                                <p class="list-subtitle"><a href="#">drama</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="user/assets/images/profile/profile-small-14.jpg"
-                                                            alt="profile picture">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title"><a href="#">Active Mind</a></h3>
-                                                <p class="list-subtitle"><a href="#">fitness</a></p>
-                                            </div>
-                                            <button class="like-button">
-                                                <img class="heart" src="user/assets/images/icons/heart.png" alt="">
-                                                <img class="heart-color" src="user/assets/images/icons/heart-color.png"
-                                                    alt="">
-                                            </button>
-                                        </li>
-                                    </ul>
+                                        <div class="post-settings-bar">
+                                            <img class="icon"
+                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                alt="delete">
+                                        </div>
+                                    </div>
+                                    <!-- post title start -->
+                                    <div class="post-content">
+                                        <p class="post-desc pb-0">
+                                            {{ $item->konten }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- widget single item end -->
-                        </aside>
+                            @endforeach
+                        </div>
+
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            @foreach ($rapat as $item)
+                                <div class="card">
+                                    <!-- post title start -->
+                                    <div class="post-title d-flex align-items-center">
+                                        <!-- profile picture end -->
+                                        <div class="profile-thumb">
+                                            <a href="#">
+                                                <figure class="profile-thumb-middle">
+                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                        alt="profile picture">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <!-- profile picture end -->
+
+                                        <div class="posted-author">
+                                            <h6 class="author">
+                                                {{ $item->judul }} ▶
+                                                <a
+                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+
+                                            </h6>
+                                            <span
+                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                        </div>
+
+                                        <div class="post-settings-bar">
+                                            <img class="icon"
+                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                alt="delete">
+                                        </div>
+                                    </div>
+                                    <!-- post title start -->
+                                    <div class="post-content">
+                                        <p class="post-desc pb-0">
+                                            {{ $item->konten }}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
+
+
+
+                    <!-- post status start -->
+
+
+                    <!-- post status end -->
                 </div>
+                {{-- <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" /> --}}
+
+
             </div>
+        </div>
         </div>
 
     </main>
