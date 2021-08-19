@@ -19,7 +19,19 @@ class pengumumanSeeder extends Seeder
         $pengumuman = [
             [
                 'judul' => 'Open Recruitment',
-                'konten' => 'ini kontennya',
+                'konten' => 'Halo dimensi kreasi 👋
+                Pada sehat semua kan? Sehatlah ya jangan sakit sakitt
+                Jadi berkaitan dengan pdh himpunan yang bentar lagi jadi, dari entre mau ngedata pelunasan pembayaran pdh.
+
+                Pembayaran PDH sebesar Rp 150k. Untuk yang membayar DP Rp 75k kemarin dapat melakukan pelunasan paling lambat tanggal
+
+                Untuk pembayaran bisa transfer ke
+                BCA = 3680266441 a/n Dinar Fairus Salsabillah
+                OVO = 089602649130 a/n Dinar Fairus Salsabillah
+
+                Pelunasan dan bukti tf bisa isi disini yaa
+                https://forms.gle/gKUsq34jLeSSnWnt6
+                Terima kasih semuanyaaaa sehat sehat terusss luvvvyuall 🖤',
                 'image_url' => 'ini logo url',
                 'status' => '1',
                 'id_users' => '1',

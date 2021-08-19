@@ -7,6 +7,7 @@ use App\Http\Controllers\auserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\loginControllers;
 use App\Http\Controllers\orgControllers;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\UserController;
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [postController::class, "listpost"])->name("index");
 
+    Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
+
     Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
     Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");
 
@@ -54,9 +57,9 @@ Route::middleware('auth')->group(function () {
     //     return view('user.views.organisasiku');
     // })->name("organisasiku");
 
-    Route::get('/pengumuman', function () {
-        return view('user.views.pengumuman');
-    })->name("pengumuman");
+    // Route::get('/pengumuman', function () {
+    //     return view('user.views.pengumuman');
+    // })->name("pengumuman");
 
     Route::get('/organisasi/kbmti', function () {
         return view('user.views.proforganisasi');

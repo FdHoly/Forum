@@ -45,7 +45,7 @@ class profileController extends Controller
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
         // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
         // return $prof;
-        return view('user.views.profileName', [
+        return view('user.views.profileShow', [
             "org" => $org,
             "prof" => $prof,
             "pengumuman" => $pengumuman,
@@ -69,7 +69,7 @@ class profileController extends Controller
         $userGroup = UserGroup::where('id_users', $user->id_users)->pluck('id_groups'); # Auth::user()->id
         $org = Groups::whereIn('id_groups', $userGroup)->get();
         // return $org;
-        return view('user.views.organisasiNya', [
+        return view('user.views.organisasiShow', [
             "org" => $org,
             "prof" => $user
         ]);

@@ -36,11 +36,12 @@
                                 <div class="main-menu-inner header-top-navigation">
                                     <nav>
                                         <ul class="main-menu">
-                                            <li class="{{ Route::currentRouteName() == 'profile' ? 'active' : '' }}">
+                                            <li
+                                                class="{{ Route::currentRouteName() == 'profileID' ? 'active' : '' }}">
                                                 <a href="{{ route('profileID', $prof->name) }}">Post</a>
                                             </li>
                                             <li
-                                                class="{{ Route::currentRouteName() == 'organisasiku' ? 'active' : '' }}">
+                                                class="{{ Route::currentRouteName() == 'organisasiNya' ? 'active' : '' }}">
                                                 <a href="{{ route('organisasiNya', $prof->name) }}">Organisasi</a>
                                             </li>
                                         </ul>
@@ -51,10 +52,7 @@
 
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
-                            <div class="profile-edit-panel">
-                                <a href="{{ route('editprofile') }}"><button class="edit-btn">edit
-                                        profile</button></a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
