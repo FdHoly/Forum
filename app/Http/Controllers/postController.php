@@ -33,16 +33,17 @@ class postController extends Controller
         $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
+        $group = Groups::whereIn('id_groups', $userGroup)->get();
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
-        
-        // return $allutas;
-        
-        return view('user.views.index', [
 
+        // return $group;
+
+        return view('user.views.index', [
+            "group" => $group,
             "DataRandom" => $dataRandom,
             "allutas" => $allutas,
             "pengumuman" => $pengumuman,
@@ -83,14 +84,26 @@ class postController extends Controller
 
     public function createPost(Request $request)
     {
-        $post = new Utas();
+        $request->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'id_groups' => 'required|exists:groups,id_groups',
+            'status' => 'required',
+        ]);
 
+
+        $post = new Utas();
         $post->judul = $request->input('judul');
         $post->konten = $request->input('konten');
         $post->status = $request->input('status');
         $post->id_users = Auth::user()->id_users;
         $post->id_groups = $request->input('id_groups');
 
+        if ($request->image_url) {
+
+            $path = $request->image_url->store('post', 'public');
+            $post->image_url = $path;
+        }
         $post->save();
         return redirect()->route('index');
     }

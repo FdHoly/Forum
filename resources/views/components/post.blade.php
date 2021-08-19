@@ -13,7 +13,7 @@
 
             <div class="posted-author">
                 <h1 class="author">
-                    <a href="{{ route('profile') }}">{{ $itemPost->user->name }}</a>
+                    <a href="{{ route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
                     ▶
                     <a href="organisasi/{{ $itemPost->group->id_groups }}">{{ $itemPost->group->nama }}</a>
 
@@ -53,17 +53,17 @@
             </p>
 
             {{-- Check Ada Foto Apa Ga --}}
-            @if ($itemPost->image_url !== null)
-            <div class="post-thumb-gallery">
-                <figure class="post-thumb img-popup">
-                    <a href={{ url('user/assets/images/post/post-large-1.jpg') }}>
-                        <img src={{ url('user/assets/images/post/post-1.jpg') }} alt="post image">
-                    </a>
-                </figure>
-            </div>
+            @if ($itemPost->image_url)
+                <div class="post-thumb-gallery">
+                    <figure class="post-thumb img-popup">
+                        <a href={{ Storage::url($itemPost->image_url) }}>
+                            <img src={{ Storage::url($itemPost->image_url) }} alt="post image">
+                        </a>
+                    </figure>
+                </div>
             @endif
             {{-- Check Ada Foto Apa Ga --}}
-            
+
             <div class="post-meta">
                 <ul class="comment-share-meta">
                     <li>
@@ -250,58 +250,58 @@
                         <!-- post title start -->
                         <div class="post-content">
                             <p class="post-desc">
-                                {{$itemPost1->konten}}
+                                {{ $itemPost1->konten }}
                             </p>
-                            
+
                             @if ($itemPost1->image_url !== null)
                                 <div class="post-thumb-gallery img-gallery">
-                                <div class="row no-gutters">
-                                    <div class="col-8">
-                                        <figure class="post-thumb">
-                                            <a class="gallery-selector"
-                                                href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
-                                                <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
-                                                    alt="post image">
-                                            </a>
-                                        </figure>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <figure class="post-thumb">
-                                                    <a class="gallery-selector"
-                                                        href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
-                                                        <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
-                                                            alt="post image">
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <div class="col-12">
-                                                <figure class="post-thumb">
-                                                    <a class="gallery-selector"
-                                                        href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
-                                                        <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
-                                                            alt="post image">
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <div class="col-12">
-                                                <figure class="post-thumb">
-                                                    <a class="gallery-selector"
-                                                        href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
-                                                        <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
-                                                            alt="post image">
-                                                    </a>
-                                                </figure>
+                                    <div class="row no-gutters">
+                                        <div class="col-8">
+                                            <figure class="post-thumb">
+                                                <a class="gallery-selector"
+                                                    href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
+                                                    <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
+                                                        alt="post image">
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <figure class="post-thumb">
+                                                        <a class="gallery-selector"
+                                                            href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
+                                                                alt="post image">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="col-12">
+                                                    <figure class="post-thumb">
+                                                        <a class="gallery-selector"
+                                                            href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
+                                                                alt="post image">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="col-12">
+                                                    <figure class="post-thumb">
+                                                        <a class="gallery-selector"
+                                                            href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
+                                                            <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
+                                                                alt="post image">
+                                                        </a>
+                                                    </figure>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
                             @endif
-                            
-                            
+
+
 
                         </div>
                         <br>
@@ -327,7 +327,11 @@
                                         <h6 class="author"><a href='{{$komen->user->name}}'>{{ $komen->user->name }}</a>
                                         </h6>
                                         <span
+<<<<<<< HEAD
                                             class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
+=======
+                                            class="post-time">{{ Carbon\Carbon::parse($komen->created_at)->diffForHumans() }}</span>
+>>>>>>> c165b9bc80b3358e23d060c35ebd9fb52868c5b3
                                     </div>
                                 </div>
                                 <!-- post title start -->
@@ -406,7 +410,7 @@
                                     <a href="{{ route('profile') }}">{{ $modalPost->user->name }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($modalPost->waktu)->diffForHumans() }}</span>
+                                    class="post-time">{{ Carbon\Carbon::parse($modalPost->created_at)->diffForHumans() }}</span>
                             </div>
                         </div>
 

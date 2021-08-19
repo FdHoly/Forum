@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
+            'id_univ' => "required"
         ]);
         $path = $request->file->store('avatar', 'public');
 
@@ -48,7 +48,8 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 1,
-            'profil_image_url' => $path
+            'profil_image_url' => $path,
+            'id_univ' => $request->id_univ
         ]);
 
         event(new Registered($user));

@@ -20,8 +20,7 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul1',
                 'konten' => 'konten1',
-                'waktu' => '2021-5-31 20:59:59',
-                'status' => '1',
+                'status' => '0',
                 'image_url' => 'ini logo url',
                 'id_users' => '1',
                 'id_groups' => '3',
@@ -31,7 +30,6 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul2',
                 'konten' => 'konten2',
-                'waktu' => '2021-7-17 20:59:59',
                 'status' => '1',
                 'image_url' => 'ini logo url',
                 'id_users' => '2',
@@ -42,11 +40,30 @@ class utasSeeder extends Seeder
             [
                 'judul' => 'Judul3',
                 'konten' => 'konten3',
-                'waktu' => '2011-12-31 20:59:59',
-                'status' => '2',
+                'status' => '0',
                 'image_url' => 'ini logo url',
                 'id_users' => '3',
                 'id_groups' => '3',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'judul' => 'Post ini keempat',
+                'konten' => 'ini konten dibuat untuk memenuhi post ke 4',
+                'status' => '0',
+                'image_url' => 'ini logo url',
+                'id_users' => '3',
+                'id_groups' => '5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'judul' => 'Post ini keempat',
+                'konten' => 'ini konten dibuat sebagai post ke 5',
+                'status' => '0',
+                'image_url' => 'ini logo url',
+                'id_users' => '3',
+                'id_groups' => '4',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

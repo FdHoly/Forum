@@ -92,26 +92,37 @@ class UserController extends BaseController
     {
         $prof = User::with(["group", "utas"])->findOrFail(Auth::user()->id_users);
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $org = Groups::whereIn('id_groups', $userGroup)->get();
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
         // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
         // return $prof;
         return view('user.views.profile', [
+            "org" => $org,
             "prof" => $prof,
             "pengumuman" => $pengumuman,
             "acara" => $acara,
             "rapat" => $rapat,
         ]);
-        
     }
 
-    public function detailprofile($id)
+    public function detailprofile($nama)
     {
-        $organisasi = User::all();
-        return $organisasi;
+        $prof = User::with(["group", "replyutas", "utas"])->where('name', $nama)->first();
+        $userGroup = UserGroup::where('id_users', $prof->id)->pluck('id_groups'); # Auth::user()->id
+        $org = Groups::whereIn('id_groups', $userGroup)->get();
+        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
+        $acara = Events::whereIn('id_groups', $userGroup)->get();
+        $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
+        // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
+        // return $prof;
         return view('user.views.profile', [
-            "organisasi" => $organisasi
+            "org" => $org,
+            "prof" => $prof,
+            "pengumuman" => $pengumuman,
+            "acara" => $acara,
+            "rapat" => $rapat,
         ]);
     }
 }

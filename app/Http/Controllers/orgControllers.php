@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Utas;
+use App\Models\Rapat;
 use App\Models\Events;
 use App\Models\Groups;
-use App\Models\Pengumuman;
-use App\Models\Rapat;
 use App\Models\ReplyUtas;
-use App\Models\Universitas;
-use App\Models\User;
 use App\Models\UserGroup;
-use App\Models\Utas;
+use App\Models\Pengumuman;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class orgControllers extends Controller
@@ -25,7 +26,9 @@ class orgControllers extends Controller
     public function listorg()
     {
         $data = Groups::all();
-        return view('user.views.listorg', compact('data'));
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+
+        return view('user.views.listorg', compact('data', 'userGroup'));
     }
 
     public function viewCreate()
@@ -57,6 +60,7 @@ class orgControllers extends Controller
     public function detailOrg($id)
     {
         $sortDirect = 'desc';
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
         $organisasi = Groups::with([
             'pengumuman', 'acara', 'rapat',
@@ -74,7 +78,19 @@ class orgControllers extends Controller
 
         // return $organisasi;
         return view('user.views.proforganisasi', [
-            "organisasi" => $organisasi
+            "organisasi" => $organisasi,
+            "userGroup" => $userGroup
         ]);
+    }
+    public function joinOrg($id)
+    {
+        # code...
+        UserGroup::create([
+            'role' => 1,
+            'id_users' => Auth::user()->id_users,
+            'id_groups' => $id,
+
+        ]);
+        return back();
     }
 }

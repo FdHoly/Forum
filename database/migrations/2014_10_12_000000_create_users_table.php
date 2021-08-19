@@ -19,10 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email', 250)->unique();
             $table->string('password');
             $table->integer('role');
+            $table->text('biodata')->nullable();
             $table->text('profil_image_url')->nullable();
             $table->text('background_image_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->bigInteger('id_univ')->unsigned();
+            $table->foreign('id_univ')->references('id_univ')->on('universitas');
         });
     }
 

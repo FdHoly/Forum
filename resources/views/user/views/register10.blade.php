@@ -26,7 +26,7 @@
                         <p>Ini adalah page pendaftaran</p>
                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
-                            <a href={{ route('signin') }}>Login</a><a href="" class="active">Register</a>
+                            <a href={{ route('login') }}>Login</a><a href="" class="active">Register</a>
                         </div>
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
@@ -39,8 +39,8 @@
                                 <div class="options-container">
                                     @foreach ($dataUniv as $item)
                                         <div class="option">
-                                            <input type="radio" class="radio" id={{ $item->id_univ }}
-                                                name="category" />
+                                            <input type="radio" class="radio" id={{ $item->id_univ }} name="id_univ"
+                                                value="{{ $item->id_univ }}" />
                                             <label for={{ $item->id_univ }}>{{ $item->nama }}</label>
                                         </div>
                                     @endforeach

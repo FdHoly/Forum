@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [postController::class, "listpost"])->name("index");
 
     Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-    Route::get('/profile/{id}', [UserController::class, "detailprofile"])->name("profileID");
+    Route::get('/profile/{nama}', [UserController::class, "detailprofile"])->name("profileID");
 
     Route::get('/about', function () {
         return view('user.views.about');
@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
     })->name("laporan");
 
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
-
+    Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
 
     // Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost")->middleware('auth');
