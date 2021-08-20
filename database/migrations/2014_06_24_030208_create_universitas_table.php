@@ -17,8 +17,6 @@ class CreateUniversitasTable extends Migration
             $table->id('id_univ');
             $table->timestamps();
             $table->string('nama');
-            $table->text('deskripsi');
-            $table->text('logo_url');
         });
     }
 

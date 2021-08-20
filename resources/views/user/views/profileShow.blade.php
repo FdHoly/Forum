@@ -15,7 +15,7 @@
     <main>
 
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="{{url('user/assets/images/banner/profile-banner.jpg')}}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -23,7 +23,7 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="profile.html">
+                                    <a href="{{ route('profileID', $prof->name) }}">
                                         <img src="{{ Storage::url($prof->profil_image_url) }}
                                         " alt="profile picture">
                                     </a>

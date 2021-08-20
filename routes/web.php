@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function () {
         return view('user.views.reportview');
     })->name("laporan");
 
-    Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("listorg");
+    Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
     Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
 

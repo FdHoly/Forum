@@ -16,20 +16,9 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class postController extends Controller
 {
-    //
+    //->where('id_groups', function () {})
     public function listpost()
     {
-        // $data1 = Utas::orderBy('created_at', 'desc')->get();
-        // $data2 = Pengumuman::all();
-        // $data3 = Events::all();
-        // $data4 = Rapat::all();
-        // $data5 = ReplyUtas::all();
-        // $data6 = Groups::all();
-        // $dataR = Utas::with(["ReplyUtas"])->get();
-        // $dataRandom = Groups::all()->random(1);
-
-        //
-
         $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id

@@ -100,32 +100,7 @@
                     <div class="col-lg-6 order-1 order-lg-2">
                         <!-- post status start -->
                         <x-post :post="$prof->utas" />
-                        {{-- @include('user.views.include.post') --}}
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
+                        
                     </div>
                     <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
 
