@@ -109,4 +109,14 @@ class postController extends Controller
         $post->save();
         return redirect()->route('index');
     }
+    public function editPost(Request $request, Utas $utas)
+    {
+        $fields = $request->validate([
+            'konten' => 'required',
+            'status' => 'required',
+        ]);
+
+        $utas->update($fields);
+        return back();
+    }
 }

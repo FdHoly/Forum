@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [postController::class, "listpost"])->name("index");
 
+    Route::put('utas/{utas}', [postController::class, 'editPost'])->name('utasUpdate');
+
     Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
     Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
 

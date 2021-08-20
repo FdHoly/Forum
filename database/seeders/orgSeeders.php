@@ -21,6 +21,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'ini desc',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '1',
+                'logo_url' => '1629444303.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -29,6 +30,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'ini desc',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
+                'logo_url' => '1629444303.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -37,6 +39,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Universitas Brawijaya',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
+                'logo_url' => '1629444303.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -45,6 +48,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Persatuan Petani Universitas',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '3',
+                'logo_url' => '1629444303.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -53,6 +57,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Eksekutif Mahasiswa Universitas Indonesia',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
+                'logo_url' => '1629444303.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
