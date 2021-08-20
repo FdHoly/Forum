@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [postController::class, "listpost"])->name("index");
 
     Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
+    Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
 
     Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
     Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");

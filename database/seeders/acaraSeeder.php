@@ -20,8 +20,6 @@ class acaraSeeder extends Seeder
             [
                 'judul' => 'Dies Natalis',
                 'konten' => 'ini kontennya',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '1',
                 'id_groups' => '3',
                 'created_at' => Carbon::now(),
@@ -30,8 +28,6 @@ class acaraSeeder extends Seeder
             [
                 'judul' => 'Open House',
                 'konten' => 'ini kontennya',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '1',
                 'id_groups' => '2',
                 'created_at' => Carbon::now(),
@@ -40,8 +36,6 @@ class acaraSeeder extends Seeder
             [
                 'judul' => 'Weekend Party',
                 'konten' => 'ini kontennya',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '2',
                 'id_groups' => '2',
                 'created_at' => Carbon::now(),

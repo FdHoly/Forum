@@ -32,8 +32,6 @@ class pengumumanSeeder extends Seeder
                 Pelunasan dan bukti tf bisa isi disini yaa
                 https://forms.gle/gKUsq34jLeSSnWnt6
                 Terima kasih semuanyaaaa sehat sehat terusss luvvvyuall 🖤',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '1',
                 'id_groups' => '3',
                 'created_at' => Carbon::now(),
@@ -42,8 +40,6 @@ class pengumumanSeeder extends Seeder
             [
                 'judul' => 'Incoming Events',
                 'konten' => 'ini kontennya',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '1',
                 'id_groups' => '1',
                 'created_at' => Carbon::now(),
@@ -52,8 +48,6 @@ class pengumumanSeeder extends Seeder
             [
                 'judul' => 'Pergantian Kepengurusan',
                 'konten' => 'ini kontennya',
-                'image_url' => 'ini logo url',
-                'status' => '1',
                 'id_users' => '3',
                 'id_groups' => '2',
                 'created_at' => Carbon::now(),
