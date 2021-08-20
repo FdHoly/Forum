@@ -468,12 +468,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('reportPost') }}" method="POST">
+
+                <form action="{{route('reportPost')}}" method="POST" id="reportPost" name="reportPost">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" value="reportRadio" name="reportRadio">
-                        {{-- <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                        
+                        <input type="hidden" value=" {{$reportUtas->id_users}} " name="id_users">
+                        <input type="hidden" value=" {{$reportUtas->id_utas}} " name="id_utas">
+                        <input type="hidden" value=" {{$reportUtas->id_groups}} " name="id_groups">
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Gambar Melanggar Kebijakan">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 <p><b>Gambar Melanggar Kebijakan</b><br>
@@ -481,7 +486,7 @@
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Informasi Palsu">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 <p><b>Informasi Palsu</b><br>
@@ -489,7 +494,7 @@
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Konten Dewasa" checked>
                             <label class="form-check-label" for="flexRadioDefault3">
                                 <p><b>Konten Dewasa</b><br>
@@ -497,7 +502,7 @@
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Kredensial Tidak Pantas">
                             <label class="form-check-label" for="flexRadioDefault4">
                                 <p><b>Kredensial Tidak Pantas</b><br>
@@ -505,7 +510,7 @@
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Pelecehan">
                             <label class="form-check-label" for="flexRadioDefault5">
                                 <p><b>Pelecehan</b><br>
@@ -513,44 +518,27 @@
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                            <input class="form-check-input" type="radio" name="alasan" id="reportUtas"
                                 value="Spam">
                             <label class="form-check-label" for="flexRadioDefault6">
                                 <p><b>Spam</b><br>
                                     Mengandung promosi terselubung terkait tautan, jasa, atau produk</p>
                             </label>
-                        </div> --}}
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" style="margin-right: 10px" data-dismiss="modal">Batal</button>
-                        <button type="submit" data-toggle="modal" data-dismiss="modal">Kirim</button>
+                        <button type="submit" >Kirim</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 @endforeach
-
-{{-- <script>
-    data-target="#modalAlert"
-    $("#reportPost").submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            data: $("#reportPost").serialize(),
-            url: 'url',
-            success: function(data) {
-                $("#alasan").html(data);
-                $("#modalAlert").modal("show");
-            }
-        });
-        return false;
-    });
-</script> --}}
 {{-- Modal Report --}}
 
 {{-- Modal Alert Report --}}
-{{-- <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -570,5 +558,5 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 {{-- Modal Alert Report --}}
