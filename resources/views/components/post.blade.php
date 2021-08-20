@@ -3,7 +3,8 @@
         <div class="post-title d-flex align-items-center">
             <!-- profile picture end -->
             <div class="profile-thumb">
-                <a href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">
+                <a
+                    href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">
                     <figure class="profile-thumb-middle">
                         <img src="{{ Storage::url($itemPost->user->profil_image_url) }}" alt="ppUser">
                     </figure>
@@ -12,7 +13,8 @@
             <!-- profile picture end -->
             <div class="posted-author">
                 <h1 class="author">
-                    <a href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
+                    <a
+                        href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
                     ▶
                     <a href="{{ route('detailOrg', $itemPost->group->id_groups) }}">{{ $itemPost->group->nama }}</a>
 
@@ -37,7 +39,8 @@
                             <li><button>hapus post</button></li>
                         @else
                             <li>
-                                <button type="button" data-toggle="modal" data-target="#exampleModalLong">
+                                <button type="button" data-toggle="modal"
+                                    data-target="#exampleModalLong{{ $itemPost->id_utas }}">
                                     Laporkan
                                 </button>
                             </li>
@@ -102,7 +105,7 @@
 
                             <!-- profile picture end -->
                             <div class="profile-thumb">
-                                <a href="{{route('profile')}}">
+                                <a href="{{ route('profile') }}">
                                     <figure class="profile-thumb-middle">
                                         <img src="{{ Storage::url($itemPost1->user->profil_image_url) }}"
                                             alt="profile picture">
@@ -453,71 +456,101 @@
 {{-- Modal Edit Post --}}
 
 {{-- Modal Report --}}
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Laporkan Jawaban</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        <p><b>Gambar Melanggar Kebijakan</b><br>
-                            Konten ini mengandung gambar yang melanggar kebijakan</p>
-                    </label>
+
+@foreach ($post as $reportUtas)
+    <div class="modal fade" id="exampleModalLong{{ $reportUtas->id_utas }}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Laporkan Jawaban</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        <p><b>Informasi Palsu</b><br>
-                            Mengandung informasi yang tidak terbukti kebenarannya</p>
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault3" checked>
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        <p><b>Konten Dewasa</b><br>
-                            Mengandung seksual eksplisit, kekerasan, serta hal lain yang tidak pantas</p>
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault4">
-                    <label class="form-check-label" for="flexRadioDefault4">
-                        <p><b>Kredensial Tidak Pantas</b><br>
-                            Kredensial penulis menyinggung atau meniru identitas pihak lain</p>
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault5">
-                    <label class="form-check-label" for="flexRadioDefault5">
-                        <p><b>Pelecehan</b><br>
-                            Meremehkan atau memicu permusuhan dengan individu atau kelompok</p>
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault6">
-                    <label class="form-check-label" for="flexRadioDefault6">
-                        <p><b>Spam</b><br>
-                            Mengandung promosi terselubung terkait tautan, jasa, atau produk</p>
-                    </label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" data-dismiss="modal">Batal</button>
-                <button type="button" data-toggle="modal" data-target="#modalAlert" data-dismiss="modal">Simpan</button>
+                <form action="{{ route('reportPost') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" value="reportRadio" name="reportRadio">
+                        {{-- <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Gambar Melanggar Kebijakan">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                <p><b>Gambar Melanggar Kebijakan</b><br>
+                                    Konten ini mengandung gambar yang melanggar kebijakan</p>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Informasi Palsu">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                <p><b>Informasi Palsu</b><br>
+                                    Mengandung informasi yang tidak terbukti kebenarannya</p>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Konten Dewasa" checked>
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                <p><b>Konten Dewasa</b><br>
+                                    Mengandung seksual eksplisit, kekerasan, serta hal lain yang tidak pantas</p>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Kredensial Tidak Pantas">
+                            <label class="form-check-label" for="flexRadioDefault4">
+                                <p><b>Kredensial Tidak Pantas</b><br>
+                                    Kredensial penulis menyinggung atau meniru identitas pihak lain</p>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Pelecehan">
+                            <label class="form-check-label" for="flexRadioDefault5">
+                                <p><b>Pelecehan</b><br>
+                                    Meremehkan atau memicu permusuhan dengan individu atau kelompok</p>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reportRadio" id="reportUtas"
+                                value="Spam">
+                            <label class="form-check-label" for="flexRadioDefault6">
+                                <p><b>Spam</b><br>
+                                    Mengandung promosi terselubung terkait tautan, jasa, atau produk</p>
+                            </label>
+                        </div> --}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-right: 10px" data-dismiss="modal">Batal</button>
+                        <button type="submit" data-toggle="modal" data-dismiss="modal">Kirim</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+@endforeach
+
+{{-- <script>
+    data-target="#modalAlert"
+    $("#reportPost").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            data: $("#reportPost").serialize(),
+            url: 'url',
+            success: function(data) {
+                $("#alasan").html(data);
+                $("#modalAlert").modal("show");
+            }
+        });
+        return false;
+    });
+</script> --}}
 {{-- Modal Report --}}
 
 {{-- Modal Alert Report --}}
-<div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+{{-- <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -530,12 +563,12 @@
             <div class="modal-body">
                 Laporan berhasil dikirim
                 <br>
-                <span>Alasan : <p>
+                <span>Alasan : <p id="alasan">
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 {{-- Modal Alert Report --}}

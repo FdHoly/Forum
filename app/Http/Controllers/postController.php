@@ -98,6 +98,7 @@ class postController extends Controller
         $post->save();
         return redirect()->route('index');
     }
+
     public function editPost(Request $request, Utas $utas)
     {
         $fields = $request->validate([
@@ -107,5 +108,10 @@ class postController extends Controller
 
         $utas->update($fields);
         return back();
+    }
+
+    public function reportPost(Request $request)
+    {
+        return $request->input('reportRadio');
     }
 }
