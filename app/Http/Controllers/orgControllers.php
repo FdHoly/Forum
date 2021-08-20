@@ -39,11 +39,7 @@ class orgControllers extends Controller
 
     public function createOrg(Request $request)
     {
-        $org = new Groups();
 
-        $org->nama = $request->input('nama_grup');
-        $org->deskripsi = $request->input('deskripsi');
-        $org->id_univ = $request->get('universitas');
 
         $file = $request->file('file');
         $path = $request->file->store('logo', 'public');
@@ -51,9 +47,22 @@ class orgControllers extends Controller
         $filename = time() . "." . $extension;
         $file->move('uploads/logo', $filename);
 
-        $org->logo_url = $filename;
 
-        $org->save();
+        $group = Groups::create(
+            [
+                'nama' => $request->nama_grup,
+                'deskripsi' => $request->deskripsi,
+                'id_univ' => $request->universitas,
+                'logo_url' => $filename
+            ]
+        );
+
+
+        UserGroup::create([
+            'id_users' => Auth::user()->id_users,
+            'role' => '2',
+            'id_groups' => $group->id_groups,
+        ]);
         return redirect()->route('listorg');
     }
 

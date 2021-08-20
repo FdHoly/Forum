@@ -57,7 +57,7 @@
                                         <select id="universitas" name="universitas">
                                             @foreach ($data as $items)
 
-                                                <option id="universitas" name="universitas" value={{ $items->id_univ }}>
+                                                <option id="universitas" value={{ $items->id_univ }}>
                                                     {{ $items->nama }}</option>
                                             @endforeach
                                         </select>

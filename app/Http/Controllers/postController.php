@@ -24,9 +24,9 @@ class postController extends Controller
         $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
 
         $group = Groups::whereIn('id_groups', $userGroup)->get();
-        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
-        $acara = Events::whereIn('id_groups', $userGroup)->get();
-        $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
+        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->latest()->get();
+        $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
+        $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
 
