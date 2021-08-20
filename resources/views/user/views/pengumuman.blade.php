@@ -130,7 +130,8 @@
                                                         </button>
                                                     </div>
                                                     {{-- Formulir Share --}}
-                                                    <form action="" method="POST" enctype="multipart/form-data">
+                                                    <form action="{{ route('createPengumuman') }}" method="POST"
+                                                        enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="modal-body custom-scroll">
 
@@ -162,13 +163,13 @@
                                                                 </div>
                                                                 <div class="col">
                                                                     <label for="organisasi"></label>
-                                                                    <select name="id_groups" id="organisasi"
+                                                                    <select name="tipe" id="tipe"
                                                                         class="form-control block w-100 p-2 mb-2"
                                                                         required>
                                                                         <option value="">Pilih Thread</option>
                                                                         <option value="pengumuman">Pengumuman</option>
-                                                                        <option value="Acara">Acara</option>
-                                                                        <option value="Rapat">Rapat</option>
+                                                                        <option value="acara">Acara</option>
+                                                                        <option value="rapat">Rapat</option>
 
 
                                                                     </select>

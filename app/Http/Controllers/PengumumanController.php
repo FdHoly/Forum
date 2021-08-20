@@ -26,13 +26,13 @@ class PengumumanController extends Controller
         $org = Groups::whereIn('id_groups', $userGroup)->get();
         $pengumuman = Pengumuman::with(['group.usergroup' => function ($query) {
             $query->where('id_users', Auth::user()->id_users);
-        }])->whereIn('id_groups', $userGroup)->get();
+        }])->whereIn('id_groups', $userGroup)->latest()->get();
         $acara = Events::with(['group.usergroup' => function ($query) {
             $query->where('id_users', Auth::user()->id_users);
-        }])->whereIn('id_groups', $userGroup)->get();
+        }])->whereIn('id_groups', $userGroup)->latest()->get();
         $rapat = Rapat::with(['group.usergroup' => function ($query) {
             $query->where('id_users', Auth::user()->id_users);
-        }])->whereIn('id_groups', $userGroup)->get();
+        }])->whereIn('id_groups', $userGroup)->latest()->get();
         // return $admUser;
         // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
         // return $prof;
@@ -44,5 +44,38 @@ class PengumumanController extends Controller
             "acara" => $acara,
             "rapat" => $rapat,
         ]);
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'id_groups' => 'required',
+            'tipe' => 'required',
+            'konten' => 'required',
+        ]);
+
+        if ($request->tipe == "pengumuman") {
+            Pengumuman::create([
+                'id_users' => Auth::user()->id_users,
+                'judul' => $request->judul,
+                'id_groups' => $request->id_groups,
+                'konten' => $request->konten,
+            ]);
+        } elseif ($request->tipe == "acara") {
+            Events::create([
+                'id_users' => Auth::user()->id_users,
+                'judul' => $request->judul,
+                'id_groups' => $request->id_groups,
+                'konten' => $request->konten,
+            ]);
+        } elseif ($request->tipe == "rapat") {
+            Rapat::create([
+                'id_users' => Auth::user()->id_users,
+                'judul' => $request->judul,
+                'id_groups' => $request->id_groups,
+                'konten' => $request->konten,
+            ]);
+        }
+        return back();
     }
 }

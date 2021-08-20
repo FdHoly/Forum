@@ -18,8 +18,6 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->string('judul');
             $table->text('konten');
-            $table->text('image_url');
-            $table->integer('status');
 
             // Ini buat Foreign Key
             $table->bigInteger('id_users')->unsigned();
