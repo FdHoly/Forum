@@ -56,14 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/organisasiku', [profileController::class, "MyOrg"])->name("organisasiku");
     Route::get('/profile/{nama}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
 
-    // Route::get('/organisasiku', function () {
-    //     return view('user.views.organisasiku');
-    // })->name("organisasiku");
-
-    // Route::get('/pengumuman', function () {
-    //     return view('user.views.pengumuman');
-    // })->name("pengumuman");
-
     Route::get('/organisasi/kbmti', function () {
         return view('user.views.proforganisasi');
     });
