@@ -15,7 +15,7 @@
     <main>
 
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="{{url('user/assets/images/banner/profile-banner.jpg')}}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -23,7 +23,7 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="profile.html">
+                                    <a href="{{ route('profileID', $prof->name) }}">
                                         <img src="{{ Storage::url($prof->profil_image_url) }}
                                         " alt="profile picture">
                                     </a>
@@ -31,7 +31,24 @@
                             </div>
                         </div>
 
-                        @include('user.views.include.profilemenu')
+                        <div class="col-lg-6 col-md-6 offset-lg-1">
+                            <div class="profile-menu-wrapper">
+                                <div class="main-menu-inner header-top-navigation">
+                                    <nav>
+                                        <ul class="main-menu">
+                                            <li class="{{ Route::currentRouteName() == 'profile' ? 'active' : '' }}">
+                                                <a href="{{ route('profileID', $prof->name) }}">Post</a>
+                                            </li>
+                                            <li
+                                                class="{{ Route::currentRouteName() == 'organisasiku' ? 'active' : '' }}">
+                                                <a href="{{ route('organisasiNya', $prof->name) }}">Organisasi</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
@@ -100,7 +117,32 @@
                     <div class="col-lg-6 order-1 order-lg-2">
                         <!-- post status start -->
                         <x-post :post="$prof->utas" />
-                        
+                        {{-- @include('user.views.include.post') --}}
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
+
+                        <!-- post status start -->
+
+                        <!-- post status end -->
                     </div>
                     <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
 

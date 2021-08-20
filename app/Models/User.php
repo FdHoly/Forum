@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
     public function group()
     {
-        return $this->belongsToMany(Groups::class, 'user_groups', 'id_users', 'id_users');
+        return $this->belongsToMany(Groups::class, 'user_groups', 'id_users', 'id_users')->withPivot('role');
     }
     public function universitas()
     {

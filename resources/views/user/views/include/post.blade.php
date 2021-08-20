@@ -361,7 +361,7 @@
                             <!-- share content box start -->
                             <div class="share-content-box w-100">
                                 <form class="share-text-box" action="{{ route('replyPost') }}" method="POST">
-                                    <textarea name="share" class="share-text-field" aria-disabled="true"
+                                    <textarea name="konten" class="share-text-field" aria-disabled="true"
                                         placeholder="Say Something" data-toggle="modal" id="email"></textarea>
                                     <button class="btn-share" type="submit">share</button>
                                 </form>

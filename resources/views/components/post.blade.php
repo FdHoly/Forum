@@ -3,19 +3,18 @@
         <div class="post-title d-flex align-items-center">
             <!-- profile picture end -->
             <div class="profile-thumb">
-                <a href="#">
+                <a href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">
                     <figure class="profile-thumb-middle">
-                        <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}" alt="profile picture">
+                        <img src="{{ Storage::url($itemPost->user->profil_image_url) }}" alt="ppUser">
                     </figure>
                 </a>
             </div>
             <!-- profile picture end -->
-
             <div class="posted-author">
                 <h1 class="author">
-                    <a href="{{ route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
+                    <a href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
                     ▶
-                    <a href="organisasi/{{ $itemPost->group->id_groups }}">{{ $itemPost->group->nama }}</a>
+                    <a href="{{ route('detailOrg', $itemPost->group->id_groups) }}">{{ $itemPost->group->nama }}</a>
 
                     {{ $itemPost->status == '1' ? '▶🔒' : '' }}
                     {{-- 🔒🔓 --}}
@@ -30,16 +29,20 @@
                 <span></span>
                 <div class="post-settings arrow-shape">
                     <ul>
-                        <li><button type="button" data-toggle="modal"
-                                data-target="#ModalEditPost{{ $itemPost->id_utas }}">
-                                Edit Post
-                            </button></li>
-                        <li><button>hapus post</button></li>
-                        <li>
-                            <button type="button" data-toggle="modal" data-target="#exampleModalLong">
-                                Laporkan
-                            </button>
-                        </li>
+                        @if ($itemPost->user->id_users === Auth::user()->id_users)
+                            <li><button type="button" data-toggle="modal"
+                                    data-target="#ModalEditPost{{ $itemPost->id_utas }}">
+                                    Edit Post
+                                </button></li>
+                            <li><button>hapus post</button></li>
+                        @else
+                            <li>
+                                <button type="button" data-toggle="modal" data-target="#exampleModalLong">
+                                    Laporkan
+                                </button>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
             </div>
@@ -99,9 +102,9 @@
 
                             <!-- profile picture end -->
                             <div class="profile-thumb">
-                                <a href="#">
+                                <a href="{{route('profile')}}">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
+                                        <img src="{{ Storage::url($itemPost1->user->profil_image_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -324,14 +327,10 @@
                                     <!-- profile picture end -->
                                     <div class="posted-author">
                                         <!-- profile picture end -->
-                                        <h6 class="author"><a href='{{$komen->user->name}}'>{{ $komen->user->name }}</a>
+                                        <h6 class="author"><a
+                                                href='{{ $komen->user->name }}'>{{ $komen->user->name }}</a>
                                         </h6>
-                                        <span
-<<<<<<< HEAD
-                                            class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
-=======
-                                            class="post-time">{{ Carbon\Carbon::parse($komen->created_at)->diffForHumans() }}</span>
->>>>>>> c165b9bc80b3358e23d060c35ebd9fb52868c5b3
+                                        <span class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>
                                 <!-- post title start -->

@@ -27,45 +27,44 @@
                                 <div class="profile-banner">
                                     <figure class="profile-banner-small">
                                         <a href="{{ route('profile') }}">
-                                            <img src="user/assets/images/banner/banner-small.jpg" alt="">
+                                            @if (Auth::user()->background_image_url !== null)
+                                                <img src="{{ Auth::user()->background_image_ur }}" alt="bgUser">
+                                            @else
+                                                <img src="user/assets/images/banner/banner-small.jpg" alt="bgUser">
+                                            @endif
                                         </a>
                                         <a href="{{ route('profile') }}" class="profile-thumb-2">
-                                            <img src="user/assets/images/profile/profile-midle-1.jpg" alt="">
+                                            <img src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="ppUser">
                                         </a>
                                     </figure>
                                     <div class="profile-desc text-center">
                                         <h6 class="author"><a
                                                 href="{{ route('profile') }}">{{ Auth::user()->name }}</a></h6>
-                                        <p>Any one can join with but Social network us if you want Any one can join with
-                                            us if you want</p>
+                                        <p> {{Auth::user()->biodata !== NULL ? Auth::user()->biodata :  "Tidak Ada Bio"  }} </p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- widget single item start -->
 
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">group you may like</h4>
+                                <h4 class="widget-title">Saran Grup</h4>
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
                                         @foreach ($DataRandom as $itemGroup)
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
-
                                                 <div class="profile-thumb">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                                alt="profile picture">
+                                                            <img src="{{ Storage::url('logo/'. $itemGroup->image_url) }}"
+                                                                alt="ppGroup">
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <!-- profile picture end -->
-
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href="#">{{ $itemGroup->nama }}</a></h3>
-                                                    <p class="list-subtitle"><a
-                                                            href="#">{{ $itemGroup->universitas->nama }}</a></p>
+                                                    <h3 class="list-title"><a href={{route('detailOrg',  ['id' => $itemGroup->id_groups ] )}}>{{ $itemGroup->nama }}</a></h3>
+                                                    <p class="list-subtitle">{{ $itemGroup->universitas->nama }}</p>
                                                 </div>
 
                                             </li>
@@ -133,7 +132,8 @@
                                                                 <option value="">Pilih Organisasi</option>
                                                                 @foreach ($group as $item)
                                                                     <option value="{{ $item->id_groups }}">
-                                                                        {{ $item->nama }}</option>
+                                                                        {{ $item->nama }}
+                                                                    </option>
 
                                                                 @endforeach
 
@@ -218,7 +218,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
