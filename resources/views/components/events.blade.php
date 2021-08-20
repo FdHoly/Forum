@@ -14,7 +14,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src={{ url('user/assets/images/profile/profile-small-9.jpg') }}
+                                            <img src="{{ asset('uploads/logo/' . $itemPengumuman->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -60,7 +60,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src={{ url('user/assets/images/profile/profile-small-9.jpg') }}
+                                            <img src="{{ asset('uploads/logo/' . $itemAcara->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -103,7 +103,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src={{ url('user/assets/images/profile/profile-small-9.jpg') }}
+                                            <img src="{{ asset('uploads/logo/' . $itemRapat->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -149,7 +149,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src={{ url('user/assets/images/profile/profile-small-3.jpg') }}
+                                        <img src="{{ asset('uploads/logo/' . $itemPengumuman->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -197,7 +197,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src={{ url('user/assets/images/profile/profile-small-3.jpg') }}
+                                        <img src="{{ asset('uploads/logo/' . $itemAcara->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -245,7 +245,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src={{ url('user/assets/images/profile/profile-small-3.jpg') }}
+                                        <img src="{{ asset('uploads/logo/' . $itemRapat->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>

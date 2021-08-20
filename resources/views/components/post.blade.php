@@ -391,38 +391,56 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="card">
-                        <div class="post-title d-flex align-items-center">
-                            <!-- profile picture end -->
-                            <div class="profile-thumb">
-                                <a href="#">
-                                    <figure class="profile-thumb-middle">
-                                        <img src="user/assets/images/profile/profile-small-1.jpg" alt="profile picture">
-                                    </figure>
+                        <form action="{{ route('utasUpdate', $modalPost->id_utas) }}" method="POST">
+                            @method('PUT')
+                            @csrf
+
+                            <div class="post-title d-flex align-items-center">
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="#">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="user/assets/images/profile/profile-small-1.jpg"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author col-8">
+                                    <h6 class="author">
+                                        <a href="{{ route('profile') }}">{{ $modalPost->user->name }}</a>
+                                    </h6>
+                                    <span
+                                        class="post-time">{{ Carbon\Carbon::parse($modalPost->created_at)->diffForHumans() }}</span>
+                                </div>
+                                <div class="col-3">
+                                    <select name="status" id="inputState" class="form-control block w-100 p-2 mb-2"
+                                        required>
+                                        <option value="0" {{ $modalPost->status ? '' : 'selected' }}>
+                                            Public
+                                        </option>
+                                        <option value="1" {{ $modalPost->status ? 'selected' : '' }}>Private</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- post title start -->
+                            <div class="post-content">
+                                <h5 style="margin-bottom: 10px">{{ $modalPost->judul }}</h5>
+                                <textarea name="konten" class="share-field-big custom-scroll" aria-disabled="true"
+                                    data-toggle="modal" id="konten">{{ $modalPost->konten }}</textarea>
+                                {{-- <div class="post-thumb-gallery">
+                                <a href={{ Storage::url($itemPost->image_url) }}>
+                                    <img src={{ Storage::url($itemPost->image_url) }} alt="post image">
                                 </a>
+                            </div> --}}
                             </div>
-                            <!-- profile picture end -->
-
-                            <div class="posted-author">
-                                <h6 class="author">
-                                    <a href="{{ route('profile') }}">{{ $modalPost->user->name }}</a>
-                                </h6>
-                                <span
-                                    class="post-time">{{ Carbon\Carbon::parse($modalPost->created_at)->diffForHumans() }}</span>
+                            <div class="modal-footer">
+                                <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="post-share-btn">Simpan</button>
                             </div>
-                        </div>
-
-                        <!-- post title start -->
-                        <div class="post-content">
-                            <textarea name="share" class="share-field-big custom-scroll" aria-disabled="true"
-                                data-toggle="modal" id="email">{{ $modalPost->konten }}</textarea>
-                            <div class="post-thumb-gallery">
-                                <img src="user/assets/images/post/post-1.jpg" alt="post image">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
-                            <button type="button" class="post-share-btn">Simpan</button>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
@@ -444,46 +462,46 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault1">
                     <label class="form-check-label" for="flexRadioDefault1">
                         <p><b>Gambar Melanggar Kebijakan</b><br>
-                            Konten ini mengandung gambar yang melanggar kebijakan</p><br>
+                            Konten ini mengandung gambar yang melanggar kebijakan</p>
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault2" checked>
                     <label class="form-check-label" for="flexRadioDefault2">
                         <p><b>Informasi Palsu</b><br>
-                            Mengandung informasi yang tidak terbukti kebenarannya</p><br>
+                            Mengandung informasi yang tidak terbukti kebenarannya</p>
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault3" checked>
+                    <label class="form-check-label" for="flexRadioDefault3">
                         <p><b>Konten Dewasa</b><br>
-                            Mengandung seksual eksplisit, kekerasan, serta hal lain yang tidak pantas</p><br>
+                            Mengandung seksual eksplisit, kekerasan, serta hal lain yang tidak pantas</p>
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault4">
+                    <label class="form-check-label" for="flexRadioDefault4">
                         <p><b>Kredensial Tidak Pantas</b><br>
-                            Kredensial penulis menyinggung atau meniru identitas pihak lain</p><br>
+                            Kredensial penulis menyinggung atau meniru identitas pihak lain</p>
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault5">
+                    <label class="form-check-label" for="flexRadioDefault5">
                         <p><b>Pelecehan</b><br>
-                            Meremehkan atau memicu permusuhan dengan individu atau kelompok</p><br>
+                            Meremehkan atau memicu permusuhan dengan individu atau kelompok</p>
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="reportRadio" id="flexRadioDefault6">
+                    <label class="form-check-label" for="flexRadioDefault6">
                         <p><b>Spam</b><br>
-                            Mengandung promosi terselubung terkait tautan, jasa, atau produk</p><br>
+                            Mengandung promosi terselubung terkait tautan, jasa, atau produk</p>
                     </label>
                 </div>
             </div>
