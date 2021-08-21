@@ -103,6 +103,15 @@ class postController extends Controller
         $utas->update($fields);
         return back();
     }
+    // public function report(Request $request)
+    // {
+    //     $group = Groups::create(
+    //         [
+    //             'nama' => $request->nama_grup,
+    //             'deskripsi' => $request->deskripsi,
+    //             'id_univ' => $request->universitas,
+    //         ]
+    //     );}
 
     public function reportPost(Request $request)
     {
