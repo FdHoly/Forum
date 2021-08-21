@@ -7,6 +7,7 @@ use App\Models\Groups;
 use App\Models\Pengumuman;
 use App\Models\Rapat;
 use App\Models\ReplyUtas;
+use App\Models\Report;
 use App\Models\UserGroup;
 use Carbon\Carbon;
 use App\Models\Utas;
@@ -16,7 +17,6 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class postController extends Controller
 {
-    //->where('id_groups', function () {})
     public function listpost()
     {
         $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
@@ -30,8 +30,6 @@ class postController extends Controller
 
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
 
-        // return $group;
-
         return view('user.views.index', [
             "admAuth" => $admAuth,
             "group" => $group,
@@ -41,7 +39,6 @@ class postController extends Controller
             "acara" => $acara,
             "rapat" => $rapat,
         ]);
-        // return $dataRandom;
     }
 
     public function eventbar()
@@ -70,7 +67,6 @@ class postController extends Controller
 
         $post->save();
         return redirect()->back();
-        // return $request;
     }
 
     public function createPost(Request $request)
@@ -81,8 +77,6 @@ class postController extends Controller
             'id_groups' => 'required|exists:groups,id_groups',
             'status' => 'required',
         ]);
-
-
         $post = new Utas();
         $post->judul = $request->input('judul');
         $post->konten = $request->input('konten');
@@ -98,6 +92,7 @@ class postController extends Controller
         $post->save();
         return redirect()->route('index');
     }
+
     public function editPost(Request $request, Utas $utas)
     {
         $fields = $request->validate([
@@ -106,6 +101,19 @@ class postController extends Controller
         ]);
 
         $utas->update($fields);
+        return back();
+    }
+
+    public function reportPost(Request $request)
+    {
+        $report = new Report();
+
+        $report->id_utas = $request->input('id_utas');
+        $report->id_users = $request->input('id_users');
+        $report->id_groups = $request->input('id_groups');
+        $report->alasan = $request->input('alasan');
+
+        $report->save();
         return back();
     }
 }

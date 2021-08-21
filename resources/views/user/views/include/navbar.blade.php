@@ -30,7 +30,7 @@
                     <!-- header top search start -->
                     <div class="header-top-search">
                         <form class="top-search-box">
-                            <input type="text" placeholder="Search" class="top-search-field">
+                            <input type="text" placeholder="Cari Organisasimu" class="top-search-field">
                             <button class="top-search-btn"><i class="flaticon-search"></i></button>
                         </form>
                     </div>
@@ -41,7 +41,7 @@
                         <div class="profile-thumb-small">
                             <a href="javascript:void(0)" class="profile-triger">
                                 <figure>
-                                    <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
+                                    <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
                                         alt="profile picture">
                                 </figure>
                             </a>
