@@ -36,17 +36,21 @@ class profileController extends Controller
         ]);
     }
 
-    public function profileShow($nama)
+    public function profileShow($email)
     {
-        $prof = User::with(["group", "replyutas", "utas"])->where('name', $nama)->first();
+        $prof = User::with(["group", "replyutas", "utas"])->where('email', $email)->first();
 
-        $userGroup = UserGroup::where('id_users', $prof->id)->pluck('id_groups'); # Auth::user()->id
-        $org = Groups::whereIn('id_groups', $userGroup)->get();
+        $userGuest = UserGroup::where('id_users', $prof->id_users)->pluck('id_groups'); # Auth::user()->id
+        $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $userGroup = UserGroup::whereIn('id_groups', $userAuth)
+            ->where('id_users', $prof->id_users)
+            ->pluck('id_groups');
+        $org = Groups::whereIn('id_groups', $userGuest)->get();
         $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->get();
         $acara = Events::whereIn('id_groups', $userGroup)->get();
         $rapat = Rapat::whereIn('id_groups', $userGroup)->get();
         // $allutas = Utas::with(["group", "replyutas", "user"])->findOrFail(Auth::user()->id_users);
-        // return $prof;
+        // return $userAuth;
         return view('user.views.profileShow', [
             "org" => $org,
             "prof" => $prof,
@@ -64,10 +68,10 @@ class profileController extends Controller
             "org" => $org,
         ]);
     }
-    public function HisOrg($name)
+    public function HisOrg($email)
     {
 
-        $user = User::where("name", $name)->firstOrFail();
+        $user = User::where("email", $email)->firstOrFail();
         $userGroup = UserGroup::where('id_users', $user->id_users)->pluck('id_groups'); # Auth::user()->id
         $org = Groups::whereIn('id_groups', $userGroup)->get();
         // return $org;

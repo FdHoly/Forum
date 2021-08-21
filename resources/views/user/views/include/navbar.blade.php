@@ -55,7 +55,8 @@
                                         <li><a href="{{ route('profile') }}"><i class="flaticon-user"></i>Profile</a>
                                         </li>
                                         {{-- <li><a href="#"><i class="flaticon-message"></i>Inbox</a></li> --}}
-                                        <li><a href="#"><i class="flaticon-document"></i>Groups</a></li>
+                                        <li><a href={{ route('organisasiku') }}><i
+                                                    class="flaticon-document"></i>Groups</a></li>
                                         <li>
                                             <a>
                                                 <form method="POST" action="{{ route('logout') }}">@csrf<button

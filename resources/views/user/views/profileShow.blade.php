@@ -15,7 +15,8 @@
     <main>
 
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img" data-bg="{{url('user/assets/images/banner/profile-banner.jpg')}}">
+            <div class="profile-banner-large bg-img"
+                data-bg="{{ url('user/assets/images/banner/profile-banner.jpg') }}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -23,7 +24,7 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="{{ route('profileID', $prof->name) }}">
+                                    <a href="{{ route('profileID', $prof->email) }}">
                                         <img src="{{ Storage::url($prof->profil_image_url) }}
                                         " alt="profile picture">
                                     </a>
@@ -38,11 +39,11 @@
                                         <ul class="main-menu">
                                             <li
                                                 class="{{ Route::currentRouteName() == 'profileID' ? 'active' : '' }}">
-                                                <a href="{{ route('profileID', $prof->name) }}">Post</a>
+                                                <a href="{{ route('profileID', $prof->email) }}">Post</a>
                                             </li>
                                             <li
                                                 class="{{ Route::currentRouteName() == 'organisasiNya' ? 'active' : '' }}">
-                                                <a href="{{ route('organisasiNya', $prof->name) }}">Organisasi</a>
+                                                <a href="{{ route('organisasiNya', $prof->email) }}">Organisasi</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -99,9 +100,11 @@
                                                 <!-- profile picture end -->
 
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href="#">{{ $itemOrg->nama }}</a></h3>
-                                                    <p class="list-subtitle"><a
-                                                            href="#">{{ $itemOrg->universitas->nama }}</a></p>
+                                                    <h3 class="list-title"><a
+                                                            href={{ route('detailOrg', ['id' => $itemOrg->id_groups]) }}>{{ $itemOrg->nama }}</a>
+                                                    </h3>
+                                                    <p class="list-subtitle"><a>{{ $itemOrg->universitas->nama }}</a>
+                                                    </p>
                                                 </div>
                                             </li>
                                         @endforeach

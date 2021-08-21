@@ -84,9 +84,11 @@
                                                 <!-- profile picture end -->
 
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href="#">{{ $itemOrg->nama }}</a></h3>
-                                                    <p class="list-subtitle"><a
-                                                            href="#">{{ $itemOrg->universitas->nama }}</a></p>
+                                                    <h3 class="list-title"><a
+                                                            href={{ route('detailOrg', ['id' => $itemOrg->id_groups]) }}>{{ $itemOrg->nama }}</a>
+                                                    </h3>
+                                                    <p class="list-subtitle"><a>{{ $itemOrg->universitas->nama }}</a>
+                                                    </p>
                                                 </div>
                                             </li>
                                         @endforeach
@@ -100,7 +102,7 @@
                     <div class="col-lg-6 order-1 order-lg-2">
                         <!-- post status start -->
                         <x-post :post="$prof->utas" />
-                        
+
                     </div>
                     <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
 

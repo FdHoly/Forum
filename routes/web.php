@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
 
     Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
-    Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");
+    Route::get('/profile/{email}', [profileController::class, "profileShow"])->name("profileID");
     Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan");
     Route::get('/editprofile', [profileController::class, "profileMe"])->name("editprofile");
     Route::put('/editprofile', [profileController::class, "editProfile"])->name("editprofile.update");
@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
         return view('user.views.about');
     })->name("about");
     Route::get('/organisasiku', [profileController::class, "MyOrg"])->name("organisasiku");
-    Route::get('/profile/{nama}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
+    Route::get('/profile/{email}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
 
     Route::get('/organisasi/kbmti', function () {
         return view('user.views.proforganisasi');

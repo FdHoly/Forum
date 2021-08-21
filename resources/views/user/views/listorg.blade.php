@@ -26,7 +26,7 @@
                             <div class="card widget-item">
                                 <h4 class="widget-title">Filter</h4>
                                 <div class="widget-body">
-                                <form action="" method="post"></form>
+                                    <form action="" method="post"></form>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
@@ -96,7 +96,7 @@
                                                             <div class="about-author">
                                                                 <p>{{ $item['deskripsi'] }}</p>
                                                                 <ul class="author-into-list">
-                                                                    <li><a href="#"><i
+                                                                    <li><a><i
                                                                                 class="bi bi-home"></i>{{ $item->universitas->nama }}</a>
                                                                     </li>
                                                                 </ul>
@@ -128,7 +128,7 @@
         </div>
 
 
-        
+
 
     </main>
 
@@ -147,8 +147,8 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                        <<<<<<< HEAD
-                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                            <<<<<<< HEAD
+                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         ===
         ===
         =
