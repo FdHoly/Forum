@@ -10,6 +10,7 @@ class Report extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $primaryKey = 'id_reports';
 
     public function utas()
     {

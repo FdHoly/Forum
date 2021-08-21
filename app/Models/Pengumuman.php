@@ -12,6 +12,7 @@ class Pengumuman extends Model
 
     protected $guarded = [];
     protected $table = 'announcements';
+    protected $primaryKey = 'id_announcements';
 
 
     public function group()

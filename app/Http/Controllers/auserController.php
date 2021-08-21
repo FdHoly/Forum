@@ -15,4 +15,11 @@ class auserController extends Controller
         // with('utas')->get()
         return view('admin.views.admUser', compact('data'));
     }
+    public function deleteUser($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $user = User::where('id_users', $id)->first();
+        $user->delete();
+        return back();
+    }
 }

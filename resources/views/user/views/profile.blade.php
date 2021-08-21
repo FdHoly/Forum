@@ -48,7 +48,7 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">{{ $prof->name }}</h4>
+                                <h4 class="widget-title">{{ $prof->name }} {{ $prof->email }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
                                         {{-- <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a --}}

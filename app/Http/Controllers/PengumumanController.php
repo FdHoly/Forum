@@ -78,4 +78,26 @@ class PengumumanController extends Controller
         }
         return back();
     }
+
+    public function deletePengumuman($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $pengumuman = Pengumuman::where('id_announcements', $id)->first();
+        $pengumuman->delete();
+        return back();
+    }
+    public function deleteAcara($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $rapat = Events::where('id_events', $id)->first();
+        $rapat->delete();
+        return back();
+    }
+    public function deleteRapat($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $rapat = Rapat::where('id_meetings', $id)->first();
+        $rapat->delete();
+        return back();
+    }
 }

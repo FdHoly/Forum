@@ -271,9 +271,19 @@
                                         <div class="post-settings-bar">
                                             @foreach ($item->group->usergroup as $group)
                                                 @if ($group->role > 1)
-                                                    <img class="icon"
-                                                        src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                        alt="delete">
+                                                    <form
+                                                        action="{{ route('deletePengumuman', $item->id_announcements) }}"
+                                                        method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit">
+
+                                                            <img class="icon"
+                                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                                alt="delete">
+                                                            </a>
+                                                        </button>
+                                                    </form>
                                                 @break
                                             @endif
                             @endforeach
@@ -318,9 +328,17 @@
                             <div class="post-settings-bar">
                                 @foreach ($item->group->usergroup as $group)
                                     @if ($group->role > 1)
-                                        <img class="icon"
-                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                            alt="delete">
+                                        <form action="{{ route('deleteAcara', $item->id_events) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit">
+
+                                                <img class="icon"
+                                                    src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                    alt="delete">
+                                                </a>
+                                            </button>
+                                        </form>
                                     @break
                                 @endif
                 @endforeach
@@ -365,8 +383,17 @@
                         <div class="post-settings-bar">
                             @foreach ($item->group->usergroup as $group)
                                 @if ($group->role > 1)
-                                    <img class="icon" src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                        alt="delete">
+                                    <form action="{{ route('deleteRapat', $item->id_meetings) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit">
+
+                                            <img class="icon"
+                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                alt="delete">
+                                            </a>
+                                        </button>
+                                    </form>
                                 @break
                             @endif
             @endforeach

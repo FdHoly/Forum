@@ -41,6 +41,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
     Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
 
+    Route::delete('/delPengumuman/{id}', [pengumumanController::class, 'deletePengumuman'])->name('deletePengumuman');
+    Route::delete('/delAcara/{id}', [pengumumanController::class, 'deleteAcara'])->name('deleteAcara');
+    Route::delete('/delRapat/{id}', [pengumumanController::class, 'deleteRapat'])->name('deleteRapat');
+
+
     Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
     Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
 
@@ -82,6 +87,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/adm', function () {
     return view('admin.views.admindex');
 })->name("admindex");
+Route::delete('/adeleteOrg/{id}', [aorgController::class, 'deleteOrg'])->name('admdeleteOrg');
+Route::delete('/adeletePost/{id}', [apostController::class, 'deletePost'])->name('admdeletePost');
+Route::delete('/adeleteReport/{id}', [areportController::class, 'deleteReport'])->name('admdeleteReport');
+Route::delete('/adeleteUser/{id}', [auserController::class, 'deleteUser'])->name('admdeleteUser');
 
 Route::get('admPost', [apostController::class, "allpost"])->name("admPost");
 Route::get('admUser', [auserController::class, "alluser"])->name("admUser");
