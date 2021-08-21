@@ -181,7 +181,8 @@
                             <img src="https://image.flaticon.com/icons/png/512/3126/3126539.png" onclick="myFunction()"
                                 class="filter__icon">
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="/">Semua Postingan</a>
+                                <a href="{{route('index', ['filter' => "semua"] )}}">Semua Postingan</a>
+                                <a href="/">Organisasi Anda</a>
                                 <a href="{{route('index', ['filter' => "universitas"] )}}">Universitas</a>
                             </div>
                         </div>
