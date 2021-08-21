@@ -8,6 +8,7 @@ use App\Models\Events;
 use App\Models\Groups;
 use App\Models\UserGroup;
 use App\Models\Pengumuman;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,6 +73,17 @@ class profileController extends Controller
         return view('user.views.organisasiShow', [
             "org" => $org,
             "prof" => $user
+        ]);
+    }
+    public function reportShow()
+    {
+        $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', 2]])->pluck('id_groups'); # Auth::user()->id
+        $org = Groups::whereIn('id_groups', $userGroup)->get();
+        $report = Report::whereIn('id_groups', $userGroup)->get();
+        // return $userGroup;
+        return view('user.views.reportview', [
+            "org" => $org,
+            "report" => $report
         ]);
     }
 }
