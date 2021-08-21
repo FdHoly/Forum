@@ -20,9 +20,10 @@ class postController extends Controller
     public function listpost(Request $request)
     {
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $univGroup = Groups::where('id_univ', Auth::user()->id_univ)->pluck('id_groups'); # Auth::user()->id
 
 
-        // return $userGroup;
+        // return $univGroup;
         // return dd($request->input('filter'));
 
         if ($userGroup->isEmpty() || ($userGroup->isEmpty() && $request->has('filter'))) {
@@ -35,7 +36,7 @@ class postController extends Controller
         } else {
             if ($request->has('filter')) {
                 $idUniv = Auth::user()->id_univ;
-                $allutas = Utas::with(["group" , "replyutas", "user"])->whereIn(['id_groups', $userGroup])->latest()->get();
+                $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_groups', $univGroup)->latest()->get();
             } else {
                 $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_groups', $userGroup)->latest()->get();
             }
@@ -45,20 +46,20 @@ class postController extends Controller
             $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
             $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
         }
-        $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
-      // $dataRandom = Groups::select('*')->inRandomOrder()->limit(5)->get();
+        // $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
+        $dataRandom = Groups::select('*')->inRandomOrder()->limit(5)->get();
 
 
-        return $allutas;
-        // return view('user.views.index', [
-        //     "admAuth" => $admAuth,
-        //     "group" => $group,
-        //     "DataRandom" => $dataRandom,
-        //     "allutas" => $allutas,
-        //     "pengumuman" => $pengumuman,
-        //     "acara" => $acara,
-        //     "rapat" => $rapat,
-        // ]);
+        // return $allutas;
+        return view('user.views.index', [
+            "admAuth" => $admAuth,
+            "group" => $group,
+            "DataRandom" => $dataRandom,
+            "allutas" => $allutas,
+            "pengumuman" => $pengumuman,
+            "acara" => $acara,
+            "rapat" => $rapat,
+        ]);
     }
 
     public function eventbar()
