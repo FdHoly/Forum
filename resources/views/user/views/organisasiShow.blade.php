@@ -9,7 +9,6 @@
     <header>
         @include('user.views.include.navbar')
     </header>
-    <!-- header area end -->
 
     <main>
 

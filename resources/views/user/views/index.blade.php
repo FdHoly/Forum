@@ -28,19 +28,21 @@
                                     <figure class="profile-banner-small">
                                         <a href="{{ route('profile') }}">
                                             @if (Auth::user()->background_image_url !== null)
-                                                <img src="{{ Auth::user()->background_image_ur }}" alt="bgUser">
+                                                <img src="{{ Auth::user()->background_image_url }}" alt="bgUser">
                                             @else
                                                 <img src="user/assets/images/banner/banner-small.jpg" alt="bgUser">
                                             @endif
                                         </a>
                                         <a href="{{ route('profile') }}" class="profile-thumb-2">
-                                            <img src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="ppUser">
+                                            <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                                alt="ppUser">
                                         </a>
                                     </figure>
                                     <div class="profile-desc text-center">
                                         <h6 class="author"><a
                                                 href="{{ route('profile') }}">{{ Auth::user()->name }}</a></h6>
-                                        <p> {{Auth::user()->biodata !== NULL ? Auth::user()->biodata :  "Tidak Ada Bio"  }} </p>
+                                        <p> {{ Auth::user()->biodata !== null ? Auth::user()->biodata : 'Tidak Ada Bio' }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -56,14 +58,16 @@
                                                 <div class="profile-thumb">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="{{ Storage::url('logo/'. $itemGroup->image_url) }}"
+                                                            <img src="{{ Storage::url('logo/' . $itemGroup->image_url) }}"
                                                                 alt="ppGroup">
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <!-- profile picture end -->
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href={{route('detailOrg',  ['id' => $itemGroup->id_groups ] )}}>{{ $itemGroup->nama }}</a></h3>
+                                                    <h3 class="list-title"><a
+                                                            href={{ route('detailOrg', ['id' => $itemGroup->id_groups]) }}>{{ $itemGroup->nama }}</a>
+                                                    </h3>
                                                     <p class="list-subtitle">{{ $itemGroup->universitas->nama }}</p>
                                                 </div>
 
@@ -86,8 +90,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-37.jpg"
-                                                alt="profile picture">
+                                            <img src={{ Storage::url(Auth::user()->profil_image_url) }}
+                                                alt="ppUser">
                                         </figure>
                                     </a>
                                 </div>
@@ -109,9 +113,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Share Your Mood</h5>
+                                                <h5 class="modal-title">Katakan Sesuatu</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -129,12 +132,13 @@
                                                             <select name="id_groups" id="organisasi"
                                                                 class="form-control block w-100 p-2 mb-2" required>
                                                                 <option value="">Pilih Organisasi</option>
-                                                                @foreach ($group as $item)
+                                                                @forelse ($group as $item)
                                                                     <option value="{{ $item->id_groups }}">
                                                                         {{ $item->nama }}
                                                                     </option>
-
-                                                                @endforeach
+                                                                @empty
+                                                                    
+                                                                @endforelse
 
                                                             </select>
                                                         </div>
@@ -148,7 +152,7 @@
                                                     </div>
 
                                                     <textarea name="konten" class="share-field-big custom-scroll"
-                                                        placeholder="Say Something" required></textarea>
+                                                        placeholder="Katakan Sesuatu" required></textarea>
 
                                                     <div class="form-group">
                                                         <label for="exampleFormControlFile1">Unggah Foto</label>
@@ -173,12 +177,12 @@
                         <div class="dropdown">
                             <h6><span>Menampilkan Semua Postingan</span></h6>
                             {{-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> --}}
+
                             <img src="https://image.flaticon.com/icons/png/512/3126/3126539.png" onclick="myFunction()"
                                 class="filter__icon">
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="/">Semua</a>
-                                <a href="/filter=organisasi">Organisasi</a>
-                                <a href="/filter=universitas">Universitas</a>
+                                <a href="/">Semua Postingan</a>
+                                <a href="{{route('index', ['filter' => "universitas"] )}}">Universitas</a>
                             </div>
                         </div>
                         <!-- post status start -->
@@ -217,7 +221,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

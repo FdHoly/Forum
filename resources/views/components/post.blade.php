@@ -104,7 +104,6 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="post-title d-flex align-items-center">
-
                             <!-- profile picture end -->
                             <div class="profile-thumb">
                                 <a href="{{ route('profile') }}">
@@ -128,132 +127,7 @@
                             </div>
 
                         </div>
-                        <footer class="d-block d-lg-none">
-                            <div class="footer-area reveal-footer">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="mobile-footer-inner d-flex">
-                                                <div class="mobile-frnd-search">
-                                                    <button class="search-toggle-btn"><i
-                                                            class="flaticon-search"></i></button>
-                                                </div>
-                                                <div class="mob-frnd-search-inner">
-                                                    <form class="mob-frnd-search-box d-flex">
-                                                        <input type="text" placeholder="Search Your Friends"
-                                                            class="mob-frnd-search-field">
-                                                    </form>
-                                                </div>
-                                                <div class="card card-small mb-0 active-profile-mob-wrapper">
-                                                    <div class="active-profiles-mob-wrapper slick-row-10">
-                                                        <div class="active-profile-mobile">
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="#">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
 
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-8.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-2.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-4.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-5.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-
-                                                            <!-- profile picture end -->
-                                                            <div class="single-slide">
-                                                                <div class="profile-thumb active profile-active">
-                                                                    <a href="javascript:void(0)">
-                                                                        <figure
-                                                                            class="profile-thumb-small profile-active">
-                                                                            <img src="{{ url('user/assets/images/profile/profile-small-9.jpg') }}"
-                                                                                alt="profile picture">
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- profile picture end -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </footer>
 
                         <!-- post title start -->
                         <div class="post-content">
@@ -263,50 +137,12 @@
                             </p>
 
                             @if ($itemPost1->image_url !== null)
-                                <div class="post-thumb-gallery img-gallery">
-                                    <div class="row no-gutters">
-                                        <div class="col-8">
-                                            <figure class="post-thumb">
-                                                <a class="gallery-selector"
-                                                    href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
-                                                    <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
-                                                        alt="post image">
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="col-12">
-                                                    <figure class="post-thumb">
-                                                        <a class="gallery-selector"
-                                                            href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
-                                                            <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
-                                                                alt="post image">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <div class="post-thumb-gallery">
+                                    <figure class="post-thumb img-popup">
+                                        <a href={{ Storage::url($itemPost1->image_url) }}>
+                                            <img src={{ Storage::url($itemPost1->image_url) }} alt="post image">
+                                        </a>
+                                    </figure>
                                 </div>
                             @endif
 
@@ -323,18 +159,20 @@
                             @forelse ($itemPost1->replyutas as $komen)
                                 <div class="post-title d-flex align-items-center">
                                     <div class="profile-thumb">
-                                        <a href="#">
-                                            <figure class="profile-thumb-small">
-                                                <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
-                                                    alt="profile picture">
+                                        <a
+                                            href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->name) }}">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="{{ Storage::url($komen->user->profil_image_url) }}"
+                                                    alt="ppUser">
                                             </figure>
                                         </a>
                                     </div>
                                     <!-- profile picture end -->
                                     <div class="posted-author">
                                         <!-- profile picture end -->
-                                        <h6 class="author"><a
-                                                href='{{ $komen->user->name }}'>{{ $komen->user->name }}</a>
+                                        <h6 class="author">
+                                            <a
+                                                href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->name) }}">{{ $komen->user->name }}</a>
                                         </h6>
                                         <span class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
                                     </div>
@@ -358,10 +196,9 @@
                         <div class="share-box-inner">
                             <!-- profile picture end -->
                             <div class="profile-thumb">
-                                <a href="#">
+                                <a href="{{route('profile')}}">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ url('user/assets/images/profile/profile-small-37.jpg') }}"
-                                            alt="profile picture">
+                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="ppUser">
                                     </figure>
                                 </a>
                             </div>
@@ -369,11 +206,8 @@
 
                             <!-- share content box start -->
                             <div class="share-content-box w-100">
-                                <form class="share-text-box" action="{{ route('replyPost') }}" method="POST">
+                                <form class="share-text-box" action="{{ route('replyPost', $itemPost1->id_utas) }}" method="POST">
                                     @csrf
-
-                                    <input type="hidden" name="id_users" value="{{ auth()->user()->id_users }}">
-                                    <input type="hidden" name="id_utas" value="{{ $itemPost1->id_utas }}">
                                     <textarea name="konten" class="share-text-field" aria-disabled="true"
                                         placeholder="Say Something" data-toggle="modal" id="email"></textarea>
                                     <button class="btn-share" type="submit">share</button>
@@ -392,7 +226,6 @@
 
 {{-- Modal Edit Post --}}
 @foreach ($post as $modalPost)
-
     <div class="modal fade" id="ModalEditPost{{ $modalPost->id_utas }}" tabindex="-1" role="dialog"
         aria-labelledby="ModalEditPost" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -408,8 +241,8 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src="user/assets/images/profile/profile-small-1.jpg"
-                                                alt="profile picture">
+                                            <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                                alt="ppUser">
                                         </figure>
                                     </a>
                                 </div>
