@@ -24,9 +24,9 @@ class CreateReportsTable extends Migration
             $table->bigInteger('id_groups')->unsigned();
             $table->bigInteger('id_utas')->unsigned();
 
-            $table->foreign('id_users')->references('id_users')->on('users');
-            $table->foreign('id_groups')->references('id_groups')->on('groups');
-            $table->foreign('id_utas')->references('id_utas')->on('utas');
+            $table->foreign('id_users')->references('id_users')->on('users')->onDelete('cascade');
+            $table->foreign('id_groups')->references('id_groups')->on('groups')->onDelete('cascade');
+            $table->foreign('id_utas')->references('id_utas')->on('utas')->onDelete('cascade');
             // Ini buat Foreign Key
         });
     }
