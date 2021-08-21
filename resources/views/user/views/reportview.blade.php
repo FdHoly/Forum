@@ -54,18 +54,7 @@
                                 <div class="page-title-inner">
                                     <h4 class="page-title p-4">Jumlah Laporan ({{ $report->count() }})</h4>
                                 </div>
-                                {{-- <div class="post-settings-bar">
-                                    {{-- <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <div class="post-settings arrow-shape">
-                                        <ul>
-                                            <li><button>edit profile</button></li>
-                                            <li><button>activity log</button></li>
-                                            <li><button>embed adda</button></li>
-                                        </ul>
-                                    </div> --}}
-                                {{-- </div> --}}
+                                
                             </div>
                         </div>
                     </div>
