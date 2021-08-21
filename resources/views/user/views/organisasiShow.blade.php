@@ -121,8 +121,7 @@
                                                     <h6 class="author"><a
                                                             href="{{ route('detailOrg', $orgData->id_groups) }}">{{ $orgData->nama }}</a>
                                                     </h6>
-                                                    <h5 class="author"><a
-                                                            href="organisasi/kbmti">{{ $orgData->universitas->nama }}</a>
+                                                    <h5 class="author"><a>{{ $orgData->universitas->nama }}</a>
                                                     </h5>
                                                     <button class="add-frnd">Tergabung</button>
                                                 </div>

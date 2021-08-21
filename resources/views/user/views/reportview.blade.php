@@ -37,7 +37,8 @@
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
-                                <button class="edit-btn">edit profile</button>
+                                <a href="{{ route('editprofile') }}"><button class="edit-btn">edit
+                                        profile</button></a>
                             </div>
                         </div>
                     </div>

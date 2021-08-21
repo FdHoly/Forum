@@ -37,7 +37,8 @@
 
                         <div class="col-lg-2 col-md-3 d-none d-md-block">
                             <div class="profile-edit-panel">
-                                <button class="edit-btn">edit profile</button>
+                                <a href="{{ route('editprofile') }}"><button class="edit-btn">edit
+                                        profile</button></a>
                             </div>
                         </div>
                     </div>
@@ -106,8 +107,7 @@
                                                     <h6 class="author"><a
                                                             href="organisasi/{{ $orgData->id_groups }}">{{ $orgData->nama }}</a>
                                                     </h6>
-                                                    <h5 class="author"><a
-                                                            href="organisasi/kbmti">{{ $orgData->universitas->nama }}</a>
+                                                    <h5 class="author"><a>{{ $orgData->universitas->nama }}</a>
                                                     </h5>
                                                     <button class="add-frnd">Tergabung</button>
                                                 </div>
