@@ -65,17 +65,17 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">kate palson</h4>
+
+                                <h4 class="widget-title">{{ Auth::user()->name }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>I Don’t know how? But i believe that it is possible one day if i stay with my
-                                            dream all time</p>
+                                        <p>{{ Auth::user()->biodata }}</p>
                                         <ul class="author-into-list">
-                                            <li><a href="#"><i class="bi bi-office-bag"></i>Graphic Designer</a></li>
-                                            <li><a href="#"><i class="bi bi-home"></i>Melbourne, Australia</a></li>
-                                            <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar, Melbourne</a>
+
+                                            <li><a href="#"><i
+                                                        class="bi bi-location-pointer"></i>{{ Auth::user()->universitas->nama }}</a>
                                             </li>
-                                            <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -94,45 +94,46 @@
                             <!-- post title start -->
 
                             <!-- post title start -->
-                            <form class="signup-inner--form">
+                            @if (session('status'))
+                                <div class="alert alert-success mt-2">{{ session('status') }}</div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger mt-2">{{ session('error') }}</div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger mt-2">
+                                    @foreach ($errors as $error)
+                                        {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
+
+                            <form class="signup-inner--form" action="{{ route('editprofile.update') }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class="col-12">
-                                        <input type="email" class="single-field" placeholder="Username">
+                                        <h6 class="m-2">Username</h6>
+                                        <input type="text" name="name" class="single-field"
+                                            value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="col-12">
-                                        <input type="email" class="single-field" placeholder="Description">
+                                        <h6 class="m-2">Biodata</h6>
+                                        <input type="text" name="biodata" class="single-field"
+                                            value="{{ Auth::user()->biodata }}">
                                     </div>
                                     <div class="col-12">
-                                        <input type="password" class="single-field" placeholder="Old Password">
+                                        <input type="password" name="oldPass" class="single-field"
+                                            placeholder="Old Password">
                                     </div>
                                     <div class="col-12">
-                                        <input type="password" class="single-field" placeholder="Password">
+                                        <input type="password" name="password" class="single-field"
+                                            placeholder="Password">
                                     </div>
                                     <div class="col-12">
-                                        <input type="password" class="single-field" placeholder="Confirm Password">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">Gender</option>
-                                            <option value="sales">Male</option>
-                                            <option value="sales">Female</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">Age</option>
-                                            <option value="sales">18+</option>
-                                            <option value="sales">18-</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">Country</option>
-                                            <option value="sales">Bangladesh</option>
-                                            <option value="sales">Noakhali</option>
-                                            <option value="sales">Australia</option>
-                                            <option value="sales">China</option>
-                                        </select>
+                                        <input type="password" name="cPass" class="single-field"
+                                            placeholder="Confirm Password">
                                     </div>
                                     <div class="col-12">
                                         <button class="submit-btn">Save Changes</button>

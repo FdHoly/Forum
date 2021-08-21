@@ -6,11 +6,12 @@ use App\Models\User;
 use App\Models\Rapat;
 use App\Models\Events;
 use App\Models\Groups;
+use App\Models\Report;
 use App\Models\UserGroup;
 use App\Models\Pengumuman;
-use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class profileController extends Controller
 {
@@ -85,5 +86,42 @@ class profileController extends Controller
             "org" => $org,
             "report" => $report
         ]);
+    }
+    public function profileMe()
+    {
+
+        // return $user;
+        return view('user.views.editprofile');
+    }
+
+    public function editProfile(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required',
+                'biodata' => 'string',
+                'oldPass' => 'required|string',
+            ]
+        );
+        if (!Hash::check($request->oldPass, Auth::user()->password)) {
+            return back()->with('error', 'Wrong password');
+        }
+        if ($request->password) {
+            if ($request->password != $request->cPass) {
+                return back()->with('error', 'Password not match');
+            }
+            User::find(Auth::user()->id_users)->update([
+                'name' => $request->name,
+                'biodata' => $request->biodata,
+                'password' => Hash::make($request->password)
+            ]);
+
+            return redirect()->route('editprofile')->with('status', 'Profile and Password Changed');
+        }
+        User::find(Auth::user()->id_users)->update([
+            'name' => $request->name,
+            'biodata' => $request->biodata,
+        ]);
+        return redirect()->route('editprofile')->with('status', 'Profile Changed');
     }
 }
