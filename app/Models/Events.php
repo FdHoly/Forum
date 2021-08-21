@@ -11,6 +11,7 @@ class Events extends Model
 
     protected $guarded = [];
     protected $table = 'events';
+    protected $primaryKey = 'id_events';
 
 
     public function group()

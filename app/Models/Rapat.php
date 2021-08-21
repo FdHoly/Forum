@@ -11,6 +11,7 @@ class Rapat extends Model
 
     protected $guarded = [];
     protected $table = 'meetings';
+    protected $primaryKey = 'id_meetings';
 
     public function group()
     {

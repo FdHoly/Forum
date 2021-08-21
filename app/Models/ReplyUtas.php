@@ -11,6 +11,7 @@ class ReplyUtas extends Model
 
     protected $guarded = [];
     protected $table = 'replys';
+    protected $primaryKey = 'id_replys';
 
 
     public function utas()
