@@ -17,13 +17,12 @@
         <form action="{{ route('createOrg') }}" class="signup-inner--form" method="POST"
             enctype="multipart/form-data">
             @csrf
-            <div class="profile-menu-area bg-white">
+            <div class="profile-menu-area bg-white pt-3 mt-5">
                 <div class="container">
-
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
-                                <span aria-hidden="true"></span>
+                                <h3 class="mb-3" >Unggah Logo Organisasi Anda</h3>
                                 <figure class="profile-picture">
                                     <label for="image">
                                         <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
@@ -52,13 +51,12 @@
                                             placeholder="Deskripsi Grup" required>
                                     </div>
                                     <div class="col-12">
-
-                                        {{-- <input list="univ" name="universitas" placeholder="Pilih Universitas" class="single-field" required> --}}
-                                        <select id="universitas" name="universitas">
+                                        <select id="universitas" name="universitas" readonly>
                                             @foreach ($data as $items)
-
-                                                <option id="universitas" value={{ $items->id_univ }}>
+                                                @if ($items->id_univ === Auth::user()->id_univ)
+                                                <option id="universitas" value={{ Auth::user()->id_univ }}>
                                                     {{ $items->nama }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
 

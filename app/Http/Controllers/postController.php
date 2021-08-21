@@ -52,7 +52,6 @@ class postController extends Controller
             $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
             $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
         }
-        // $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
         $dataRandom = Groups::select('*')->inRandomOrder()->limit(5)->get();
 
 

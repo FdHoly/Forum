@@ -175,15 +175,22 @@
                         </div>
                         <!-- share box end -->
                         <div class="dropdown">
+
+                            @if (app('request')->input('filter') ==='semua')
                             <h6><span>Menampilkan Semua Postingan</span></h6>
+                            @elseif (app('request')->input('filter') ==='organisasi')
+                            <h6><span>Menampilkan Postingan Organisasi Yang Anda Ikuti</span></h6>
+                            @else
+                            <h6><span>Menampilkan Postingan di Universitas Anda</span></h6>
+                            @endif
                             {{-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> --}}
 
                             <img src="https://image.flaticon.com/icons/png/512/3126/3126539.png" onclick="myFunction()"
                                 class="filter__icon">
                             <div id="myDropdown" class="dropdown-content">
                                 <a href="{{route('index', ['filter' => "semua"] )}}">Semua Postingan</a>
-                                <a href="/">Organisasi Anda</a>
-                                <a href="{{route('index', ['filter' => "universitas"] )}}">Universitas</a>
+                                <a href="{{route('index', ['filter' => "organisasi"] )}}">Organisasi Anda</a>
+                                <a href="{{route('index')}}">Universitas</a>
                             </div>
                         </div>
                         <!-- post status start -->
