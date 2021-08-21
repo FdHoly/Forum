@@ -102,4 +102,17 @@ class orgControllers extends Controller
         ]);
         return back();
     }
+    public function leaveOrg($id)
+    {
+        $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $userGroup->delete();
+        return back();
+    }
+    public function deleteOrg($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $org = Groups::where('id_groups', $id)->first();
+        $org->delete();
+        return redirect()->route('index');
+    }
 }

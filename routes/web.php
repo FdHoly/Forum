@@ -37,12 +37,16 @@ Route::middleware('auth')->group(function () {
 
 
     Route::post('/report', [postController::class, 'reportPost'])->name('reportPost');
+    Route::delete('/delete/{id}', [postController::class, 'deletePost'])->name('deletePost');
+    Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
+    Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
 
     Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
     Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
 
     Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
     Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");
+    Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan");
 
     Route::get('/about', function () {
         return view('user.views.about');
@@ -57,9 +61,9 @@ Route::middleware('auth')->group(function () {
         return view('user.views.editprofile');
     })->name("editprofile");
 
-    Route::get('/laporan', function () {
-        return view('user.views.reportview');
-    })->name("laporan");
+    // Route::get('/laporan', function () {
+    //     return view('user.views.reportview');
+    // })->name("laporan");
 
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
     Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");

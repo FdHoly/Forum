@@ -36,7 +36,9 @@
                                     data-target="#ModalEditPost{{ $itemPost->id_utas }}">
                                     Edit Post
                                 </button></li>
-                            <li><button>hapus post</button></li>
+                            <li><button type="button" data-toggle="modal"
+                                    data-target="#ModalDelete{{ $itemPost->id_utas }}">hapus
+                                    post</button></li>
                         @else
                             <li>
                                 <button type="button" data-toggle="modal"
@@ -129,6 +131,7 @@
 
                         <!-- post title start -->
                         <div class="post-content">
+                            <h5 style="margin-bottom: 10px">{{ $itemPost1->judul }}</h5>
                             <p class="post-desc">
                                 {{ $itemPost1->konten }}
                             </p>
@@ -289,7 +292,6 @@
 {{-- Modal Edit Post --}}
 
 {{-- Modal Report --}}
-
 @foreach ($post as $reportUtas)
     <div class="modal fade" id="exampleModalLong{{ $reportUtas->id_utas }}" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -359,8 +361,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" style="margin-right: 10px" data-dismiss="modal">Batal</button>
-                        <button type="submit">Kirim</button>
+                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="post-share-btn">Kirimkan</button>
                     </div>
                 </form>
             </div>
@@ -392,3 +394,245 @@
     </div>
 </div>
 {{-- Modal Alert Report --}}
+
+
+{{-- Modal Delete Post --}}
+@foreach ($post as $itemPost1)
+    <!-- Modal Comment-->
+    <div>
+        <div class="modal fade" id="ModalDelete{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+            aria-labelledby="ModalDelete" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+
+                            <div class="post-title d-flex align-items-center">
+
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="{{ route('profile') }}">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="{{ Storage::url($itemPost1->user->profil_image_url) }}"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author">
+                                    <h6 class="author">
+                                        <a href="{{ route('profile') }}">{{ $itemPost1->user->name }}</a>
+                                    </h6>
+                                    <span class="post-time">
+
+                                        {{ $itemPost1->created_at->diffForHumans() }}
+
+                                    </span>
+                                </div>
+
+                            </div>
+                            <footer class="d-block d-lg-none">
+                                <div class="footer-area reveal-footer">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mobile-footer-inner d-flex">
+                                                    <div class="mobile-frnd-search">
+                                                        <button class="search-toggle-btn"><i
+                                                                class="flaticon-search"></i></button>
+                                                    </div>
+                                                    <div class="mob-frnd-search-inner">
+                                                        <form class="mob-frnd-search-box d-flex">
+                                                            <input type="text" placeholder="Search Your Friends"
+                                                                class="mob-frnd-search-field">
+                                                        </form>
+                                                    </div>
+                                                    <div class="card card-small mb-0 active-profile-mob-wrapper">
+                                                        <div class="active-profiles-mob-wrapper slick-row-10">
+                                                            <div class="active-profile-mobile">
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="#">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-1.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-8.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-2.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-3.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-4.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-5.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+
+                                                                <!-- profile picture end -->
+                                                                <div class="single-slide">
+                                                                    <div class="profile-thumb active profile-active">
+                                                                        <a href="javascript:void(0)">
+                                                                            <figure
+                                                                                class="profile-thumb-small profile-active">
+                                                                                <img src="{{ url('user/assets/images/profile/profile-small-9.jpg') }}"
+                                                                                    alt="profile picture">
+                                                                            </figure>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- profile picture end -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </footer>
+
+                            <!-- post title start -->
+
+                            <div class="post-content">
+                                <h5 style="margin-bottom: 10px">{{ $itemPost1->judul }}</h5>
+
+                                <p class="post-desc">
+                                    {{ $itemPost1->konten }}
+                                </p>
+
+                                @if ($itemPost1->image_url !== null)
+                                    <div class="post-thumb-gallery img-gallery">
+                                        <div class="row no-gutters">
+                                            <div class="col-8">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="{{ url('user/assets/images/post/post-large-2.jpg') }}">
+                                                        <img src="{{ url('user/assets/images/post/post-2.jpg') }}"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="{{ url('user/assets/images/post/post-large-3.jpg') }}">
+                                                                <img src="{{ url('user/assets/images/post/post-3.jpg') }}"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="{{ url('user/assets/images/post/post-large-4.jpg') }}">
+                                                                <img src="{{ url('user/assets/images/post/post-4.jpg') }}"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="{{ url('user/assets/images/post/post-large-5.jpg') }}">
+                                                                <img src="{{ url('user/assets/images/post/post-5.jpg') }}"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @endif
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                <form action="{{ route('deletePost', $itemPost1->id_utas) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="post-share-btn">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Modal Comments End --}}
+        </div>
+    </div>
+@endforeach
+{{-- Modal Delete Post --}}

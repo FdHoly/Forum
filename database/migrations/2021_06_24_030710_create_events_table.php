@@ -23,8 +23,8 @@ class CreateEventsTable extends Migration
             $table->bigInteger('id_users')->unsigned();
             $table->bigInteger('id_groups')->unsigned();
 
-            $table->foreign('id_users')->references('id_users')->on('users');
-            $table->foreign('id_groups')->references('id_groups')->on('groups');
+            $table->foreign('id_users')->references('id_users')->on('users')->onDelete('cascade');
+            $table->foreign('id_groups')->references('id_groups')->on('groups')->onDelete('cascade');
             // Ini buat Foreign Key
 
 

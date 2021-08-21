@@ -33,9 +33,7 @@
                             </div>
                             <div class="card widget-item">
                                 <h4 class="widget-title">
-
                                     {{ $organisasi->nama }}
-
                                 </h4>
 
                                 {{-- <h4 >Keluarga Besar Mahasiswa Teknologi Informasi</h4> --}}
@@ -49,14 +47,31 @@
                                         </ul>
                                     </div>
                                 </div>
-
                                 @if ($userGroup->contains($organisasi->id_groups))
-                                    <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3">Joined</a>
+                                    {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
+                                    <h6 class="m-2">Joined</h6>
+                                    <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
+                                            type="submit" class="post-share-btn m-2">Keluar Organisasi</button>
+                                    </form>
+                                    <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
+                                            type="submit" class="post-share-btn m-2">Edit Organisasi</button>
+                                    </form>
+                                    <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="post-share-btn m-2">Delete Organisasi</button>
+                                    </form>
                                 @else
                                     <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
                                         class="text-center">
                                         @csrf
-                                        <button type="submit" class="btn mt-3">
+                                        <button type="submit" class="post-share-btn m-2">
                                             Gabung </button>
                                     </form>
                                 @endif
@@ -84,14 +99,15 @@
                                             <!-- profile picture end -->
                                             <div class="unorder-list-info">
                                                 <h3 class="list-title align-items-center"><a
-                                                        href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->name) }}">{{ $dataUser->user->name }}</a></h3>
+                                                        href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->name) }}">{{ $dataUser->user->name }}</a>
+                                                </h3>
                                             </div>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <!-- widget single item end -->
+
                     </aside>
                 </div>
 

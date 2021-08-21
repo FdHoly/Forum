@@ -21,6 +21,7 @@ class postController extends Controller
     {
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
 
+
         // return $userGroup;
         // return dd($request->input('filter'));
 
@@ -45,6 +46,8 @@ class postController extends Controller
             $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
         }
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
+      // $dataRandom = Groups::select('*')->inRandomOrder()->limit(5)->get();
+
 
         return $allutas;
         // return view('user.views.index', [
@@ -120,6 +123,15 @@ class postController extends Controller
         $utas->update($fields);
         return back();
     }
+    // public function report(Request $request)
+    // {
+    //     $group = Groups::create(
+    //         [
+    //             'nama' => $request->nama_grup,
+    //             'deskripsi' => $request->deskripsi,
+    //             'id_univ' => $request->universitas,
+    //         ]
+    //     );}
 
     public function reportPost(Request $request)
     {
@@ -131,6 +143,11 @@ class postController extends Controller
         $report->alasan = $request->input('alasan');
 
         $report->save();
+        return back();
+    }
+    public function deletePost(Utas $id)
+    {
+        $id->delete();
         return back();
     }
 }

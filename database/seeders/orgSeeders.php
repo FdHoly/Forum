@@ -36,7 +36,7 @@ class orgSeeders extends Seeder
             ],
             [
                 'nama' => 'BEM FILKOM',
-                'deskripsi' => 'Universitas Brawijaya',
+                'deskripsi' => 'Fakultas Ilmu Komputer',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
                 'logo_url' => '1629444303.png',
