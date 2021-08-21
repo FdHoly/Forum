@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
     Route::get('/profile/{nama}', [profileController::class, "profileShow"])->name("profileID");
     Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan");
+    Route::get('/editprofile', [profileController::class, "profileMe"])->name("editprofile");
+    Route::put('/editprofile', [profileController::class, "editProfile"])->name("editprofile.update");
 
     Route::get('/about', function () {
         return view('user.views.about');
@@ -57,13 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/organisasi/kbmti', function () {
         return view('user.views.proforganisasi');
     });
-    Route::get('/editprofile', function () {
-        return view('user.views.editprofile');
-    })->name("editprofile");
-
-    // Route::get('/laporan', function () {
-    //     return view('user.views.reportview');
-    // })->name("laporan");
+    // Route::get('/editprofile', function () {
+    //     return view('user.views.editprofile');
+    // })->name("editprofile");
 
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
     Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
