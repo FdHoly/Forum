@@ -24,23 +24,14 @@ $baseController =  "App\Http\Controllers";
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [postController::class, "listpost"])->name("index");
-Route::post('/', [postController::class, "createPost"])->name("createpost");
-
-
-
 // Route::get('/profile', [UserController::class, "listdata"])->name("profile");
-
-
-
-Route::get('/signin', function () {
-    return view('user.views.login10');
-})->name("signin");
 
 Route::middleware('auth')->group(function () {
 
     Route::get('/', [postController::class, "listpost"])->name("index");
+    Route::post('/', [postController::class, "createPost"])->name("createpost");
+
+    // Route::get('/filter', [postController::class, "listpost"])->name("filterHome");
 
     Route::put('utas/{utas}', [postController::class, 'editPost'])->name('utasUpdate');
 
@@ -75,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
 
     // Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost")->middleware('auth');
-    Route::post('/replySend', [postController::class, "replyPost"])->name("replyPost");
+    Route::post('/replySend/{id}', [postController::class, "replyPost"])->name("replyPost");
 
     Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
 

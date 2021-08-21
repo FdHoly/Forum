@@ -17,28 +17,45 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class postController extends Controller
 {
-    public function listpost()
+    public function listpost(Request $request)
     {
-        $allutas = Utas::with(["group", "replyutas", "user"])->orderBy('created_at', 'desc')->get();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
-        $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
 
-        $group = Groups::whereIn('id_groups', $userGroup)->get();
-        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->latest()->get();
-        $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
-        $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
+        // return $userGroup;
+        // return dd($request->input('filter'));
 
+        if ($userGroup->isEmpty() || ($userGroup->isEmpty() && $request->has('filter'))) {
+            $allutas = [];
+            $admAuth = [];
+            $pengumuman = [];
+            $group =  [];
+            $rapat = [];
+            $acara = [];
+        } else {
+            if ($request->has('filter')) {
+                $idUniv = Auth::user()->id_univ;
+                $allutas = Utas::with(["group" , "replyutas", "user"])->whereIn(['id_groups', $userGroup])->latest()->get();
+            } else {
+                $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_groups', $userGroup)->latest()->get();
+            }
+            $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
+            $group = Groups::whereIn('id_groups', $userGroup)->get();
+            $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->latest()->get();
+            $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
+            $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
+        }
         $dataRandom = Groups::select('*')->inRandomOrder()->get()->random(5);
 
-        return view('user.views.index', [
-            "admAuth" => $admAuth,
-            "group" => $group,
-            "DataRandom" => $dataRandom,
-            "allutas" => $allutas,
-            "pengumuman" => $pengumuman,
-            "acara" => $acara,
-            "rapat" => $rapat,
-        ]);
+        return $allutas;
+        // return view('user.views.index', [
+        //     "admAuth" => $admAuth,
+        //     "group" => $group,
+        //     "DataRandom" => $dataRandom,
+        //     "allutas" => $allutas,
+        //     "pengumuman" => $pengumuman,
+        //     "acara" => $acara,
+        //     "rapat" => $rapat,
+        // ]);
     }
 
     public function eventbar()
@@ -57,16 +74,16 @@ class postController extends Controller
         ]);
     }
 
-    public function replyPost(Request $request)
+    public function replyPost(Request $request, $id)
     {
         $post = new ReplyUtas();
 
         $post->konten = $request->input('konten');
-        $post->id_utas = $request->input('id_utas');
+        $post->id_utas = $id;
         $post->id_users = Auth::user()->id_users;
 
         $post->save();
-        return redirect()->back();
+        return back();
     }
 
     public function createPost(Request $request)

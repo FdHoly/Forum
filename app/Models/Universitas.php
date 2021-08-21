@@ -16,4 +16,9 @@ class Universitas extends Model
     protected $fillable = [
         'nama'
     ];
+
+    public function groups()
+    {
+        return $this->hasMany(Groups::class, 'id_univ', 'id_univ');
+    }
 }
