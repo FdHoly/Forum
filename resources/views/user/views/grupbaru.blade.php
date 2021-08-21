@@ -22,7 +22,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
-                                <h3 class="mb-3" >Unggah Logo Organisasi Anda</h3>
+                                <h3 class="m-3 justify">Unggah Logo Organisasi Anda</h3>
                                 <figure class="profile-picture">
                                     <label for="image">
                                         <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
@@ -54,8 +54,8 @@
                                         <select id="universitas" name="universitas" readonly>
                                             @foreach ($data as $items)
                                                 @if ($items->id_univ === Auth::user()->id_univ)
-                                                <option id="universitas" value={{ Auth::user()->id_univ }}>
-                                                    {{ $items->nama }}</option>
+                                                    <option id="universitas" value={{ Auth::user()->id_univ }}>
+                                                        {{ $items->nama }}</option>
                                                 @endif
                                             @endforeach
                                         </select>

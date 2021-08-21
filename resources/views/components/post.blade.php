@@ -4,7 +4,7 @@
             <!-- profile picture end -->
             <div class="profile-thumb">
                 <a
-                    href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">
+                    href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->email) }}">
                     <figure class="profile-thumb-middle">
                         <img src="{{ Storage::url($itemPost->user->profil_image_url) }}" alt="ppUser">
                     </figure>
@@ -14,7 +14,7 @@
             <div class="posted-author">
                 <h1 class="author">
                     <a
-                        href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->name) }}">{{ $itemPost->user->name }}</a>
+                        href="{{ Auth::user()->id_users === $itemPost->user->id_users ? route('profile') : route('profileID', $itemPost->user->email) }}">{{ $itemPost->user->name }}</a>
                     ▶
                     <a href="{{ route('detailOrg', $itemPost->group->id_groups) }}">{{ $itemPost->group->nama }}</a>
 
@@ -117,7 +117,8 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    <a href="{{ route('profile') }}">{{ $itemPost1->user->name }}</a>
+                                    <a
+                                        href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}</a>
                                 </h6>
                                 <span class="post-time">
 
@@ -160,7 +161,7 @@
                                 <div class="post-title d-flex align-items-center">
                                     <div class="profile-thumb">
                                         <a
-                                            href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->name) }}">
+                                            href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->email) }}">
                                             <figure class="profile-thumb-middle">
                                                 <img src="{{ Storage::url($komen->user->profil_image_url) }}"
                                                     alt="ppUser">
@@ -172,7 +173,7 @@
                                         <!-- profile picture end -->
                                         <h6 class="author">
                                             <a
-                                                href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->name) }}">{{ $komen->user->name }}</a>
+                                                href="{{ Auth::user()->id_users === $komen->user->id_users ? route('profile') : route('profileID', $komen->user->email) }}">{{ $komen->user->name }}</a>
                                         </h6>
                                         <span class="post-time">{{ $komen->created_at->diffForHumans() }}</span>
                                     </div>
@@ -196,7 +197,7 @@
                         <div class="share-box-inner">
                             <!-- profile picture end -->
                             <div class="profile-thumb">
-                                <a href="{{route('profile')}}">
+                                <a href="{{ route('profile') }}">
                                     <figure class="profile-thumb-middle">
                                         <img src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="ppUser">
                                     </figure>
@@ -206,7 +207,8 @@
 
                             <!-- share content box start -->
                             <div class="share-content-box w-100">
-                                <form class="share-text-box" action="{{ route('replyPost', $itemPost1->id_utas) }}" method="POST">
+                                <form class="share-text-box" action="{{ route('replyPost', $itemPost1->id_utas) }}"
+                                    method="POST">
                                     @csrf
                                     <textarea name="konten" class="share-text-field" aria-disabled="true"
                                         placeholder="Say Something" data-toggle="modal" id="email"></textarea>
@@ -409,7 +411,7 @@
                             <div class="post-title d-flex align-items-center">
                                 <h6>Peringatan</h6>
                             </div>
-                            
+
 
                             <div class="post-content">
                                 <h6 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Postingan Ini ?</h5>

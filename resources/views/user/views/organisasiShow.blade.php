@@ -39,11 +39,11 @@
                                         <ul class="main-menu">
                                             <li
                                                 class="{{ Route::currentRouteName() == 'profileID' ? 'active' : '' }}">
-                                                <a href="{{ route('profileID', $prof->name) }}">Post</a>
+                                                <a href="{{ route('profileID', $prof->email) }}">Post</a>
                                             </li>
                                             <li
                                                 class="{{ Route::currentRouteName() == 'organisasiNya' ? 'active' : '' }}">
-                                                <a href="{{ route('organisasiNya', $prof->name) }}">Organisasi</a>
+                                                <a href="{{ route('organisasiNya', $prof->email) }}">Organisasi</a>
                                             </li>
                                         </ul>
                                     </nav>

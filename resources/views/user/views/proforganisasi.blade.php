@@ -54,24 +54,24 @@
                                         @method('DELETE')
                                         @csrf
                                         <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                            type="submit" class="post-share-btn m-2">Keluar Organisasi</button>
+                                            type="submit" class="submit-btn m-2">Keluar Organisasi</button>
                                     </form>
                                     <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                            type="submit" class="post-share-btn m-2">Edit Organisasi</button>
+                                            type="submit" class="submit-btn m-2">Edit Organisasi</button>
                                     </form>
                                     <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="post-share-btn m-2">Delete Organisasi</button>
+                                        <button type="submit" class="submit-btn m-2">Delete Organisasi</button>
                                     </form>
                                 @else
                                     <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
                                         class="text-center">
                                         @csrf
-                                        <button type="submit" class="post-share-btn m-2">
+                                        <button type="submit" class="submit-btn m-2">
                                             Gabung </button>
                                     </form>
                                 @endif
@@ -99,7 +99,7 @@
                                             <!-- profile picture end -->
                                             <div class="unorder-list-info">
                                                 <h3 class="list-title align-items-center"><a
-                                                        href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->name) }}">{{ $dataUser->user->name }}</a>
+                                                        href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->email) }}">{{ $dataUser->user->name }}</a>
                                                 </h3>
                                             </div>
                                         </li>
