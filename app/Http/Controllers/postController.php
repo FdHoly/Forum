@@ -125,4 +125,9 @@ class postController extends Controller
         $report->save();
         return back();
     }
+    public function deletePost(Utas $id)
+    {
+        $id->delete();
+        return back();
+    }
 }

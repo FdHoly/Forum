@@ -52,7 +52,7 @@
                         <div class="col-lg-12">
                             <div class="secondary-menu-wrapper secondary-menu-2 bg-white">
                                 <div class="page-title-inner">
-                                    <h4 class="page-title p-4">Jumlah Laporan (10)</h4>
+                                    <h4 class="page-title p-4">Jumlah Laporan ({{ $report->count() }})</h4>
                                 </div>
                                 {{-- <div class="post-settings-bar">
                                     {{-- <span></span>
@@ -90,71 +90,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ini Postingan Yang Udah Diupload oleh User</td>
-                                        <td>Joko</td>
-                                        <td>KBMTI</td>
-                                        <td>Gasuka aja</td>
-                                        <td>
-                                            {{-- <button type="danger"></button> --}}
-                                            <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button">BAN</button>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ini Postingan Yang Udah Diupload oleh User</td>
-                                        <td>Joko</td>
-                                        <td>KBMTI</td>
-                                        <td>Gasuka aja</td>
-                                        <td>
-                                            {{-- <button type="danger"></button> --}}
-                                            <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button">BAN</button>
+                                    @foreach ($report as $item)
+                                        <tr>
+                                            <th scope="row">{{ $item->id_reports }}</th>
+                                            <td>{{ $item->utas->judul }}</td>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->group->nama }}</td>
+                                            <td>{{ $item->alasan }}</td>
+                                            <td>
+                                                {{-- <button type="danger"></button> --}}
+                                                <button type="button" class="btn bg-primary">Gapapa</button>
+                                                <button type="button">BAN</button>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ini Postingan Yang Udah Diupload oleh User</td>
-                                        <td>Joko</td>
-                                        <td>KBMTI</td>
-                                        <td>Gasuka aja</td>
-                                        <td>
-                                            {{-- <button type="danger"></button> --}}
-                                            <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button">BAN</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ini Postingan Yang Udah Diupload oleh User</td>
-                                        <td>Joko</td>
-                                        <td>KBMTI</td>
-                                        <td>Gasuka aja karena gw ya ga suka</td>
-                                        <td>
-                                            {{-- <button type="danger"></button> --}}
-                                            <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button">BAN</button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ini Postingan Yang Udah Diupload oleh User</td>
-                                        <td>Joko</td>
-                                        <td>KBMTI</td>
-                                        <td>Gasuka aja</td>
-                                        <td>
-                                            {{-- <button type="danger"></button> --}}
-                                            <button type="button" class="btn bg-primary">Gapapa</button>
-                                            <button type="button">BAN</button>
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

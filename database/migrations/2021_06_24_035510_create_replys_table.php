@@ -22,8 +22,9 @@ class CreateReplysTable extends Migration
             $table->bigInteger('id_users')->unsigned();
             $table->bigInteger('id_utas')->unsigned();
 
-            $table->foreign('id_users')->references('id_users')->on('users');
-            $table->foreign('id_utas')->references('id_utas')->on('utas');
+            $table->foreign('id_users')->references('id_users')->on('users')->onDelete('cascade');
+            $table->foreign('id_utas')->references('id_utas')->on('utas')->onDelete('cascade');
+
             // Ini buat Foreign Key
 
         });
