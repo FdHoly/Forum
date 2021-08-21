@@ -34,11 +34,15 @@ class postController extends Controller
             $rapat = [];
             $acara = [];
         } else {
-            if ($request->has('filter')) {
+            if ($request->has('filter')) { //Univ si user kecuali post private
                 $idUniv = Auth::user()->id_univ;
-                $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_groups', $univGroup)->latest()->get();
-            } else {
-                $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_groups', $userGroup)->latest()->get();
+                $allutas = Utas::with(["group", "replyutas", "user"])
+                    ->whereIn('id_groups', $univGroup)
+                    ->where('status', 0)
+                    ->latest()->get();
+            } else { //Group yang user dah join
+                $allutas = Utas::with(["group", "replyutas", "user"])
+                    ->whereIn('id_groups', $userGroup)->latest()->get();
             }
             $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
             $group = Groups::whereIn('id_groups', $userGroup)->get();
