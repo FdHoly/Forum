@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/report', [postController::class, 'reportPost'])->name('reportPost');
     Route::delete('/delete/{id}', [postController::class, 'deletePost'])->name('deletePost');
+    Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
+    Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
 
     Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
     Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
