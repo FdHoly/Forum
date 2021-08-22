@@ -296,6 +296,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {{-- <x-modalpost :post="$data" /> --}}
                                                     @foreach ($data as $item)
                                                         <tr>
                                                             <td>{{ $item->id_utas }}</td>
@@ -310,8 +311,12 @@
                                                                     class="badge badge-primary text-uppercase">{{ $item->status == '1' ? 'Public' : 'Private' }}</label>
                                                             </td>
                                                             <td>
-                                                                <a href="javascript:void(0);"
-                                                                    class="btn btn-success btn-sm">View Post</a>
+
+                                                                <button class="btn btn-success btn-sm"
+                                                                    data-toggle="modal"
+                                                                    data-target="#ModalComment{{ $item->id_utas }}">
+                                                                    View Post
+                                                                </button>
                                                                 <form
                                                                     action="{{ route('admdeletePost', $item->id_utas) }}"
                                                                     method="POST">
