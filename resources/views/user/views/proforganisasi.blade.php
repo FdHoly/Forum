@@ -26,8 +26,7 @@
                             <div class="organisasi__foto">
                                 <figure class="profile-picture">
                                     <a href="#">
-                                        <img src="{{ asset('uploads/logo/' . $organisasi->logo_url) }}"
-                                            alt="profile picture">
+                                        <img src="{{ Storage::url($organisasi->logo_url) }}" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -47,6 +46,8 @@
                                         </ul>
                                     </div>
                                 </div>
+
+                                <div class="widget-body text-center mt-3">
                                 @if ($userGroup->contains($organisasi->id_groups))
                                     {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
                                     <h6 class="m-2">Joined</h6>
@@ -59,6 +60,7 @@
                                                 onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
                                                 type="submit" class="submit-btn m-2">Keluar Organisasi</button>
                                         </form>
+
                                     @endif
                                     @if ($userAuth->role == 2)
 
@@ -69,6 +71,7 @@
                                                 onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
                                                 type="submit" class="submit-btn m-2">Edit Organisasi</button>
                                         </form>
+
                                         <button data-toggle="modal"
                                             data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}" type=""
                                             class="submit-btn m-2">Delete Organisasi</button>

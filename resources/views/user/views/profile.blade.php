@@ -13,9 +13,9 @@
     <!-- header area end -->
 
     <main>
-
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img"
+                data-bg="{{ Auth::user()->background_image_url ? Auth::user()->background_image_url : 'user/assets/images/banner/profile-banner.jpg' }}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -23,9 +23,9 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="profile.html">
-                                        <img src="{{ Storage::url($prof->profil_image_url) }}
-                                        " alt="profile picture">
+                                    <a href="{{ route('profile') }}">
+                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                            alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -48,17 +48,19 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">{{ $prof->name }} {{ $prof->email }}</h4>
+                                <h4 class="widget-title">{{ $prof->name }}</h4>
+
                                 <div class="widget-body">
                                     <div class="about-author">
                                         {{-- <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a --}}
 
                                         <p>{{ $prof->biodata ?? 'Belum ada biodata' }}</p>
-                                        <ul class="author-into-list">
-                                            <li><a><i
-                                                        class="bi bi-location-pointer"></i>{{ $prof->universitas->nama }}</a>
+                                        <ul class="author-into-list ">
+                                            <li><a><i class="bi bi-user-ID align-middle"></i>{{ $prof->email }}</a>
                                             </li>
-                                            {{-- <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a></li> --}}
+                                            <li><a><i class="bi bi-location-pointer align-middle"></i>{{ $prof->universitas->nama }}</a>
+                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -74,10 +76,9 @@
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb">
-                                                    <a href="#">
+                                                    <a href="{{ route('detailOrg', $itemOrg->id_groups) }}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
-                                                                alt="profile picture">
+                                                            <img src="{{ Storage::url() }}" alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
@@ -118,8 +119,6 @@
         <i class="bi bi-finger-index"></i>
     </div>
     <!-- Scroll to Top End -->
-
-
 
     <!-- JS
 ============================================ -->

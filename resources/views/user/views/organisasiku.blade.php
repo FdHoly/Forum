@@ -59,18 +59,7 @@
                                     <button class="active" data-filter="*">All</button>
 
                                 </div>
-                                <div class="post-settings-bar">
-                                    {{-- <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <div class="post-settings arrow-shape">
-                                        <ul>
-                                            <li><button>edit profile</button></li>
-                                            <li><button>activity log</button></li>
-                                            <li><button>embed adda</button></li>
-                                        </ul>
-                                    </div> --}}
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -85,10 +74,6 @@
                         <div class="col-12">
                             <div class="content-box friends-zone">
                                 <div class="row mt--20 friends-list">
-
-
-                                    {{-- @foreach ($collection as $item) --}}
-
                                     @foreach ($org as $orgData)
                                         <div class="col-lg-3 col-sm-6 recently request">
                                             <div class="friend-list-view">
@@ -96,7 +81,7 @@
                                                 <div class="profile-thumb">
                                                     <a href="#">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src="user/assets/images/profile/profile-small-23.jpg"
+                                                            <img src={{ Storage::url($orgData->image_url) }}
                                                                 alt="profile picture">
                                                         </figure>
                                                     </a>
@@ -107,7 +92,7 @@
                                                     <h6 class="author"><a
                                                             href="organisasi/{{ $orgData->id_groups }}">{{ $orgData->nama }}</a>
                                                     </h6>
-                                                    <h5 class="author"><a>{{ $orgData->universitas->nama }}</a>
+                                                    <h5 class="author mt-2">{{ $orgData->universitas->nama }}
                                                     </h5>
                                                     <button class="add-frnd">Tergabung</button>
                                                 </div>
@@ -115,9 +100,6 @@
                                         </div>
                                     @endforeach
 
-                                    {{-- @endfor --}}
-
-                                    {{-- @endforeach --}}
                                 </div>
                             </div>
                         </div>

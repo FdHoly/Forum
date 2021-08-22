@@ -26,20 +26,24 @@
                             <div class="card widget-item">
                                 <h4 class="widget-title">Filter</h4>
                                 <div class="widget-body">
-                                    <form action="" method="post"></form>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Seluruh Organisasi
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" id="defaultCheck1"
-                                            checked>
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Disekitar Anda
-                                        </label>
-                                    </div>
+                                    <form action="" method="GET">
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="filter" id="filter1"
+                                                value="semua" onchange='this.form.submit()'
+                                                {{ app('request')->input('filter') === 'semua' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="filter1">
+                                                <p><b>Seluruh Organisasi</b></p>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="filter" id="filter2"
+                                                value="universitas" onchange='this.form.submit()'
+                                                {{ app('request')->input('filter') === 'universitas' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="filter2">
+                                                <p><b>Universitas Anda</b></p>
+                                            </label>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </aside>
@@ -52,10 +56,11 @@
                                         <h4 class="widget-title ml-3">Menampilkan Pencarian "
                                             {{ app('request')->input('search') }} "
                                         </h4>
-                                    @elseif (app('request')->has('filter'))
-                                        <h6><span>Menampilkan Postingan Organisasi Yang Anda Ikuti</span></h6>
+                                    @elseif (app('request')->input('filter')==='semua')
+                                        <h4 class="widget-title ml-3">Menampilkan Seluruh Organisasi
+                                        </h4>
                                     @else
-                                        <h4 class="widget-title ml-3">Menampilkan Organisasi Disekitar Anda
+                                        <h4 class="widget-title ml-3">Menampilkan Organisasi di Universitas Anda
                                         </h4>
                                     @endif
 
@@ -71,13 +76,12 @@
                                                     <div class="organisasi__foto">
                                                         <figure class="profile-picture">
                                                             <a href="#">
-                                                                <img src={{ asset('uploads/logo/' . $item->logo_url) }}
+                                                                <img src={{ Storage::url($item->logo_url) }}
                                                                     alt="profile picture">
                                                             </a>
                                                         </figure>
                                                     </div>
                                                     <div class="card widget-item">
-
                                                         <h4 class="widget-title author">
                                                             <a href="organisasi/{{ $item->id_groups }}">
                                                                 {{ $item->nama }}

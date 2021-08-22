@@ -34,19 +34,11 @@
                                     {{-- <input class="fileInput-23-d-3" type="file" tabindex="0" multiple=""
                                             accept=".jpg,.jpeg,.png,.gif" aria-label="Change
                                         Avatar"
-                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"> --}}
-                                    {{-- <div class="avatarUploaderIndicator-2G-aIZ"></div> --}}
-                                    <label for="image">
-                                        <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
-                                            multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change Avatar"
-                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"
-                                            onchange="document.getElementById('logoUniv').src = window.URL.createObjectURL(this.files[0])"
-                                            required>
-                                        <img id="logoUniv" src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                                        <div class="avatarUploaderIndicator-2G-aIZ"></div>
+                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
                                             alt="profile picture">
                                     </label>
-
-
 
                                 </figure>
                             </div>
@@ -73,10 +65,10 @@
                                 <h4 class="widget-title">{{ Auth::user()->name }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>{{ Auth::user()->biodata }}</p>
+                                        <p>{{ Auth::user()->biodata === NULL  ? 'Tidak Ada Biodata' : Auth::user()->biodata  }}</p>
                                         <ul class="author-into-list">
 
-                                            <li><a href="#"><i
+                                            <li><a href={{ route('profile') }}><i
                                                         class="bi bi-location-pointer"></i>{{ Auth::user()->universitas->nama }}</a>
                                             </li>
 
@@ -124,7 +116,7 @@
                                     </div>
                                     <div class="col-12">
                                         <h6 class="m-2">Biodata</h6>
-                                        <input type="text" name="biodata" class="single-field"
+                                        <input type="text" name="biodata" placeholder="Biodata" class="single-field"
                                             value="{{ Auth::user()->biodata }}">
                                     </div>
                                     <div class="col-12">
