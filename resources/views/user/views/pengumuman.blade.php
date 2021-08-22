@@ -15,7 +15,7 @@
     <main>
 
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="{{ Storage::url(Auth::user()->background_image_url) }}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -23,8 +23,8 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="profile.html">
-                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
+                                    <a href="{{route('profile')}}">
+                                        <img src="{{Storage::url(Auth::user()->profil_image_url) }}" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -54,6 +54,8 @@
 
                                         <p>{{ $prof->biodata ?? 'Belum ada biodata' }}</p>
                                         <ul class="author-into-list">
+                                            <li><a><i class="bi bi-user-ID align-middle"></i>{{ $prof->email }}</a>
+                                            </li>
                                             <li><a><i
                                                         class="bi bi-location-pointer"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
@@ -208,11 +210,6 @@
                     </div>
                     @endif
                     @endforeach
-                    <!-- Modal end -->
-                    {{-- <div class="filter-menu">
-                                    <button class="active" data-filter="*">All</button>
-
-                                </div> --}}
 
                     <div class=" secondary-menu-2 bg-white mb-4 d-flex justify-content-center">
 
@@ -238,8 +235,6 @@
                     </div>
 
                     <div id="accordion">
-
-
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordion">
                             @foreach ($pengumuman as $item)
@@ -250,7 +245,7 @@
                                         <div class="profile-thumb">
                                             <a href="#">
                                                 <figure class="profile-thumb-middle">
-                                                    <img src="user/assets/images/profile/profile-small-3.jpg"
+                                                    <img src="{{Storage::url($item->group->logo_url)}}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -598,7 +593,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

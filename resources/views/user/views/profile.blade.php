@@ -78,7 +78,7 @@
                                                 <div class="profile-thumb">
                                                     <a href="{{ route('detailOrg', $itemOrg->id_groups) }}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="{{ Storage::url() }}" alt="profile picture">
+                                                            <img src="{{ Storage::url($itemOrg->logo_url) }}" alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>

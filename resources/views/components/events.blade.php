@@ -14,7 +14,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src="{{ asset('uploads/logo/' . $itemPengumuman->group->logo_url) }}"
+                                            <img src="{{ Storage::url($itemPengumuman->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -28,7 +28,6 @@
                                         {{ $itemPengumuman->group->nama }}
                                     </h4>
                                     <p class="list-subtitle">
-
                                         {{ $time = date('j F Y', strtotime($itemPengumuman->created_at)) }}
                                     </p>
                                 </div>
@@ -60,7 +59,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src="{{ asset('uploads/logo/' . $itemAcara->group->logo_url) }}"
+                                            <img src="{{ Storage::url($itemAcara->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -103,7 +102,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-small">
-                                            <img src="{{ asset('uploads/logo/' . $itemRapat->group->logo_url) }}"
+                                            <img src="{{ Storage::url($itemRapat->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -149,7 +148,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ asset('uploads/logo/' . $itemPengumuman->group->logo_url) }}"
+                                        <img src="{{ Storage::url($itemPengumuman->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -157,7 +156,7 @@
                             <!-- profile picture end -->
 
                             <div class="posted-author">
-                                <h6 class="author"><a href="profile.html">{{ $itemPengumuman->group->nama }}
+                                <h6 class="author"><a href="">{{ $itemPengumuman->group->nama }}
                                         ▶
                                         {{ $itemPengumuman->judul }}</a>
                                 </h6>

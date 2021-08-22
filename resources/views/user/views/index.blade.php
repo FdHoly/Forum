@@ -58,7 +58,7 @@
                                                 <div class="profile-thumb">
                                                     <a href="#">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="{{ Storage::url('logo/' . $itemGroup->image_url) }}"
+                                                            <img src="{{ Storage::url($itemGroup->logo_url) }}"
                                                                 alt="ppGroup">
                                                         </figure>
                                                     </a>
