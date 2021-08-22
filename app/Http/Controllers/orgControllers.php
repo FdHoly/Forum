@@ -37,7 +37,11 @@ class orgControllers extends Controller
                         ->orWhere('nama', 'like', "%{$value}%");
                 }
             })->get();
-        } else {
+        }elseif($request->input('filter') === 'semua'){
+            $data = Groups::all();
+        } 
+        
+        else {
             $data = Groups::whereIn('id_groups', $univGroup)->get();
         }
         

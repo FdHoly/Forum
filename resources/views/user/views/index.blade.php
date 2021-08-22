@@ -41,7 +41,7 @@
                                     <div class="profile-desc text-center">
                                         <h6 class="author"><a
                                                 href="{{ route('profile') }}">{{ Auth::user()->name }}</a></h6>
-                                        <p> {{ Auth::user()->biodata !== null ? Auth::user()->biodata : 'Tidak Ada Bio' }}
+                                        <p> {{ Auth::user()->biodata !== null ? Auth::user()->biodata : 'Belum ada bio' }}
                                         </p>
                                     </div>
                                 </div>

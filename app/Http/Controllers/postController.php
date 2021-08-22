@@ -26,32 +26,26 @@ class postController extends Controller
         // return $univGroup;
         // return dd($request->input('filter'));
 
-        if ($userGroup->isEmpty() || ($userGroup->isEmpty() && $request->has('filter'))) {
-            $allutas = [];
-            $admAuth = [];
-            $pengumuman = [];
-            $group =  [];
-            $rapat = [];
-            $acara = [];
-        } else {
-            if ($request->input('filter') === "organisasi") { ///Group yang user dah join
-                $allutas = Utas::with(["group", "replyutas", "user"])
-                    ->whereIn('id_groups', $userGroup)
-                    ->latest()->get();
-            } elseif ($request->input('filter') === "semua") { //Semua post
-                $allutas = Utas::with(["group", "replyutas", "user"])->where('status', 0)->latest()->get();
-            } else { //Univ user tp no private post
-                $allutas = Utas::with(["group", "replyutas", "user"])
-                    ->whereIn('id_groups', $univGroup)
-                    ->where('status', 0)
-                    ->latest()->get();
-            }
-            $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
-            $group = Groups::whereIn('id_groups', $userGroup)->get();
-            $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->latest()->get();
-            $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
-            $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
+
+        if ($request->input('filter') === "organisasi") { ///Group yang user dah join
+            $allutas = Utas::with(["group", "replyutas", "user"])
+                ->whereIn('id_groups', $userGroup)
+                ->latest()->get();
+        } elseif ($request->input('filter') === "semua") { //Semua post
+            $allutas = Utas::with(["group", "replyutas", "user"])->where('status', 0)->latest()->get();
+            // return $allutas;
+        } else { //Univ user tp no private post
+            $allutas = Utas::with(["group", "replyutas", "user"])
+                ->whereIn('id_groups', $univGroup)
+                ->where('status', 0)
+                ->latest()->get();
         }
+        $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
+        $group = Groups::whereIn('id_groups', $userGroup)->get();
+        $pengumuman = Pengumuman::whereIn('id_groups', $userGroup)->latest()->get();
+        $acara = Events::whereIn('id_groups', $userGroup)->latest()->get();
+        $rapat = Rapat::whereIn('id_groups', $userGroup)->latest()->get();
+
         $dataRandom = Groups::select('*')->inRandomOrder()->limit(5)->get();
 
 
