@@ -17,13 +17,11 @@
         <div class="main-wrapper">
 
             <div class="overflowHidden" style="height: 30%">
-                <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+                <div class="profile-banner-large bg-img"
+                    data-bg="{{ Storage::url(Auth::user()->background_image_url) }}">
 
                 </div>
-                <input class="fileInput-23-d-3" type="file" tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif"
-                    aria-label="Change
-                                        Avatar"
-                    style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -33,15 +31,21 @@
 
                                 <span aria-hidden="true"></span>
                                 <figure class="profile-picture">
-                                    <label for="image">
-                                        <input class="fileInput-23-d-3" type="file" tabindex="0" multiple=""
+                                    {{-- <input class="fileInput-23-d-3" type="file" tabindex="0" multiple=""
                                             accept=".jpg,.jpeg,.png,.gif" aria-label="Change
                                         Avatar"
-                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
-                                        <div class="avatarUploaderIndicator-2G-aIZ"></div>
-                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
-
+                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"> --}}
+                                    {{-- <div class="avatarUploaderIndicator-2G-aIZ"></div> --}}
+                                    <label for="image">
+                                        <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
+                                            multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change Avatar"
+                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"
+                                            onchange="document.getElementById('logoUniv').src = window.URL.createObjectURL(this.files[0])"
+                                            required>
+                                        <img id="logoUniv" src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                            alt="profile picture">
                                     </label>
+
 
 
                                 </figure>

@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
     Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
 
+    Route::delete('/delReport/{id}', [pengumumanController::class, 'deleteReport'])->name('deleteReport');
     Route::delete('/delPengumuman/{id}', [pengumumanController::class, 'deletePengumuman'])->name('deletePengumuman');
     Route::delete('/delAcara/{id}', [pengumumanController::class, 'deleteAcara'])->name('deleteAcara');
     Route::delete('/delRapat/{id}', [pengumumanController::class, 'deleteRapat'])->name('deleteRapat');

@@ -2,6 +2,15 @@
 <html class="no-js" lang="en">
 
 @include('user.views.include.head')
+{{-- Latest --}}
+<meta name="author" content="ThemeMakker">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
+{{-- latest --}}
 
 <body>
 
@@ -55,7 +64,7 @@
                                 <div class="page-title-inner">
                                     <h4 class="page-title p-4">Jumlah Laporan ({{ $report->count() }})</h4>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -71,9 +80,9 @@
                             <table class="table w-100">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">Index</th>
                                         <th scope="col">Postingan</th>
                                         <th scope="col">Diposting Oleh</th>
+                                        <th scope="col">Direport Oleh</th>
                                         <th scope="col">Organisasi</th>
                                         <th scope="col">Alasan</th>
                                         <th scope="col">Aksi</th>
@@ -83,15 +92,25 @@
 
                                     @foreach ($report as $item)
                                         <tr>
-                                            <th scope="row">{{ $item->id_reports }}</th>
+                                            {{-- <th scope="row">{{ $item->id_reports }}</th> --}}
                                             <td>{{ $item->utas->judul }}</td>
+                                            <td>{{ $item->utas->user->name }}</td>
                                             <td>{{ $item->user->name }}</td>
-                                            <td>{{ $item->group->nama }}</td>
+                                            <td>{{ $item->utas->group->nama }}</td>
                                             <td>{{ $item->alasan }}</td>
                                             <td>
                                                 {{-- <button type="danger"></button> --}}
-                                                <button type="button" class="btn bg-primary">Gapapa</button>
-                                                <button type="button">BAN</button>
+                                                {{-- <button type="button" class="submit-btn btn-sm">Hapus Post</button> --}}
+                                                {{-- <button type="button">BAN</button> --}}
+
+                                                <button class="btn btn-success btn-sm" data-toggle="modal"
+                                                    data-target="#ModalComment{{ $item->id_utas }}">
+                                                    View Post
+                                                </button>
+                                                <button type="button" data-toggle="modal"
+                                                    data-target="#ModalDeleteReport{{ $item->id_reports }}"
+                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+
 
                                             </td>
                                         </tr>
@@ -114,6 +133,44 @@
     </div>
     <!-- Scroll to Top End -->
 
+    {{-- Modal Delete Report --}}
+    @foreach ($report as $itemPost1)
+        <!-- Modal Comment-->
+        <div>
+            <div class="modal fade" id="ModalDeleteReport{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalDeleteReport" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <h6>Peringatan</h6>
+                                </div>
+
+
+                                <div class="post-content">
+                                    <h6 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Report Ini ?</h5>
+
+                                </div>
+                                <div class="modal-footer" style="margin-bottom: -20px">
+                                    <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                    <form action="{{ route('deleteReport', $itemPost1->id_reports) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="post-share-btn">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Comments End --}}
+            </div>
+        </div>
+    @endforeach
+    {{-- Modal Delete Report --}}
+
+    <x-modalpost :post="$allutas" />
 
 
     <!-- JS
