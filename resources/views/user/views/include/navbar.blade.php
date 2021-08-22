@@ -29,9 +29,10 @@
                 <div class="header-top-right d-flex align-items-center justify-content-end">
                     <!-- header top search start -->
                     <div class="header-top-search">
-                        <form class="top-search-box">
-                            <input type="text" placeholder="Cari Organisasimu" class="top-search-field">
-                            <button class="top-search-btn"><i class="flaticon-search"></i></button>
+                        <form action=" {{route('listorg')}} " method="GET" class="top-search-box">
+                            
+                            <input type="text" name="search" placeholder="Cari Organisasimu" class="top-search-field">
+                            <button type="submit" class="top-search-btn"><i class="flaticon-search"></i></button>
                         </form>
                     </div>
                     <!-- header top search end -->

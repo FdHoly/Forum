@@ -28,26 +28,18 @@
                                 <div class="widget-body">
                                     <form action="" method="post"></form>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <input class="form-check-input" type="radio" value="" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Seluruh Organisasi
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                                        <input class="form-check-input" type="radio" value="" id="defaultCheck1"
                                             checked>
                                         <label class="form-check-label" for="defaultCheck1">
                                             Disekitar Anda
                                         </label>
                                     </div>
-                                    @foreach ($data as $items)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                {{ $items->universitas->nama }}
-                                            </label>
-                                        </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </aside>
@@ -56,20 +48,23 @@
                         <div class="card">
                             <div class="row">
                                 <div>
+                                    @if (app('request')->has('search'))
+                                        <h4 class="widget-title ml-3">Menampilkan Pencarian "
+                                            {{ app('request')->input('search') }} "
+                                        </h4>
+                                    @elseif (app('request')->has('filter'))
+                                        <h6><span>Menampilkan Postingan Organisasi Yang Anda Ikuti</span></h6>
+                                    @else
+                                        <h4 class="widget-title ml-3">Menampilkan Organisasi Disekitar Anda
+                                        </h4>
+                                    @endif
 
-
-                                    <h4 class="widget-title ml-3">Menampilkan Organisasi Disekitar Anda
-                                    </h4>
-
-                                    {{-- <h4 class="widget-title ml-3">Menampilkan Pencarian
-                                        <span class="text-primary"> "KBMTI" </span>
-                                    </h4> --}}
                                 </div>
 
                                 <div class="col-12">
                                     <div class="row mt--20">
 
-                                        @foreach ($data as $item)
+                                        @forelse ($data as $item)
                                             <div class="col-lg-4 mb-3 mt-3">
                                                 <div>
                                                     <!-- widget single item start -->
@@ -117,7 +112,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        @empty
+                                            <div class="col mb-3 mt-3">
+                                                <b>Pencarian Tidak Ditemukan</b>
+                                            </div>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
@@ -146,15 +145,7 @@
     @include('user.views.include.modjs')
 
     <script>
-        /* When the user clicks on the button,
-                                                                                                                                                                            <<<<<<< HEAD
-                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
-        ===
-        ===
-        =
-        toggle between hiding and showing the dropdown content * / >>> >>> >
-        a9b5ac40584487b340433b8b4d5ba93bb6850ae8
-
+        /* When the user clicks on the button, */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

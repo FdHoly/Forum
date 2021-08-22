@@ -23,10 +23,24 @@ class orgControllers extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function listorg()
+    public function listorg(Request $request)
     {
-        $data = Groups::all();
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $univGroup = Groups::where('id_univ', Auth::user()->id_univ)->pluck('id_groups'); # Auth::user()->id
+
+        if ($request->has('search')) {
+            $string = $request->input('search');
+            $searchValues = preg_split('/\s+/', $string, -1, PREG_SPLIT_NO_EMPTY);
+            $data = Groups::where(function ($q) use ($searchValues) {
+                foreach ($searchValues as $value) {
+                    $q->where('nama', $value)
+                        ->orWhere('nama', 'like', "%{$value}%");
+                }
+            })->get();
+        } else {
+            $data = Groups::whereIn('id_groups', $univGroup)->get();
+        }
+        
 
         return view('user.views.listorg', compact('data', 'userGroup'));
     }
