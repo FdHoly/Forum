@@ -43,12 +43,7 @@
                         <div class="card widget_2 big_icon traffic">
                             <div class="body">
                                 <h6>Total user yang terdaftar</h6>
-                                <h2>20 <small class="info">of 1Tb</small></h2>
-                                <small>2% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="45"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
-                                </div>
+                                <h2>{{ $user->count() }}</h2>
                             </div>
                         </div>
                     </div>
@@ -56,12 +51,7 @@
                         <div class="card widget_2 big_icon sales">
                             <div class="body">
                                 <h6>Total Universitas yang terdaftar</h6>
-                                <h2>12% <small class="info">of 100</small></h2>
-                                <small>6% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="38"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
-                                </div>
+                                <h2>{{ $universitas->count() }}</h2>
                             </div>
                         </div>
                     </div>
@@ -69,12 +59,7 @@
                         <div class="card widget_2 big_icon email">
                             <div class="body">
                                 <h6>Total Organisasi yang terdaftar</h6>
-                                <h2>39 <small class="info">of 100</small></h2>
-                                <small>Total Registered email</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="39"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
-                                </div>
+                                <h2>{{ $organisasi->count() }}</h2>
                             </div>
                         </div>
                     </div>
@@ -82,105 +67,16 @@
                         <div class="card widget_2 big_icon domains">
                             <div class="body">
                                 <h6>Total postingan</h6>
-                                <h2>8 <small class="info">of 10</small></h2>
-                                <small>Total Registered Domain</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="89"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
-                                </div>
+                                <h2>{{ $utas->count() }}</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon traffic">
-                            <div class="body">
-                                <h6>Rata-rata post per user</h6>
-                                <h2>20 <small class="info">of 1Tb</small></h2>
-                                <small>2% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="45"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon sales">
-                            <div class="body">
-                                <h6>Rata-rata post per Universitas</h6>
-                                <h2>12% <small class="info">of 100</small></h2>
-                                <small>6% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="38"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon email">
-                            <div class="body">
-                                <h6>Rata-rata post per Organisasi</h6>
-                                <h2>39 <small class="info">of 100</small></h2>
-                                <small>Total Registered email</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="39"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
 
 
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon traffic">
-                            <div class="body">
-                                <h6>User dengan post terbanyak</h6>
-                                <h2>20 <small class="info">of 1Tb</small></h2>
-                                <small>2% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="45"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon sales">
-                            <div class="body">
-                                <h6>Universitas dengan post terbanyak</h6>
-                                <h2>12% <small class="info">of 100</small></h2>
-                                <small>6% higher than last month</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="38"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="card widget_2 big_icon email">
-                            <div class="body">
-                                <h6>Organisasi dengan post terbanyak</h6>
-                                <h2>39 <small class="info">of 100</small></h2>
-                                <small>Total Registered email</small>
-                                <div class="progress mb-0">
-                                    <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="39"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
 
-                    </div>
-                </div>
+
 
             </div>
         </div>

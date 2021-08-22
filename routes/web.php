@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\aorgController;
 use App\Http\Controllers\apostController;
 use App\Http\Controllers\areportController;
@@ -85,14 +86,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/adm', function () {
-        return view('admin.views.admindex');
-    })->name("admindex");
+    // Route::get('/adm', function () {
+    //     return view('admin.views.admindex');
+    // })->name("admindex");
     Route::delete('/adeleteOrg/{id}', [aorgController::class, 'deleteOrg'])->name('admdeleteOrg');
     Route::delete('/adeletePost/{id}', [apostController::class, 'deletePost'])->name('admdeletePost');
     Route::delete('/adeleteReport/{id}', [areportController::class, 'deleteReport'])->name('admdeleteReport');
     Route::delete('/adeleteUser/{id}', [auserController::class, 'deleteUser'])->name('admdeleteUser');
 
+    Route::get('adm', [adminController::class, "index"])->name("admindex");
     Route::get('admPost', [apostController::class, "allpost"])->name("admPost");
     Route::get('admUser', [auserController::class, "alluser"])->name("admUser");
     Route::get('admOrg', [aorgController::class, "allorg"])->name("admOrg");

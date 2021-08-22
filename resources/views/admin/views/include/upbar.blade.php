@@ -1,7 +1,7 @@
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
-        <a href="adm" class="navbar-brand"><img src="../admin/assets/images/brand/icon.svg" alt="BigBucket" />
+        <a href="adm" class="navbar-brand"><img src="../user/assets/images/logo/logo.png" alt="BigBucket" />
             <strong>Forumio</strong></a>
         <div id="navbar_main">
             <ul class="navbar-nav mr-auto hidden-xs">
@@ -41,17 +41,13 @@
                         <h6 class="dropdown-header">User menu</h6>
                         <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-user text-primary"></i>My
                             Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0);"><span
-                                class="float-right badge badge-success">$50K</span><i
-                                class="fa fa-briefcase text-primary"></i>My Balance</a>
-                        <a class="dropdown-item" href="javascript:void(0);"><span
-                                class="float-right badge badge-warning">4</span><i
-                                class="fa fa-envelope text-primary"></i>Inbox</a>
-                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                class="fa fa-cog text-primary"></i>Settings</a>
-                        <div class="dropdown-divider" role="presentation"></div>
-                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                class="fa fa-sign-out text-primary"></i>Sign out</a>
+                        <form id="out" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="dropdown-item" href="javascript:{}"
+                                onclick="document.getElementById('out').submit();"><i
+                                    class="fa fa-sign-out text-primary"></i>Sign out</a>
+                        </form>
+
                     </div>
                 </li>
             </ul>
