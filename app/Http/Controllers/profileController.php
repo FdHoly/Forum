@@ -84,6 +84,10 @@ class profileController extends Controller
     public function reportShow()
     {
         $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', 2]])->pluck('id_groups'); # Auth::user()->id
+        // return $userGroup;
+        if (!$userGroup) {
+            abort(403);
+        }
         $org = Groups::whereIn('id_groups', $userGroup)->get();
         $report = Report::whereIn('id_groups', $userGroup)->get();
         $utasReport = Report::whereIn('id_groups', $userGroup)->pluck('id_utas');

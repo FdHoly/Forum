@@ -147,10 +147,18 @@ class orgControllers extends Controller
     }
     public function manageOrg($id)
     {
+
         $userGroupx = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first();
-        if (!$userGroupx->role >= 2) {
-            abort(404);
+        if (!$userGroupx) {
+            abort(403);
         }
+        // return $userGroupx->role;
+        if (($userGroupx->role) == 1) {
+            abort(403);
+        }
+        // if (($userGroupx->role) == 2) {
+        //     abort(403);
+        // }
 
         $sortDirect = 'desc';
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
@@ -191,7 +199,7 @@ class orgControllers extends Controller
     {
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id->id_groups)->first();
         if (!$userGroup->role >= 2) {
-            abort(404);
+            abort(403);
         }
 
         $fields = $request->validate([
