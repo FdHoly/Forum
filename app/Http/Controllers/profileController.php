@@ -112,33 +112,45 @@ class profileController extends Controller
                 'oldPass' => 'required|string',
             ]
         );
-        // if ($request->file('pp')) {
 
 
-        // }
+        $user = User::find(Auth::user()->id_users);
 
         if (!Hash::check($request->oldPass, Auth::user()->password)) {
             return back()->with('error', 'Wrong password');
         }
+
         if ($request->password) {
             if ($request->password != $request->cPass) {
                 return back()->with('error', 'Password not match');
             }
-            User::find(Auth::user()->id_users)->update([
+            $user->update([
                 'name' => $request->name,
                 'biodata' => $request->biodata,
                 'password' => Hash::make($request->password),
                 // 'profile_image_url' => $path
             ]);
+        } else {
+            $user->update([
+                'name' => $request->name,
+                'biodata' => $request->biodata,
+                // 'profile_image_url' => $path
 
-            return redirect()->route('editprofile')->with('status', 'Profile and Password Changed');
+            ]);
         }
-        User::find(Auth::user()->id_users)->update([
-            'name' => $request->name,
-            'biodata' => $request->biodata,
-            // 'profile_image_url' => $path
+        if ($request->file('profilePic')) {
+            $profilePic = $request->profilePic->store('profile', 'public');
+            $user->update([
+                'profil_image_url' => $profilePic
+            ]);
+        }
+        if ($request->file('backgroundPic')) {
+            $backgroundPic = $request->backgroundPic->store('profile', 'public');
+            $user->update([
+                'background_image_url' => $backgroundPic
+            ]);
+        }
 
-        ]);
         return redirect()->route('editprofile')->with('status', 'Profile Changed');
     }
 }

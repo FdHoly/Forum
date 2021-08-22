@@ -23,8 +23,8 @@ class userSeeder extends Seeder
                 'password' => 'password',
                 'role' => '1',
                 'id_univ' => '1',
-                'profil_image_url' => 'ini logo url',
-                'background_image_url' => 'ini logo url',
+                'profil_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
+                'background_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -34,8 +34,8 @@ class userSeeder extends Seeder
                 'password' => 'password',
                 'role' => '1',
                 'id_univ' => '2',
-                'profil_image_url' => 'ini logo url',
-                'background_image_url' => 'ini logo url',
+                'profil_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
+                'background_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -46,8 +46,8 @@ class userSeeder extends Seeder
                 'role' => '1',
                 'id_univ' => '3',
                 'biodata' => 'My name is name and yes',
-                'profil_image_url' => 'ini logo url',
-                'background_image_url' => 'ini logo url',
+                'profil_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
+                'background_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -57,8 +57,8 @@ class userSeeder extends Seeder
                 'password' => '$2y$10$cyGfwNU4R3ljLcOW4NktxOZ3yoYS3ZZSqr3ZXEnd3lLLdSC4ESPEu',
                 'role' => '1',
                 'id_univ' => '3',
-                'profil_image_url' => 'ini logo url',
-                'background_image_url' => 'ini logo url',
+                'profil_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
+                'background_image_url' => 'avatar/8IGlHeiBX4YnzZyOspAGHOvP026zrw1PJrcJ91Vg.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

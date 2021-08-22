@@ -31,13 +31,11 @@
 
                                 <span aria-hidden="true"></span>
                                 <figure class="profile-picture">
-                                    {{-- <input class="fileInput-23-d-3" type="file" tabindex="0" multiple=""
-                                            accept=".jpg,.jpeg,.png,.gif" aria-label="Change
-                                        Avatar"
-                                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
-                                        <div class="avatarUploaderIndicator-2G-aIZ"></div>
-                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
-                                            alt="profile picture">
+                                    {{-- <div class="avatarUploaderIndicator-2G-aIZ"><img
+                                            src="{{ url('user/assets/images/logo/edit.png') }}" alt="">
+                                    </div> --}}
+                                    <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                        alt="profile picture">
                                     </label>
 
                                 </figure>
@@ -65,7 +63,8 @@
                                 <h4 class="widget-title">{{ Auth::user()->name }}</h4>
                                 <div class="widget-body">
                                     <div class="about-author">
-                                        <p>{{ Auth::user()->biodata === NULL  ? 'Tidak Ada Biodata' : Auth::user()->biodata  }}</p>
+                                        <p>{{ Auth::user()->biodata === null ? 'Tidak Ada Biodata' : Auth::user()->biodata }}
+                                        </p>
                                         <ul class="author-into-list">
 
                                             <li><a href={{ route('profile') }}><i
@@ -105,7 +104,8 @@
                                 </div>
                             @endif
 
-                            <form class="signup-inner--form" action="{{ route('editprofile.update') }}" method="POST">
+                            <form class="signup-inner--form" action="{{ route('editprofile.update') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
@@ -130,6 +130,16 @@
                                     <div class="col-12">
                                         <input type="password" name="cPass" class="single-field"
                                             placeholder="Confirm Password">
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 class="m-2">Foto Profil</h6>
+                                        <input name="profilePic" type="file" class="form-control-file"
+                                            id="exampleFormControlFile1">
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 class="m-2">Foto Background</h6>
+                                        <input name="backgroundPic" type="file" class="form-control-file"
+                                            id="exampleFormControlFile1">
                                     </div>
                                     <div class="col-12">
                                         <button class="submit-btn">Save Changes</button>
