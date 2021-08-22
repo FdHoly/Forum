@@ -46,10 +46,12 @@
                                         </ul>
                                     </div>
                                 </div>
+
                                 <div class="widget-body text-center mt-3">
-                                    @if ($userGroup->contains($organisasi->id_groups))
-                                        {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
-                                        <h6 class="mb-3">Joined</h6>
+                                @if ($userGroup->contains($organisasi->id_groups))
+                                    {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
+                                    <h6 class="m-2">Joined</h6>
+                                    @if ($userAuth->role != 2)
 
                                         <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
                                             @method('DELETE')
@@ -58,6 +60,10 @@
                                                 onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
                                                 type="submit" class="submit-btn m-2">Keluar Organisasi</button>
                                         </form>
+
+                                    @endif
+                                    @if ($userAuth->role == 2)
+
                                         <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
@@ -65,20 +71,19 @@
                                                 onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
                                                 type="submit" class="submit-btn m-2">Edit Organisasi</button>
                                         </form>
-                                        <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="submit-btn m-2">Delete Organisasi</button>
-                                        </form>
-                                    @else
-                                        <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
-                                            class="text-center">
-                                            @csrf
-                                            <button type="submit" class="submit-btn m-2">
-                                                Gabung </button>
-                                        </form>
+
+                                        <button data-toggle="modal"
+                                            data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}" type=""
+                                            class="submit-btn m-2">Delete Organisasi</button>
                                     @endif
-                                </div>
+                                @else
+                                    <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
+                                        class="text-center">
+                                        @csrf
+                                        <button type="submit" class="submit-btn m-2">
+                                            Gabung </button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                         <!-- widget single item end -->
@@ -204,7 +209,44 @@
         {{-- Modal Report End --}}
 
 
+        {{-- Modal Delete Organisasi --}}
+        {{-- @foreach ($organisasi as $itemPost1) --}}
+        <!-- Modal Comment-->
+        <div>
+            <div class="modal fade" id="ModalDeleteOrganisasi{{ $organisasi->id_groups }}" tabindex="-1"
+                role="dialog" aria-labelledby="ModalDeletePost" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <h6>Peringatan</h6>
+                                </div>
+                                <div class="post-content">
+                                    <h5 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Organisasi Ini ?
+                                    </h5>
+                                    <h6 style="margin-bottom: 10px">Semua konten dalam organisasi akan terhapus termasuk
+                                        pengikut
+                                    </h6>
 
+                                </div>
+                                <div class="modal-footer" style="margin-bottom: -20px">
+                                    <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                    <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="post-share-btn">Hapus Organisasi</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Comments End --}}
+            </div>
+        </div>
+        {{-- @endforeach --}}
+        {{-- Modal Delete Organisasi --}}
 
         {{-- Modal Alert Report --}}
         <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

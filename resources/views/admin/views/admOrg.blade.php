@@ -308,13 +308,14 @@
                                                             <td>{{ $item->usergroup->count() }}</td>
 
                                                             <td>
-                                                                <a href="{{ route('detailOrg', $item->id_groups) }}"
-                                                                    class="btn btn-success btn-sm">View Organisasi</a>
                                                                 <form
                                                                     action="{{ route('admdeleteOrg', $item->id_groups) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
+                                                                    <a href="{{ route('detailOrg', $item->id_groups) }}"
+                                                                        class="btn btn-success btn-sm">View
+                                                                        Organisasi</a>
                                                                     <button type="submit"
                                                                         class="btn btn-danger btn-sm"><i
                                                                             class="fa fa-trash"></i></button>

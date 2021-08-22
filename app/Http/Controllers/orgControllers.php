@@ -57,8 +57,8 @@ class orgControllers extends Controller
 
     public function createOrg(Request $request)
     {
-        $path = $request->file->store('logo', 'public');
 
+        $path = $request->file->store('logo', 'public');
         $group = Groups::create(
             [
                 'nama' => $request->nama_grup,
@@ -81,7 +81,8 @@ class orgControllers extends Controller
     {
         $sortDirect = 'desc';
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
-
+        $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first(); # Auth::user()->id
+        // return $userAuth;
         $organisasi = Groups::with([
             'pengumuman', 'acara', 'rapat',
 
@@ -99,7 +100,8 @@ class orgControllers extends Controller
         // return $organisasi;
         return view('user.views.proforganisasi', [
             "organisasi" => $organisasi,
-            "userGroup" => $userGroup
+            "userGroup" => $userGroup,
+            "userAuth" => $userAuth
         ]);
     }
     public function joinOrg($id)

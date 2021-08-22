@@ -310,13 +310,13 @@
                                                             </td>
 
                                                             <td>
-                                                                <a href="javascript:void(0);"
-                                                                    class="btn btn-success btn-sm">View Post</a>
                                                                 <form
                                                                     action="{{ route('admdeleteReport', $item->id_reports) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-success btn-sm">View Post</a>
                                                                     <button type="submit"
                                                                         class="btn btn-danger btn-sm"><i
                                                                             class="fa fa-trash"></i></button>

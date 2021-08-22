@@ -21,12 +21,12 @@ class reportSeeder extends Seeder
                 'alasan' => 'Konten1',
                 'id_users' => '1',
                 'id_groups' => '1',
-                'id_utas' => '2',
+                'id_utas' => '1',
             ],
             [
                 'alasan' => 'Konten2',
                 'id_users' => '2',
-                'id_groups' => '2',
+                'id_groups' => '1',
                 'id_utas' => '2',
             ],
             [
@@ -34,6 +34,12 @@ class reportSeeder extends Seeder
                 'id_users' => '3',
                 'id_groups' => '1',
                 'id_utas' => '1',
+            ],
+            [
+                'alasan' => 'Explicit Seeder',
+                'id_users' => '3',
+                'id_groups' => '4',
+                'id_utas' => '5',
             ],
         ];
         foreach ($report as $Xample) {
