@@ -30,40 +30,46 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [postController::class, "listpost"])->name("index");
     Route::post('/', [postController::class, "createPost"])->name("createpost");
-    Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
-    Route::get('/organisasiku', [profileController::class, "MyOrg"])->name("organisasiku");
-    Route::get('/profile/{email}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
+
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
     Route::get('organisasibaru', [orgControllers::class, "viewCreate"])->name("grupbaru");
 
+    Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
+    Route::get('/profile/{email}/organisasi', [profileController::class, "HisOrg"])->name("organisasiNya");
+    Route::get('/profile/{email}', [profileController::class, "profileShow"])->name("profileID");
+    Route::get('/organisasiku', [profileController::class, "MyOrg"])->name("organisasiku");
+    Route::get('/editprofile', [profileController::class, "profileMe"])->name("editprofile");
+    Route::get('/pengumuman', [PengumumanController::class, "pengumumanIndex"])->name("pengumuman");
+
+    Route::put('/editprofile', [profileController::class, "editProfile"])->name("editprofile.update");
+
     // Route::get('/filter', [postController::class, "listpost"])->name("filterHome");
 
     Route::put('utas/{utas}', [postController::class, 'editPost'])->name('utasUpdate');
+    Route::put('/organisasi/{group}', [orgControllers::class, "editOrg"])->name("editOrg");
+
+    Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
+
+    Route::post('/organisasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
+    Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 
     Route::post('/report', [postController::class, 'reportPost'])->name('reportPost');
+    Route::post('/replySend/{id}', [postController::class, "replyPost"])->name("replyPost");
+
     Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
-
     Route::delete('/delete/{id}', [postController::class, 'deletePost'])->name('deletePost');
-
-    Route::put('/editUser/{id}', [orgControllers::class, "editUser"])->name("editUser");
-    Route::post('/pengumuman', [PengumumanController::class, "store"])->name("createPengumuman");
     Route::delete('/kick/{id}', [orgControllers::class, 'kickUser'])->name('kickUser');
     Route::delete('/delReport/{id}', [pengumumanController::class, 'deleteReport'])->name('deleteReport');
     Route::delete('/delPengumuman/{id}', [pengumumanController::class, 'deletePengumuman'])->name('deletePengumuman');
     Route::delete('/delAcara/{id}', [pengumumanController::class, 'deleteAcara'])->name('deleteAcara');
     Route::delete('/delRapat/{id}', [pengumumanController::class, 'deleteRapat'])->name('deleteRapat');
     Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
-    Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan");
-    Route::get('/manageOrganisasi/{id}', [orgControllers::class, "manageOrg"])->name("manageOrg");
-    Route::put('/organisasi/{group}', [orgControllers::class, "editOrg"])->name("editOrg");
-    Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
 
+    Route::put('/editUser/{id}', [orgControllers::class, "editUser"])->name("editUser"); //Done Auth
+    Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan"); //Done Auth
+    Route::get('/manageOrganisasi/{id}', [orgControllers::class, "manageOrg"])->name("manageOrg"); //Done Auth
 
-    Route::get('/profile', [profileController::class, "profileIndex"])->name("profile");
-    Route::get('/profile/{email}', [profileController::class, "profileShow"])->name("profileID");
-    Route::get('/editprofile', [profileController::class, "profileMe"])->name("editprofile");
-    Route::put('/editprofile', [profileController::class, "editProfile"])->name("editprofile.update");
 
 
     // Route::get('/organisasi/kbmti', function () {
@@ -76,8 +82,6 @@ Route::middleware('auth')->group(function () {
     // Route::get('/organisasi/search', [orgControllers::class, "listorg"])->name("listorg");
 
     // Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost")->middleware('auth');
-    Route::post('/replySend/{id}', [postController::class, "replyPost"])->name("replyPost");
-    Route::post('organisasi/create', [orgControllers::class, "createOrg"])->name("createOrg");
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
