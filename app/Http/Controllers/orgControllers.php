@@ -55,7 +55,12 @@ class orgControllers extends Controller
 
     public function createOrg(Request $request)
     {
-
+        $request->validate([
+            'nama_grup' => 'required|unique:groups,nama',
+            'deskripsi' => 'required',
+            'universitas' => 'required',
+            'file' => 'required',
+        ]);
         $path = $request->file->store('logo', 'public');
         $group = Groups::create(
             [
@@ -138,6 +143,62 @@ class orgControllers extends Controller
             $fields['logo_url'] = $request->logo_url->store('logo', 'public');
         }
         $group->update($fields);
+        return back();
+    }
+    public function manageOrg($id)
+    {
+        $userGroupx = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first();
+        if (!$userGroupx->role >= 2) {
+            abort(404);
+        }
+
+        $sortDirect = 'desc';
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
+        $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first(); # Auth::user()->id
+        // return $userAuth;
+        $organisasi = Groups::with([
+            'pengumuman', 'acara', 'rapat',
+
+            // Ordering Utas
+            'utas' => function ($query) use ($sortDirect) {
+                $query->latest() // <- jadi ini di order dulu, baru dijoin table replyutas
+                ;
+            }
+            // Ordering Utas
+
+            , 'usergroup.user', 'universitas'
+        ])->findOrFail($id);
+
+        $dataUser = UserGroup::with(['user'])->where('id_groups', $id)->get();
+        // $dataUser = User::whereIn('id_users', $user)->get();
+
+        // return $dataUser;
+        return view('user.views.manageOrganisasi', [
+            "organisasi" => $organisasi,
+            "userGroup" => $userGroup,
+            "userAuth" => $userAuth,
+            "dataUser" => $dataUser
+        ]);
+        // return view('user.views.manageOrganisasi');
+    }
+    public function kickUser($id)
+    {
+        $user = UserGroup::where('id_groups', $id)->first();
+        $user->delete();
+        return back();
+    }
+    public function editUser(Request $request, UserGroup $id)
+    {
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id->id_groups)->first();
+        if (!$userGroup->role >= 2) {
+            abort(404);
+        }
+
+        $fields = $request->validate([
+            'role' => 'required',
+        ]);
+
+        $id->update($fields);
         return back();
     }
 }
