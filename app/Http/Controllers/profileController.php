@@ -83,7 +83,7 @@ class profileController extends Controller
     }
     public function reportShow()
     {
-        $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', 2]])->pluck('id_groups'); # Auth::user()->id
+        $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', '>', 1]])->pluck('id_groups'); # Auth::user()->id
         // return $userGroup;
         if (!$userGroup) {
             abort(403);

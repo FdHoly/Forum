@@ -58,7 +58,7 @@
                                     @if ($userGroup->contains($organisasi->id_groups))
                                         {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
                                         <button class="btn btn-success btn-block m-2" disabled>Sudah Tergabung </button>
-                                        @if ($userAuth->role != 2)
+                                        @if ($userAuth->role != 3)
 
                                             <form action="{{ route('leaveOrg', $organisasi->id_groups) }}"
                                                 method="POST">
@@ -71,7 +71,7 @@
                                             </form>
 
                                         @endif
-                                        @if ($userAuth->role == 2)
+                                        @if ($userAuth->role == 3)
                                             <button type="button" class="btn btn-primary btn-block m-2"
                                                 data-toggle="modal" data-target="#exampleModalx">
                                                 Edit Organisasi
@@ -80,6 +80,10 @@
                                             <button data-toggle="modal"
                                                 data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}"
                                                 type="" class="btn btn-danger btn-block m-2">Delete Organisasi</button>
+                                            <button type="button" class="btn btn-danger btn-block m-2"
+                                                data-toggle="modal" data-target="#ModalOwner">
+                                                Ganti Owner
+                                            </button>
                                         @endif
                                     @else
                                         <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"

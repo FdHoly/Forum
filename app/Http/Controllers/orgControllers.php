@@ -156,9 +156,9 @@ class orgControllers extends Controller
         if (($userGroupx->role) == 1) {
             abort(403);
         }
-        // if (($userGroupx->role) == 2) {
-        //     abort(403);
-        // }
+        if (($userGroupx->role) == 2) {
+            abort(403);
+        }
 
         $sortDirect = 'desc';
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id

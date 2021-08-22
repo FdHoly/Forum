@@ -2,13 +2,8 @@
 <html class="no-js" lang="en">
 
 @include('user.views.include.head')
-<meta name="author" content="ThemeMakker">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="{{ asset('user/assets/css/vendor/bicon.min.css') }}">
 
-<link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
 
 <body>
 
@@ -58,7 +53,7 @@
                                     @if ($userGroup->contains($organisasi->id_groups))
                                         {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
                                         <button class="btn btn-success btn-block m-2" disabled>Sudah Tergabung </button>
-                                        @if ($userAuth->role != 2)
+                                        @if ($userAuth->role != 3)
 
                                             <form action="{{ route('leaveOrg', $organisasi->id_groups) }}"
                                                 method="POST">
@@ -71,15 +66,19 @@
                                             </form>
 
                                         @endif
-                                        @if ($userAuth->role == 2)
-                                            <button type="button" class="btn btn-primary btn-block m-2"
+                                        @if ($userAuth->role == 3)
+                                            {{-- <button type="button" class="btn btn-primary btn-block m-2"
                                                 data-toggle="modal" data-target="#exampleModalx">
                                                 Edit Organisasi
-                                            </button>
-
-                                            <button data-toggle="modal"
+                                            </button> --}}
+                                            <a href="{{ route('manageOrg', $organisasi->id_groups) }}">
+                                                <button type="button" class="btn btn-primary btn-block m-2">
+                                                    Manage Organisasi
+                                                </button>
+                                            </a>
+                                            {{-- <button data-toggle="modal"
                                                 data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}"
-                                                type="" class="btn btn-danger btn-block m-2">Delete Organisasi</button>
+                                                type="" class="btn btn-danger btn-block m-2">Delete Organisasi</button> --}}
                                         @endif
                                     @else
                                         <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"

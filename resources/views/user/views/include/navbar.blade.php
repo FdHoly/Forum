@@ -29,7 +29,7 @@
                 <div class="header-top-right d-flex align-items-center justify-content-end">
                     <!-- header top search start -->
                     <div class="header-top-search">
-                        <form action=" {{route('listorg')}} " method="GET" class="top-search-box">
+                        <form action=" {{ route('listorg') }} " method="GET" class="top-search-box">
                             <input type="text" name="search" placeholder="Cari Organisasimu" class="top-search-field">
                             <button type="submit" class="top-search-btn"><i class="flaticon-search"></i></button>
                         </form>
@@ -47,9 +47,18 @@
                             </a>
                             <div class="profile-dropdown">
                                 <div class="profile-head">
-                                    <h5 class="name"><a href="#">{{ Auth::user()->name }}</a></h5>
-                                    <a class="mail" href="#">{{ Auth::user()->email }}</a>
+                                    <h5 class="name"><a>{{ Auth::user()->name }}</a></h5>
+                                    <a class="mail">{{ Auth::user()->email }}</a>
                                 </div>
+                                @if (Auth::user()->role == 2)
+                                    <div class="profile-body">
+                                        <ul>
+                                            <li><a href="{{ route('admindex') }}"><i
+                                                        class="flaticon-controls"></i>Admin</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="profile-body">
                                     <ul>
                                         <li><a href="{{ route('profile') }}"><i class="flaticon-user"></i>Profile</a>

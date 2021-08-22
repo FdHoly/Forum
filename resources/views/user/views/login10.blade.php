@@ -18,11 +18,11 @@
                         <div class="website-logo-inside">
                             <a href="index.html">
                                 <div class="logo">
-                                    <img class="logo-size" src="images/logo-light.svg" alt="">
+                                    <img class="logo-size" src="user/assets/images/logo/forumio8.svg" alt="">
                                 </div>
                             </a>
                         </div>
-                        <h3>Get more things done with Loggin platform.</h3>
+                        <h3>Forumio</h3>
                         <p>Access to the most powerfull tool in the entire design and web industry.</p>
                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
