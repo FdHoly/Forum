@@ -259,9 +259,8 @@
 
                                         <div class="posted-author">
                                             <h6 class="author">
-                                                {{ $item->judul }} ▶
-                                                <a
-                                                    href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+                                                {{ $item->group->nama }} ▶
+                                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
 
                                             </h6>
                                             <span
@@ -271,19 +270,14 @@
                                         <div class="post-settings-bar">
                                             @foreach ($item->group->usergroup as $group)
                                                 @if ($group->role > 1)
-                                                    <form
-                                                        action="{{ route('deletePengumuman', $item->id_announcements) }}"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="submit">
+                                                    <button type="" data-toggle="modal"
+                                                        data-target="#ModalDeletePengumuman{{ $item->id_announcements }}">
 
-                                                            <img class="icon"
-                                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                                alt="delete">
-                                                            </a>
-                                                        </button>
-                                                    </form>
+                                                        <img class="icon"
+                                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                            alt="delete">
+                                                        </a>
+                                                    </button>
                                                 @break
                                             @endif
                             @endforeach
@@ -317,8 +311,8 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    {{ $item->judul }} ▶
-                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+                                    {{ $item->group->nama }} ▶
+                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
 
                                 </h6>
                                 <span
@@ -328,17 +322,14 @@
                             <div class="post-settings-bar">
                                 @foreach ($item->group->usergroup as $group)
                                     @if ($group->role > 1)
-                                        <form action="{{ route('deleteAcara', $item->id_events) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit">
+                                        <button type="" data-toggle="modal"
+                                            data-target="#ModalDeleteAcara{{ $item->id_events }}">
 
-                                                <img class="icon"
-                                                    src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                    alt="delete">
-                                                </a>
-                                            </button>
-                                        </form>
+                                            <img class="icon"
+                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                                alt="delete">
+                                            </a>
+                                        </button>
                                     @break
                                 @endif
                 @endforeach
@@ -372,8 +363,8 @@
 
                         <div class="posted-author">
                             <h6 class="author">
-                                {{ $item->judul }} ▶
-                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a>
+                                {{ $item->group->nama }} ▶
+                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
 
                             </h6>
                             <span
@@ -383,17 +374,14 @@
                         <div class="post-settings-bar">
                             @foreach ($item->group->usergroup as $group)
                                 @if ($group->role > 1)
-                                    <form action="{{ route('deleteRapat', $item->id_meetings) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit">
+                                    <button type="" data-toggle="modal"
+                                        data-target="#ModalDeleteRapat{{ $item->id_meetings }}">
 
-                                            <img class="icon"
-                                                src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                alt="delete">
-                                            </a>
-                                        </button>
-                                    </form>
+                                        <img class="icon"
+                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                            alt="delete">
+                                        </a>
+                                    </button>
                                 @break
                             @endif
             @endforeach
@@ -432,9 +420,194 @@
         <i class="bi bi-finger-index"></i>
     </div>
     <!-- Scroll to Top End -->
+    {{-- Modal Delete --}}
+    {{-- Modal Delete Pengumuman --}}
+    @foreach ($pengumuman as $item)
+
+        <div class="modal fade" id="ModalDeletePengumuman{{ $item->id_announcements }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+                            <!-- post title start -->
+                            <div class="post-title d-flex align-items-center">
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="#">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author">
+                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                            ▶
+                                            {{ $item->judul }}</a>
+                                    </h6>
+                                    <span
+                                        class="post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                </div>
+
+                            </div>
+                            <!-- post title start -->
+                            <div class="post-content">
+                                <p class="post-desc pb-0">
+                                    {{ $item->konten }}
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                        <form action="{{ route('deletePengumuman', $item->id_announcements) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="post-share-btn">Hapus</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    @endforeach
+    {{-- Modal Delete Pengumuman --}}
+
+    {{-- Modal Delete Acara --}}
+    @foreach ($acara as $item)
+
+        <div class="modal fade" id="ModalDeleteAcara{{ $item->id_events }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+                            <!-- post title start -->
+                            <div class="post-title d-flex align-items-center">
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="#">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author">
+                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                            ▶
+                                            {{ $item->judul }}</a>
+                                    </h6>
+                                    <span
+                                        class="post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                </div>
+
+                            </div>
+                            <!-- post title start -->
+                            <div class="post-content">
+                                <p class="post-desc pb-0">
+                                    {{ $item->konten }}
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                        <form action="{{ route('deleteAcara', $item->id_events) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="post-share-btn">Hapus</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    @endforeach
+    {{-- Modal Delete Acara --}}
+
+    {{-- Modal Delete Rapat --}}
+    @foreach ($rapat as $item)
+
+        <div class="modal fade" id="ModalDeleteRapat{{ $item->id_meetings }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+                            <!-- post title start -->
+                            <div class="post-title d-flex align-items-center">
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="#">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author">
+                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                            ▶
+                                            {{ $item->judul }}</a>
+                                    </h6>
+                                    <span
+                                        class="post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                </div>
+
+                            </div>
+                            <!-- post title start -->
+                            <div class="post-content">
+                                <p class="post-desc pb-0">
+                                    {{ $item->konten }}
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                        <form action="{{ route('deleteRapat', $item->id_meetings) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="post-share-btn">Hapus</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    @endforeach
+    {{-- Modal Delete Rapat --}}
+    {{-- Modal Delete --}}
+
+    <script>
+        /* When the user clicks on the button,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
 
 
-
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
+    </script>
     <!-- JS
 ============================================ -->
 
