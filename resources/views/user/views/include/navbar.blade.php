@@ -30,7 +30,6 @@
                     <!-- header top search start -->
                     <div class="header-top-search">
                         <form action=" {{route('listorg')}} " method="GET" class="top-search-box">
-                            
                             <input type="text" name="search" placeholder="Cari Organisasimu" class="top-search-field">
                             <button type="submit" class="top-search-btn"><i class="flaticon-search"></i></button>
                         </form>
