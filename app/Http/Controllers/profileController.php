@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Utas;
 use App\Models\Rapat;
 use App\Models\Events;
 use App\Models\Groups;
@@ -85,9 +86,13 @@ class profileController extends Controller
         $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', 2]])->pluck('id_groups'); # Auth::user()->id
         $org = Groups::whereIn('id_groups', $userGroup)->get();
         $report = Report::whereIn('id_groups', $userGroup)->get();
-        // return $userGroup;
+        $utasReport = Report::whereIn('id_groups', $userGroup)->pluck('id_utas');
+        $allutas = Utas::with(["group", "replyutas", "user"])->whereIn('id_utas', $utasReport)->get();
+
+        // return $allutas;
         return view('user.views.reportview', [
             "org" => $org,
+            "allutas" => $allutas,
             "report" => $report
         ]);
     }
@@ -107,6 +112,11 @@ class profileController extends Controller
                 'oldPass' => 'required|string',
             ]
         );
+        // if ($request->file('pp')) {
+
+
+        // }
+
         if (!Hash::check($request->oldPass, Auth::user()->password)) {
             return back()->with('error', 'Wrong password');
         }
@@ -117,7 +127,8 @@ class profileController extends Controller
             User::find(Auth::user()->id_users)->update([
                 'name' => $request->name,
                 'biodata' => $request->biodata,
-                'password' => Hash::make($request->password)
+                'password' => Hash::make($request->password),
+                // 'profile_image_url' => $path
             ]);
 
             return redirect()->route('editprofile')->with('status', 'Profile and Password Changed');
@@ -125,6 +136,8 @@ class profileController extends Controller
         User::find(Auth::user()->id_users)->update([
             'name' => $request->name,
             'biodata' => $request->biodata,
+            // 'profile_image_url' => $path
+
         ]);
         return redirect()->route('editprofile')->with('status', 'Profile Changed');
     }

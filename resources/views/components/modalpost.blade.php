@@ -21,8 +21,10 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    <a
-                                        href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}</a>
+                                    <a href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}
+                                        ▶
+                                        <a
+                                            href="{{ route('detailOrg', $itemPost1->group->id_groups) }}">{{ $itemPost1->group->nama }}</a></a>
                                 </h6>
                                 <span class="post-time">
 
@@ -30,7 +32,15 @@
 
                                 </span>
                             </div>
-
+                            <div class="post-settings-bar">
+                                {{-- <button class="btn btn-danger" type="" data-toggle="modal"
+                                    data-target="#{{ $itemPost1->id_utas }}">
+                                    </a>
+                                </button> --}}
+                                <button type="button" data-toggle="modal"
+                                    data-target="#ModalDeletePost{{ $itemPost1->id_utas }}"
+                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </div>
                         </div>
 
 
@@ -97,30 +107,6 @@
                             @endforelse
 
                         </div>
-
-                        <div class="share-box-inner">
-                            <!-- profile picture end -->
-                            <div class="profile-thumb">
-                                <a href="{{ route('profile') }}">
-                                    <figure class="profile-thumb-middle">
-                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="ppUser">
-                                    </figure>
-                                </a>
-                            </div>
-                            <!-- profile picture end -->
-
-                            <!-- share content box start -->
-                            <div class="share-content-box w-100">
-                                <form class="share-text-box" action="{{ route('replyPost', $itemPost1->id_utas) }}"
-                                    method="POST">
-                                    @csrf
-                                    <textarea name="konten" class="share-text-field" aria-disabled="true"
-                                        placeholder="Say Something" data-toggle="modal" id="email"></textarea>
-                                    <button class="btn-share" type="submit">share</button>
-                                </form>
-                            </div>
-                            <!-- share content box end -->
-                        </div>
                     </div>
                 </div>
             </div>
@@ -129,3 +115,39 @@
     {{-- Modal Comments End --}}
 @endforeach
 {{-- Modal Post&Reply --}}
+
+
+{{-- Modal Delete Post --}}
+@foreach ($post as $itemPost1)
+    <!-- Modal Comment-->
+    <div>
+        <div class="modal fade" id="ModalDeletePost{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+            aria-labelledby="ModalDeletePost" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="post-title d-flex align-items-center">
+                                <h6>Peringatan</h6>
+                            </div>
+                            <div class="post-content">
+                                <h6 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Postingan Ini ?</h5>
+
+                            </div>
+                            <div class="modal-footer" style="margin-bottom: -20px">
+                                <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                <form action="{{ route('deletePost', $itemPost1->id_utas) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="post-share-btn">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Modal Comments End --}}
+        </div>
+    </div>
+@endforeach
+{{-- Modal Delete Post --}}

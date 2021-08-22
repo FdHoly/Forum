@@ -312,16 +312,16 @@
                                                             </td>
                                                             <td>
 
-                                                                <button class="btn btn-success btn-sm"
-                                                                    data-toggle="modal"
-                                                                    data-target="#ModalComment{{ $item->id_utas }}">
-                                                                    View Post
-                                                                </button>
                                                                 <form
                                                                     action="{{ route('admdeletePost', $item->id_utas) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
+                                                                    <button class="btn btn-success btn-sm"
+                                                                        data-toggle="modal"
+                                                                        data-target="#ModalComment{{ $item->id_utas }}">
+                                                                        View Post
+                                                                    </button>
                                                                     <button type="submit"
                                                                         class="btn btn-danger btn-sm"><i
                                                                             class="fa fa-trash"></i></button>

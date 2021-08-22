@@ -8,6 +8,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 
+
     <!-- CSS
  ============================================ -->
     <!-- google fonts -->
