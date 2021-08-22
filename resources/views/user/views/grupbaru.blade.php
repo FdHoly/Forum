@@ -25,9 +25,8 @@
                                 <h3 class="m-3 justify">Unggah Logo Organisasi Anda</h3>
                                 <figure class="profile-picture">
                                     <label for="image">
-                                        <input name="profilePic" id="profilePic" class="fileInput-23-d-3" type="file"
-                                            tabindex="0" multiple="" accept=".jpg,.jpeg,.png,.gif"
-                                            aria-label="Change Avatar"
+                                        <input name="file" id="file" class="fileInput-23-d-3" type="file" tabindex="0"
+                                            multiple="" accept=".jpg,.jpeg,.png,.gif" aria-label="Change Avatar"
                                             style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"
                                             onchange="document.getElementById('userPP').src = window.URL.createObjectURL(this.files[0])"
                                             required>

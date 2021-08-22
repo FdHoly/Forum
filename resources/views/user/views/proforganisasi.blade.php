@@ -2,6 +2,13 @@
 <html class="no-js" lang="en">
 
 @include('user.views.include.head')
+<meta name="author" content="ThemeMakker">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
 
 <body>
 
@@ -48,75 +55,72 @@
                                 </div>
 
                                 <div class="widget-body text-center mt-3">
-                                @if ($userGroup->contains($organisasi->id_groups))
-                                    {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
-                                    <h6 class="m-2">Joined</h6>
-                                    @if ($userAuth->role != 2)
+                                    @if ($userGroup->contains($organisasi->id_groups))
+                                        {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
+                                        <button class="btn btn-success btn-block m-2" disabled>Sudah Tergabung </button>
+                                        @if ($userAuth->role != 2)
 
-                                        <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
-                                            @method('DELETE')
+                                            <form action="{{ route('leaveOrg', $organisasi->id_groups) }}"
+                                                method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button
+                                                    onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
+                                                    type="submit" class="btn btn-danger btn-block m-2">Keluar
+                                                    Organisasi</button>
+                                            </form>
+
+                                        @endif
+                                        @if ($userAuth->role == 2)
+                                            <button type="button" class="btn btn-primary btn-block m-2"
+                                                data-toggle="modal" data-target="#exampleModalx">
+                                                Edit Organisasi
+                                            </button>
+
+                                            <button data-toggle="modal"
+                                                data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}"
+                                                type="" class="btn btn-danger btn-block m-2">Delete Organisasi</button>
+                                        @endif
+                                    @else
+                                        <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
+                                            class="text-center">
                                             @csrf
-                                            <button
-                                                onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                                type="submit" class="submit-btn m-2">Keluar Organisasi</button>
+                                            <button type="submit" class="btn btn-success btn-block m-2">
+                                                Gabung </button>
                                         </form>
-
                                     @endif
-                                    @if ($userAuth->role == 2)
-
-                                        <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button
-                                                onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                                type="submit" class="submit-btn m-2">Edit Organisasi</button>
-                                        </form>
-
-                                        <button data-toggle="modal"
-                                            data-target="#ModalDeleteOrganisasi{{ $organisasi->id_groups }}" type=""
-                                            class="submit-btn m-2">Delete Organisasi</button>
-                                    @endif
-                                @else
-                                    <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
-                                        class="text-center">
-                                        @csrf
-                                        <button type="submit" class="submit-btn m-2">
-                                            Gabung </button>
-                                    </form>
-                                @endif
+                                </div>
                             </div>
-                        </div>
-                        <!-- widget single item end -->
+                            <!-- widget single item end -->
 
 
-                        <!-- widget single item start -->
-                        <div class="card widget-item">
-                            <h4 class="widget-title">Pengikut</h4>
-                            <div class="widget-body">
-                                <ul class="like-page-list-wrapper">
-                                    @foreach ($organisasi->usergroup as $dataUser)
-                                        <li class="unorder-list">
-                                            <!-- profile picture end -->
-                                            <div class="profile-thumb">
-                                                <a href="#">
-                                                    <figure class="profile-thumb-small">
-                                                        <img src="{{ Storage::url($dataUser->user->profil_image_url) }}"
-                                                            alt="ppUser">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                            <!-- profile picture end -->
-                                            <div class="unorder-list-info">
-                                                <h3 class="list-title align-items-center"><a
-                                                        href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->email) }}">{{ $dataUser->user->name }}</a>
-                                                </h3>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                            <!-- widget single item start -->
+                            <div class="card widget-item">
+                                <h4 class="widget-title">Pengikut</h4>
+                                <div class="widget-body">
+                                    <ul class="like-page-list-wrapper">
+                                        @foreach ($organisasi->usergroup as $dataUser)
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="{{ Storage::url($dataUser->user->profil_image_url) }}"
+                                                                alt="ppUser">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title align-items-center"><a
+                                                            href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->email) }}">{{ $dataUser->user->name }}</a>
+                                                    </h3>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
                     </aside>
                 </div>
 
@@ -127,10 +131,10 @@
 
                     <x-post :post="$organisasi->utas" />
 
-                    <div class="dropdown">
+                    {{-- <div class="dropdown">
                         <h6><span>
                                 Tampilkan Semuanya</span></h6>
-                    </div>
+                    </div> --}}
 
                 </div>
 
@@ -271,8 +275,65 @@
             </div>
         </div>
         {{-- Modal Ends --}}
+
+        {{-- Modal Edit Org --}}
     </main>
 
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalx" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <form action="{{ route('editOrg', $organisasi->id_groups) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @method('PUT')
+                            @csrf
+                            <div class="row">
+                                <div class="col-12 mt-2">
+                                    <label for="nama_grup">Nama Organisasi</label>
+                                    <input type="text" name="nama_grup" id="nama_grup"
+                                        class="single-field form-control " value="{{ $organisasi->nama }}" disabled
+                                        required>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label for="deskripsi">Deskripsi Organisasi</label>
+                                    <input type="text" name="deskripsi" id="deskripsi"
+                                        class="single-field form-control " value="{{ $organisasi->deskripsi }}"
+                                        required>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label for="customFile">Logo Organisasi</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" name="logo_url">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Scroll to top start -->
     <div class="scroll-top not-visible">
         <i class="bi bi-finger-index"></i>

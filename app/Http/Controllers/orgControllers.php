@@ -37,14 +37,12 @@ class orgControllers extends Controller
                         ->orWhere('nama', 'like', "%{$value}%");
                 }
             })->get();
-        }elseif($request->input('filter') === 'semua'){
+        } elseif ($request->input('filter') === 'semua') {
             $data = Groups::all();
-        } 
-        
-        else {
+        } else {
             $data = Groups::whereIn('id_groups', $univGroup)->get();
         }
-        
+
 
         return view('user.views.listorg', compact('data', 'userGroup'));
     }
@@ -127,5 +125,19 @@ class orgControllers extends Controller
         $org = Groups::where('id_groups', $id)->first();
         $org->delete();
         return redirect()->route('index');
+    }
+    public function editOrg(Request $request, Groups $group)
+    {
+        $fields = $request->validate(
+            [
+                'deskripsi' => 'required',
+                'logo_url' => 'image'
+            ]
+        );
+        if ($request->file('logo_url')) {
+            $fields['logo_url'] = $request->logo_url->store('logo', 'public');
+        }
+        $group->update($fields);
+        return back();
     }
 }

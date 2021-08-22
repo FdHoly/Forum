@@ -58,7 +58,8 @@
                                         <ul class="author-into-list ">
                                             <li><a><i class="bi bi-user-ID align-middle"></i>{{ $prof->email }}</a>
                                             </li>
-                                            <li><a><i class="bi bi-location-pointer align-middle"></i>{{ $prof->universitas->nama }}</a>
+                                            <li><a><i
+                                                        class="bi bi-location-pointer align-middle"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
 
                                         </ul>
@@ -78,7 +79,8 @@
                                                 <div class="profile-thumb">
                                                     <a href="{{ route('detailOrg', $itemOrg->id_groups) }}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="{{ Storage::url() }}" alt="profile picture">
+                                                            <img src="{{ Storage::url($itemOrg->logo_url) }}"
+                                                                alt="profile picture">
                                                         </figure>
                                                     </a>
                                                 </div>
