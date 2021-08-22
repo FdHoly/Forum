@@ -27,8 +27,9 @@
                                 <div class="profile-banner">
                                     <figure class="profile-banner-small">
                                         <a href="{{ route('profile') }}">
-                                            @if (Auth::user()->background_image_url !== null)
-                                                <img src="{{ Auth::user()->background_image_url }}" alt="bgUser">
+                                            @if (Auth::user()->background_image_url)
+                                                <img src="{{ Storage::url(Auth::user()->background_image_url) }}"
+                                                    alt="bgUser">
                                             @else
                                                 <img src="user/assets/images/banner/banner-small.jpg" alt="bgUser">
                                             @endif
@@ -90,8 +91,7 @@
                                 <div class="profile-thumb">
                                     <a href="#">
                                         <figure class="profile-thumb-middle">
-                                            <img src={{ Storage::url(Auth::user()->profil_image_url) }}
-                                                alt="ppUser">
+                                            <img src={{ Storage::url(Auth::user()->profil_image_url) }} alt="ppUser">
                                         </figure>
                                     </a>
                                 </div>
@@ -137,7 +137,7 @@
                                                                         {{ $item->nama }}
                                                                     </option>
                                                                 @empty
-                                                                    
+
                                                                 @endforelse
 
                                                             </select>
@@ -176,21 +176,21 @@
                         <!-- share box end -->
                         <div class="dropdown">
 
-                            @if (app('request')->input('filter') ==='semua')
-                            <h6><span>Menampilkan Semua Postingan</span></h6>
+                            @if (app('request')->input('filter') === 'semua')
+                                <h6><span>Menampilkan Semua Postingan</span></h6>
                             @elseif (app('request')->input('filter') ==='organisasi')
-                            <h6><span>Menampilkan Postingan Organisasi Yang Anda Ikuti</span></h6>
+                                <h6><span>Menampilkan Postingan Organisasi Yang Anda Ikuti</span></h6>
                             @else
-                            <h6><span>Menampilkan Postingan di Universitas Anda</span></h6>
+                                <h6><span>Menampilkan Postingan di Universitas Anda</span></h6>
                             @endif
                             {{-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> --}}
 
                             <img src="https://image.flaticon.com/icons/png/512/3126/3126539.png" onclick="myFunction()"
                                 class="filter__icon">
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="{{route('index', ['filter' => "semua"] )}}">Semua Postingan</a>
-                                <a href="{{route('index', ['filter' => "organisasi"] )}}">Organisasi Anda</a>
-                                <a href="{{route('index')}}">Universitas</a>
+                                <a href="{{ route('index', ['filter' => 'semua']) }}">Semua Postingan</a>
+                                <a href="{{ route('index', ['filter' => 'organisasi']) }}">Organisasi Anda</a>
+                                <a href="{{ route('index') }}">Universitas</a>
                             </div>
                         </div>
                         <!-- post status start -->
@@ -229,7 +229,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

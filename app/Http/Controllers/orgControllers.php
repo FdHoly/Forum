@@ -37,14 +37,12 @@ class orgControllers extends Controller
                         ->orWhere('nama', 'like', "%{$value}%");
                 }
             })->get();
-        }elseif($request->input('filter') === 'semua'){
+        } elseif ($request->input('filter') === 'semua') {
             $data = Groups::all();
-        } 
-        
-        else {
+        } else {
             $data = Groups::whereIn('id_groups', $univGroup)->get();
         }
-        
+
 
         return view('user.views.listorg', compact('data', 'userGroup'));
     }
@@ -57,8 +55,8 @@ class orgControllers extends Controller
 
     public function createOrg(Request $request)
     {
-        $path = $request->file->store('logo', 'public');
 
+        $path = $request->file->store('logo', 'public');
         $group = Groups::create(
             [
                 'nama' => $request->nama_grup,
@@ -81,7 +79,8 @@ class orgControllers extends Controller
     {
         $sortDirect = 'desc';
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
-
+        $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first(); # Auth::user()->id
+        // return $userAuth;
         $organisasi = Groups::with([
             'pengumuman', 'acara', 'rapat',
 
@@ -99,7 +98,8 @@ class orgControllers extends Controller
         // return $organisasi;
         return view('user.views.proforganisasi', [
             "organisasi" => $organisasi,
-            "userGroup" => $userGroup
+            "userGroup" => $userGroup,
+            "userAuth" => $userAuth
         ]);
     }
     public function joinOrg($id)
@@ -125,5 +125,19 @@ class orgControllers extends Controller
         $org = Groups::where('id_groups', $id)->first();
         $org->delete();
         return redirect()->route('index');
+    }
+    public function editOrg(Request $request, Groups $group)
+    {
+        $fields = $request->validate(
+            [
+                'deskripsi' => 'required',
+                'logo_url' => 'image'
+            ]
+        );
+        if ($request->file('logo_url')) {
+            $fields['logo_url'] = $request->logo_url->store('logo', 'public');
+        }
+        $group->update($fields);
+        return back();
     }
 }

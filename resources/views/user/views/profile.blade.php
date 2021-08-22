@@ -58,7 +58,8 @@
                                         <ul class="author-into-list ">
                                             <li><a><i class="bi bi-user-ID align-middle"></i>{{ $prof->email }}</a>
                                             </li>
-                                            <li><a><i class="bi bi-location-pointer align-middle"></i>{{ $prof->universitas->nama }}</a>
+                                            <li><a><i
+                                                        class="bi bi-location-pointer align-middle"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
 
                                         </ul>

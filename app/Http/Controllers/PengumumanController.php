@@ -11,6 +11,7 @@ use App\Models\UserGroup;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Report;
 use Illuminate\Support\Facades\Auth;
 
 class PengumumanController extends Controller
@@ -98,6 +99,13 @@ class PengumumanController extends Controller
         // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
         $rapat = Rapat::where('id_meetings', $id)->first();
         $rapat->delete();
+        return back();
+    }
+    public function deleteReport($id)
+    {
+        // $userGroup = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->first();
+        $report = Report::where('id_reports', $id)->first();
+        $report->delete();
         return back();
     }
 }

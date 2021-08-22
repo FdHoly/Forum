@@ -21,7 +21,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'ini desc',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '1',
-                'logo_url' => '1629444303.png',
+                'logo_url' => 'logo/C3jmL34LiAEBBJKC3Knsp1EOe1ggM1Oa4VsiFNRm.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -30,7 +30,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'ini desc',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
-                'logo_url' => '1629444303.png',
+                'logo_url' => 'logo/C3jmL34LiAEBBJKC3Knsp1EOe1ggM1Oa4VsiFNRm.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -39,7 +39,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Fakultas Ilmu Komputer',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
-                'logo_url' => '1629444303.png',
+                'logo_url' => 'logo/C3jmL34LiAEBBJKC3Knsp1EOe1ggM1Oa4VsiFNRm.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -48,7 +48,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Persatuan Petani Universitas',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '3',
-                'logo_url' => '1629444303.png',
+                'logo_url' => 'logo/C3jmL34LiAEBBJKC3Knsp1EOe1ggM1Oa4VsiFNRm.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -57,7 +57,7 @@ class orgSeeders extends Seeder
                 'deskripsi' => 'Eksekutif Mahasiswa Universitas Indonesia',
                 'logo_url' => 'ini logo url',
                 'id_univ' => '2',
-                'logo_url' => '1629444303.png',
+                'logo_url' => 'logo/C3jmL34LiAEBBJKC3Knsp1EOe1ggM1Oa4VsiFNRm.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

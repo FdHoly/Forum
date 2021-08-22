@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
     Route::delete('/leave/{id}', [orgControllers::class, 'leaveOrg'])->name('leaveOrg');
 
+    Route::delete('/delReport/{id}', [pengumumanController::class, 'deleteReport'])->name('deleteReport');
     Route::delete('/delPengumuman/{id}', [pengumumanController::class, 'deletePengumuman'])->name('deletePengumuman');
     Route::delete('/delAcara/{id}', [pengumumanController::class, 'deleteAcara'])->name('deleteAcara');
     Route::delete('/delRapat/{id}', [pengumumanController::class, 'deleteRapat'])->name('deleteRapat');
@@ -69,6 +70,7 @@ Route::middleware('auth')->group(function () {
     // })->name("editprofile");
 
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
+    Route::put('/organisasi/{group}', [orgControllers::class, "editOrg"])->name("editOrg");
     Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
     // Route::get('/organisasi/search', [orgControllers::class, "listorg"])->name("listorg");

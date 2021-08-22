@@ -161,7 +161,7 @@
                                         {{ $itemPengumuman->judul }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($itemPengumuman->created_at)->diffForHumans() }}</span>
+                                    class="post-time">{{ $itemPengumuman->created_at->diffForHumans() }}</span>
                             </div>
 
                         </div>

@@ -138,7 +138,7 @@ class postController extends Controller
         $report = new Report();
 
         $report->id_utas = $request->input('id_utas');
-        $report->id_users = $request->input('id_users');
+        $report->id_users = Auth::user()->id_users;
         $report->id_groups = $request->input('id_groups');
         $report->alasan = $request->input('alasan');
 
