@@ -39,7 +39,7 @@
 
             <div class="container-fluid">
                 <div class="tab-content">
-                    <div class="tab-pane fade" id="Bootstrap" role="tabpanel">
+                    {{-- <div class="tab-pane fade" id="Bootstrap" role="tabpanel"> PLEASE READ INI GW COMMENT KARENA GA EFEK APA2 ANJIR
                         <div class="row clearfix">
                             <div class="col-lg-12">
                                 <div class="card">
@@ -250,10 +250,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="tab-pane fade show active" id="More-table" role="tabpanel">
                         <div class="row clearfix">
-
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="header">
@@ -274,12 +273,14 @@
                                                             </select> entries</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-2">
-                                                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                                        <label>Search:<input type="search"
-                                                                class="form-control form-control-sm" placeholder=""
+                                                <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                                                    <form action="{{ route('admReport') }}" method="get"
+                                                        id="formSearch">
+                                                        <label>Search : <input type="search" name="search" id="search"
+                                                                class="form-control form-control-sm"
+                                                                placeholder="Cari Username"
                                                                 aria-controls="DataTables_Table_0"></label>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <table class="table va_center mb-0">
@@ -300,7 +301,7 @@
                                                     @foreach ($data as $item)
                                                         <tr>
                                                             <td>{{ $item->id_reports }}</td>
-                                                            <td><img src="../admin/assets/images/xs/avatar1.jpg"
+                                                            <td><img src="{{ Storage::url($item->user->profil_image_url) }}"
                                                                     class="avatar w30" alt=""> {{ $item->user->name }}
                                                             </td>
                                                             <td>{{ $item->group->nama }}</td>
@@ -353,6 +354,16 @@
             barWidth: 5,
             barSpacing: 2
         });
+    </script>
+
+    <script>
+        document.getElementById('search')
+            .addEventListener('keyup', function(event) {
+                if (event.code === 'Enter') {
+                    event.preventDefault();
+                    document.getElementById('formSearch').submit();
+                }
+            });
     </script>
 </body>
 

@@ -55,8 +55,11 @@
 
 
                                 <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                    <label>Search:<input type="search" class="form-control form-control-sm"
-                                            placeholder="" aria-controls="DataTables_Table_0"></label>
+                                    <form action="{{ route('admUser') }}" method="get" id="formSearch">
+                                        <label>Search : <input type="search" name="search" id="search"
+                                                class="form-control form-control-sm" placeholder=""
+                                                aria-controls="DataTables_Table_0"></label>
+                                    </form>
                                 </div>
 
                             </div>
@@ -83,8 +86,8 @@
 
                                             </td>
                                             <td>
-                                                <img src="../admin/assets/images/xs/avatar1.jpg" class="avatar w30"
-                                                    alt="">
+                                                <img src="{{ Storage::url($item->profil_image_url) }} "
+                                                    class="avatar w30" alt="">
                                                 <span class="ml-2">{{ $item->name }}</span>
                                             </td>
                                             <td>
@@ -103,7 +106,7 @@
                                                     class="phone">{{ $item->UserGroup->count() }}</span>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" class="btn btn-success btn-sm">View
+                                                <a href="{{route('admReport' , ['searchID' => $item->id_users])}}" class="btn btn-success btn-sm">View
                                                     Report</a>
                                             </td>
                                             <td>
@@ -129,7 +132,15 @@
     <!-- Core -->
     <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
     <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>
-
+    <script>
+        document.getElementById('search')
+            .addEventListener('keyup', function(event) {
+                if (event.code === 'Enter') {
+                    event.preventDefault();
+                    document.getElementById('formSearch').submit();
+                }
+            });
+    </script>
     <!-- Theme JS -->
     <script src="../admin/assets/js/theme.js"></script>
 </body>

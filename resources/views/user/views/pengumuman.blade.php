@@ -23,8 +23,9 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="{{route('profile')}}">
-                                        <img src="{{Storage::url(Auth::user()->profil_image_url) }}" alt="profile picture">
+                                    <a href="{{ route('profile') }}">
+                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                            alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -74,9 +75,9 @@
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb">
-                                                    <a href="#">
+                                                    <a href="{{ route('detailOrg', $itemOrg->id_groups) }}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                            <img src="{{ Storage::url($itemOrg->logo_url) }}"
                                                                 alt="profile picture">
                                                         </figure>
                                                     </a>
@@ -84,9 +85,9 @@
                                                 <!-- profile picture end -->
 
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href="#">{{ $itemOrg->nama }}</a></h3>
-                                                    <p class="list-subtitle"><a
-                                                            href="#">{{ $itemOrg->universitas->nama }}</a></p>
+                                                    <h3 class="list-title"><a href="{{route('detailOrg', $itemOrg->id_groups)}}">{{ $itemOrg->nama }}</a></h3>
+                                                    <p class="list-subtitle"><a>{{ $itemOrg->universitas->nama }}</a>
+                                                    </p>
                                                 </div>
                                             </li>
                                         @endforeach
@@ -178,17 +179,10 @@
 
                                                                 </div>
                                                             </div>
-                                                            {{-- <div class="col">
-                                                                <select id="inputState"
-                                                                    class="form-control block w-100 p-2 mb-2">
-                                                                    <option selected>Pengumuman</option>
-                                                                    <option>Agenda Acara</option>
-                                                                    <option>Agenda Rapat</option>
-                                                                </select>
-                                                            </div> --}}
+
                                                             <textarea name="konten"
                                                                 class="share-field-big custom-scroll"
-                                                                placeholder="Say Something" required></textarea>
+                                                                placeholder="Tulis Pengumuman" required></textarea>
 
 
                                                         </div>
@@ -243,9 +237,9 @@
                                     <div class="post-title d-flex align-items-center">
                                         <!-- profile picture end -->
                                         <div class="profile-thumb">
-                                            <a href="#">
+                                            <a href="{{ route('detailOrg', $item->group->id_groups) }}">
                                                 <figure class="profile-thumb-middle">
-                                                    <img src="{{Storage::url($item->group->logo_url)}}"
+                                                    <img src="{{ Storage::url($item->group->logo_url) }}"
                                                         alt="profile picture">
                                                 </figure>
                                             </a>
@@ -258,8 +252,7 @@
                                                 <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
 
                                             </h6>
-                                            <span
-                                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                            <span class=" post-time">{{ $item->created_at->diffForHumans() }}</span>
                                         </div>
 
                                         <div class="post-settings-bar">
@@ -275,8 +268,8 @@
                                                     </button>
                                                 @break
                                             @endif
+                                        </div>
                             @endforeach
-
                         </div>
                     </div>
                     <!-- post title start -->
@@ -298,7 +291,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                        <img src="{{ Storage::url($item->group->logo_url) }}" alt="profile picture">
                                     </figure>
                                 </a>
                             </div>
@@ -319,7 +312,6 @@
                                     @if ($group->role > 1)
                                         <button type="" data-toggle="modal"
                                             data-target="#ModalDeleteAcara{{ $item->id_events }}">
-
                                             <img class="icon"
                                                 src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
                                                 alt="delete">
@@ -327,8 +319,10 @@
                                         </button>
                                     @break
                                 @endif
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-
             </div>
         </div>
         <!-- post title start -->
@@ -337,9 +331,7 @@
                 {{ $item->konten }}
             </p>
         </div>
-        </div>
         @endforeach
-        </div>
 
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             @foreach ($rapat as $item)
@@ -348,9 +340,9 @@
                     <div class="post-title d-flex align-items-center">
                         <!-- profile picture end -->
                         <div class="profile-thumb">
-                            <a href="#">
+                            <a href="{{ route('detailOrg', $item->id_groups) }}}">
                                 <figure class="profile-thumb-middle">
-                                    <img src="user/assets/images/profile/profile-small-3.jpg" alt="profile picture">
+                                    <img src="{{ Storage::url($item->group->logo_url) }}" alt="profile picture">
                                 </figure>
                             </a>
                         </div>
@@ -360,7 +352,6 @@
                             <h6 class="author">
                                 {{ $item->group->nama }} ▶
                                 <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
-
                             </h6>
                             <span
                                 class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
@@ -379,10 +370,12 @@
                                     </button>
                                 @break
                             @endif
+                        </div>
+                    </div>
+                </div>
             @endforeach
+        </div>
 
-        </div>
-        </div>
         <!-- post title start -->
         <div class="post-content">
             <p class="post-desc pb-0">
@@ -429,9 +422,9 @@
                             <div class="post-title d-flex align-items-center">
                                 <!-- profile picture end -->
                                 <div class="profile-thumb">
-                                    <a href="#">
+                                    <a href="{{ route('detailOrg', $item->group->id_groups) }}">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                            <img src="{{ Storage::url($item->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -439,7 +432,8 @@
                                 <!-- profile picture end -->
 
                                 <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                    <h6 class="author"><a
+                                            href="{{ route('detailOrg', $item->group->id_groups) }}">{{ $item->group->nama }}
                                             ▶
                                             {{ $item->judul }}</a>
                                     </h6>
@@ -487,9 +481,9 @@
                             <div class="post-title d-flex align-items-center">
                                 <!-- profile picture end -->
                                 <div class="profile-thumb">
-                                    <a href="#">
+                                    <a href="{{ route('detailOrg', $item->group->id_groups) }}">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                            <img src="{{ Storage::url($item->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -497,12 +491,12 @@
                                 <!-- profile picture end -->
 
                                 <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                    <h6 class="author"><a
+                                            href="{{ route('detailOrg', $item->group->id_groups) }}">{{ $item->group->nama }}
                                             ▶
                                             {{ $item->judul }}</a>
                                     </h6>
-                                    <span
-                                        class="post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                    <span class="post-time">{{ $item->created_at->diffForHumans() }}</span>
                                 </div>
 
                             </div>
@@ -545,9 +539,9 @@
                             <div class="post-title d-flex align-items-center">
                                 <!-- profile picture end -->
                                 <div class="profile-thumb">
-                                    <a href="#">
+                                    <a href="{{ route('detailOrg', $item->group->id_groups) }}">
                                         <figure class="profile-thumb-middle">
-                                            <img src="{{ asset('uploads/logo/' . $item->group->logo_url) }}"
+                                            <img src="{{ Storage::url($item->group->logo_url) }}"
                                                 alt="profile picture">
                                         </figure>
                                     </a>
@@ -555,12 +549,12 @@
                                 <!-- profile picture end -->
 
                                 <div class="posted-author">
-                                    <h6 class="author"><a href="profile.html">{{ $item->group->nama }}
+                                    <h6 class="author"><a
+                                            href="{{ route('detailOrg', $item->group->id_groups) }}">{{ $item->group->nama }}
                                             ▶
                                             {{ $item->judul }}</a>
                                     </h6>
-                                    <span
-                                        class="post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                    <span class="post-time">{{ $item->created_at->diffForHumans() }}</span>
                                 </div>
 
                             </div>
@@ -593,7 +587,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }

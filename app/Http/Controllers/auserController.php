@@ -8,9 +8,21 @@ use Illuminate\Http\Request;
 class auserController extends Controller
 {
     //
-    public function alluser()
+    public function alluser(Request $request)
     {
-        $data = User::all();
+
+        if ($request->has('search')) {
+            $string = $request->input('search');
+            $searchValues = preg_split('/\s+/', $string, -1, PREG_SPLIT_NO_EMPTY);
+            $data = User::where(function ($q) use ($searchValues) {
+                foreach ($searchValues as $value) {
+                    $q->where('name', $value)
+                        ->orWhere('name', 'like', "%{$value}%");
+                }
+            })->get();
+        } else {
+            $data = User::all();
+        }
         // return $data;
         // with('utas')->get()
         return view('admin.views.admUser', compact('data'));

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
 <link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
+{{-- <link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css"> --}}
 {{-- latest --}}
 
 <body>
@@ -24,7 +24,7 @@
 
         <div class="main-wrapper">
             <!-- profile banner area start -->
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg={{Storage::url(Auth::user()->background_image_url)}}>
             </div>
             <!-- profile banner area end -->
 
@@ -35,8 +35,8 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="#">
-                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
+                                    <a href="{{route('profile')}}">
+                                        <img src="{{Storage::url(Auth::user()->profil_image_url)}}" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -110,8 +110,6 @@
                                                 <button type="button" data-toggle="modal"
                                                     data-target="#ModalDeleteReport{{ $item->id_reports }}"
                                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-
-
                                             </td>
                                         </tr>
                                     @endforeach
