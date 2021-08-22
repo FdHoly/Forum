@@ -71,6 +71,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/organisasi/{id}', [orgControllers::class, "detailOrg"])->name("detailOrg");
     Route::post('/organiasi/{id}/join', [orgControllers::class, "joinOrg"])->name("join");
     Route::get('/organisasi', [orgControllers::class, "listorg"])->name("listorg");
+    // Route::get('/organisasi/search', [orgControllers::class, "listorg"])->name("listorg");
+
 
     // Route::post('/replySend', $baseController . "\postController@replyPost")->name("replyPost")->middleware('auth');
     Route::post('/replySend/{id}', [postController::class, "replyPost"])->name("replyPost");
