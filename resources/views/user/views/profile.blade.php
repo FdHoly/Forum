@@ -23,7 +23,7 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="profile.html">
+                                    <a href="{{ route('profile') }}">
                                         <img src="{{ Storage::url($prof->profil_image_url) }}
                                         " alt="profile picture">
                                     </a>
@@ -48,7 +48,8 @@
                         <aside class="widget-area profile-sidebar">
                             <!-- widget single item start -->
                             <div class="card widget-item">
-                                <h4 class="widget-title">{{ $prof->name }} {{ $prof->email }}</h4>
+                                <h4 class="widget-title">{{ $prof->name }}</h4>
+                                {{ $prof->email }}
                                 <div class="widget-body">
                                     <div class="about-author">
                                         {{-- <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}"><a --}}
@@ -74,9 +75,9 @@
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb">
-                                                    <a href="#">
+                                                    <a href="{{route('detailOrg', $itemOrg->id_groups)}}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                            <img src="{{Storage::url()}}"
                                                                 alt="profile picture">
                                                         </figure>
                                                     </a>

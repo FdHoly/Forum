@@ -53,21 +53,14 @@ class orgControllers extends Controller
 
     public function createOrg(Request $request)
     {
-
-
-        $file = $request->file('file');
         $path = $request->file->store('logo', 'public');
-        $extension = $file->getClientOriginalExtension();
-        $filename = time() . "." . $extension;
-        $file->move('uploads/logo', $filename);
-
 
         $group = Groups::create(
             [
                 'nama' => $request->nama_grup,
                 'deskripsi' => $request->deskripsi,
                 'id_univ' => $request->universitas,
-                'logo_url' => $filename
+                'logo_url' => $path
             ]
         );
 

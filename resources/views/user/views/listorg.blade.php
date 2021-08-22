@@ -71,7 +71,7 @@
                                                     <div class="organisasi__foto">
                                                         <figure class="profile-picture">
                                                             <a href="#">
-                                                                <img src={{ asset('uploads/logo/' . $item->logo_url) }}
+                                                                <img src={{ Storage::url($item->logo_url) }}
                                                                     alt="profile picture">
                                                             </a>
                                                         </figure>

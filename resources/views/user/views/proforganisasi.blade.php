@@ -26,8 +26,7 @@
                             <div class="organisasi__foto">
                                 <figure class="profile-picture">
                                     <a href="#">
-                                        <img src="{{ asset('uploads/logo/' . $organisasi->logo_url) }}"
-                                            alt="profile picture">
+                                        <img src="{{ Storage::url($organisasi->logo_url) }}" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -47,34 +46,39 @@
                                         </ul>
                                     </div>
                                 </div>
-                                @if ($userGroup->contains($organisasi->id_groups))
-                                    {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
-                                    <h6 class="m-2">Joined</h6>
-                                    <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                            type="submit" class="submit-btn m-2">Keluar Organisasi</button>
-                                    </form>
-                                    <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                            type="submit" class="submit-btn m-2">Edit Organisasi</button>
-                                    </form>
-                                    <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="submit-btn m-2">Delete Organisasi</button>
-                                    </form>
-                                @else
-                                    <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
-                                        class="text-center">
-                                        @csrf
-                                        <button type="submit" class="submit-btn m-2">
-                                            Gabung </button>
-                                    </form>
-                                @endif
+                                <div class="widget-body text-center mt-3">
+                                    @if ($userGroup->contains($organisasi->id_groups))
+                                        {{-- <a href="organisasi/{{ $organisasi->id_groups }}" class="btn mt-3 mb-3">Member</a> --}}
+                                        <h6 class="mb-3">Joined</h6>
+
+                                        <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button
+                                                onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
+                                                type="submit" class="submit-btn m-2">Keluar Organisasi</button>
+                                        </form>
+                                        <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button
+                                                onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
+                                                type="submit" class="submit-btn m-2">Edit Organisasi</button>
+                                        </form>
+                                        <form action="{{ route('deleteOrg', $organisasi->id_groups) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="submit-btn m-2">Delete Organisasi</button>
+                                        </form>
+                                    @else
+                                        <form action="{{ route('join', $organisasi->id_groups) }}" method="POST"
+                                            class="text-center">
+                                            @csrf
+                                            <button type="submit" class="submit-btn m-2">
+                                                Gabung </button>
+                                        </form>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <!-- widget single item end -->
