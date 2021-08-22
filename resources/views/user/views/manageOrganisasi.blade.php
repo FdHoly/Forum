@@ -94,52 +94,68 @@
                             <!-- widget single item end -->
 
                             <!-- widget single item start -->
-                            <div class="card widget-item">
-                                <h4 class="widget-title">Pengikut</h4>
-                                <div class="widget-body">
-                                    <ul class="like-page-list-wrapper">
-                                        @foreach ($organisasi->usergroup as $dataUser)
-                                            <li class="unorder-list">
-                                                <!-- profile picture end -->
-                                                <div class="profile-thumb">
-                                                    <a href="#">
-                                                        <figure class="profile-thumb-small">
-                                                            <img src="{{ Storage::url($dataUser->user->profil_image_url) }}"
-                                                                alt="ppUser">
-                                                        </figure>
-                                                    </a>
-                                                </div>
-                                                <!-- profile picture end -->
-                                                <div class="unorder-list-info">
-                                                    <h3 class="list-title align-items-center"><a
-                                                            href="{{ Auth::user()->id_users === $dataUser->user->id_users ? route('profile') : route('profileID', $dataUser->user->email) }}">{{ $dataUser->user->name }}</a>
-                                                    </h3>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
+
                     </aside>
                 </div>
 
-                <div class="col-lg-6 order-1 order-lg-2">
+                <div class="col-lg-9 order-1 order-lg-2">
 
                     <!-- post status start -->
                     <input type="hidden" id="hiddencontainer" name="hiddencontainer" />
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table w-100">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Tanggal Join</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Universitas</th>
+                                        <th scope="col">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($dataUser as $item)
 
-                    <x-post :post="$organisasi->utas" />
+                                        <tr>
+                                            {{-- <th scope="row">{{ $item->id_reports }}</th> --}}
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->user->email }}</td>
+                                            <td>{{ $time = date('j F Y', strtotime($item->created_at)) }}
+                                            <td>
+                                                @if ($item->role == 1)
+                                                    Member
+                                                @elseif ($item->role==2)
+                                                    Admin
+                                                @elseif ($item->role==3)
+                                                    Owner
+                                                @endif
+                                            </td>
+                                            <td>{{ $item->user->universitas->nama }}</td>
+                                            <td>
+                                                {{-- <button type="danger"></button> --}}
+                                                {{-- <button type="button" class="submit-btn btn-sm">Hapus Post</button> --}}
+                                                {{-- <button type="button">BAN</button> --}}
+                                                @if ($item->user->id_users != Auth::user()->id_users)
+                                                    <button class="btn btn-primary btn-sm" data-toggle="modal"
+                                                        data-target="#ModalEditUser{{ $item->id_users }}">
+                                                        Update
+                                                    </button>
+                                                    <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                                        data-target="#ModalKickUser{{ $item->id_users }}">
+                                                        Kick
+                                                    </button>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                    {{-- <div class="dropdown">
-                        <h6><span>
-                                Tampilkan Semuanya</span></h6>
-                    </div> --}}
-
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-
-                {{-- @include("user.views.include.event") --}}
-                <x-events :pengumuman="$organisasi->pengumuman" :acara="$organisasi->acara"
-                    :rapat="$organisasi->rapat" />
             </div>
         </div>
 
@@ -213,7 +229,6 @@
 
 
         {{-- Modal Delete Organisasi --}}
-        {{-- @foreach ($organisasi as $itemPost1) --}}
         <!-- Modal Comment-->
         <div>
             <div class="modal fade" id="ModalDeleteOrganisasi{{ $organisasi->id_groups }}" tabindex="-1"
@@ -231,7 +246,6 @@
                                     <h6 style="margin-bottom: 10px">Semua konten dalam organisasi akan terhapus termasuk
                                         pengikut
                                     </h6>
-
                                 </div>
                                 <div class="modal-footer" style="margin-bottom: -20px">
                                     <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
@@ -248,8 +262,94 @@
                 {{-- Modal Comments End --}}
             </div>
         </div>
-        {{-- @endforeach --}}
         {{-- Modal Delete Organisasi --}}
+
+        {{-- Modal Kick User --}}
+        @foreach ($dataUser as $item)
+
+            <div>
+                <div class="modal fade" id="ModalKickUser{{ $item->id_users }}" tabindex="-1" role="dialog"
+                    aria-labelledby="ModalDeletePost" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="post-title d-flex align-items-center">
+                                        <h6>Peringatan</h6>
+                                    </div>
+                                    <div class="post-content">
+                                        <h5 style="margin-bottom: 10px">Apakah Anda Yakin Mengeluarkan User
+
+                                        </h5>
+                                        <h6>{{ $item->user->name }} ?</h6>
+                                    </div>
+                                    <div class="modal-footer" style="margin-bottom: -20px">
+                                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                        <form action="{{ route('kickUser', $item->id_users) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="post-share-btn">Kick User</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Modal Comments End --}}
+                </div>
+            </div>
+        @endforeach
+        {{-- Modal Kick User --}}
+
+        {{-- Modal Edit User --}}
+        @foreach ($dataUser as $item)
+            <div class="modal fade" id="ModalEditUser{{ $item->id_users }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalEditPost" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <form action="{{ route('editUser', $item->id_user_groups) }}" method="POST">
+                                    @method('PUT')
+                                    @csrf
+
+                                    <div class="post-title d-flex align-items-center">
+                                        <!-- profile picture end -->
+
+                                        <!-- profile picture end -->
+
+                                        <div class="posted-author col-8">
+                                            <h6 class="author">
+                                                <a>{{ $item->user->name }}</a>
+                                            </h6>
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="role">Role : </label>
+                                            <select name="role" id="inputState"
+                                                class="form-control block w-100 p-2 mb-2" required>
+                                                <option value="1" {{ $item->role == 1 ? 'selected' : '' }}>
+                                                    Member
+                                                </option>
+                                                <option value="2" {{ $item->role == 2 ? 'selected' : '' }}>Admin
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                        <button type="submit" class="post-share-btn">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        {{-- Modal Edit User --}}
+
 
         {{-- Modal Alert Report --}}
         <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

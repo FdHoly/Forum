@@ -13,12 +13,16 @@
     <!-- header area end -->
 
     <main>
-
         <form action="{{ route('createOrg') }}" class="signup-inner--form" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="profile-menu-area bg-white pt-3 mt-5">
                 <div class="container">
+                    @if ($errors->any())
+                        <div class="alert alert-danger mt-2">
+                            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                        </div>
+                    @endif
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
