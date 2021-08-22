@@ -85,7 +85,9 @@
                                                 <!-- profile picture end -->
 
                                                 <div class="unorder-list-info">
-                                                    <h3 class="list-title"><a href="{{route('detailOrg', $itemOrg->id_groups)}}">{{ $itemOrg->nama }}</a></h3>
+                                                    <h3 class="list-title"><a
+                                                            href="{{ route('detailOrg', $itemOrg->id_groups) }}">{{ $itemOrg->nama }}</a>
+                                                    </h3>
                                                     <p class="list-subtitle"><a>{{ $itemOrg->universitas->nama }}</a>
                                                     </p>
                                                 </div>
@@ -173,8 +175,6 @@
                                                                         <option value="pengumuman">Pengumuman</option>
                                                                         <option value="acara">Acara</option>
                                                                         <option value="rapat">Rapat</option>
-
-
                                                                     </select>
 
                                                                 </div>
@@ -248,8 +248,9 @@
 
                                         <div class="posted-author">
                                             <h6 class="author">
-                                                {{ $item->group->nama }} ▶
-                                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
+                                                <a href="organisasi/{{ $item->id_groups }}">
+                                                    {{ $item->group->nama }}</a> ▶
+                                                {{ $item->judul }}
 
                                             </h6>
                                             <span class=" post-time">{{ $item->created_at->diffForHumans() }}</span>
@@ -268,7 +269,6 @@
                                                     </button>
                                                 @break
                                             @endif
-                                        </div>
                             @endforeach
                         </div>
                     </div>
@@ -299,8 +299,8 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    {{ $item->group->nama }} ▶
-                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
+                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a> ▶
+                                    {{ $item->judul }}
 
                                 </h6>
                                 <span
@@ -319,10 +319,8 @@
                                         </button>
                                     @break
                                 @endif
-                            </div>
-                        </div>
-                    </div>
                 @endforeach
+
             </div>
         </div>
         <!-- post title start -->
@@ -331,7 +329,9 @@
                 {{ $item->konten }}
             </p>
         </div>
+        </div>
         @endforeach
+        </div>
 
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             @foreach ($rapat as $item)
@@ -340,7 +340,7 @@
                     <div class="post-title d-flex align-items-center">
                         <!-- profile picture end -->
                         <div class="profile-thumb">
-                            <a href="{{ route('detailOrg', $item->id_groups) }}}">
+                            <a href="{{ route('detailOrg', $item->id_groups) }}">
                                 <figure class="profile-thumb-middle">
                                     <img src="{{ Storage::url($item->group->logo_url) }}" alt="profile picture">
                                 </figure>
@@ -350,8 +350,8 @@
 
                         <div class="posted-author">
                             <h6 class="author">
-                                {{ $item->group->nama }} ▶
-                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->judul }}</a>
+                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a> ▶
+                                {{ $item->judul }}
                             </h6>
                             <span
                                 class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
@@ -370,12 +370,9 @@
                                     </button>
                                 @break
                             @endif
-                        </div>
-                    </div>
-                </div>
             @endforeach
         </div>
-
+        </div>
         <!-- post title start -->
         <div class="post-content">
             <p class="post-desc pb-0">
@@ -587,7 +584,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
