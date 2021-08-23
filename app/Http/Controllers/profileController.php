@@ -85,7 +85,7 @@ class profileController extends Controller
     {
         $userGroup = UserGroup::where([['id_users', Auth::user()->id_users], ['role', '>', 1]])->pluck('id_groups'); # Auth::user()->id
         // return $userGroup;
-        if (!$userGroup) {
+        if ($userGroup->isEmpty()) {
             abort(403);
         }
         $org = Groups::whereIn('id_groups', $userGroup)->get();
@@ -145,13 +145,13 @@ class profileController extends Controller
             ]);
         }
         if ($request->file('profilePic')) {
-            $profilePic = $request->profilePic->store('profile', 'public');
+            $profilePic = $request->profilePic->store('avatar', 'public');
             $user->update([
                 'profil_image_url' => $profilePic
             ]);
         }
         if ($request->file('backgroundPic')) {
-            $backgroundPic = $request->backgroundPic->store('profile', 'public');
+            $backgroundPic = $request->backgroundPic->store('avatar', 'public');
             $user->update([
                 'background_image_url' => $backgroundPic
             ]);

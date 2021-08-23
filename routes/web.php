@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/deleteOrganisasi/{id}', [orgControllers::class, 'deleteOrg'])->name('deleteOrg');
 
     Route::put('/editUser/{id}', [orgControllers::class, "editUser"])->name("editUser"); //Done Auth
+    Route::put('/changeOwn/{id}', [orgControllers::class, "changeOwn"])->name("changeOwner"); //Done Auth
     Route::get('/laporan', [profileController::class, "reportShow"])->name("laporan"); //Done Auth
     Route::get('/manageOrganisasi/{id}', [orgControllers::class, "manageOrg"])->name("manageOrg"); //Done Auth
 

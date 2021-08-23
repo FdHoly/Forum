@@ -2,13 +2,7 @@
 <html class="no-js" lang="en">
 
 @include('user.views.include.head')
-<meta name="author" content="ThemeMakker">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="../admin/assets/css/main.css" type="text/css">
+<link rel="stylesheet" href="{{ asset('user/assets/css/vendor/bicon.min.css') }}">
 
 <body>
 
@@ -143,11 +137,11 @@
                                                 {{-- <button type="button">BAN</button> --}}
                                                 @if ($item->user->id_users != Auth::user()->id_users)
                                                     <button class="btn btn-primary btn-sm" data-toggle="modal"
-                                                        data-target="#ModalEditUser{{ $item->id_users }}">
+                                                        data-target="#ModalEditUser{{ $item->id_user_groups }}">
                                                         Update
                                                     </button>
                                                     <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                                        data-target="#ModalKickUser{{ $item->id_users }}">
+                                                        data-target="#ModalKickUser{{ $item->id_user_groups }}">
                                                         Kick
                                                     </button>
                                                 @endif
@@ -231,6 +225,61 @@
         </div>
         {{-- Modal Report End --}}
 
+        {{-- Modal Owner --}}
+        <div class="modal fade " id="ModalOwner" tabindex="-1" role="dialog" aria-labelledby="ModalOwner"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Ganti Owner Organisasi</h5>
+                    </div>
+                    <div class="col-lg-12 order-1 order-lg-2">
+
+                        <!-- post status start -->
+                        <input type="hidden" id="hiddencontainer" name="hiddencontainer" />
+                        <div class="card">
+                            <div class="table-responsive">
+                                <table class="table w-100">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">User</th>
+                                            <th scope="col">Email</th>
+
+                                            <th scope="col">Select</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($dataUser as $item)
+
+                                            <tr>
+                                                {{-- <th scope="row">{{ $item->id_reports }}</th> --}}
+                                                <td>{{ $item->user->name }}</td>
+                                                <td>{{ $item->user->email }}</td>
+
+                                                <td>
+                                                    {{-- <button type="danger"></button> --}}
+                                                    {{-- <button type="button" class="submit-btn btn-sm">Hapus Post</button> --}}
+                                                    {{-- <button type="button">BAN</button> --}}
+                                                    @if ($item->user->id_users != Auth::user()->id_users)
+                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#ModalChangeOwner{{ $item->id_user_groups }}">
+                                                            Ganti Owner
+                                                        </button>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Modal Owner --}}
 
         {{-- Modal Delete Organisasi --}}
         <!-- Modal Comment-->
@@ -247,7 +296,8 @@
                                 <div class="post-content">
                                     <h5 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Organisasi Ini ?
                                     </h5>
-                                    <h6 style="margin-bottom: 10px">Semua konten dalam organisasi akan terhapus termasuk
+                                    <h6 style="margin-bottom: 10px">Semua konten dalam organisasi akan terhapus
+                                        termasuk
                                         pengikut
                                     </h6>
                                 </div>
@@ -272,7 +322,7 @@
         @foreach ($dataUser as $item)
 
             <div>
-                <div class="modal fade" id="ModalKickUser{{ $item->id_users }}" tabindex="-1" role="dialog"
+                <div class="modal fade" id="ModalKickUser{{ $item->id_user_groups }}" tabindex="-1" role="dialog"
                     aria-labelledby="ModalDeletePost" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -289,7 +339,7 @@
                                     </div>
                                     <div class="modal-footer" style="margin-bottom: -20px">
                                         <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
-                                        <form action="{{ route('kickUser', $item->id_users) }}" method="POST">
+                                        <form action="{{ route('kickUser', $item->id_user_groups) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="post-share-btn">Kick User</button>
@@ -307,7 +357,7 @@
 
         {{-- Modal Edit User --}}
         @foreach ($dataUser as $item)
-            <div class="modal fade" id="ModalEditUser{{ $item->id_users }}" tabindex="-1" role="dialog"
+            <div class="modal fade" id="ModalEditUser{{ $item->id_user_groups }}" tabindex="-1" role="dialog"
                 aria-labelledby="ModalEditPost" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -354,6 +404,42 @@
         @endforeach
         {{-- Modal Edit User --}}
 
+        {{-- Modal Change Owner --}}
+        @foreach ($dataUser as $item)
+
+            <div>
+                <div class="modal fade" id="ModalChangeOwner{{ $item->id_user_groups }}" tabindex="-1" role="dialog"
+                    aria-labelledby="ModalDeletePost" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="post-title d-flex align-items-center">
+                                        <h6>Peringatan</h6>
+                                    </div>
+                                    <div class="post-content">
+                                        <h5 style="margin-bottom: 10px">Apakah Anda Yakin Memindahkan Owner?
+                                        </h5>
+                                        <h6>{{ $item->user->name }} ?</h6>
+                                    </div>
+                                    <div class="modal-footer" style="margin-bottom: -20px">
+                                        <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                        <form action="{{ route('changeOwner', $item->id_user_groups) }}"
+                                            method="POST">
+                                            @method('PUT')
+                                            @csrf
+                                            <button type="submit" class="post-share-btn">Ganti Owner</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Modal Comments End --}}
+                </div>
+            </div>
+        @endforeach
+        {{-- Modal Change Owner --}}
 
         {{-- Modal Alert Report --}}
         <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
