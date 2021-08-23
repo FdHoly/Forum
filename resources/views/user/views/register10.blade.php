@@ -13,17 +13,9 @@
     <div class="form-body">
         <div class="row">
             <div class="form-holder">
-                <div class="form-content">
+                <div class="form-content" style="background: #343434">
                     <div class="form-items">
-                        <div class="website-logo-inside">
-                            <a href="index.html">
-                                <div class="logo">
-                                    <img class="logo-size" src="images/logo-light.svg" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <h3>Selamat Datang</h3>
-                        <p>Ini adalah page pendaftaran</p>
+                        <img class="w-100" src="{{ url('user/assets/images/logo/forumio8w.png') }}" alt="">
                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
                             <a href={{ route('login') }}>Login</a><a href="" class="active">Register</a>
@@ -46,7 +38,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="selected">
+                                <div class="selected" style="background: rgba(255, 255, 255, 0.15);">
                                     Pilih Universitas
                                 </div>
 
@@ -55,7 +47,8 @@
                                 </div>
                             </div>
                             <div style="margin-bottom: 0px">
-                                <p style="text-align: left; margin-bottom: 10px" accept=".jpg,.jpeg,.png,.gif">Unggah
+                                <p style="text-align: left; margin-bottom: 10px" accept=".jpg,.jpeg,.png,.gif">
+                                    Unggah
                                     Foto Profilmu</p>
                                 <input id="files " type="file" name="file" required>
                             </div>

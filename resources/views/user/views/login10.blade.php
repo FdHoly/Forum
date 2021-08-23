@@ -13,17 +13,9 @@
     <div class="form-body">
         <div class="row">
             <div class="form-holder">
-                <div class="form-content">
+                <div class="form-content" style="background: #343434">
                     <div class="form-items">
-                        <div class="website-logo-inside">
-                            <a href="index.html">
-                                <div class="logo">
-                                    <img class="logo-size" src="user/assets/images/logo/forumio8.svg" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <h3>Forumio</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <img class="w-100" src="{{ url('user/assets/images/logo/forumio8w.png') }}" alt="">
                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                         <div class="page-links">
                             <a href="" class="active">Login</a><a href={{ route('register') }}>Register</a>
