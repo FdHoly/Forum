@@ -24,7 +24,7 @@
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
                                     <a href="{{ route('profile') }}">
-                                        <img src="{{ Storage::url(Auth::user()->profil_image_url) }}"
+                                        <img style="object-fit: fill" src="{{ Storage::url(Auth::user()->profil_image_url) }}"
                                             alt="profile picture">
                                     </a>
                                 </figure>

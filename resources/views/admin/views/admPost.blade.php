@@ -310,7 +310,7 @@
                                                             <td>{{ $item->user->name }}</td>
                                                             <td>{{ $item->group->nama }}</td>
                                                             <td>{{ $item->report->count() }}
-                                                                <a href="{{ route('admReport', ['searchID' => $item->id_utas]) }}"
+                                                                <a href="{{ route('admReport', ['searchIDpost' => $item->id_utas]) }}"
                                                                     class="btn btn-success btn-sm">View Report</a>
                                                             </td>
                                                             <td><label

@@ -2027,6 +2027,10 @@ textarea:focus {
 }
 
 .profile-picture {
+  width: 280px;
+  height: 280px;
+  object-fit: fill;
+  overflow: hidden;
   position: relative;
 }
 

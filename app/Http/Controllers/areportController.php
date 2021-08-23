@@ -10,10 +10,15 @@ class areportController extends Controller
     //
     public function allreport(Request $request)
     {
-        if ($request->has('searchID')) {
-            $string = $request->input('searchID');
+        if ($request->has('searchIDuser')) {
+            $string = $request->input('searchIDuser');
+            
             $data = Report::where('id_users', $string)
-                ->orWhere('id_utas', $string)
+                ->get();
+        } elseif($request->has('searchIDpost')){
+            $string = $request->input('searchIDpost');
+            
+            $data = Report::where('id_utas', $string)
                 ->get();
         } elseif ($request->has('search')) {
             $string = $request->input('search');
