@@ -74,7 +74,7 @@ class orgControllers extends Controller
 
         UserGroup::create([
             'id_users' => Auth::user()->id_users,
-            'role' => '2',
+            'role' => '3',
             'id_groups' => $group->id_groups,
         ]);
         return redirect()->route('listorg');
@@ -110,7 +110,6 @@ class orgControllers extends Controller
                     // Ordering Utas
                     'utas' => function ($query) {
                         $query->where('status', 0)->latest(); // <- jadi ini di order dulu, baru dijoin table replyutas
-
                     }
                     // Ordering Utas
                     , 'usergroup.user', 'universitas'

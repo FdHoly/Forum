@@ -15,7 +15,7 @@
     <main>
         <div class="main-wrapper">
             <div class="profile-banner-large bg-img"
-                data-bg="{{ Auth::user()->background_image_url ? Auth::user()->background_image_url : 'user/assets/images/banner/profile-banner.jpg' }}">
+                data-bg="{{ Auth::user()->background_image_url ? Storage::url(Auth::user()->background_image_url) : 'user/assets/images/banner/profile-banner.jpg' }}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">

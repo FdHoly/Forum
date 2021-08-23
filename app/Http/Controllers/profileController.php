@@ -116,8 +116,6 @@ class profileController extends Controller
                 'oldPass' => 'required|string',
             ]
         );
-
-
         $user = User::find(Auth::user()->id_users);
 
         if (!Hash::check($request->oldPass, Auth::user()->password)) {

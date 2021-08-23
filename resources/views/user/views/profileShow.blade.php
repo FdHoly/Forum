@@ -15,8 +15,7 @@
     <main>
 
         <div class="main-wrapper">
-            <div class="profile-banner-large bg-img"
-                data-bg="{{ url('user/assets/images/banner/profile-banner.jpg') }}">
+            <div class="profile-banner-large bg-img" data-bg="{{ Storage::url($prof->background_image_url) }}">
             </div>
             <div class="profile-menu-area bg-white">
                 <div class="container">
@@ -71,6 +70,8 @@
 
                                         <p>{{ $prof->biodata ?? 'Belum ada biodata' }}</p>
                                         <ul class="author-into-list">
+                                            <li><a><i class="bi bi-user-ID align-middle"></i>{{ $prof->email }}</a>
+
                                             <li><a><i
                                                         class="bi bi-location-pointer"></i>{{ $prof->universitas->nama }}</a>
                                             </li>
@@ -86,13 +87,13 @@
                                 <div class="widget-body">
                                     <ul class="like-page-list-wrapper">
                                         @foreach ($org as $itemOrg)
-
                                             <li class="unorder-list">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb">
-                                                    <a href="#">
+                                                    <a
+                                                        href="{{ route('detailOrg', ['id' => $itemOrg->id_groups]) }}">
                                                         <figure class="profile-thumb-small">
-                                                            <img src="user/assets/images/profile/profile-small-33.jpg"
+                                                            <img src="{{ Storage::url($itemOrg->logo_url) }}"
                                                                 alt="profile picture">
                                                         </figure>
                                                     </a>
@@ -115,37 +116,12 @@
                         </aside>
                     </div>
 
-                    <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="col-lg-9 order-1 order-lg-2">
                         <!-- post status start -->
                         <x-post :post="$prof->utas" />
-                        {{-- @include('user.views.include.post') --}}
-                        <!-- post status end -->
 
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
-
-                        <!-- post status start -->
-
-                        <!-- post status end -->
                     </div>
-                    <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" />
+                    {{-- <x-events :pengumuman="$pengumuman" :acara="$acara" :rapat="$rapat" /> --}}
 
                     {{-- @include('user.views.include.event') --}}
                 </div>

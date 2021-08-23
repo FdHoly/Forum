@@ -15,7 +15,7 @@
 
         <div class="main-wrapper">
             <!-- profile banner area start -->
-            <div class="profile-banner-large bg-img" data-bg="user/assets/images/banner/profile-banner.jpg">
+            <div class="profile-banner-large bg-img" data-bg="{{Storage::url(Auth::user()->background_image_url)}}">
             </div>
             <!-- profile banner area end -->
 
@@ -26,8 +26,8 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
                                 <figure class="profile-picture">
-                                    <a href="#">
-                                        <img src="user/assets/images/profile/profile-1.jpg" alt="profile picture">
+                                    <a href="{{route('profile')}}">
+                                        <img src="{{Storage::url(Auth::user()->profil_image_url)}}" alt="profile picture">
                                     </a>
                                 </figure>
                             </div>
@@ -79,9 +79,9 @@
                                             <div class="friend-list-view">
                                                 <!-- profile picture end -->
                                                 <div class="profile-thumb">
-                                                    <a href="#">
+                                                    <a href="{{route('detailOrg', $orgData->id_groups)}}">
                                                         <figure class="profile-thumb-middle">
-                                                            <img src={{ Storage::url($orgData->image_url) }}
+                                                            <img src={{ Storage::url($orgData->logo_url) }}
                                                                 alt="profile picture">
                                                         </figure>
                                                     </a>
@@ -90,7 +90,7 @@
 
                                                 <div class="posted-author">
                                                     <h6 class="author"><a
-                                                            href="organisasi/{{ $orgData->id_groups }}">{{ $orgData->nama }}</a>
+                                                            href="{{route('detailOrg', $orgData->id_groups)}}">{{ $orgData->nama }}</a>
                                                     </h6>
                                                     <h5 class="author mt-2">{{ $orgData->universitas->nama }}
                                                     </h5>

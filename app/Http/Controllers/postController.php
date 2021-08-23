@@ -136,7 +136,6 @@ class postController extends Controller
     public function reportPost(Request $request)
     {
         $report = new Report();
-
         $report->id_utas = $request->input('id_utas');
         $report->id_users = Auth::user()->id_users;
         $report->id_groups = $request->input('id_groups');

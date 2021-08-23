@@ -312,7 +312,6 @@
                     @csrf
                     <div class="modal-body">
 
-                        <input type="hidden" value=" {{ $reportUtas->id_users }} " name="id_users">
                         <input type="hidden" value=" {{ $reportUtas->id_utas }} " name="id_utas">
                         <input type="hidden" value=" {{ $reportUtas->id_groups }} " name="id_groups">
 
