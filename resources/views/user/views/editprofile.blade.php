@@ -19,7 +19,6 @@
             <div class="overflowHidden" style="height: 30%">
                 <div class="profile-banner-large bg-img"
                     data-bg="{{ Storage::url(Auth::user()->background_image_url) }}">
-
                 </div>
 
             </div>
@@ -28,7 +27,6 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3">
                             <div class="profile-picture-box">
-
                                 <span aria-hidden="true"></span>
                                 <figure class="profile-picture">
                                     {{-- <div class="avatarUploaderIndicator-2G-aIZ"><img
@@ -86,9 +84,7 @@
                     <div class="col-lg-9 order-1 order-lg-2">
                         <!-- post status start -->
                         <div class="card">
-                            <!-- post title start -->
-
-                            <!-- post title start -->
+                            
                             @if (session('status'))
                                 <div class="alert alert-success mt-2">{{ session('status') }}</div>
                             @endif
