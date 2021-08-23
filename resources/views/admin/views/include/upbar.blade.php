@@ -38,9 +38,13 @@
                     <a class="nav-link nav-link-icon" href="javascript:void(0);" id="navbar_1_dropdown_3" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <h6 class="dropdown-header">User menu</h6>
-                        <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-user text-primary"></i>My
+                        <h6 class="dropdown-header">Admin menu</h6>
+                        <a class="dropdown-item" href="{{ route('profile') }}"><i
+                                class="fa fa-user text-primary"></i>My
                             Profile</a>
+                        <a class="dropdown-item" href="{{ route('index') }}"><i
+                                class="fa fa-home text-primary"></i>Home
+                            Page</a>
                         <form id="out" method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="dropdown-item" href="javascript:{}"

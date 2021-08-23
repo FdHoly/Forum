@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="ThemeMakker">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>:: BigBucket :: Table Basic</title>
+    <link rel="icon" href="{{ asset('user/assets/images/logo/logo.png') }}" type="image/x-icon">
+    <title> Forumio : Admin</title>
 
     <link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
@@ -277,13 +277,13 @@
                                                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
                                                         <form action="{{ route('admPost') }}" method="get"
                                                             id="formSearch">
-                                                            <label>Search : <input type="search" name="search" id="search"
-                                                                    class="form-control form-control-sm"
+                                                            <label>Search : <input type="search" name="search"
+                                                                    id="search" class="form-control form-control-sm"
                                                                     placeholder="Cari Postingan"
                                                                     aria-controls="DataTables_Table_0"></label>
                                                         </form>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                             <table class="table va_center mb-0">
@@ -313,24 +313,18 @@
                                                                     href="javascript:void(0);"
                                                                     class="btn btn-success btn-sm">View Report</a></td>
                                                             <td><label
-                                                                    class="badge badge-primary text-uppercase">{{ $item->status == '1' ? 'Public' : 'Private' }}</label>
+                                                                    class="badge badge-primary text-uppercase">{{ $item->status == '0' ? 'Public' : 'Private' }}</label>
                                                             </td>
                                                             <td>
-
-                                                                <form
-                                                                    action="{{ route('admdeletePost', $item->id_utas) }}"
-                                                                    method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button class="btn btn-success btn-sm"
-                                                                        data-toggle="modal"
-                                                                        data-target="#ModalComment{{ $item->id_utas }}">
-                                                                        View Post
-                                                                    </button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger btn-sm"><i
-                                                                            class="fa fa-trash"></i></button>
-                                                                </form>
+                                                                <button type="button" class="btn btn-success btn-sm"
+                                                                    data-toggle="modal"
+                                                                    data-target="#ModalComment{{ $item->id_utas }}">
+                                                                    View Post
+                                                                </button>
+                                                                <button type="submit" data-toggle="modal"
+                                                                    data-target="#ModalDelete{{ $item->id_utas }}"
+                                                                    class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -346,7 +340,39 @@
             </div>
         </div>
     </div>
-
+    {{-- Modal Delete Utas --}}
+    @foreach ($data as $itemPost1)
+        <!-- Modal Comment-->
+        <div>
+            <div class="modal fade" id="ModalDelete{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalDelete" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <h5>Peringatan</h5>
+                                </div>
+                                <div class="post-content">
+                                    <h6 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Utas Ini ?</h5>
+                                </div>
+                                <div class="modal-footer" style="margin-bottom: -20px">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <form action="{{ route('admdeletePost', $itemPost1->id_utas) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Comments End --}}
+            </div>
+        </div>
+    @endforeach
+    {{-- Modal Delete Utas --}}
     <!-- Core -->
     <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
     <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>
