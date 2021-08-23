@@ -1,11 +1,12 @@
 <div class="left_sidebar">
     <nav class="sidebar">
         <div class="user-info">
-            <div class="image"><a href="javascript:void(0);"><img src="../admin/assets/images/user.png" alt="User"></a>
+            <div class="image"><a href="javascript:void(0);"><img
+                        src="{{ Storage::url(Auth::user()->profil_image_url) }}" alt="User"></a>
             </div>
             <div class="detail mt-3">
-                <h5 class="mb-0">Mike Thomas</h5>
-                <small>Admin</small>
+                <h5 class="mb-0">{{ Auth::user()->name }}</h5>
+                <small>Super Admin</small>
             </div>
 
         </div>

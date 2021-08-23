@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="ThemeMakker">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>:: BigBucket :: Table Basic</title>
+    <link rel="icon" href="{{ asset('user/assets/images/logo/logo.png') }}" type="image/x-icon">
+    <title> Forumio : Admin</title>
 
     <link rel="stylesheet" href="../admin/assets/vendor/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../admin/assets/vendor/fontawesome/css/font-awesome.min.css">
@@ -278,8 +278,8 @@
                                                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
                                                         <form action="{{ route('admOrg') }}" method="get"
                                                             id="formSearch">
-                                                            <label>Search : <input type="search" name="search" id="search"
-                                                                    class="form-control form-control-sm"
+                                                            <label>Search : <input type="search" name="search"
+                                                                    id="search" class="form-control form-control-sm"
                                                                     placeholder="Cari Organisasi"
                                                                     aria-controls="DataTables_Table_0"></label>
                                                         </form>
@@ -310,21 +310,14 @@
                                                             <td>{{ $time = date('j F Y G:i:s', strtotime($item->created_at)) }}
                                                             <td>{{ $item->utas->count() }}</td>
                                                             <td>{{ $item->usergroup->count() }}</td>
-
                                                             <td>
-                                                                <form
-                                                                    action="{{ route('admdeleteOrg', $item->id_groups) }}"
-                                                                    method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <a href="{{ route('detailOrg', $item->id_groups) }}"
-                                                                        class="btn btn-success btn-sm">View
-                                                                        Organisasi</a>
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger btn-sm"><i
-                                                                            class="fa fa-trash"></i></button>
-                                                                </form>
-
+                                                                <a href="{{ route('detailOrg', $item->id_groups) }}"
+                                                                    class="btn btn-success btn-sm">View
+                                                                    Organisasi</a>
+                                                                <button type="submit" data-toggle="modal"
+                                                                    data-target="#ModalDelete{{ $item->id_groups }}"
+                                                                    class="btn btn-danger btn-sm"><i
+                                                                        class="fa fa-trash"></i></button>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -341,6 +334,40 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal Delete Org --}}
+    @foreach ($data as $itemPost1)
+        <!-- Modal Comment-->
+        <div>
+            <div class="modal fade" id="ModalDelete{{ $itemPost1->id_groups }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalDelete" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <h5>Peringatan</h5>
+                                </div>
+                                <div class="post-content">
+                                    <h6 style="margin-bottom: 10px">Apakah Anda Yakin Menghapus Organisasi Ini ?</h5>
+                                </div>
+                                <div class="modal-footer" style="margin-bottom: -20px">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <form action="{{ route('admdeleteOrg', $itemPost1->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Comments End --}}
+            </div>
+        </div>
+    @endforeach
+    {{-- Modal Delete Org --}}
 
     <!-- Core -->
     <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
