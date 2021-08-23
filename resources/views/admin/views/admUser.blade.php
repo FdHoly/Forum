@@ -106,7 +106,7 @@
                                                     class="phone">{{ $item->UserGroup->count() }}</span>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admReport', ['searchID' => $item->id_users]) }}"
+                                                <a href="{{ route('admReport', ['searchIDuser' => $item->id_users]) }}"
                                                     class="btn btn-success btn-sm">View
                                                     Report</a>
                                             </td>

@@ -196,7 +196,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ asset('uploads/logo/' . $itemAcara->group->logo_url) }}"
+                                        <img src="{{ Storage::url($itemAcara->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
@@ -209,7 +209,7 @@
                                         {{ $itemAcara->judul }}</a>
                                 </h6>
                                 <span
-                                    class="post-time">{{ Carbon\Carbon::parse($itemAcara->created_at)->diffForHumans() }}</span>
+                                    class="post-time">{{ $itemAcara->created_at->diffForHumans() }}</span>
                             </div>
 
                         </div>
@@ -244,7 +244,7 @@
                             <div class="profile-thumb">
                                 <a href="#">
                                     <figure class="profile-thumb-middle">
-                                        <img src="{{ asset('uploads/logo/' . $itemRapat->group->logo_url) }}"
+                                        <img src="{{ Storage::url($itemRapat->group->logo_url) }}"
                                             alt="profile picture">
                                     </figure>
                                 </a>
