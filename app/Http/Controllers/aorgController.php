@@ -8,9 +8,19 @@ use Illuminate\Http\Request;
 class aorgController extends Controller
 {
     //
-    public function allorg()
+    public function allorg(Request $request)
     {
         $data = Groups::all();
+        if ($request->has('search')) {
+            $string = $request->input('search');
+            $searchValues = preg_split('/\s+/', $string, -1, PREG_SPLIT_NO_EMPTY);
+            $data = Groups::where(function ($q) use ($searchValues) {
+                foreach ($searchValues as $value) {
+                    $q->where('nama', $value)
+                        ->orWhere('nama', 'like', "%{$value}%");
+                }
+            })->get();
+        }
         // return $data;
         return view('admin.views.admOrg', compact('data'));
     }

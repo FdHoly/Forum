@@ -85,19 +85,39 @@ class orgControllers extends Controller
         $sortDirect = 'desc';
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first(); # Auth::user()->id
-        // return $userAuth;
-        $organisasi = Groups::with([
-            'pengumuman', 'acara', 'rapat',
 
-            // Ordering Utas
-            'utas' => function ($query) use ($sortDirect) {
-                $query->latest() // <- jadi ini di order dulu, baru dijoin table replyutas
-                ;
+        $groupOfUser = UserGroup::where('id_groups', $id)->pluck('id_users');
+
+
+        for ($i = 0; $i < count($groupOfUser); $i++) {
+            if ($groupOfUser[$i] === Auth::user()->id_users) {
+                $organisasi = Groups::with([
+                    'pengumuman', 'acara', 'rapat',
+
+                    // Ordering Utas
+                    'utas' => function ($query) {
+                        $query->latest() // <- jadi ini di order dulu, baru dijoin table replyutas
+                        ;
+                    }
+                    // Ordering Utas
+
+                    , 'usergroup.user', 'universitas'
+                ])->findOrFail($id);
+                
+            } else {
+                $organisasi = Groups::with([
+                    'pengumuman', 'acara', 'rapat',
+                    // Ordering Utas
+                    'utas' => function ($query) {
+                        $query->where('status', 0)->latest(); // <- jadi ini di order dulu, baru dijoin table replyutas
+
+                    }
+                    // Ordering Utas
+                    , 'usergroup.user', 'universitas'
+                ])->findOrFail($id);
             }
-            // Ordering Utas
+        }
 
-            , 'usergroup.user', 'universitas'
-        ])->findOrFail($id);
 
 
         // return $organisasi;

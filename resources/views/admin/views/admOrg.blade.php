@@ -276,9 +276,13 @@
                                                 </div>
                                                 <div class="col-sm-12 col-md-2">
                                                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                                        <label>Search:<input type="search"
-                                                                class="form-control form-control-sm" placeholder=""
-                                                                aria-controls="DataTables_Table_0"></label>
+                                                        <form action="{{ route('admOrg') }}" method="get"
+                                                            id="formSearch">
+                                                            <label>Search : <input type="search" name="search" id="search"
+                                                                    class="form-control form-control-sm"
+                                                                    placeholder="Cari Organisasi"
+                                                                    aria-controls="DataTables_Table_0"></label>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -346,6 +350,15 @@
 
     <!-- Theme JS -->
     <script src="../admin/assets/js/theme.js"></script>
+    <script>
+        document.getElementById('search')
+            .addEventListener('keyup', function(event) {
+                if (event.code === 'Enter') {
+                    event.preventDefault();
+                    document.getElementById('formSearch').submit();
+                }
+            });
+    </script>
     <script>
         $('.sparkbar-mini').sparkline('html', {
             type: 'bar',
