@@ -309,8 +309,9 @@
                                                             <td>{{ $time = date('j F Y G:i:s', strtotime($item->created_at)) }}
                                                             <td>{{ $item->user->name }}</td>
                                                             <td>{{ $item->group->nama }}</td>
-                                                            <td>{{ $item->report->count() }} <a
-                                                                    href="javascript:void(0);"
+                                                            <td>{{ $item->report->count() }} 
+                                                                <a
+                                                                    href="{{ route('admReport', ['searchID' => $item->id_utas]) }}"
                                                                     class="btn btn-success btn-sm">View Report</a></td>
                                                             <td><label
                                                                     class="badge badge-primary text-uppercase">{{ $item->status == '0' ? 'Public' : 'Private' }}</label>
