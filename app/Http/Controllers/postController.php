@@ -22,11 +22,6 @@ class postController extends Controller
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $univGroup = Groups::where('id_univ', Auth::user()->id_univ)->pluck('id_groups'); # Auth::user()->id
 
-
-        // return $univGroup;
-        // return dd($request->input('filter'));
-
-
         if ($request->input('filter') === "organisasi") { ///Group yang user dah join
             $allutas = Utas::with(["group", "replyutas", "user"])
                 ->whereIn('id_groups', $userGroup)

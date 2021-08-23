@@ -12,7 +12,9 @@ class areportController extends Controller
     {
         if ($request->has('searchID')) {
             $string = $request->input('searchID');
-            $data = Report::where('id_users', $string)->get();
+            $data = Report::where('id_users', $string)
+                ->orWhere('id_utas', $string)
+                ->get();
         } elseif ($request->has('search')) {
             $string = $request->input('search');
             $searchValues = preg_split('/\s+/', $string, -1, PREG_SPLIT_NO_EMPTY);
