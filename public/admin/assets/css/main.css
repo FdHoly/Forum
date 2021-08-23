@@ -13809,6 +13809,27 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     border-width: 4px;
     margin-left: -4px;
 }
+
+.posted-author {
+    margin-left: 20px;
+    align-self: center;
+}
+.author a {
+    color: #333333;
+}
+
+.post-content {
+    padding-top: 18px;
+}
+
+.post-thumb-gallery {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.post-thumb img {
+    width: 100%;
+}
 .input-slider-value-output.left:after {
     left: 10px;
     right: auto;

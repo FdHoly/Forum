@@ -256,7 +256,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="header">
-                                        <h2>Daftar Organisasi</h2>
+                                        <h2>Daftar Report</h2>
                                     </div>
                                     <div class="body">
                                         <div class="table-responsive">

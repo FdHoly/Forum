@@ -309,10 +309,10 @@
                                                             <td>{{ $time = date('j F Y G:i:s', strtotime($item->created_at)) }}
                                                             <td>{{ $item->user->name }}</td>
                                                             <td>{{ $item->group->nama }}</td>
-                                                            <td>{{ $item->report->count() }} 
-                                                                <a
-                                                                    href="{{ route('admReport', ['searchID' => $item->id_utas]) }}"
-                                                                    class="btn btn-success btn-sm">View Report</a></td>
+                                                            <td>{{ $item->report->count() }}
+                                                                <a href="{{ route('admReport', ['searchID' => $item->id_utas]) }}"
+                                                                    class="btn btn-success btn-sm">View Report</a>
+                                                            </td>
                                                             <td><label
                                                                     class="badge badge-primary text-uppercase">{{ $item->status == '0' ? 'Public' : 'Private' }}</label>
                                                             </td>
@@ -343,7 +343,6 @@
     </div>
     {{-- Modal Delete Utas --}}
     @foreach ($data as $itemPost1)
-        <!-- Modal Comment-->
         <div>
             <div class="modal fade" id="ModalDelete{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
                 aria-labelledby="ModalDelete" aria-hidden="true">
@@ -369,11 +368,136 @@
                         </div>
                     </div>
                 </div>
-                {{-- Modal Comments End --}}
             </div>
         </div>
     @endforeach
     {{-- Modal Delete Utas --}}
+    @foreach ($data as $itemPost1)
+        <div>
+            <div class="modal fade" id="ModalComment{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalDelete" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="avatar w30">
+                                        <a href="{{ route('profile') }}">
+                                            <img src="{{ Storage::url($itemPost1->user->profil_image_url) }}"
+                                                alt="profile picture">
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author">
+                                            <a
+                                                href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}</a>
+                                            ▶
+                                            <a
+                                                href="{{ route('detailOrg', $itemPost1->group->id_groups) }}">{{ $itemPost1->group->nama }}</a>
+                                        </h6>
+                                        <span class="post-time">
+
+                                            {{ $itemPost1->created_at->diffForHumans() }}
+
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <h5 style="margin-bottom: 10px">{{ $itemPost1->judul }}</h5>
+                                    <p class="post-desc">
+                                        {{ $itemPost1->konten }}
+                                    </p>
+
+                                    @if ($itemPost1->image_url !== null)
+                                        <div class="post-thumb-gallery">
+                                            <figure class="post-thumb img-popup">
+                                                <a href={{ Storage::url($itemPost1->image_url) }}>
+                                                    <img src={{ Storage::url($itemPost1->image_url) }}
+                                                        alt="post image">
+                                                </a>
+                                            </figure>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    {{-- Modal View Post --}}
+    {{-- Modal Post&Reply --}}
+    {{-- @foreach ($data as $itemPost1)
+        <!-- Modal Comment-->
+        <div class="modal fade" id="ModalComment{{ $itemPost1->id_utas }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="post-title d-flex align-items-center">
+                                <!-- profile picture end -->
+                                <div class="profile-thumb">
+                                    <a href="{{ route('profile') }}">
+                                        <figure class="profile-thumb-middle">
+                                            <img src="{{ Storage::url($itemPost1->user->profil_image_url) }}"
+                                                alt="profile picture">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <!-- profile picture end -->
+
+                                <div class="posted-author">
+                                    <h6 class="author">
+                                        <a href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}
+                                            ▶
+                                            <a
+                                                href="{{ route('detailOrg', $itemPost1->group->id_groups) }}">{{ $itemPost1->group->nama }}</a></a>
+                                    </h6>
+                                    <span class="post-time">
+
+                                        {{ $itemPost1->created_at->diffForHumans() }}
+
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- post title start -->
+                            <div class="post-content">
+                                <h5 style="margin-bottom: 10px">{{ $itemPost1->judul }}</h5>
+                                <p class="post-desc">
+                                    {{ $itemPost1->konten }}
+                                </p>
+
+                                @if ($itemPost1->image_url !== null)
+                                    <div class="post-thumb-gallery">
+                                        <figure class="post-thumb img-popup">
+                                            <a href={{ Storage::url($itemPost1->image_url) }}>
+                                                <img src={{ Storage::url($itemPost1->image_url) }} alt="post image">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Modal Comments End --}}
+    {{-- @endforeach --}} --}}
+    {{-- Modal Post&Reply --}}
+    {{-- Modal View Post --}}
+
     <!-- Core -->
     <script src="../admin/assets/bundles/libscripts.bundle.js"></script>
     <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>

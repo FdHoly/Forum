@@ -117,10 +117,11 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    <a href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}
-                                        ▶
-                                        <a
-                                            href="{{ route('detailOrg', $itemPost->group->id_groups) }}">{{ $itemPost->group->nama }}</a></a>
+                                    <a
+                                        href="{{ route('profileID', $itemPost1->user->email) }}">{{ $itemPost1->user->name }}</a>
+                                    ▶
+                                    <a
+                                        href="{{ route('detailOrg', $itemPost1->group->id_groups) }}">{{ $itemPost1->group->nama }}</a>
                                 </h6>
                                 <span class="post-time">
 
