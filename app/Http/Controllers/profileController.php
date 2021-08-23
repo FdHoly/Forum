@@ -113,10 +113,14 @@ class profileController extends Controller
             [
                 'name' => 'required',
                 'biodata' => 'string',
-                'oldPass' => 'required|string',
+                // 'oldPass' => 'required|string',
             ]
         );
         $user = User::find(Auth::user()->id_users);
+
+        if (!$request->oldPass) {
+            return back()->with('error', 'Please Enter Password');
+        }
 
         if (!Hash::check($request->oldPass, Auth::user()->password)) {
             return back()->with('error', 'Wrong password');
