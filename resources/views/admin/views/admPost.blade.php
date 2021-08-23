@@ -275,10 +275,15 @@
                                                 </div>
                                                 <div class="col-sm-12 col-md-2">
                                                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                                        <label>Search:<input type="search"
-                                                                class="form-control form-control-sm" placeholder=""
-                                                                aria-controls="DataTables_Table_0"></label>
+                                                        <form action="{{ route('admPost') }}" method="get"
+                                                            id="formSearch">
+                                                            <label>Search : <input type="search" name="search" id="search"
+                                                                    class="form-control form-control-sm"
+                                                                    placeholder="Cari Postingan"
+                                                                    aria-controls="DataTables_Table_0"></label>
+                                                        </form>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <table class="table va_center mb-0">
@@ -347,7 +352,15 @@
     <script src="../admin/assets/bundles/vendorscripts.bundle.js"></script>
 
     <script src="../admin/assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js"></script>
-
+    <script>
+        document.getElementById('search')
+            .addEventListener('keyup', function(event) {
+                if (event.code === 'Enter') {
+                    event.preventDefault();
+                    document.getElementById('formSearch').submit();
+                }
+            });
+    </script>
     <!-- Theme JS -->
     <script src="../admin/assets/js/theme.js"></script>
     <script>

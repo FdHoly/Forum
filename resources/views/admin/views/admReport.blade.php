@@ -316,7 +316,7 @@
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <a href="javascript:void(0);"
+                                                                    <a href="{{route('admPost', ['searchID' => $item->id_utas])}}"
                                                                         class="btn btn-success btn-sm">View Post</a>
                                                                     <button type="submit"
                                                                         class="btn btn-danger btn-sm"><i

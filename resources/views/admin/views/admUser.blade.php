@@ -57,7 +57,7 @@
                                 <div id="DataTables_Table_0_filter" class="dataTables_filter">
                                     <form action="{{ route('admUser') }}" method="get" id="formSearch">
                                         <label>Search : <input type="search" name="search" id="search"
-                                                class="form-control form-control-sm" placeholder=""
+                                                class="form-control form-control-sm" placeholder="Cari User"
                                                 aria-controls="DataTables_Table_0"></label>
                                     </form>
                                 </div>
