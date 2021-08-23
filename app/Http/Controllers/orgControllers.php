@@ -103,7 +103,6 @@ class orgControllers extends Controller
 
                     , 'usergroup.user', 'universitas'
                 ])->findOrFail($id);
-                
             } else {
                 $organisasi = Groups::with([
                     'pengumuman', 'acara', 'rapat',
@@ -210,7 +209,7 @@ class orgControllers extends Controller
     }
     public function kickUser($id)
     {
-        $user = UserGroup::where('id_groups', $id)->first();
+        $user = UserGroup::where('id_user_groups', $id)->first();
         $user->delete();
         return back();
     }
@@ -227,5 +226,20 @@ class orgControllers extends Controller
 
         $id->update($fields);
         return back();
+    }
+    public function changeOwn(Request $request, UserGroup $id)
+    {
+        $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id->id_groups)->first();
+        if (!$userGroup->role >= 2) {
+            abort(403);
+        }
+
+        $id->update([
+            'role' => '3'
+        ]);
+        $userGroup->update([
+            'role' => '2'
+        ]);
+        return redirect()->route('detailOrg', $userGroup->id_groups);
     }
 }
