@@ -86,36 +86,34 @@ class orgControllers extends Controller
         $userGroup = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->where('id_groups', $id)->first(); # Auth::user()->id
 
-        $groupOfUser = UserGroup::where('id_groups', $id)->pluck('id_users');
+        $groupOfUser = UserGroup::where('id_groups', $id)->where('id_users', Auth::user()->id_users)->pluck('id_users');
 
+        // return $groupOfUser;
 
-        for ($i = 0; $i < count($groupOfUser); $i++) {
-            if ($groupOfUser[$i] === Auth::user()->id_users) {
-                $organisasi = Groups::with([
-                    'pengumuman', 'acara', 'rapat',
+        if ($groupOfUser->isNotEmpty()) {
+            $organisasi = Groups::with([
+                'pengumuman', 'acara', 'rapat',
 
-                    // Ordering Utas
-                    'utas' => function ($query) {
-                        $query->latest() // <- jadi ini di order dulu, baru dijoin table replyutas
-                        ;
-                    }
-                    // Ordering Utas
+                // Ordering Utas
+                'utas' => function ($query) {
+                    $query->latest(); // <- jadi ini di order dulu, baru dijoin table replyutas
 
-                    , 'usergroup.user', 'universitas'
-                ])->findOrFail($id);
-            } else {
-                $organisasi = Groups::with([
-                    'pengumuman', 'acara', 'rapat',
-                    // Ordering Utas
-                    'utas' => function ($query) {
-                        $query->where('status', 0)->latest(); // <- jadi ini di order dulu, baru dijoin table replyutas
-                    }
-                    // Ordering Utas
-                    , 'usergroup.user', 'universitas'
-                ])->findOrFail($id);
-            }
+                }
+                // Ordering Utas
+
+                , 'usergroup.user', 'universitas'
+            ])->findOrFail($id);
+        } else {
+            $organisasi = Groups::with([
+
+                // Ordering Utas
+                'utas' => function ($query) {
+                    $query->where('status', 0)->latest(); // <- jadi ini di order dulu, baru dijoin table replyutas
+                }
+                // Ordering Utas
+                , 'usergroup.user', 'universitas'
+            ])->findOrFail($id);
         }
-
 
 
         // return $organisasi;
