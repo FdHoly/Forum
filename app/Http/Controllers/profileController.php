@@ -13,6 +13,8 @@ use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+
 
 class profileController extends Controller
 {
@@ -118,8 +120,10 @@ class profileController extends Controller
         );
         $user = User::find(Auth::user()->id_users);
 
+
+
         if (!$request->oldPass) {
-            return back()->with('error', 'Please Enter Password');
+            return back()->with('error', 'Please Enter Old Password');
         }
 
         if (!Hash::check($request->oldPass, Auth::user()->password)) {
@@ -127,6 +131,10 @@ class profileController extends Controller
         }
 
         if ($request->password) {
+            if (strlen($request->password) < 8) {
+                # code...
+                return back()->with('error', 'Password minimal 8 karakter');
+            }
             if ($request->password != $request->cPass) {
                 return back()->with('error', 'Password not match');
             }

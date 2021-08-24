@@ -59,9 +59,9 @@
                                                 method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button
-                                                    onclick="confirm('Yakin keluar?') || event.stopImmediatePropagation()"
-                                                    type="submit" class="btn btn-danger btn-block m-2">Keluar
+                                                <button data-toggle="modal"
+                                                    data-target="#ModalLeave{{ $organisasi->id_groups }}"
+                                                    type="button" class="btn btn-danger btn-block m-2">Keluar
                                                     Organisasi</button>
                                             </form>
 
@@ -249,6 +249,40 @@
         </div>
         {{-- @endforeach --}}
         {{-- Modal Delete Organisasi --}}
+
+
+        {{-- Modal Leave Organisasi --}}
+        <!-- Modal Comment-->
+        <div>
+            <div class="modal fade" id="ModalLeave{{ $organisasi->id_groups }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalLeave" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="post-title d-flex align-items-center">
+                                    <h6>Peringatan</h6>
+                                </div>
+                                <div class="post-content">
+                                    <h5 style="margin-bottom: 10px">Apakah Anda Yakin Keluar Dari Organisasi Ini ?
+                                    </h5>
+                                </div>
+                                <div class="modal-footer" style="margin-bottom: -20px">
+                                    <button type="button" class="post-share-btn" data-dismiss="modal">Batal</button>
+                                    <form action="{{ route('leaveOrg', $organisasi->id_groups) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="post-share-btn">Keluar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Modal Comments End --}}
+            </div>
+        </div>
+        {{-- Modal Leave Organisasi --}}
 
         {{-- Modal Alert Report --}}
         <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
