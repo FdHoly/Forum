@@ -88,6 +88,9 @@ class postController extends Controller
 
     public function replyPost(Request $request, $id)
     {
+        $request->validate([
+            'konten' => 'required'
+        ]);
         $post = new ReplyUtas();
 
         $post->konten = $request->input('konten');
