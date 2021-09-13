@@ -19,13 +19,13 @@ class reportSeeder extends Seeder
         $report = [
             [
                 'alasan' => 'Konten1',
-                'id_users' => '1',
+                'id_users' => '2',
                 'id_groups' => '1',
                 'id_utas' => '1',
             ],
             [
                 'alasan' => 'Konten2',
-                'id_users' => '2',
+                'id_users' => '3',
                 'id_groups' => '1',
                 'id_utas' => '2',
             ],

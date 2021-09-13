@@ -214,7 +214,7 @@
                                     method="POST">
                                     @csrf
                                     <textarea name="konten" class="share-text-field" aria-disabled="true"
-                                        placeholder="Say Something" data-toggle="modal" id="email"></textarea>
+                                        placeholder="Say Something" data-toggle="modal" id="email" required></textarea>
                                     <button class="btn-share" type="submit">share</button>
                                 </form>
                             </div>
