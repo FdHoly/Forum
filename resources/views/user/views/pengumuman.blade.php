@@ -88,7 +88,8 @@
                                                     <h3 class="list-title"><a
                                                             href="{{ route('detailOrg', $itemOrg->id_groups) }}">{{ $itemOrg->nama }}</a>
                                                     </h3>
-                                                    <p class="list-subtitle"><a>{{ $itemOrg->universitas->nama }}</a>
+                                                    <p class="list-subtitle">
+                                                        <a>{{ $itemOrg->universitas->nama }}</a>
                                                     </p>
                                                 </div>
                                             </li>
@@ -125,12 +126,13 @@
                                         <div class="modal fade" id="textbox" aria-labelledby="textbox">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                    <x-auth-validation-errors class="mb-4"
+                                                        :errors="$errors" />
 
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Share Your Mood</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
@@ -159,137 +161,78 @@
                                                                                         {{ $item->group->nama }}
                                                                                     </option>
                                                                                 @endif
-                                                                            @endforeach
-
-
+                                                                            @break
                                                                         @endforeach
-
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <label for="organisasi"></label>
-                                                                    <select name="tipe" id="tipe"
-                                                                        class="form-control block w-100 p-2 mb-2"
-                                                                        required>
-                                                                        <option value="">Pilih Thread</option>
-                                                                        <option value="pengumuman">Pengumuman</option>
-                                                                        <option value="acara">Acara</option>
-                                                                        <option value="rapat">Rapat</option>
-                                                                    </select>
-
-                                                                </div>
-                                                            </div>
-
-                                                            <textarea name="konten"
-                                                                class="share-field-big custom-scroll"
-                                                                placeholder="Tulis Pengumuman" required></textarea>
-
-
-                                                        </div>
-
-
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="post-share-btn"
-                                                                data-dismiss="modal">cancel</button>
-                                                            <button type="submit" class="post-share-btn">Post</button>
-                                                        </div>
-                                                    </form>
-                                                    {{-- Formulir Share --}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            @break
-                    </div>
-                    @endif
-                    @endforeach
-
-                    <div class=" secondary-menu-2 bg-white mb-4 d-flex justify-content-center">
-
-                        <div class="filter-menu">
-                            <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                aria-controls="collapseOne">
-                                Pengumuman </button>
-                        </div>
-                        <div class="filter-menu">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                aria-expanded="false" aria-controls="collapseTwo">
-                                Acara </button>
-
-                        </div>
-                        <div class="filter-menu">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                aria-expanded="false" aria-controls="collapseThree">
-                                Rapat </button>
-
-                        </div>
-                        <div class="post-settings-bar">
-                        </div>
-                    </div>
-
-                    <div id="accordion">
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                            data-parent="#accordion">
-                            @foreach ($pengumuman as $item)
-                                <div class="card">
-                                    <!-- post title start -->
-                                    <div class="post-title d-flex align-items-center">
-                                        <!-- profile picture end -->
-                                        <div class="profile-thumb">
-                                            <a href="{{ route('detailOrg', $item->group->id_groups) }}">
-                                                <figure class="profile-thumb-middle">
-                                                    <img src="{{ Storage::url($item->group->logo_url) }}"
-                                                        alt="profile picture">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- profile picture end -->
-
-                                        <div class="posted-author">
-                                            <h6 class="author">
-                                                <a href="organisasi/{{ $item->id_groups }}">
-                                                    {{ $item->group->nama }}</a> ▶
-                                                {{ $item->judul }}
-
-                                            </h6>
-                                            <span class=" post-time">{{ $item->created_at->diffForHumans() }}</span>
-                                        </div>
-
-                                        <div class="post-settings-bar">
-                                            @foreach ($item->group->usergroup as $group)
-                                                @if ($group->role > 1)
-                                                    <button type="" data-toggle="modal"
-                                                        data-target="#ModalDeletePengumuman{{ $item->id_announcements }}">
-
-                                                        <img class="icon"
-                                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
-                                                            alt="delete">
-                                                        </a>
-                                                    </button>
-                                                @break
-                                            @endif
                             @endforeach
-                        </div>
+                            </select>
                     </div>
-                    <!-- post title start -->
-                    <div class="post-content">
-                        <p class="post-desc pb-0">
-                            {{ $item->konten }}
-                        </p>
+                    <div class="col">
+                        <label for="organisasi"></label>
+                        <select name="tipe" id="tipe" class="form-control block w-100 p-2 mb-2" required>
+                            <option value="">Pilih Thread</option>
+                            <option value="pengumuman">Pengumuman</option>
+                            <option value="acara">Acara</option>
+                            <option value="rapat">Rapat</option>
+                        </select>
+
                     </div>
                 </div>
-                @endforeach
+
+                <textarea name="konten" class="share-field-big custom-scroll" placeholder="Tulis Pengumuman"
+                    required></textarea>
+
+
             </div>
 
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                @foreach ($acara as $item)
+
+
+            <div class="modal-footer">
+                <button type="button" class="post-share-btn" data-dismiss="modal">cancel</button>
+                <button type="submit" class="post-share-btn">Post</button>
+            </div>
+            </form>
+            {{-- Formulir Share --}}
+        </div>
+        </div>
+        </div>
+        </div>
+        @break
+        </div>
+        @endif
+        @endforeach
+
+        <div class=" secondary-menu-2 bg-white mb-4 d-flex justify-content-center">
+
+            <div class="filter-menu">
+                <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    Pengumuman </button>
+            </div>
+            <div class="filter-menu">
+                <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                    aria-controls="collapseTwo">
+                    Acara </button>
+
+            </div>
+            <div class="filter-menu">
+                <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                    aria-controls="collapseThree">
+                    Rapat </button>
+
+            </div>
+            <div class="post-settings-bar">
+            </div>
+        </div>
+
+        <div id="accordion">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                @foreach ($pengumuman as $item)
                     <div class="card">
                         <!-- post title start -->
                         <div class="post-title d-flex align-items-center">
                             <!-- profile picture end -->
                             <div class="profile-thumb">
-                                <a href="#">
+                                <a href="{{ route('detailOrg', $item->group->id_groups) }}">
                                     <figure class="profile-thumb-middle">
                                         <img src="{{ Storage::url($item->group->logo_url) }}" alt="profile picture">
                                     </figure>
@@ -299,19 +242,20 @@
 
                             <div class="posted-author">
                                 <h6 class="author">
-                                    <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a> ▶
+                                    <a href="organisasi/{{ $item->id_groups }}">
+                                        {{ $item->group->nama }}</a> ▶
                                     {{ $item->judul }}
 
                                 </h6>
-                                <span
-                                    class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                <span class=" post-time">{{ $item->created_at->diffForHumans() }}</span>
                             </div>
 
                             <div class="post-settings-bar">
                                 @foreach ($item->group->usergroup as $group)
                                     @if ($group->role > 1)
                                         <button type="" data-toggle="modal"
-                                            data-target="#ModalDeleteAcara{{ $item->id_events }}">
+                                            data-target="#ModalDeletePengumuman{{ $item->id_announcements }}">
+
                                             <img class="icon"
                                                 src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
                                                 alt="delete">
@@ -320,8 +264,58 @@
                                     @break
                                 @endif
                 @endforeach
-
             </div>
+        </div>
+        <!-- post title start -->
+        <div class="post-content">
+            <p class="post-desc pb-0">
+                {{ $item->konten }}
+            </p>
+        </div>
+        </div>
+        @endforeach
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            @foreach ($acara as $item)
+                <div class="card">
+                    <!-- post title start -->
+                    <div class="post-title d-flex align-items-center">
+                        <!-- profile picture end -->
+                        <div class="profile-thumb">
+                            <a href="#">
+                                <figure class="profile-thumb-middle">
+                                    <img src="{{ Storage::url($item->group->logo_url) }}" alt="profile picture">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- profile picture end -->
+
+                        <div class="posted-author">
+                            <h6 class="author">
+                                <a href="organisasi/{{ $item->id_groups }}">{{ $item->group->nama }}</a> ▶
+                                {{ $item->judul }}
+
+                            </h6>
+                            <span
+                                class=" post-time">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                        </div>
+
+                        <div class="post-settings-bar">
+                            @foreach ($item->group->usergroup as $group)
+                                @if ($group->role > 1)
+                                    <button type="" data-toggle="modal"
+                                        data-target="#ModalDeleteAcara{{ $item->id_events }}">
+                                        <img class="icon"
+                                            src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
+                                            alt="delete">
+                                        </a>
+                                    </button>
+                                @break
+                            @endif
+            @endforeach
+
+        </div>
         </div>
         <!-- post title start -->
         <div class="post-content">
@@ -409,8 +403,8 @@
     {{-- Modal Delete Pengumuman --}}
     @foreach ($pengumuman as $item)
 
-        <div class="modal fade" id="ModalDeletePengumuman{{ $item->id_announcements }}" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="ModalDeletePengumuman{{ $item->id_announcements }}" tabindex="-1"
+            role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -584,7 +578,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
