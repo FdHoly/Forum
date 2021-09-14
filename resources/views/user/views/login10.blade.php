@@ -16,14 +16,15 @@
                 <div class="form-content" style="background: #343434">
                     <div class="form-items">
                         <img class="w-100" src="{{ url('user/assets/images/logo/forumio8w.png') }}" alt="">
-                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                        <x-auth-validation-errors class="mb-4 text-light" :errors="$errors" />
                         <div class="page-links">
                             <a href="" class="active">Login</a><a href={{ route('register') }}>Register</a>
                         </div>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <input class="form-control" type="text" name="email" placeholder="E-mail Address" required>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password"
+                                required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Login</button>
                             </div>

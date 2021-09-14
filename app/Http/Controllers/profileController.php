@@ -41,8 +41,10 @@ class profileController extends Controller
 
     public function profileShow($email)
     {
-        $prof = User::with(["group", "replyutas", "utas"])->where('email', $email)->first();
-
+        $prof = User::with(["group", "replyutas", "utas" => function ($query) {
+            $query->where('status', 0);
+        }])->where('email', $email)->first();
+        // return $prof;
         $userGuest = UserGroup::where('id_users', $prof->id_users)->pluck('id_groups'); # Auth::user()->id
         $userAuth = UserGroup::where('id_users', Auth::user()->id_users)->pluck('id_groups'); # Auth::user()->id
         $userGroup = UserGroup::whereIn('id_groups', $userAuth)
