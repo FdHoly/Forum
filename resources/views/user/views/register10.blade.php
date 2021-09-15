@@ -22,6 +22,7 @@
                         </div>
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id_univ" id="id_univ" value="">
                             <input class="form-control" type="text" name="name" placeholder="Nama Lengkap" required>
                             <input class="form-control" type="email" name="email" placeholder="E-mail" required>
                             <input class="form-control" type="password" name="password" placeholder="Password"
@@ -31,10 +32,13 @@
                             <div class="select-box">
                                 <div class="options-container">
                                     @foreach ($dataUniv as $item)
-                                        <div class="option">
-                                            <input id="{{ $item->nama }}" name="id_univ" class="radio"
-                                                value="{{ $item->id_univ }}" />
-                                            <label for={{ $item->id_univ }}>{{ $item->nama }}</label>
+                                        <div class="option"
+                                            onclick="document.getElementById('id_univ').value='{{ $item->id_univ }}';">
+                                            <input type="radio" autocomplete="off" class="form-control"
+                                                value="{{ $item->id_univ }}">
+                                            {{-- <input id="{{ $item->nama }}" name="id_univ" class="radio"
+                                                type="id_univ" value="{{ $item->id_univ }}" required /> --}}
+                                            <label for="{{ $item->id_univ }}">{{ $item->nama }}</label>
                                         </div>
                                     @endforeach
                                 </div>
