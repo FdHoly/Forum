@@ -38,5 +38,20 @@
     <link rel="stylesheet" href="{{ asset('user/css/mystyle.css') }}">
 
 
-
+    <!--Start chatdove.com Plugin -->
+    <script type='text/javascript'>
+        window.__chatdove = window.__chatdove || {};
+        window.__chatdove.publishkey = '17hehez19KE00JD1oWca1bWciX1_23';
+        (function() {
+            var t = document.createElement('script');
+            t.type = 'text/javascript';
+            t.async = true;
+            t.charset = 'UTF-8';
+            t.setAttribute('crossorigin', '*');
+            t.src = ('https://') + 'login.chatdove.com/CustomScripts/Js/ChatDove.min.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(t, s);
+        })();
+    </script>
+    <!--End chatdove.com Plugin -->
 </head>
