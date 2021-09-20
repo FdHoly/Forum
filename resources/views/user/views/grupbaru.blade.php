@@ -13,8 +13,7 @@
     <!-- header area end -->
 
     <main>
-        <form action="{{ route('createOrg') }}" class="signup-inner--form" method="POST"
-            enctype="multipart/form-data">
+        <form action="{{ route('createOrg') }}" class="signup-inner--form" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="profile-menu-area bg-white pt-3 mt-5">
                 <div class="container">
@@ -48,11 +47,11 @@
                                     <div class="col-12">
 
                                         <input name="nama_grup" id="nama_grup" class="single-field"
-                                            placeholder="Nama Grup" required>
+                                            placeholder="Nama Organisasi" required>
                                     </div>
                                     <div class="col-12">
                                         <input name="deskripsi" id="deskripsi" class="single-field"
-                                            placeholder="Deskripsi Grup" required>
+                                            placeholder="Deskripsi Organisasi" required>
                                     </div>
                                     <div class="col-12">
                                         <select id="universitas" name="universitas" readonly>
@@ -67,7 +66,8 @@
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="submit-btn" type="submit">Buat</button>
-                                        <button class="submit-btn">Batal</button>
+                                        <button class="submit-btn"
+                                            onclick="window.location.href='{{ route('listorg') }}'">Batal</button>
                                     </div>
                                 </div>
                             </div>
