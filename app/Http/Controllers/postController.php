@@ -37,17 +37,38 @@ class postController extends Controller
         // $allutas->whereIn('id_groups', $univGroup)
 
         if ($request->input('filter') === "organisasi") { ///Group yang user dah join
+            
             $allutas = Utas::with(["group", "replyutas", "user"])
                 ->whereIn('id_groups', $userGroup)
                 ->latest()->get();
         } elseif ($request->input('filter') === "semua") { //Semua post
-            $allutas = Utas::with(["group", "replyutas", "user"])->where('status', 0)->latest()->get();
-            // return $allutas;
-        } else { //Univ user tp no private post
+            $allutas1 = Utas::with(["group" , "replyutas", "user"])
+                ->whereIn('id_groups', $userGroup)
+                ->where('status', 1);
             $allutas = Utas::with(["group", "replyutas", "user"])
+                ->where('status', 0)
+                ->union($allutas1)
+                ->get()
+                ->sortByDesc('created_at');
+            // return $allutas;
+        } else { //Univ user tp no private post ++ (new) post private but user follow
+
+            $allutas1 = Utas::with(["group" , "replyutas", "user"])
+                ->whereIn('id_groups', $univGroup)
+                ->whereIn('id_groups', $userGroup)
+                ->where('status', 1);
+                // ->toSql();
+            $allutas = Utas::with(["group" , "replyutas", "user"])
                 ->whereIn('id_groups', $univGroup)
                 ->where('status', 0)
-                ->latest()->get();
+                ->union($allutas1)
+                ->get()
+                ->sortByDesc('created_at');
+                // ->latest()->get();
+                // ->toSql();
+
+            // return $allutas;
+            
         }
         $admAuth = UserGroup::where('id_users', Auth::user()->id_users)->get(); # Auth::user()->id
         $group = Groups::whereIn('id_groups', $userGroup)->get();
